@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier Oficial de Pertinencia - Técnico Superior en Mecánica de Motos (IST POLITEC)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+    
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #0b1329;
+      color: #1e293b;
+    }
+
+    .font-serif-title {
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+    }
+
+    .word-page {
+      width: 21.59cm;
+      min-height: 27.94cm;
+      padding: 1.8cm 2.0cm;
+      margin: 2rem auto;
+      background: #ffffff;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.08);
+      border-radius: 6px;
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 1.2cm 1.5cm;
+      }
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .word-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        break-after: page !important;
+        break-inside: avoid !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+      table {
+        width: 100% !important;
+        table-layout: fixed !important;
+        word-wrap: break-word !important;
+        page-break-inside: avoid !important;
+      }
+      .table-inec {
+        font-size: 7.8px !important;
+      }
+      .table-inec th, .table-inec td {
+        padding: 3px 4px !important;
+      }
+      .chart-box {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        overflow: hidden !important;
+        padding: 8px 10px !important;
+      }
+      canvas {
+        max-width: 100% !important;
+      }
+    }
+
+    /* INEC Table Styles matching Visualizer */
+    .table-inec {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5px;
+      line-height: 1.25;
+    }
+    .table-inec th {
+      background-color: #0f172a;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 5px 6px;
+      text-align: left;
+      border: 1px solid #cbd5e1;
+    }
+    .table-inec th.header-sub {
+      background-color: #1e293b;
+      font-size: 8px;
+      font-weight: 600;
+    }
+    .table-inec td {
+      padding: 4px 6px;
+      color: #334155;
+      border: 1px solid #e2e8f0;
+    }
+    .table-inec tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .table-inec tr:hover {
+      background-color: #fef3c7;
+    }
+    .table-inec tr.total-row td {
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #0f172a;
+      border-top: 2px solid #cbd5e1;
+    }
+
+    .chart-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 0.4rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    }
+    .chart-title {
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .chart-source {
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      font-size: 9px;
+      color: #334155;
+      line-height: 1.35;
+      margin-top: 6px;
+    }
+    .chart-source b {
+      font-weight: 700;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body class="py-8">
+
+  <!-- TOP CONTROLS -->
+  <div class="no-print fixed top-4 right-4 z-50 flex items-center gap-3 bg-slate-900/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-700">
+    <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+      <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Vista Word Oficial • Dossier Técnico Superior en Motos
+    </span>
+    <div class="h-4 w-px bg-slate-700"></div>
+    <select onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth'})" class="bg-slate-800 text-xs text-slate-200 font-semibold rounded-lg px-2.5 py-1.5 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-amber-500">
+      <option value="page-cover">1. Portada Institucional</option>
+      <option value="page-2-1">2. 2.1. Población y Demografía (Tabla 1 + Gráf. 1-2)</option>
+      <option value="page-2-1-b">3. 2.1. Etnia y Educación (Gráf. 3-4)</option>
+      <option value="page-2-1-c">4. 2.1. Asistencia General y Jóvenes (Gráf. 5-6)</option>
+      <option value="page-2-1-d">5. 2.1. Desempleo Juvenil (Gráfico 7)</option>
+      <option value="page-2-2-t2t3">6. 2.2. REEM Sector G (Tablas 2 y 3: Empresas y Plazas)</option>
+      <option value="page-2-2-t4g8g9">7. 2.2. REEM Sector G (Tabla 4 + Gráf. 8 y 9)</option>
+      <option value="page-2-2-ciuo-masa">8. 2.2. Demanda Ocupacional CIUO (Tabla 5)</option>
+      <option value="page-2-2-ciuo-nac">9. 2.2. Educación CIUO Nacional (Tabla 6 + Gráfico 10)</option>
+      <option value="page-2-2-ciuo-uio">10. 2.2. Educación CIUO Quito (Tabla 7 + Gráfico 11)</option>
+      <option value="page-2-2-ciuo-ing">11. 2.2. Ingresos Laborales vs SBU (Gráfico 12)</option>
+      <option value="page-2-3-oferta">12. 2.3. Oferta Académica (Tabla 10 + Gráfico 13)</option>
+      <option value="page-2-3-titulados">13. 2.3. Carreras, Titulados y Bachilleres (Tablas 11, 12 + Gráfico 14)</option>
+      <option value="page-3">14. 3 & 4. PND, PDOT y Políticas (Tabla 13 + Gráfico 15)</option>
+      <option value="page-5-malla">15. 5. Metodología Muestral y Malla (Tablas 14, 15)</option>
+      <option value="page-6-1-empresas">16. 6.1. Demanda Ocupacional Empresas (Tablas 16, 17)</option>
+      <option value="page-6-2-estudiantes">17. 6.2. Demanda Estudiantil Aspirantes (Tablas 18, 19)</option>
+    </select>
+    <button onclick="window.print()" class="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-lg shadow-md transition">
+      <i data-lucide="printer" class="w-3.5 h-3.5"></i> Imprimir / PDF
+    </button>
+  </div>
+
+  <!-- PÁGINA 1: PORTADA -->
+  <div id="page-cover" class="word-page justify-between text-center">
+    <div class="space-y-4 pt-12">
+      <div class="w-20 h-20 bg-slate-900 rounded-2xl mx-auto flex items-center justify-center text-amber-400 shadow-xl border border-slate-800">
+        <i data-lucide="wrench" class="w-10 h-10"></i>
+      </div>
+      <h1 class="text-2xl font-black tracking-tight text-slate-900 uppercase font-serif-title">
+        Instituto Superior Tecnológico Politécnica del Ecuador<br>
+        <span class="text-lg font-bold text-amber-600 tracking-normal">(IST POLITEC)</span>
+      </h1>
+      <div class="w-32 h-1 bg-amber-500 mx-auto rounded-full mt-4"></div>
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-500">
+        Vicerrectorado Académico • Comisión de Pertinencia Curricular
+      </p>
+    </div>
+
+    <div class="my-auto space-y-6 max-w-xl mx-auto">
+      <div class="inline-block bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+        Proyecto de Creación de Carrera de Tercer Nivel Técnico
+      </div>
+      <h2 class="text-3xl font-extrabold text-slate-950 leading-tight font-serif-title">
+        ESTUDIO DE PERTINENCIA DE LA CARRERA DE<br>
+        <span class="text-blue-900">TÉCNICO SUPERIOR EN MECÁNICA DE MOTOS</span>
+      </h2>
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed text-left space-y-1">
+        <p><b>• Modalidad:</b> Híbrida / Presencial</p>
+        <p><b>• Vigencia y Sede:</b> Distrito Metropolitano de Quito, Provincia de Pichincha</p>
+        <p><b>• Campo Amplio:</b> Ingeniería, Industria y Construcción (07) • <b>Específico:</b> Mecánica y Profesiones Afines (0716)</p>
+        <p><b>• Itinerarios:</b> 1. Inyección Electrónica EFI y Sistemas ABS | 2. Motos Eléctricas y Movilidad Sostenible</p>
+      </div>
+    </div>
+
+    <div class="space-y-2 pb-8 border-t border-slate-200 pt-6 text-xs text-slate-600">
+      <p class="font-bold text-slate-800">Quito - Ecuador</p>
+      <p class="text-slate-500 font-mono text-[11px]">Periodo de Planificación Académica: 2026 - 2030</p>
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: DEMOGRAFÍA -->
+  <div id="page-2-1" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.1. Términos Sociales: Contexto Demográfico y Proyecciones Poblacionales</h3>
+      </div>
+
+      <!-- TABLA 1 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 1 Proyección de la población de Ecuador, Pichincha y Quito, periodo 2026-2035</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th rowspan="2" class="w-16">Territorio</th>
+              <th colspan="10" class="text-center header-sub">Población Proyectada a Mitad de Año (2026 - 2035)</th>
+            </tr>
+            <tr>
+              <th class="text-right">2026</th><th class="text-right">2027</th><th class="text-right">2028</th><th class="text-right">2029</th><th class="text-right">2030</th>
+              <th class="text-right">2031</th><th class="text-right">2032</th><th class="text-right">2033</th><th class="text-right">2034</th><th class="text-right">2035</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Ecuador</td><td class="text-right font-mono">18.243.816</td><td class="text-right font-mono">18.397.607</td><td class="text-right font-mono">18.548.847</td><td class="text-right font-mono">18.697.106</td><td class="text-right font-mono">18.841.970</td><td class="text-right font-mono">18.983.332</td><td class="text-right font-mono">19.121.054</td><td class="text-right font-mono">19.255.071</td><td class="text-right font-mono">19.385.452</td><td class="text-right font-mono font-bold">19.515.303</td></tr>
+            <tr><td class="font-bold">Pichincha</td><td class="text-right font-mono">3.316.636</td><td class="text-right font-mono">3.337.892</td><td class="text-right font-mono">3.358.552</td><td class="text-right font-mono">3.378.532</td><td class="text-right font-mono">3.397.801</td><td class="text-right font-mono">3.416.326</td><td class="text-right font-mono">3.434.407</td><td class="text-right font-mono">3.452.404</td><td class="text-right font-mono">3.470.218</td><td class="text-right font-mono font-bold">3.487.672</td></tr>
+            <tr class="total-row"><td class="font-bold text-blue-900">Quito (DMQ)</td><td class="text-right font-mono font-bold">2.875.075</td><td class="text-right font-mono">2.892.483</td><td class="text-right font-mono">2.909.383</td><td class="text-right font-mono">2.925.688</td><td class="text-right font-mono">2.941.385</td><td class="text-right font-mono">2.956.449</td><td class="text-right font-mono">2.971.215</td><td class="text-right font-mono">2.985.908</td><td class="text-right font-mono">3.000.627</td><td class="text-right font-mono font-bold text-blue-900">3.015.497</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Estimaciones y Proyecciones de Población Nacional Provincial Cantonal Revisión 2024.</p>
+      </div>
+
+      <!-- GRÁFICOS 1 Y 2 -->
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <div class="chart-box">
+          <h4 class="chart-title">Gráfico 1 Proyección del grupo etario de 18-24 años en Ecuador Pichincha Quito, en número de personas, comparativo 2026-2035</h4>
+          <div class="h-44 w-full"><canvas id="chartG1"></canvas></div>
+          <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Estimaciones y Proyecciones de Población Nacional Provincial Cantonal Revisión 2024.</p>
+        </div>
+        <div class="chart-box">
+          <h4 class="chart-title">Gráfico 2 Distribución de la población del cantón Quito por sexo, en porcentajes, ENEMDU Anual 2025</h4>
+          <div class="h-44 w-full flex items-center justify-center"><canvas id="chartG2"></canvas></div>
+          <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.1: Términos Sociales y Demografía</span>
+      <span>Página 2</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 3: ETNIA Y NIVEL EDUCATIVO -->
+  <div id="page-2-1-b" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.1. Términos Sociales: Etnia y Nivel Educativo en el Cantón Quito (ENEMDU 2025)</h3>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 3 Distribución de la población del cantón Quito por autoidentificación étnica, en porcentajes, ENEMDU Anual 2025</h4>
+        <div class="h-44 w-full"><canvas id="chartG3"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 4 Distribución de la población del cantón Quito por nivel de instrucción más alto alcanzado, en porcentajes, ENEMDU Anual 2025</h4>
+        <div class="h-44 w-full"><canvas id="chartG4"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.1: Etnia y Nivel de Instrucción</span>
+      <span>Página 3</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 4: ASISTENCIA -->
+  <div id="page-2-1-c" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.1. Términos Sociales: Asistencia a Clases en la Población Total y Jóvenes de Quito</h3>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 5 Nivel de educación y asistencia a clases de la población del cantón Quito, en porcentajes, ENEMDU Anual 2025</h4>
+        <div class="h-48 w-full"><canvas id="chartG5"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 6 Nivel de educación y asistencia a clases de la población del cantón Quito que pertenece al grupo etario de 18 a 24 años, en porcentajes, ENEMDU Anual 2025</h4>
+        <div class="h-44 w-full"><canvas id="chartG6"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.1: Asistencia Escolar y Superior</span>
+      <span>Página 4</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 5: DESEMPLEO JUVENIL -->
+  <div id="page-2-1-d" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.1. Términos Sociales: Tasa de Desempleo Juvenil en el Cantón Quito</h3>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 7 Tasa de desempleo por nivel de educación entre la población de 18 a 24 años del cantón Quito, en porcentajes, ENEMDU Anual 2025</h4>
+        <div class="h-52 w-full"><canvas id="chartG7"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.1: Desempleo Juvenil</span>
+      <span>Página 5</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 6: REEM EMPRESAS Y PLAZAS -->
+  <div id="page-2-2-t2t3" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.2. Términos Económicos: Evolución de Empresas y Plazas del Sector G (REEM 2012-2024)</h3>
+      </div>
+
+      <!-- TABLA 2 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 2 Evolución de los establecimientos vinculados al sector de comercio y reparación vehicular/motos en Ecuador, Pichincha y Quito, periodo 2012-2024</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th rowspan="2">Territorio</th>
+              <th colspan="7" class="text-center header-sub">Número de Establecimientos Registrados (2012 - 2024)</th>
+              <th rowspan="2" class="text-right">Crecimiento (%)</th>
+            </tr>
+            <tr>
+              <th class="text-right">2012</th><th class="text-right">2014</th><th class="text-right">2016</th><th class="text-right">2018</th><th class="text-right">2020</th><th class="text-right">2022</th><th class="text-right">2024</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Ecuador</td><td class="text-right font-mono">291.966</td><td class="text-right font-mono">333.438</td><td class="text-right font-mono">321.495</td><td class="text-right font-mono">318.730</td><td class="text-right font-mono">290.712</td><td class="text-right font-mono">449.480</td><td class="text-right font-mono font-bold">406.925</td><td class="text-right font-bold text-emerald-700">+39,38%</td></tr>
+            <tr><td class="font-bold">Pichincha</td><td class="text-right font-mono">60.716</td><td class="text-right font-mono">71.779</td><td class="text-right font-mono">68.765</td><td class="text-right font-mono">67.626</td><td class="text-right font-mono">65.559</td><td class="text-right font-mono">105.768</td><td class="text-right font-mono font-bold">95.684</td><td class="text-right font-bold text-emerald-700">+57,59%</td></tr>
+            <tr class="total-row"><td class="font-bold text-blue-900">Quito (DMQ)</td><td class="text-right font-mono">54.408</td><td class="text-right font-mono">64.007</td><td class="text-right font-mono">60.911</td><td class="text-right font-mono">59.986</td><td class="text-right font-mono">58.228</td><td class="text-right font-mono">93.606</td><td class="text-right font-mono font-bold text-blue-900">84.408</td><td class="text-right font-bold text-emerald-700">+55,14%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Registro Estadístico de Empresas (REEM 2012-2024).</p>
+      </div>
+
+      <!-- TABLA 3 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 3 Evolución de las plazas laborales disponibles vinculadas al sector de comercio y reparación vehicular/motos en Ecuador, Pichincha y Quito</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th rowspan="2">Territorio</th>
+              <th colspan="7" class="text-center header-sub">Plazas de Empleo Registradas (2012 - 2024)</th>
+              <th rowspan="2" class="text-right">Var. Absoluta</th>
+            </tr>
+            <tr>
+              <th class="text-right">2012</th><th class="text-right">2014</th><th class="text-right">2016</th><th class="text-right">2018</th><th class="text-right">2020</th><th class="text-right">2022</th><th class="text-right">2024</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Ecuador</td><td class="text-right font-mono">473.626</td><td class="text-right font-mono">539.777</td><td class="text-right font-mono">501.244</td><td class="text-right font-mono">516.486</td><td class="text-right font-mono">498.411</td><td class="text-right font-mono">524.589</td><td class="text-right font-mono font-bold">533.834</td><td class="text-right font-bold text-emerald-700">+60.208</td></tr>
+            <tr><td class="font-bold">Pichincha</td><td class="text-right font-mono">161.485</td><td class="text-right font-mono">183.889</td><td class="text-right font-mono">175.179</td><td class="text-right font-mono">176.823</td><td class="text-right font-mono">169.641</td><td class="text-right font-mono">175.968</td><td class="text-right font-mono font-bold">175.980</td><td class="text-right font-bold text-emerald-700">+14.495</td></tr>
+            <tr class="total-row"><td class="font-bold text-blue-900">Quito (DMQ)</td><td class="text-right font-mono">143.005</td><td class="text-right font-mono">162.036</td><td class="text-right font-mono">152.433</td><td class="text-right font-mono">152.861</td><td class="text-right font-mono">145.230</td><td class="text-right font-mono">150.344</td><td class="text-right font-mono font-bold text-blue-900">150.037</td><td class="text-right font-bold text-emerald-700">+7.032</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Registro Estadístico de Empresas (REEM 2012-2024).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.2: Empresas y Plazas Sector G</span>
+      <span>Página 6</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 7: REEM VENTAS Y EDUCACIÓN SECTOR G -->
+  <div id="page-2-2-t4g8g9" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.2. Términos Económicos: Ventas Totales y Nivel Educativo del Sector G</h3>
+      </div>
+
+      <!-- TABLA 4 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 4 Evolución de las ventas del sector de comercio y reparación vehicular en Ecuador, Pichincha y Quito, periodo 2012-2024 (Millones de USD)</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th rowspan="2">Territorio</th>
+              <th colspan="7" class="text-center header-sub">Ventas Anuales Registradas (Millones USD)</th>
+              <th rowspan="2" class="text-right">Var. %</th>
+            </tr>
+            <tr>
+              <th class="text-right">2012</th><th class="text-right">2014</th><th class="text-right">2016</th><th class="text-right">2018</th><th class="text-right">2020</th><th class="text-right">2022</th><th class="text-right">2024</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Ecuador</td><td class="text-right font-mono">$57.462,79</td><td class="text-right font-mono">$64.600,30</td><td class="text-right font-mono">$54.861,91</td><td class="text-right font-mono">$64.572,56</td><td class="text-right font-mono">$55.549,12</td><td class="text-right font-mono">$76.858,92</td><td class="text-right font-mono font-bold">$81.721,82</td><td class="text-right font-bold text-emerald-700">+42,22%</td></tr>
+            <tr><td class="font-bold">Pichincha</td><td class="text-right font-mono">$22.844,44</td><td class="text-right font-mono">$25.516,44</td><td class="text-right font-mono">$21.129,79</td><td class="text-right font-mono">$24.792,57</td><td class="text-right font-mono">$19.905,92</td><td class="text-right font-mono">$27.955,08</td><td class="text-right font-mono font-bold">$27.422,45</td><td class="text-right font-bold text-emerald-700">+20,04%</td></tr>
+            <tr class="total-row"><td class="font-bold text-blue-900">Quito (DMQ)</td><td class="text-right font-mono">$20.246,68</td><td class="text-right font-mono">$22.387,20</td><td class="text-right font-mono">$18.012,51</td><td class="text-right font-mono">$21.383,99</td><td class="text-right font-mono">$16.638,59</td><td class="text-right font-mono">$24.185,07</td><td class="text-right font-mono font-bold text-blue-900">$23.395,84</td><td class="text-right font-bold text-emerald-700">+15,55%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Registro Estadístico de Empresas (REEM 2012-2024).</p>
+      </div>
+
+      <!-- GRÁFICOS 8 Y 9 -->
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <div class="chart-box">
+          <h4 class="chart-title">Gráfico 8 Evolución de las ventas del Sector G en Quito, en millones de dólares, periodo 2012-2024</h4>
+          <div class="h-40 w-full"><canvas id="chartG8"></canvas></div>
+          <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Registro Estadístico de Empresas (REEM 2012-2024).</p>
+        </div>
+        <div class="chart-box">
+          <h4 class="chart-title">Gráfico 9 Nivel de educación de la fuerza laboral del Sector G en el cantón Quito, en porcentajes, ENEMDU Anual 2025</h4>
+          <div class="h-40 w-full"><canvas id="chartG9"></canvas></div>
+          <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.2: Ventas y Educación Sector G</span>
+      <span>Página 7</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 8: CIUO MASA -->
+  <div id="page-2-2-ciuo-masa" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.2. Demanda Ocupacional: Masa Laboral en Ocupaciones Mecánicas Específicas (CIUO)</h3>
+      </div>
+
+      <!-- TABLA 5 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 5 Número de personas ocupadas en mecánica de motos y vehículos a nivel nacional, provincial y cantonal, ENEMDU Anual 2025</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Ocupación Específica (Clasificación CIUO-08)</th>
+              <th class="w-16">Código CIUO</th>
+              <th class="text-right">Ecuador</th>
+              <th class="text-right">Pichincha</th>
+              <th class="text-right font-bold">Quito (DMQ)</th>
+              <th class="text-right">% Sector Quito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Mecánicos y ajustadores de motocicletas</td><td class="text-center font-mono">7232</td><td class="text-right font-mono">26.850</td><td class="text-right font-mono">8.960</td><td class="text-right font-mono font-bold text-blue-900">7.920</td><td class="text-right">29,12%</td></tr>
+            <tr><td>Mecánicos y ajustadores de vehículos de motor</td><td class="text-center font-mono">7231</td><td class="text-right font-mono">58.420</td><td class="text-right font-mono">14.650</td><td class="text-right font-mono">12.890</td><td class="text-right">47,39%</td></tr>
+            <tr><td>Técnicos de diagnóstico, motores y sistemas de inyección</td><td class="text-center font-mono">7233</td><td class="text-right font-mono">14.120</td><td class="text-right font-mono">3.890</td><td class="text-right font-mono">3.450</td><td class="text-right">12,68%</td></tr>
+            <tr><td>Ayudantes de taller mecánico y peones</td><td class="text-center font-mono">9333</td><td class="text-right font-mono">18.900</td><td class="text-right font-mono">3.270</td><td class="text-right font-mono">2.940</td><td class="text-right">10,81%</td></tr>
+            <tr class="total-row"><td>TOTAL OCUPACIONES MECÁNICAS</td><td class="text-center font-mono">723 / 933</td><td class="text-right font-mono font-bold">118.290</td><td class="text-right font-mono font-bold">30.770</td><td class="text-right font-mono font-bold text-blue-900">27.200</td><td class="text-right font-bold">100,00%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.2: Ocupaciones CIUO Mecánicas</span>
+      <span>Página 8</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 9: EDUCACIÓN CIUO NACIONAL -->
+  <div id="page-2-2-ciuo-nac" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.2. Demanda Ocupacional: Nivel Educativo en Ocupaciones Mecánicas a Nivel Nacional</h3>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 6 Mecánicos de motos y vehículos en Ecuador por nivel de educación, en porcentajes, ENEMDU Anual 2025</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Nivel de Educación</th>
+              <th class="text-right">Mecánicos Motos (7232)</th>
+              <th class="text-right">Mecánicos Autos (7231)</th>
+              <th class="text-right">Téc. Diagnóstico (7233)</th>
+              <th class="text-right">Ayudantes (9333)</th>
+              <th class="text-right font-bold">Total Nacional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ninguno</td><td class="text-right font-mono">0,98%</td><td class="text-right font-mono">1,08%</td><td class="text-right font-mono">0,24%</td><td class="text-right font-mono">3,91%</td><td class="text-right font-mono">1,40%</td></tr>
+            <tr><td>Centro de alfabetización</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td></tr>
+            <tr><td>Primaria</td><td class="text-right font-mono">20,70%</td><td class="text-right font-mono">22,99%</td><td class="text-right font-mono">6,41%</td><td class="text-right font-mono">32,20%</td><td class="text-right font-mono">21,81%</td></tr>
+            <tr><td>Educación Básica</td><td class="text-right font-mono">41,46%</td><td class="text-right font-mono">41,93%</td><td class="text-right font-mono">22,45%</td><td class="text-right font-mono">41,32%</td><td class="text-right font-mono">39,57%</td></tr>
+            <tr><td>Secundaria</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td></tr>
+            <tr><td>Educación Media</td><td class="text-right font-mono">18,92%</td><td class="text-right font-mono">17,93%</td><td class="text-right font-mono">25,06%</td><td class="text-right font-mono">16,85%</td><td class="text-right font-mono">18,82%</td></tr>
+            <tr><td class="font-bold text-blue-900">Superior no universitario (Técnicos)</td><td class="text-right font-mono font-bold">11,60%</td><td class="text-right font-mono">10,74%</td><td class="text-right font-mono font-bold text-blue-900">29,22%</td><td class="text-right font-mono">4,21%</td><td class="text-right font-mono font-bold">12,14%</td></tr>
+            <tr><td>Superior Universitario</td><td class="text-right font-mono">6,07%</td><td class="text-right font-mono">5,09%</td><td class="text-right font-mono">15,91%</td><td class="text-right font-mono">1,40%</td><td class="text-right font-mono">6,05%</td></tr>
+            <tr><td>Post-grado</td><td class="text-right font-mono">0,27%</td><td class="text-right font-mono">0,23%</td><td class="text-right font-mono">0,71%</td><td class="text-right font-mono">0,10%</td><td class="text-right font-mono">0,21%</td></tr>
+            <tr class="total-row"><td>TOTAL (%)</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 10 Mecánicos de motos y vehículos en Ecuador por nivel de educación, en porcentajes, ENEMDU Anual 2025</h4>
+        <div class="h-40 w-full"><canvas id="chartG10EduHorizontal"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.2: Educación CIUO Nacional</span>
+      <span>Página 9</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 10: EDUCACIÓN CIUO QUITO -->
+  <div id="page-2-2-ciuo-uio" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.2. Demanda Ocupacional: Nivel Educativo de los Mecánicos en el Cantón Quito</h3>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 7 Mecánicos de motos y vehículos en el cantón Quito por nivel de educación, en porcentajes, ENEMDU Anual 2025</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Nivel de Educación</th>
+              <th class="text-right">Mecánicos Motos (7232)</th>
+              <th class="text-right">Mecánicos Autos (7231)</th>
+              <th class="text-right">Téc. Diagnóstico (7233)</th>
+              <th class="text-right">Ayudantes (9333)</th>
+              <th class="text-right font-bold">Total Quito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ninguno</td><td class="text-right font-mono">1,01%</td><td class="text-right font-mono">1,16%</td><td class="text-right font-mono">0,29%</td><td class="text-right font-mono">4,08%</td><td class="text-right font-mono">1,32%</td></tr>
+            <tr><td>Centro de alfabetización</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td></tr>
+            <tr><td>Primaria</td><td class="text-right font-mono">16,92%</td><td class="text-right font-mono">19,24%</td><td class="text-right font-mono">5,22%</td><td class="text-right font-mono">30,27%</td><td class="text-right font-mono">17,98%</td></tr>
+            <tr><td>Educación Básica</td><td class="text-right font-mono">39,39%</td><td class="text-right font-mono">41,43%</td><td class="text-right font-mono">17,97%</td><td class="text-right font-mono">44,56%</td><td class="text-right font-mono">38,20%</td></tr>
+            <tr><td>Secundaria</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,00%</td></tr>
+            <tr><td>Educación Media</td><td class="text-right font-mono">19,07%</td><td class="text-right font-mono">18,77%</td><td class="text-right font-mono">28,41%</td><td class="text-right font-mono">16,67%</td><td class="text-right font-mono">19,85%</td></tr>
+            <tr><td class="font-bold text-blue-900">Superior no universitario (Técnicos)</td><td class="text-right font-mono font-bold">14,90%</td><td class="text-right font-mono">11,95%</td><td class="text-right font-mono font-bold text-blue-900">31,59%</td><td class="text-right font-mono">3,74%</td><td class="text-right font-mono font-bold">14,41%</td></tr>
+            <tr><td>Superior Universitario</td><td class="text-right font-mono">8,33%</td><td class="text-right font-mono">7,14%</td><td class="text-right font-mono">15,65%</td><td class="text-right font-mono">0,68%</td><td class="text-right font-mono">7,87%</td></tr>
+            <tr><td>Post-grado</td><td class="text-right font-mono">0,38%</td><td class="text-right font-mono">0,31%</td><td class="text-right font-mono">0,87%</td><td class="text-right font-mono">0,00%</td><td class="text-right font-mono">0,37%</td></tr>
+            <tr class="total-row"><td>TOTAL (%)</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td><td class="text-right font-mono font-bold">100,00%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 11 Mecánicos de motos y vehículos en el cantón Quito por nivel de educación, en porcentajes, ENEMDU Anual 2025</h4>
+        <div class="h-40 w-full"><canvas id="chartG11EduHorizontal"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.2: Educación CIUO Quito</span>
+      <span>Página 10</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 11: INGRESOS LABORALES -->
+  <div id="page-2-2-ciuo-ing" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.2. Demanda Ocupacional: Ingresos Laborales Promedio en el Cantón Quito</h3>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 12 Ingreso laboral promedio mensual de los mecánicos de motos, vehículos y ocupaciones afines en el cantón Quito, en dólares, ENEMDU Anual 2025</h4>
+        <div class="h-44 w-full"><canvas id="chartG12"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025) y Ministerio del Trabajo (MDT).</p>
+      </div>
+
+      <div>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Perfil Ocupacional / Referente Laboral</th>
+              <th>Código CIUO</th>
+              <th class="text-right">Ingreso Promedio Mensual</th>
+              <th class="text-right">Diferencial vs SBU ($470,00)</th>
+              <th>Condición de Productividad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold text-emerald-800">Técnico en Diagnóstico, Inyección y Frenos ABS</td><td class="font-mono">7233</td><td class="text-right font-mono font-bold text-emerald-700">$785,50</td><td class="text-right text-emerald-700 font-bold">+67,13%</td><td>Alta especialización técnica</td></tr>
+            <tr><td class="font-bold text-blue-900">Mecánico de Motocicletas Calificado</td><td class="font-mono">7232</td><td class="text-right font-mono font-bold text-blue-900">$620,40</td><td class="text-right text-blue-900 font-bold">+32,00%</td><td>Técnico Titulado en Taller</td></tr>
+            <tr class="bg-amber-50"><td class="font-bold text-amber-900">Salario Básico Unificado (SBU Ecuador 2025)</td><td class="font-mono">MDT</td><td class="text-right font-mono font-bold">$470,00</td><td class="text-right font-mono">0,00%</td><td>Piso salarial legal vigente</td></tr>
+            <tr><td>Ayudante de Taller / Mantenimiento Básico</td><td class="font-mono">9333</td><td class="text-right font-mono">$410,20</td><td class="text-right text-slate-500">-12,72%</td><td>Personal no calificado</td></tr>
+            <tr><td>Trabajador Mecánico Informal / Sin Título</td><td class="font-mono">Cuenta propia</td><td class="text-right font-mono text-rose-700">$315,00</td><td class="text-right text-rose-700 font-bold">-32,98%</td><td>Subempleo e informalidad</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Instituto Nacional de Estadística y Censos, Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025) y Ministerio del Trabajo (MDT).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.2: Ingresos y Retorno Salarial</span>
+      <span>Página 11</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 12: OFERTA ACADÉMICA -->
+  <div id="page-2-3-oferta" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.3. Términos Académicos: Oferta Superior por Campo de Conocimiento</h3>
+      </div>
+
+      <!-- TABLA 10 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 10 Oferta Académica Vigente de Tercer Nivel en Ecuador, Pichincha y Quito por campo de conocimiento, corte 2025/2026</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Campo Amplio de Conocimiento (CINE UNESCO)</th>
+              <th class="text-right">Ecuador</th>
+              <th class="text-right">% Nac.</th>
+              <th class="text-right">Pichincha</th>
+              <th class="text-right">% Prov.</th>
+              <th class="text-right font-bold">Quito (DMQ)</th>
+              <th class="text-right font-bold">% Quito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Administración de empresas y derecho</td><td class="text-right font-mono">1.403</td><td class="text-right">24,43%</td><td class="text-right font-mono">436</td><td class="text-right">25,23%</td><td class="text-right font-mono">387</td><td class="text-right font-bold">25,10%</td></tr>
+            <tr><td>Servicios</td><td class="text-right font-mono">704</td><td class="text-right">12,26%</td><td class="text-right font-mono">248</td><td class="text-right">14,35%</td><td class="text-right font-mono">215</td><td class="text-right font-bold">13,94%</td></tr>
+            <tr class="bg-blue-50/70"><td class="font-bold text-blue-900">Ingeniería, Industria y Construcción (Área Mecánica)</td><td class="text-right font-mono font-bold">772</td><td class="text-right">13,44%</td><td class="text-right font-mono font-bold">215</td><td class="text-right">12,44%</td><td class="text-right font-mono font-bold text-blue-900">190</td><td class="text-right font-bold text-blue-900">12,32%</td></tr>
+            <tr><td>Tecnologías de la Información y la Comunicación (TIC)</td><td class="text-right font-mono">526</td><td class="text-right">9,16%</td><td class="text-right font-mono">184</td><td class="text-right">10,65%</td><td class="text-right font-mono">161</td><td class="text-right font-bold">10,44%</td></tr>
+            <tr><td>Salud y Bienestar</td><td class="text-right font-mono">570</td><td class="text-right">9,92%</td><td class="text-right font-mono">160</td><td class="text-right">9,26%</td><td class="text-right font-mono">146</td><td class="text-right font-bold">9,47%</td></tr>
+            <tr><td>Educación</td><td class="text-right font-mono">547</td><td class="text-right">9,52%</td><td class="text-right font-mono">150</td><td class="text-right">8,68%</td><td class="text-right font-mono">131</td><td class="text-right font-bold">8,50%</td></tr>
+            <tr><td>Artes y Humanidades</td><td class="text-right font-mono">387</td><td class="text-right">6,74%</td><td class="text-right font-mono">137</td><td class="text-right">7,93%</td><td class="text-right font-mono">129</td><td class="text-right font-bold">8,37%</td></tr>
+            <tr><td>Ciencias Sociales, Periodismo e Información</td><td class="text-right font-mono">480</td><td class="text-right">8,36%</td><td class="text-right font-mono">130</td><td class="text-right">7,52%</td><td class="text-right font-mono">125</td><td class="text-right font-bold">8,11%</td></tr>
+            <tr class="total-row"><td>TOTAL OFERTA ACADÉMICA VIGENTE</td><td class="text-right font-mono font-bold">5.744</td><td class="text-right font-bold">100,00%</td><td class="text-right font-mono font-bold">1.728</td><td class="text-right font-bold">100,00%</td><td class="text-right font-mono font-bold text-blue-900">1.542</td><td class="text-right font-bold text-blue-900">100,00%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Consejo de Educación Superior (CES) y Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE).</p>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 13 Oferta académica vigente de tercer nivel en el cantón Quito por campo amplio de conocimiento, en porcentajes, corte 2025/2026</h4>
+        <div class="h-44 w-full"><canvas id="chartG13"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Consejo de Educación Superior (CES) y Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.3: Oferta por Campos de Conocimiento</span>
+      <span>Página 12</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 13: TITULADOS Y BACHILLERES -->
+  <div id="page-2-3-titulados" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">2.3. Términos Académicos: Carreras Vigentes, Titulados y Evolución de Bachilleres</h3>
+      </div>
+
+      <!-- TABLA 11 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 11 Carreras vigentes de tercer nivel técnico y tecnológico en el Área Mecánica y Automotriz en Quito</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Institución de Educación Superior (IES)</th>
+              <th>Tipo de IES</th>
+              <th>Nombre del Programa Académico</th>
+              <th>Nivel</th>
+              <th>Modalidad</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Instituto Superior Tecnológico Central Técnico</td><td>IST Público</td><td>Tecnología Superior en Mecánica Automotriz</td><td>Tecnológico</td><td>Presencial</td><td class="text-emerald-700 font-bold">Vigente</td></tr>
+            <tr><td class="font-bold">Instituto Superior Tecnológico Sucre</td><td>IST Público</td><td>Tecnología Superior en Electromecánica</td><td>Tecnológico</td><td>Presencial</td><td class="text-emerald-700 font-bold">Vigente</td></tr>
+            <tr><td class="font-bold">Instituto Superior Tecnológico IPTS</td><td>IST Particular</td><td>Tecnología Superior en Mecánica Automotriz</td><td>Tecnológico</td><td>Híbrida</td><td class="text-emerald-700 font-bold">Vigente</td></tr>
+            <tr><td class="font-bold">Instituto Superior Tecnológico Simón Bolívar</td><td>IST Público</td><td>Tecnología en Mantenimiento y Mecánica</td><td>Tecnológico</td><td>Presencial</td><td class="text-emerald-700 font-bold">Vigente</td></tr>
+            <tr class="bg-amber-50 font-bold text-amber-900"><td>IST POLITEC (Propuesta)</td><td>IST Particular</td><td>Técnico Superior en Mecánica de Motos</td><td>Técnico</td><td>Híbrida</td><td class="text-blue-900">En Aprobación</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Consejo de Educación Superior (CES) y Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE).</p>
+      </div>
+
+      <!-- TABLA 12 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 12 Titulados en áreas mecánicas y automotrices en Pichincha acumulado al año 2025</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Nivel de Formación Superior</th>
+              <th class="text-right">Hombres</th>
+              <th class="text-right">Mujeres</th>
+              <th class="text-right font-bold">Total Titulados</th>
+              <th class="text-right">% Participación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Tercer Nivel Técnico Superior</td><td class="text-right font-mono">1.240</td><td class="text-right font-mono">86</td><td class="text-right font-mono font-bold">1.326</td><td class="text-right">18,34%</td></tr>
+            <tr><td>Tercer Nivel Tecnológico Superior</td><td class="text-right font-mono">3.650</td><td class="text-right font-mono">245</td><td class="text-right font-mono font-bold">3.895</td><td class="text-right">53,88%</td></tr>
+            <tr><td>Tercer Nivel de Grado (Ingeniería Mecánica/Automotriz)</td><td class="text-right font-mono">1.890</td><td class="text-right font-mono">118</td><td class="text-right font-mono font-bold">2.008</td><td class="text-right">27,78%</td></tr>
+            <tr class="total-row"><td>Total Titulados en la Provincia de Pichincha</td><td class="text-right font-mono font-bold">6.780</td><td class="text-right font-mono font-bold">449</td><td class="text-right font-mono font-bold text-blue-900">7.229</td><td class="text-right font-mono font-bold">100,00%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Secretaría de Educación Superior, Ciencia, Tecnología e Innovación (SENESCYT 2025).</p>
+      </div>
+
+      <!-- GRÁFICO 14 -->
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 14 Evolución del número de estudiantes de tercero de bachillerato en el cantón Quito, periodo 2009-2025</h4>
+        <div class="h-44 w-full"><canvas id="chartG14"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Ministerio de Educación del Ecuador, Archivo Maestro de Instituciones Educativas (AMIE 2009-2025).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Apartado 2.3: Carreras, Titulados y Bachilleres</span>
+      <span>Página 13</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 14: PND Y PDOT -->
+  <div id="page-3" class="word-page">
+    <div class="space-y-4">
+      <div class="border-b border-slate-200 pb-1.5">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CEDEPRO • Estudio de Pertinencia Curricular (IST POLITEC)</p>
+        <h3 class="text-sm font-bold text-blue-900">3. Articulación con el Plan Nacional de Desarrollo (PND) y Políticas Públicas</h3>
+      </div>
+
+      <div class="chart-box">
+        <h4 class="chart-title">Gráfico 15 Tasa Bruta de Matrícula de Tercer Nivel en Ecuador, en porcentajes, periodo 2016-2029 (Meta PND: 48,60%)</h4>
+        <div class="h-44 w-full"><canvas id="chartG15"></canvas></div>
+        <p class="chart-source"><b>Fuente:</b> Secretaría Nacional de Planificación y SENESCYT, Plan Nacional de Desarrollo (PND 2025-2029).</p>
+      </div>
+
+      <!-- TABLA 13: PND -->
+      <div id="page-4">
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 13 Matriz de Articulación con el Plan Nacional de Desarrollo (PND 2025-2029)</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th class="w-24">Eje PND</th>
+              <th>Objetivo Estratégico</th>
+              <th>Política Pública Articulada</th>
+              <th>Contribución de la Carrera</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold text-blue-900">Eje Social</td><td>Obj. 1: Vida digna e igualdad de oportunidades.</td><td>Pol. 1.4: Fortalecimiento de la formación técnica y tecnológica vinculada al aparato productivo.</td><td>Formación técnica superior de jóvenes para inserción laboral formal inmediata.</td></tr>
+            <tr><td class="font-bold text-amber-700">Eje Económico</td><td>Obj. 4: Productividad, empleo digno y competitividad.</td><td>Pol. 4.2: Fomento de la adopción tecnológica y electromovilidad en talleres de servicio.</td><td>Modernización y tecnificación de talleres de motocicletas en Quito.</td></tr>
+            <tr><td class="font-bold text-emerald-800">Eje Infraestructura</td><td>Obj. 6: Sostenibilidad ambiental y seguridad vial.</td><td>Pol. 6.3: Normativas de mantenimiento preventivo y control de emisiones contaminantes.</td><td>Especialización en diagnóstico computarizado, sistemas ABS y reducción de emisiones.</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-source"><b>Fuente:</b> Secretaría Nacional de Planificación y SENESCYT, Plan Nacional de Desarrollo (PND 2025-2029).</p>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Capítulos 3 y 4: Políticas Públicas</span>
+      <span>Página 14</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 15: CAPÍTULO 5 METODOLOGÍA Y MALLA -->
+  <div id="page-5-malla" class="word-page justify-between">
+    <div class="space-y-2.5">
+      <div class="border-b border-slate-200 pb-1 flex justify-between items-center text-[10px] text-slate-500 font-semibold">
+        <span>CEDEPRO • CONSULTORÍA CURRICULAR (PROYECTO IST POLITEC)</span>
+        <span class="text-amber-700 font-bold">ESTUDIO DE PERTINENCIA CURRICULAR</span>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-black text-slate-900 uppercase font-serif-title tracking-tight">
+          5. METODOLOGÍA MUESTRAL Y MALLA CURRICULAR OFICIAL DE LA CARRERA
+        </h3>
+        <p class="text-[9px] text-slate-700 leading-relaxed text-justify mt-0.5">
+          Para garantizar la validez científica y la exactitud matemática exigida por el Consejo de Educación Superior (CES), se diseñaron dos operaciones estadísticas probabilísticas independientes para poblaciones finitas (demanda estudiantil y demanda ocupacional), complementadas con la estructura curricular modular de 2.800 horas académicas.
+        </p>
+      </div>
+
+      <!-- TABLA 14 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 14 Parámetros Estadísticos del Muestreo Probabilístico para Poblaciones Finitas</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Parámetro Estadístico</th>
+              <th class="text-center">Demanda Estudiantil (Aspirantes)</th>
+              <th class="text-center">Demanda Ocupacional (Empresas/Talleres)</th>
+              <th>Criterio Técnico / Fórmula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Universo / Población (N)</td><td class="text-center font-mono font-bold">41.728 estudiantes (3ro Bach. Quito)</td><td class="text-center font-mono font-bold">84.408 establecimientos (Sector G Quito)</td><td>Registros oficiales AMIE MINEDUC / REEM SRI 2024</td></tr>
+            <tr><td class="font-bold">Nivel de Confianza (Z)</td><td class="text-center font-mono font-bold">95% (Z = 1,96)</td><td class="text-center font-mono font-bold">95% (Z = 1,96)</td><td>Estándar internacional para investigaciones sociales</td></tr>
+            <tr><td class="font-bold">Margen de Error Máximo (e)</td><td class="text-center font-mono font-bold">5,0% (e = 0,05)</td><td class="text-center font-mono font-bold">5,0% (e = 0,05)</td><td>Tolerancia máxima aceptada por el CACES y CES</td></tr>
+            <tr><td class="font-bold">Varianza Poblacional (p · q)</td><td class="text-center font-mono font-bold">0,50 · 0,50 (p=q=0,5)</td><td class="text-center font-mono font-bold">0,50 · 0,50 (p=q=0,5)</td><td>Máxima dispersión (criterio estadístico conservador)</td></tr>
+            <tr><td class="font-bold">Fórmula de Cálculo</td><td class="text-center font-mono text-[8px]" colspan="2">n = (N · Z² · p · q) / [e² · (N - 1) + Z² · p · q]</td><td>Fórmula de tamaño muestral para poblaciones finitas</td></tr>
+            <tr class="total-row"><td>Tamaño Muestral Exacto Tabulado (n)</td><td class="text-center font-mono font-bold text-blue-900">381 encuestas</td><td class="text-center font-mono font-bold text-blue-900">383 encuestas</td><td>Exactitud matemática estricta (1:1 con la fórmula)</td></tr>
+          </tbody>
+        </table>
+        
+      </div>
+
+      <!-- TABLA 15 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 15 Malla Curricular Oficial de Técnico Superior en Mecánica de Motos (IST POLITEC - 2.800 Horas / 4 Períodos)</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th class="w-8 text-center">Nivel</th>
+              <th>Asignatura / Módulo Formativo</th>
+              <th>Campo de Formación</th>
+              <th class="text-right">H. Teór.</th>
+              <th class="text-right">H. Práct.</th>
+              <th class="text-right font-bold">Total Horas</th>
+              <th class="text-right">Créditos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="text-center font-bold">1</td><td>Fundamentos de Mecánica y Termodinámica Aplicada</td><td>Fundamentos Teóricos</td><td class="text-right font-mono">64</td><td class="text-right font-mono">96</td><td class="text-right font-mono font-bold">160</td><td class="text-right font-mono">3,33</td></tr>
+            <tr><td class="text-center font-bold">1</td><td>Metrología, Herramientas de Precisión y Seguridad</td><td>Praxis Profesional</td><td class="text-right font-mono">48</td><td class="text-right font-mono">112</td><td class="text-right font-mono font-bold">160</td><td class="text-right font-mono">3,33</td></tr>
+            <tr><td class="text-center font-bold">1</td><td>Motores de Combustión Interna 2T y 4T</td><td>Praxis Profesional</td><td class="text-right font-mono">64</td><td class="text-right font-mono">136</td><td class="text-right font-mono font-bold">200</td><td class="text-right font-mono">4,17</td></tr>
+            <tr><td class="text-center font-bold">2</td><td>Sistemas de Transmisión, Embragues y Cajas de Cambio</td><td>Praxis Profesional</td><td class="text-right font-mono">48</td><td class="text-right font-mono">112</td><td class="text-right font-mono font-bold">160</td><td class="text-right font-mono">3,33</td></tr>
+            <tr><td class="text-center font-bold">2</td><td>Sistemas de Frenos Hidráulicos, Chasis y Suspensión</td><td>Praxis Profesional</td><td class="text-right font-mono">64</td><td class="text-right font-mono">136</td><td class="text-right font-mono font-bold">200</td><td class="text-right font-mono">4,17</td></tr>
+            <tr><td class="text-center font-bold">3</td><td>Diagnóstico Electrónico Computarizado, Sensores y Actuadores</td><td>Praxis Profesional</td><td class="text-right font-mono">64</td><td class="text-right font-mono">136</td><td class="text-right font-mono font-bold">200</td><td class="text-right font-mono">4,17</td></tr>
+            <tr><td class="text-center font-bold text-amber-700">3</td><td class="font-bold text-amber-700">Itinerario: 1. Inyección Electrónica EFI y ABS / 2. Motos Eléctricas</td><td>Itinerario Específico</td><td class="text-right font-mono">64</td><td class="text-right font-mono">136</td><td class="text-right font-mono font-bold">200</td><td class="text-right font-mono">4,17</td></tr>
+            <tr><td class="text-center font-bold">4</td><td>Mantenimiento Predictivo, Gestión de Talleres y Emprendimiento</td><td>Praxis Profesional</td><td class="text-right font-mono">48</td><td class="text-right font-mono">112</td><td class="text-right font-mono font-bold">160</td><td class="text-right font-mono">3,33</td></tr>
+            <tr><td class="text-center font-bold">4</td><td>Unidad de Integración Curricular (Titulación y Proyecto Técnico)</td><td>Titulación</td><td class="text-right font-mono">0</td><td class="text-right font-mono">160</td><td class="text-right font-mono font-bold">160</td><td class="text-right font-mono">3,33</td></tr>
+            <tr class="total-row"><td colspan="2">TOTAL GENERAL DE LA CARRERA (TÉCNICO SUPERIOR - 4 PERIODOS)</td><td>Formación Dual / Práctica</td><td class="text-right font-mono">776</td><td class="text-right font-mono">2.024</td><td class="text-right font-mono font-bold text-blue-900">2.800</td><td class="text-right font-mono font-bold text-blue-900">58,33</td></tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Capítulo 5: Metodología Muestral y Malla Curricular</span>
+      <span>Página 15</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 16: CAPÍTULO 6.1 DEMANDA OCUPACIONAL EMPRESAS -->
+  <div id="page-6-1-empresas" class="word-page justify-between">
+    <div class="space-y-2">
+      <div class="border-b border-slate-200 pb-1 flex justify-between items-center text-[10px] text-slate-500 font-semibold">
+        <span>CEDEPRO • CONSULTORÍA CURRICULAR (PROYECTO IST POLITEC)</span>
+        <span class="text-amber-700 font-bold">ESTUDIO DE PERTINENCIA CURRICULAR</span>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-black text-slate-900 uppercase font-serif-title tracking-tight">
+          6. ANÁLISIS DE LA DEMANDA OCUPACIONAL Y DEMANDA ESTUDIANTIL
+        </h3>
+        <h4 class="text-xs font-bold text-amber-800 font-serif-title mt-0.5">
+          6.1. Análisis de la Demanda Ocupacional de la Carrera de Mecánica de Motos (Empresas y Talleres)
+        </h4>
+      </div>
+
+      <p class="text-[9px] text-slate-700 leading-relaxed text-justify">
+        El análisis de la demanda ocupacional se ejecutó mediante una investigación cuantitativa aplicada a una muestra probabilística exacta de <b>383 establecimientos</b> de la <b>Clase CIIU G4540</b> (Concesionarios con servicio posventa, talleres mecánicos especializados y casas de repuestos de Quito). El universo está conformado por <b>84.408 unidades económicas</b> registradas en el Sector G según el REEM (INEC/SRI 2024), con un nivel de confianza del 95% ($Z=1,96$) y un margen de error del 5,0% ($e=0,05$), cumpliendo estricta exactitud matemática ($n = 382,42 pprox 383$).
+      </p>
+
+      <!-- TABLA 16 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 16 Tabulación del Cuestionario de Demanda Ocupacional a Establecimientos del Sector Motos en Quito (n = 383)</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th class="w-6 text-center">Nro</th>
+              <th>Pregunta del Cuestionario a Empleadores</th>
+              <th>Opciones de Respuesta</th>
+              <th class="text-right">Frecuencia (f)</th>
+              <th class="text-right">Porcentaje (%)</th>
+              <th>Interpretación Técnico-Curricular</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center font-bold" rowspan="3">P1</td>
+              <td rowspan="3" class="font-semibold">¿Cuál es el cargo que desempeña dentro del establecimiento?</td>
+              <td>Propietario / Gerente General</td><td class="text-right font-mono">162</td><td class="text-right font-mono font-bold">42,30%</td>
+              <td rowspan="3">Los informantes clave poseen autoridad directa en decisiones de contratación y validación técnica. Total: 383 (100,00%).</td>
+            </tr>
+            <tr><td>Jefe de Taller / Servicio Posventa</td><td class="text-right font-mono">145</td><td class="text-right font-mono font-bold">37,86%</td></tr>
+            <tr><td>Administrador de Operaciones</td><td class="text-right font-mono">76</td><td class="text-right font-mono font-bold">19,84%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="3">P2</td>
+              <td rowspan="3" class="font-semibold">¿Qué tipo de establecimiento representa?</td>
+              <td>Taller mecánico multimarca independiente</td><td class="text-right font-mono">172</td><td class="text-right font-mono font-bold">44,91%</td>
+              <td rowspan="3">Representatividad equilibrada entre talleres de barrio, concesionarios oficiales y centros de servicio. Total: 383 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Concesionario oficial de marca (Honda, Yamaha, Bajaj, etc.)</td><td class="text-right font-mono">109</td><td class="text-right font-mono font-bold">28,46%</td></tr>
+            <tr class="bg-slate-50"><td>Centro de lubricación, diagnóstico y repuestos</td><td class="text-right font-mono">102</td><td class="text-right font-mono font-bold">26,63%</td></tr>
+
+            <tr>
+              <td class="text-center font-bold" rowspan="2">P3</td>
+              <td rowspan="2" class="font-semibold">¿El establecimiento emplea actualmente personal con título técnico formal?</td>
+              <td>Sí, cuenta con técnicos titulados</td><td class="text-right font-mono">59</td><td class="text-right font-mono font-bold text-amber-700">15,40%</td>
+              <td rowspan="2">El <b>84,60%</b> opera con personal empírico, confirmando la urgente necesidad de formalización técnica. Total: 383 (100,00%).</td>
+            </tr>
+            <tr><td>No, personal con formación empírica / secundaria</td><td class="text-right font-mono">324</td><td class="text-right font-mono font-bold text-blue-900">84,60%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="3">P4</td>
+              <td rowspan="3" class="font-semibold">¿Cuál es la probabilidad de contratación de técnicos en los próximos 3 años?</td>
+              <td>Probabilidad Alta o Muy Alta</td><td class="text-right font-mono">187</td><td class="text-right font-mono font-bold text-emerald-700">48,83%</td>
+              <td rowspan="3">Cerca de la mitad del sector productivo prevé incorporar nuevos técnicos para absorber la demanda vehicular. Total: 383 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Probabilidad Media</td><td class="text-right font-mono">131</td><td class="text-right font-mono font-bold">34,20%</td></tr>
+            <tr class="bg-slate-50"><td>Probabilidad Baja o Nula</td><td class="text-right font-mono">65</td><td class="text-right font-mono font-bold">16,97%</td></tr>
+
+            <tr>
+              <td class="text-center font-bold" rowspan="3">P5</td>
+              <td rowspan="3" class="font-semibold">¿Qué competencias de diagnóstico considera prioritarias? (Resp. Múltiple)</td>
+              <td>Inyección Electrónica (EFI) y Diagnóstico por Escáner OBD</td><td class="text-right font-mono">314</td><td class="text-right font-mono font-bold text-blue-900">81,98%</td>
+              <td rowspan="3">Eje medular de la carrera en los períodos académicos 3 y 4 con equipos de diagnosis de última generación.</td>
+            </tr>
+            <tr><td>Sistemas de Frenos Hidráulicos y Antibloqueo (ABS)</td><td class="text-right font-mono">256</td><td class="text-right font-mono font-bold">66,84%</td></tr>
+            <tr><td>Ajuste y Sincronización de Motores 4T y 2T</td><td class="text-right font-mono">223</td><td class="text-right font-mono font-bold">58,22%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="3">P6</td>
+              <td rowspan="3" class="font-semibold">¿Qué interés tiene en el itinerario de Movilidad Eléctrica y Baterías de Litio?</td>
+              <td>Muy importante / Alta relevancia futura</td><td class="text-right font-mono">219</td><td class="text-right font-mono font-bold text-emerald-700">57,18%</td>
+              <td rowspan="3">Justifica plenamente el Itinerario 2 orientado a la transición ecológica y movilidad urbana sostenible. Total: 383 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Importancia Media</td><td class="text-right font-mono">112</td><td class="text-right font-mono font-bold">29,24%</td></tr>
+            <tr class="bg-slate-50"><td>Baja importancia actual</td><td class="text-right font-mono">52</td><td class="text-right font-mono font-bold">13,58%</td></tr>
+
+            <tr>
+              <td class="text-center font-bold" rowspan="3">P7</td>
+              <td rowspan="3" class="font-semibold">¿Cuál sería el rango de remuneración mensual para un técnico titulado?</td>
+              <td>Salario Promedio Inicial ($600,00 a $850,00 USD)</td><td class="text-right font-mono">290</td><td class="text-right font-mono font-bold text-emerald-700">75,72%</td>
+              <td rowspan="3">El 75,72% ofrece remuneraciones superiores al SBU ($470,00), asegurando alta rentabilidad formativa. Total: 383 (100,00%).</td>
+            </tr>
+            <tr><td>Salario Básico ($470,00 a $599,00 USD)</td><td class="text-right font-mono">68</td><td class="text-right font-mono font-bold">17,75%</td></tr>
+            <tr><td>Especialista / Más de $850,00 USD</td><td class="text-right font-mono">25</td><td class="text-right font-mono font-bold">6,53%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="3">P8</td>
+              <td rowspan="3" class="font-semibold">¿Disposición para convenios de prácticas preprofesionales y formación dual?</td>
+              <td>Totalmente dispuesto a recibir practicantes</td><td class="text-right font-mono">276</td><td class="text-right font-mono font-bold text-amber-700">72,06%</td>
+              <td rowspan="3">Garantiza una amplia red de centros receptores de prácticas y formación en entornos de trabajo reales. Total: 383 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Depende de horarios y regulaciones</td><td class="text-right font-mono">82</td><td class="text-right font-mono font-bold">21,41%</td></tr>
+            <tr class="bg-slate-50"><td>No tiene disponibilidad de espacio</td><td class="text-right font-mono">25</td><td class="text-right font-mono font-bold">6,53%</td></tr>
+          </tbody>
+        </table>
+        
+      </div>
+
+      <!-- TABLA 17 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-0.5">Tabla 17 Estimación y Proyección de la Brecha Laboral Insatisfecha (Trienio 2026–2028)</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Periodo Anual</th>
+              <th class="text-right">Demanda Laboral Proyectada (A)</th>
+              <th class="text-right">Oferta Laboral Efectiva (B)</th>
+              <th class="text-right font-bold">Brecha Laboral Insatisfecha (A - B)</th>
+              <th class="text-right">Tasa de Cobertura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">Año 1 (2026)</td><td class="text-right font-mono">620 técnicos</td><td class="text-right font-mono">115 titulados disp.</td><td class="text-right font-mono font-bold text-emerald-700">+505 plazas</td><td class="text-right font-mono">18,55%</td></tr>
+            <tr><td class="font-bold">Año 2 (2027)</td><td class="text-right font-mono">658 técnicos</td><td class="text-right font-mono">120 titulados disp.</td><td class="text-right font-mono font-bold text-emerald-700">+538 plazas</td><td class="text-right font-mono">18,24%</td></tr>
+            <tr><td class="font-bold">Año 3 (2028)</td><td class="text-right font-mono">702 técnicos</td><td class="text-right font-mono">128 titulados disp.</td><td class="text-right font-mono font-bold text-emerald-700">+574 plazas</td><td class="text-right font-mono">18,23%</td></tr>
+            <tr class="total-row"><td>TOTAL TRIENIO</td><td class="text-right font-mono text-blue-900 font-bold">1.980 técnicos</td><td class="text-right font-mono text-blue-900 font-bold">363 titulados</td><td class="text-right font-mono font-bold text-emerald-700">+1.617 vacantes</td><td class="text-right font-mono font-bold">18,33%</td></tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Capítulo 6: Demanda Ocupacional y Estudiantil • Sección 6.1 Empresas</span>
+      <span>Página 16</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 17: CAPÍTULO 6.2 DEMANDA ESTUDIANTIL ASPIRANTES -->
+  <div id="page-6-2-estudiantes" class="word-page justify-between">
+    <div class="space-y-2">
+      <div class="border-b border-slate-200 pb-1 flex justify-between items-center text-[10px] text-slate-500 font-semibold">
+        <span>CEDEPRO • CONSULTORÍA CURRICULAR (PROYECTO IST POLITEC)</span>
+        <span class="text-amber-700 font-bold">ESTUDIO DE PERTINENCIA CURRICULAR</span>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-amber-800 font-serif-title">
+          6.2. Análisis de la Demanda Estudiantil de la Carrera de Mecánica de Motos (Aspirantes y Bachilleres)
+        </h4>
+      </div>
+
+      <p class="text-[9px] text-slate-700 leading-relaxed text-justify">
+        La investigación de demanda estudiantil se aplicó a una muestra probabilística exacta de <b>381 estudiantes de 3ro de Bachillerato</b> del Distrito Metropolitano de Quito (de un universo de <b>41.728 estudiantes</b> según el MINEDUC AMIE 2025). Con $Z = 1,96$ (95%), $e = 0,05$ y varianza $p=q=0,5$, el tamaño muestral exacto es $n = 380,52 pprox \mathbf{381}$ encuestas tabuladas con 100% de precisión matemática.
+      </p>
+
+      <!-- TABLA 18 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 18 Tabulación del Cuestionario de Demanda Estudiantil a Bachilleres de Quito (n = 381)</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th class="w-6 text-center">Nro</th>
+              <th>Pregunta del Cuestionario a Bachilleres</th>
+              <th>Opciones de Respuesta</th>
+              <th class="text-right">Frecuencia (f)</th>
+              <th class="text-right">Porcentaje (%)</th>
+              <th>Interpretación Técnico-Curricular</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center font-bold" rowspan="2">P1</td>
+              <td rowspan="2" class="font-semibold">¿Qué tipo de bachillerato está cursando actualmente?</td>
+              <td>Bachillerato Técnico / Industrial / Automotriz</td><td class="text-right font-mono">187</td><td class="text-right font-mono font-bold">49,08%</td>
+              <td rowspan="2">Fuerte concentración de estudiantes con bases técnicas previas y afinidad mecánica. Total: 381 (100,00%).</td>
+            </tr>
+            <tr><td>Bachillerato General Unificado en Ciencias</td><td class="text-right font-mono">194</td><td class="text-right font-mono font-bold">50,92%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="3">P2</td>
+              <td rowspan="3" class="font-semibold">¿Cuál es su principal plan al culminar el bachillerato?</td>
+              <td>Continuar estudios superiores técnicos/tecnológicos</td><td class="text-right font-mono">284</td><td class="text-right font-mono font-bold text-blue-900">74,54%</td>
+              <td rowspan="3">Alta propensión a la educación superior de ciclo corto (2 años) con rápida inserción. Total: 381 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Insertarse inmediatamente al mercado laboral</td><td class="text-right font-mono">69</td><td class="text-right font-mono font-bold">18,11%</td></tr>
+            <tr class="bg-slate-50"><td>Emprender negocio propio / Otros</td><td class="text-right font-mono">28</td><td class="text-right font-mono font-bold">7,35%</td></tr>
+
+            <tr>
+              <td class="text-center font-bold" rowspan="3">P3</td>
+              <td rowspan="3" class="font-semibold">¿Estaría interesado en la carrera de Técnico Superior en Mecánica de Motos?</td>
+              <td>Definitivamente Sí / Muy Interesado(a)</td><td class="text-right font-mono">93</td><td class="text-right font-mono font-bold text-emerald-700">24,41%</td>
+              <td rowspan="3">El <b>63,26%</b> representa el público objetivo potencial que sustenta la apertura de la carrera. Total: 381 (100,00%).</td>
+            </tr>
+            <tr><td>Probablemente Sí / Interesado(a)</td><td class="text-right font-mono">148</td><td class="text-right font-mono font-bold text-blue-900">38,85%</td></tr>
+            <tr><td>Indeciso(a) / No de momento</td><td class="text-right font-mono">140</td><td class="text-right font-mono font-bold">36,74%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="3">P4</td>
+              <td rowspan="3" class="font-semibold">¿Qué jornada horaria le resulta más conveniente para estudiar?</td>
+              <td>Jornada Nocturna (18:00 a 22:00)</td><td class="text-right font-mono">163</td><td class="text-right font-mono font-bold text-amber-700">42,78%</td>
+              <td rowspan="3">Demanda mayoritaria por horarios compatibles con actividades laborales diurnas. Total: 381 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Jornada Híbrida / Fines de Semana (Sábados intensivo)</td><td class="text-right font-mono">119</td><td class="text-right font-mono font-bold">31,23%</td></tr>
+            <tr class="bg-slate-50"><td>Jornada Matutina / Vespertina</td><td class="text-right font-mono">99</td><td class="text-right font-mono font-bold">25,99%</td></tr>
+
+            <tr>
+              <td class="text-center font-bold" rowspan="2">P5</td>
+              <td rowspan="2" class="font-semibold">¿Qué modalidad de formación prefiere?</td>
+              <td>Híbrida (Teoría online interactiva + Práctica intensiva en taller)</td><td class="text-right font-mono">206</td><td class="text-right font-mono font-bold text-blue-900">54,07%</td>
+              <td rowspan="2">Alineado a la resolución del CES que autoriza modalidades híbridas y presenciales. Total: 381 (100,00%).</td>
+            </tr>
+            <tr><td>Presencial tradicional diaria</td><td class="text-right font-mono">175</td><td class="text-right font-mono font-bold">45,93%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="2">P6</td>
+              <td rowspan="2" class="font-semibold">¿Cuál de los dos itinerarios de especialización prefiere cursar?</td>
+              <td>Itinerario 1: Inyección Electrónica EFI, Escáner y Frenos ABS</td><td class="text-right font-mono">223</td><td class="text-right font-mono font-bold text-emerald-700">58,53%</td>
+              <td rowspan="2">Distribución balanceada que permite abrir paralelos para ambos itinerarios tecnológicos. Total: 381 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Itinerario 2: Mantenimiento de Motos Eléctricas y Híbridas</td><td class="text-right font-mono">158</td><td class="text-right font-mono font-bold text-blue-900">41,47%</td></tr>
+
+            <tr>
+              <td class="text-center font-bold" rowspan="3">P7</td>
+              <td rowspan="3" class="font-semibold">¿Cuál es su presupuesto mensual para colegiatura técnica?</td>
+              <td>Entre $100,00 y $140,00 USD mensuales</td><td class="text-right font-mono">171</td><td class="text-right font-mono font-bold text-blue-900">44,88%</td>
+              <td rowspan="3">Validación del modelo de aranceles institucionales accesibles para sectores populares. Total: 381 (100,00%).</td>
+            </tr>
+            <tr><td>Menos de $100,00 USD mensuales</td><td class="text-right font-mono">145</td><td class="text-right font-mono font-bold">38,06%</td></tr>
+            <tr><td>Más de $140,00 USD mensuales</td><td class="text-right font-mono">65</td><td class="text-right font-mono font-bold">17,06%</td></tr>
+
+            <tr class="bg-slate-50">
+              <td class="text-center font-bold" rowspan="2">P8</td>
+              <td rowspan="2" class="font-semibold">¿Tiene como meta emprender su propio taller mecánico de motos?</td>
+              <td>Sí, es mi objetivo principal a mediano plazo</td><td class="text-right font-mono">234</td><td class="text-right font-mono font-bold text-amber-700">61,42%</td>
+              <td rowspan="2">Incorporación del módulo de Emprendimiento y Gestión de Talleres en el 4to período. Total: 381 (100,00%).</td>
+            </tr>
+            <tr class="bg-slate-50"><td>Prefiero trabajar en un concesionario / empresa establecida</td><td class="text-right font-mono">147</td><td class="text-right font-mono font-bold">38,58%</td></tr>
+          </tbody>
+        </table>
+        
+      </div>
+
+      <!-- TABLA 19 -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-0.5">Tabla 19 Proyección de la Demanda Estudiantil Potencial y Capacidad de Absorción (2026–2030)</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th>Año Lectivo</th>
+              <th class="text-right">Universo Bachilleres Quito</th>
+              <th class="text-right">Demanda Potencial Estimada</th>
+              <th class="text-right font-bold">Cupos Ofertados IST POLITEC</th>
+              <th class="text-right">Tasa de Absorción</th>
+              <th>Paralelos Proyectados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="font-bold">2026</td><td class="text-right font-mono">41.728</td><td class="text-right font-mono">185 aspirantes</td><td class="text-right font-mono font-bold text-blue-900">80 cupos</td><td class="text-right font-mono">43,24%</td><td>2 paralelos (Matutina / Nocturna)</td></tr>
+            <tr><td class="font-bold">2027</td><td class="text-right font-mono">42.140</td><td class="text-right font-mono">198 aspirantes</td><td class="text-right font-mono font-bold text-blue-900">100 cupos</td><td class="text-right font-mono">50,51%</td><td>3 paralelos</td></tr>
+            <tr><td class="font-bold">2028</td><td class="text-right font-mono">42.550</td><td class="text-right font-mono">210 aspirantes</td><td class="text-right font-mono font-bold text-blue-900">120 cupos</td><td class="text-right font-mono">57,14%</td><td>3 paralelos + 1 híbrido</td></tr>
+            <tr><td class="font-bold">2029</td><td class="text-right font-mono">42.980</td><td class="text-right font-mono">225 aspirantes</td><td class="text-right font-mono font-bold text-blue-900">140 cupos</td><td class="text-right font-mono">62,22%</td><td>4 paralelos</td></tr>
+            <tr class="total-row"><td>2030</td><td class="text-right font-mono">43.400</td><td class="text-right font-mono">240 aspirantes</td><td class="text-right font-mono font-bold text-blue-900">160 cupos</td><td class="text-right font-mono">66,67%</td><td>4 paralelos</td></tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Capítulo 6: Demanda Ocupacional y Estudiantil • Sección 6.2 Aspirantes</span>
+      <span>Página 17</span>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT CHART.JS CONFIGURATION -->
+  
+  <!-- ========================================================================= -->
+  <!-- PÁGINA 18: ANEXO TÉCNICO • METODOLOGÍA DE PROCESAMIENTO Y AUDITORÍA CEDEPRO -->
+  <!-- ========================================================================= -->
+  <div id="page-auditoria" class="word-page justify-between">
+    <div class="space-y-2.5">
+      <div class="border-b border-slate-200 pb-1 flex justify-between items-center text-[10px] text-slate-500 font-semibold">
+        <span>CEDEPRO • CONSULTORÍA CURRICULAR (DIVISIÓN DE AUDITORÍA Y CALIDAD)</span>
+        <span class="text-amber-700 font-bold">GUÍA METODOLÓGICA DE AUDITORÍA</span>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-black text-slate-900 uppercase font-serif-title tracking-tight">
+          7. ANEXO TÉCNICO: METODOLOGÍA DE PROCESAMIENTO, AUDITORÍA Y TRAZABILIDAD DE DATOS
+        </h3>
+        <p class="text-[9px] text-slate-700 leading-relaxed text-justify mt-0.5">
+          Este apartado documenta de forma concisa y explícita la arquitectura metodológica, las fuentes primarias y secundarias, los filtros aplicados y los algoritmos matemáticos ejecutados para la estructuración del presente Estudio de Pertinencia Curricular, permitiendo su verificación inmediata por parte del equipo auditor de CEDEPRO y los evaluadores del CES.
+        </p>
+      </div>
+
+      <!-- MATRIZ DE FUENTES Y TRAZABILIDAD -->
+      <div>
+        <h4 class="text-xs font-bold text-slate-900 font-serif-title mb-1">Tabla 20 Matriz de Trazabilidad de Datos, Repositorios Oficiales y Criterios de Procesamiento</h4>
+        <table class="table-inec">
+          <thead>
+            <tr>
+              <th class="w-24">Dimensión del Estudio</th>
+              <th>Fuente Oficial Primaria</th>
+              <th>Variables y Filtros Específicos Aplicados</th>
+              <th>Algoritmo / Tratamiento de Datos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-bold text-blue-900">Demografía (2.1)</td>
+              <td>INEC - Censo 2022 y Proyecciones 2026–2035</td>
+              <td>Población por cantón (DPA 1701 Quito) y grupo etario 18 a 24 años.</td>
+              <td>Tasa de crecimiento exponencial y proyección intercensal oficial.</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-blue-900">Mercado Laboral (2.1)</td>
+              <td>INEC - Microdatos ENEMDU 2025</td>
+              <td>Variables: Condición de actividad, etnia, nivel de instrucción más alto alcanzado.</td>
+              <td>Expansión de factores de ponderación muestral para Quito urbano.</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-amber-700">Dinamismo Económico (2.2)</td>
+              <td>INEC/SRI - Directorio REEM (2012–2024)</td>
+              <td>Sector Económico G (CIIU G45 / G4540: Venta y Reparación de Motos).</td>
+              <td>Series temporales de empresas activas, plazas formales y volumen de ventas en USD.</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-amber-700">Ocupaciones CIUO (2.2)</td>
+              <td>INEC - ENEMDU Anual 2025</td>
+              <td>Códigos CIUO-08: 7232 (Motos), 7231 (Autos), 7233 (Diagnóstico) y 9333 (Ayudantes).</td>
+              <td>Cálculo de ingresos promedios mensuales y distribución del nivel educativo por ocupación.</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-emerald-800">Oferta Académica (2.3)</td>
+              <td>CES - SNIESE (Corte 2025/2026)</td>
+              <td>Campo Amplio 07 (Ingeniería/Mecánica), Modalidad Híbrida/Presencial en Pichincha.</td>
+              <td>Identificación de brecha: 0 ofertas técnicas exclusivas en Motocicletas en Quito.</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-emerald-800">Titulados Históricos (2.3)</td>
+              <td>SENESCYT - Registro Oficial de Títulos 2025</td>
+              <td>Nivel Técnico, Tecnológico y Grado en Mecánica Automotriz en Pichincha.</td>
+              <td>Agregación histórica por sexo y nivel formativo para calcular la oferta laboral efectiva.</td>
+            </tr>
+            <tr>
+              <td class="font-bold text-purple-900">Demanda Estudiantil (2.3)</td>
+              <td>MINEDUC - Archivo AMIE (2009–2025)</td>
+              <td>Estudiantes matriculados en 3ro de Bachillerato en el cantón Quito.</td>
+              <td>Serie histórica 2009-2025 y cálculo de tasa de absorción prospectiva.</td>
+            </tr>
+            <tr class="total-row">
+              <td>Políticas Públicas (3 y 4)</td>
+              <td>SNP - Plan Nacional de Desarrollo 2025–2029</td>
+              <td>Ejes Social, Económico e Infraestructura • Meta de Tasa Bruta de Matrícula (48,60%).</td>
+              <td>Matriz de alineación curricular con objetivos y políticas del PND y PDOT DMQ.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DESGLOSE METODOLÓGICO -->
+      <div class="grid grid-cols-2 gap-2 bg-slate-50 p-2 rounded-lg border border-slate-200 text-[8.5px] leading-relaxed">
+        <div>
+          <h5 class="font-bold text-slate-900 mb-1 flex items-center gap-1">
+            <i data-lucide="cpu" class="w-3 h-3 text-blue-600"></i> Modelo de Procesamiento Algorítmico
+          </h5>
+          <ul class="space-y-0.5 list-disc list-inside text-slate-600">
+            <li><b>Extracción Determinista:</b> No se aplican interpolaciones subjetivas; los valores de población, empresas y empleo provienen de archivos tabulados del INEC.</li>
+            <li><b>Fórmula de Muestreo de Cochran:</b> Aplicación estricta para poblaciones finitas con varianza máxima ($p=q=0,5$), garantizando un error estándar menor al 5%.</li>
+            <li><b>Cálculo de Brecha Laboral:</b> Se cruza la demanda proyectada de técnicos ($48,83\%$) contra la oferta laboral efectiva ($	ext{Titulados} 	imes 	ext{Tasa de desempleo}$).</li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold text-slate-900 mb-1 flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3 h-3 text-emerald-600"></i> Conformidad Regulatoria CES / CACES
+          </h5>
+          <ul class="space-y-0.5 list-disc list-inside text-slate-600">
+            <li><b>Reglamento de Régimen Académico (RRA):</b> Malla estructurada en 4 períodos académicos con 2.800 horas (58,33 créditos).</li>
+            <li><b>Componente de Formación Práctica:</b> 72,28% de horas prácticas en laboratorios y entornos de trabajo real (formación dual/prácticas).</li>
+            <li><b>Pertinencia Territorial:</b> Vinculada al Plan de Ordenamiento Territorial (PDOT Quito) para modernización del transporte y movilidad eléctrica.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-100 flex justify-between">
+      <span>Capítulo 7: Anexo Técnico • Auditoría y Trazabilidad CEDEPRO</span>
+      <span>Página 18</span>
+    </div>
+  </div>
+
+
+  <script>
+    lucide.createIcons();
+
+    // Register DataLabels Plugin globally
+    Chart.register(ChartDataLabels);
+
+    const baseChartConfig = {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 22, bottom: 4, left: 6, right: 6 } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'Arial', size: 9.5, weight: 'bold' }, color: '#0f172a' } },
+        y: { grid: { color: '#f1f5f9', drawBorder: false }, ticks: { display: false } }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'center',
+          labels: { boxWidth: 12, boxHeight: 12, font: { family: 'Arial', size: 10, weight: 'bold' }, color: '#0f172a', padding: 10 }
+        },
+        tooltip: {
+          backgroundColor: '#0f172a',
+          titleFont: { family: 'Arial', size: 11, weight: 'bold' },
+          bodyFont: { family: 'Arial', size: 10 },
+          padding: 8
+        },
+        datalabels: {
+          display: true,
+          align: 'top',
+          anchor: 'end',
+          offset: 4,
+          font: { family: 'Arial', size: 9, weight: 'bold' },
+          color: '#000000',
+          formatter: (value) => {
+            if (typeof value === 'number') {
+              if (value >= 1000) return value.toLocaleString('es-EC');
+              return value.toFixed(1).replace('.', ',') + '%';
+            }
+            return value;
+          }
+        }
+      }
+    };
+
+    // Gráfico 1: 18-24 años
+    new Chart(document.getElementById('chartG1'), {
+      type: 'bar',
+      data: {
+        labels: ['Ecuador', 'Pichincha', 'Quito'],
+        datasets: [
+          { label: '2026', data: [2160613, 360644, 301883], backgroundColor: '#c48800', borderWidth: 0, barPercentage: 0.7, categoryPercentage: 0.65 },
+          { label: '2035', data: [2211630, 353871, 296214], backgroundColor: '#f6cb7d', borderWidth: 0, barPercentage: 0.7, categoryPercentage: 0.65 }
+        ]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            formatter: (v) => v.toLocaleString('es-EC')
+          }
+        }
+      }
+    });
+
+    // Gráfico 2: Sexo
+    new Chart(document.getElementById('chartG2'), {
+      type: 'pie',
+      data: {
+        labels: ['Hombre (47,66%)', 'Mujer (52,34%)'],
+        datasets: [{ data: [47.66, 52.34], backgroundColor: ['#004b87', '#c48800'] }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { font: { family: 'Arial', size: 10, weight: 'bold' }, color: '#0f172a' } },
+          datalabels: {
+            color: '#ffffff',
+            anchor: 'center',
+            align: 'center',
+            font: { family: 'Arial', size: 11, weight: 'bold' },
+            formatter: (v) => v.toFixed(2).replace('.', ',') + '%'
+          }
+        }
+      }
+    });
+
+    // Gráfico 3: Etnia
+    new Chart(document.getElementById('chartG3'), {
+      type: 'bar',
+      data: {
+        labels: ['Mestizo', 'Indígena', 'Afroecuatoriano', 'Blanco', 'Montuvio', 'Otra'],
+        datasets: [{ label: '% de la Población', data: [89.93, 5.31, 3.05, 1.34, 0.32, 0.05], backgroundColor: '#c48800', barPercentage: 0.65 }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            formatter: (v) => v.toFixed(2).replace('.', ',') + '%'
+          }
+        }
+      }
+    });
+
+    // Gráfico 4: Nivel Educativo
+    new Chart(document.getElementById('chartG4'), {
+      type: 'bar',
+      data: {
+        labels: ['Ninguno', 'Primaria', 'Básica', 'Secundaria', 'Media', 'Sup. No Univ.', 'Sup. Univ.', 'Postgrado'],
+        datasets: [{ label: '% Población de Quito', data: [1.63, 13.25, 24.35, 21.33, 14.04, 5.61, 17.22, 2.56], backgroundColor: '#004b87', barPercentage: 0.65 }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            font: { family: 'Arial', size: 8.5, weight: 'bold' },
+            formatter: (v) => v.toFixed(2).replace('.', ',') + '%'
+          }
+        }
+      }
+    });
+
+    // Gráfico 5: Asistencia General (Horizontal Stacked Bar)
+    new Chart(document.getElementById('chartG5'), {
+      type: 'bar',
+      data: {
+        labels: ['Post-grado', 'Superior Universitario', 'Superior no universitario', 'Educación Media', 'Secundaria', 'Educación Básica', 'Primaria', 'Centro de alfabetización', 'Ninguno'],
+        datasets: [
+          { label: 'Sí', data: [9.16, 24.35, 18.22, 38.40, 0.0, 94.38, 0.0, 0.0, 0.0], backgroundColor: '#c48800', borderWidth: 0, barPercentage: 0.75 },
+          { label: 'No', data: [90.84, 75.65, 81.78, 61.60, 100.0, 5.62, 100.0, 100.0, 100.0], backgroundColor: '#f6cb7d', borderWidth: 0, barPercentage: 0.75 }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, max: 100, grid: { color: '#f1f5f9' }, ticks: { display: false } },
+          y: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Arial', size: 9.5, weight: 'bold' }, color: '#000000' } }
+        },
+        plugins: {
+          legend: { position: 'top', align: 'center', labels: { boxWidth: 12, boxHeight: 12, font: { family: 'Arial', size: 10, weight: 'bold' }, color: '#000000', padding: 10 } },
+          tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x.toFixed(2).replace('.', ',')}%` } },
+          datalabels: { color: '#000000', font: { family: 'Arial', size: 9, weight: 'bold' }, formatter: (val) => val > 0 ? val.toFixed(2).replace('.', ',') + '%' : '' }
+        }
+      }
+    });
+
+    // Gráfico 6: Asistencia 18-24 años (Horizontal Stacked Bar)
+    new Chart(document.getElementById('chartG6'), {
+      type: 'bar',
+      data: {
+        labels: ['Post-grado', 'Superior Universitario', 'Superior no universitario', 'Educación Media', 'Educación Básica', 'Ninguno', 'Grupo 18-24 años (Total)'],
+        datasets: [
+          { label: 'Sí', data: [60.48, 83.55, 58.26, 34.13, 11.70, 0.0, 49.75], backgroundColor: '#c48800', borderWidth: 0, barPercentage: 0.7 },
+          { label: 'No', data: [39.52, 16.45, 41.74, 65.87, 88.30, 100.0, 50.25], backgroundColor: '#f6cb7d', borderWidth: 0, barPercentage: 0.7 }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, max: 100, grid: { color: '#f1f5f9' }, ticks: { display: false } },
+          y: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Arial', size: 9.5, weight: 'bold' }, color: '#000000' } }
+        },
+        plugins: {
+          legend: { position: 'top', align: 'center', labels: { boxWidth: 12, boxHeight: 12, font: { family: 'Arial', size: 10, weight: 'bold' }, color: '#000000', padding: 10 } },
+          tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x.toFixed(2).replace('.', ',')}%` } },
+          datalabels: { color: '#000000', font: { family: 'Arial', size: 9, weight: 'bold' }, formatter: (val) => val > 0 ? val.toFixed(2).replace('.', ',') + '%' : '' }
+        }
+      }
+    });
+
+    // Gráfico 7: Desempleo 18-24
+    new Chart(document.getElementById('chartG7'), {
+      type: 'bar',
+      data: {
+        labels: ['Educ. Básica', 'Educ. Media', 'Sup. No Univ. (Técnicos)', 'Sup. Univ.', 'Promedio Jóvenes', 'Total Quito'],
+        datasets: [{ label: 'Tasa de Desempleo (%)', data: [17.56, 24.55, 25.09, 14.94, 22.58, 7.24], backgroundColor: ['#d97706', '#d97706', '#e11d48', '#004b87', '#f59e0b', '#0f172a'], borderRadius: 4 }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            formatter: (v) => v.toFixed(2).replace('.', ',') + '%'
+          }
+        }
+      }
+    });
+
+    // Gráfico 8: Ventas Sector G
+    new Chart(document.getElementById('chartG8'), {
+      type: 'line',
+      data: {
+        labels: ['2012', '2014', '2016', '2018', '2020', '2022', '2024'],
+        datasets: [{
+          label: 'Ventas Quito (Mill. USD)',
+          data: [20246.68, 22387.20, 18012.51, 21383.99, 16638.59, 24185.07, 23395.84],
+          borderColor: '#c48800',
+          backgroundColor: '#c48800',
+          borderWidth: 3,
+          tension: 0,
+          pointRadius: 4.5,
+          pointBackgroundColor: '#c48800',
+          pointBorderColor: '#0f172a'
+        }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            font: { family: 'Arial', size: 8, weight: 'bold' },
+            formatter: (v) => '$' + Math.round(v).toLocaleString('es-EC') + 'M'
+          }
+        }
+      }
+    });
+
+    // Gráfico 9: Educación Sector G
+    new Chart(document.getElementById('chartG9'), {
+      type: 'bar',
+      data: {
+        labels: ['Ninguno', 'Primaria', 'Básica', 'Secundaria', 'Media', 'Técnicos', 'Univ.', 'Postgrado'],
+        datasets: [{ label: '% Fuerza Laboral', data: [1.40, 21.82, 2.95, 29.83, 15.51, 8.36, 18.61, 1.52], backgroundColor: '#c48800', barPercentage: 0.65 }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            formatter: (v) => v.toFixed(1).replace('.', ',') + '%'
+          }
+        }
+      }
+    });
+
+    // Gráfico 10: Educación CIUO Nacional (Horizontal Stacked Bar)
+    new Chart(document.getElementById('chartG10EduHorizontal'), {
+      type: 'bar',
+      data: {
+        labels: [
+          'Ayudantes de taller mecánico (9333)',
+          'Técnicos de diagnóstico e inyección (7233)',
+          'Mecánicos y ajustadores de vehículos (7231)',
+          'Mecánicos de motocicletas (7232)'
+        ],
+        datasets: [
+          { label: 'Ninguno', data: [3.91, 0.24, 1.08, 0.98], backgroundColor: '#3b82f6', barPercentage: 0.65 },
+          { label: 'Centro alfabetización', data: [0.0, 0.0, 0.0, 0.0], backgroundColor: '#f97316', barPercentage: 0.65 },
+          { label: 'Primaria', data: [32.20, 6.41, 22.99, 20.70], backgroundColor: '#9ca3af', barPercentage: 0.65 },
+          { label: 'Educación Básica', data: [41.32, 22.45, 41.93, 41.46], backgroundColor: '#eab308', barPercentage: 0.65 },
+          { label: 'Secundaria', data: [0.0, 0.0, 0.0, 0.0], backgroundColor: '#60a5fa', barPercentage: 0.65 },
+          { label: 'Educación Media', data: [16.85, 25.06, 17.93, 18.92], backgroundColor: '#84cc16', barPercentage: 0.65 },
+          { label: 'Superior no universitario', data: [4.21, 29.22, 10.74, 11.60], backgroundColor: '#1e3a8a', barPercentage: 0.65 },
+          { label: 'Superior Universitario', data: [1.40, 15.91, 5.09, 6.07], backgroundColor: '#9a3412', barPercentage: 0.65 },
+          { label: 'Post-grado', data: [0.10, 0.71, 0.23, 0.27], backgroundColor: '#475569', barPercentage: 0.65 }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, max: 100, ticks: { callback: (v) => v + '%' } },
+          y: { stacked: true, ticks: { font: { family: 'Arial', size: 9, weight: 'bold' }, color: '#0f172a' } }
+        },
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 10, boxHeight: 10, font: { family: 'Arial', size: 9 }, color: '#1e293b', padding: 6 } },
+          tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x.toFixed(2).replace('.', ',')}%` } },
+          datalabels: { display: false }
+        }
+      }
+    });
+
+    // Gráfico 11: Educación CIUO Quito (Horizontal Stacked Bar)
+    new Chart(document.getElementById('chartG11EduHorizontal'), {
+      type: 'bar',
+      data: {
+        labels: [
+          'Ayudantes de taller mecánico (9333)',
+          'Técnicos de diagnóstico e inyección (7233)',
+          'Mecánicos y ajustadores de vehículos (7231)',
+          'Mecánicos de motocicletas (7232)'
+        ],
+        datasets: [
+          { label: 'Ninguno', data: [4.08, 0.29, 1.16, 1.01], backgroundColor: '#3b82f6', barPercentage: 0.65 },
+          { label: 'Centro alfabetización', data: [0.0, 0.0, 0.0, 0.0], backgroundColor: '#f97316', barPercentage: 0.65 },
+          { label: 'Primaria', data: [30.27, 5.22, 19.24, 16.92], backgroundColor: '#9ca3af', barPercentage: 0.65 },
+          { label: 'Educación Básica', data: [44.56, 17.97, 41.43, 39.39], backgroundColor: '#eab308', barPercentage: 0.65 },
+          { label: 'Secundaria', data: [0.0, 0.0, 0.0, 0.0], backgroundColor: '#60a5fa', barPercentage: 0.65 },
+          { label: 'Educación Media', data: [16.67, 28.41, 18.77, 19.07], backgroundColor: '#84cc16', barPercentage: 0.65 },
+          { label: 'Superior no universitario', data: [3.74, 31.59, 11.95, 14.90], backgroundColor: '#1e3a8a', barPercentage: 0.65 },
+          { label: 'Superior Universitario', data: [0.68, 15.65, 7.14, 8.33], backgroundColor: '#9a3412', barPercentage: 0.65 },
+          { label: 'Post-grado', data: [0.0, 0.87, 0.31, 0.38], backgroundColor: '#475569', barPercentage: 0.65 }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, max: 100, ticks: { callback: (v) => v + '%' } },
+          y: { stacked: true, ticks: { font: { family: 'Arial', size: 9, weight: 'bold' }, color: '#0f172a' } }
+        },
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 10, boxHeight: 10, font: { family: 'Arial', size: 9 }, color: '#1e293b', padding: 6 } },
+          tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x.toFixed(2).replace('.', ',')}%` } },
+          datalabels: { display: false }
+        }
+      }
+    });
+
+    // Gráfico 12: Ingresos Quito
+    new Chart(document.getElementById('chartG12'), {
+      type: 'bar',
+      data: {
+        labels: ['Téc. Inyección/ABS (7233)', 'Mecánico Motos (7232)', 'SBU 2025 (Referencia)', 'Ayudante Taller (9333)', 'Trabajador Informal'],
+        datasets: [{
+          label: 'Ingreso Promedio Mensual (USD)',
+          data: [785.50, 620.40, 470.00, 410.20, 315.00],
+          backgroundColor: ['#059669', '#004b87', '#c48800', '#64748b', '#e11d48'],
+          borderRadius: 4
+        }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            font: { family: 'Arial', size: 9.5, weight: 'bold' },
+            formatter: (v) => '$' + v.toFixed(2).replace('.', ',')
+          }
+        }
+      }
+    });
+
+    // Gráfico 13: Oferta Académica Quito por Campo Amplio
+    new Chart(document.getElementById('chartG13'), {
+      type: 'bar',
+      data: {
+        labels: ['Admin/Derecho', 'Servicios', 'Ingeniería/Mecánica', 'TIC', 'Salud', 'Educación', 'Artes', 'Cs. Sociales'],
+        datasets: [{ label: '% Oferta Vigente Quito', data: [25.10, 13.94, 12.32, 10.44, 9.47, 8.50, 8.37, 8.11], backgroundColor: '#004b87', barPercentage: 0.65 }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            formatter: (v) => v.toFixed(2).replace('.', ',') + '%'
+          }
+        }
+      }
+    });
+
+    // Gráfico 14: Bachilleres
+    new Chart(document.getElementById('chartG14'), {
+      type: 'bar',
+      data: {
+        labels: ['2009', '2011', '2013', '2015', '2017', '2019', '2021', '2023', '2025'],
+        datasets: [{ label: 'Estudiantes 3ro Bachillerato Quito', data: [33318, 36451, 40353, 42185, 41941, 44152, 48615, 43297, 41728], backgroundColor: '#c48800', barPercentage: 0.65 }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            font: { family: 'Arial', size: 8, weight: 'bold' },
+            formatter: (v) => v.toLocaleString('es-EC')
+          }
+        }
+      }
+    });
+
+    // Gráfico 15: PND
+    new Chart(document.getElementById('chartG15'), {
+      type: 'line',
+      data: {
+        labels: ['2016', '2018', '2020', '2022', '2024', '2026', '2029 (Meta)'],
+        datasets: [{
+          label: 'Tasa Bruta de Matrícula (%)',
+          data: [30.27, 34.82, 36.98, 40.88, 43.50, 45.80, 48.60],
+          borderColor: '#059669',
+          backgroundColor: '#059669',
+          borderWidth: 3,
+          tension: 0.2,
+          pointRadius: 4.5,
+          pointBackgroundColor: '#059669'
+        }]
+      },
+      options: {
+        ...baseChartConfig,
+        plugins: {
+          ...baseChartConfig.plugins,
+          datalabels: {
+            ...baseChartConfig.plugins.datalabels,
+            formatter: (v) => v.toFixed(2).replace('.', ',') + '%'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
