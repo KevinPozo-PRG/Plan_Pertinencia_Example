@@ -6,7 +6,6 @@
   <title>Estudio de Pertinencia Curricular - Técnico Superior en Mecánica de Motos (IST POLITEC)</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     /* Microsoft Word Native Typography and Layout */
     body {
@@ -15,6 +14,33 @@
       color: #000000;
       margin: 0;
       padding: 24px 0;
+    }
+
+    /* Standard Word Hyperlink Styles */
+    a {
+      color: #0563C1; /* Microsoft Word hyperlink blue */
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #0563C1;
+    }
+    a:hover {
+      color: #004B91;
+    }
+    .word-toc a {
+      color: #000000;
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      width: 100%;
+    }
+    .word-toc a:hover .toc-title {
+      text-decoration: underline;
+      color: #0563C1;
+    }
+    .word-toc a:hover .toc-page {
+      color: #0563C1;
+      font-weight: bold;
     }
 
     .word-page {
@@ -124,13 +150,11 @@
     }
 
     .word-callout {
-      border-left: 3px solid #1F4E79;
-      background-color: #f8fafc;
-      padding: 6pt 9pt;
-      margin: 6pt 0;
-      font-size: 9pt;
-      color: #1e293b;
-      line-height: 1.35;
+      margin: 5pt 0;
+      font-size: 9.5pt;
+      line-height: 1.32;
+      color: #000000;
+      text-align: justify;
     }
 
     /* Tables strictly in Microsoft Word style */
@@ -289,12 +313,9 @@
     }
 
     .word-cover-career-box {
-      border: 1px solid #bfbfbf;
-      background-color: #f9fbfd;
-      padding: 10pt 16pt;
-      text-align: left;
-      margin: 10pt auto;
+      margin: 12pt auto;
       max-width: 520px;
+      text-align: center;
     }
 
     .word-cover-career-label {
@@ -366,17 +387,17 @@
 </head>
 <body>
 
-  <!-- TOP CONTROLS NAVBAR -->
-  <div class="no-print" style="position: fixed; top: 12px; right: 12px; z-index: 9999; display: flex; align-items: center; gap: 8px; background: rgba(15, 23, 42, 0.95); padding: 8px 14px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); font-family: sans-serif;">
-    <span style="color: #ffffff; font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 4px;">
-      <i data-lucide="file-text" style="width: 14px; height: 14px; color: #60a5fa;"></i> Vista Word • 24 Páginas
-    </span>
-    <select onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth'})" style="background: #1e293b; color: #ffffff; font-size: 11px; padding: 4px 8px; border-radius: 4px; border: 1px solid #475569; outline: none; cursor: pointer;">
+  <!-- TOP CONTROLS NAVBAR (Clean, Standard Academic, No AI badges/icons) -->
+  <div class="no-print" style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; align-items: center; gap: 8px; background: #ffffff; padding: 5px 12px; border: 1px solid #7f7f7f; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-family: Calibri, 'Segoe UI', Arial, sans-serif; font-size: 11px; color: #000000;">
+    <span style="font-weight: bold; color: #1F4E79;">Documento Oficial de Pertinencia (24 Páginas)</span>
+    <span style="color: #7f7f7f;">|</span>
+    <label for="page-selector" style="color: #333333;">Página:</label>
+    <select id="page-selector" onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth'})" style="font-family: inherit; font-size: 11px; padding: 2px 6px; border: 1px solid #7f7f7f; background: #ffffff; color: #000000; cursor: pointer;">
       <option value="page-01-cover">P01. Portada Institucional</option>
       <option value="page-02-indice">P02. Índice General de Contenidos</option>
       <option value="page-03-intro">P03. 1. Introducción y Antecedentes</option>
       <option value="page-04-social-1">P04. 2.1. Población y Demografía (Tabla 1 + Gráf 1-2)</option>
-      <option value="page-05-social-2">P05. 2.1. Etnia, Nivel, Asistencia y Desempleo (Gráf 3-6)</option>
+      <option value="page-05-social-2">P05. 2.1. Movilidad, Nivel, Asistencia y Desempleo (Gráf 3-6)</option>
       <option value="page-06-econ-1">P06. 2.2. Tejido Productivo CIIU G4540 (Tablas 2-3)</option>
       <option value="page-07-econ-2">P07. 2.2. Ventas y Constitución de Empresas (Tabla 4 + Gráf 7-8)</option>
       <option value="page-08-supercias">P08. 2.2. Ranking Empleadores SUPERCIAS (Tabla 5)</option>
@@ -397,8 +418,8 @@
       <option value="page-23-conclusiones">P23. 7. Conclusiones y Dictamen Institucional</option>
       <option value="page-24-referencias">P24. 8. Referencias Bibliográficas y Trazabilidad</option>
     </select>
-    <button onclick="window.print()" style="background: #2563eb; color: #ffffff; border: none; font-size: 11px; font-weight: bold; padding: 5px 10px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 4px;">
-      <i data-lucide="printer" style="width: 13px; height: 13px;"></i> Imprimir / PDF
+    <button onclick="window.print()" style="background: #f2f2f2; color: #000000; border: 1px solid #7f7f7f; font-family: inherit; font-size: 11px; font-weight: bold; padding: 2px 10px; cursor: pointer;">
+      Imprimir / PDF
     </button>
   </div>
 
@@ -476,176 +497,176 @@
         <div class="word-toc">
           <div class="word-toc-section-title">Índice de Contenidos</div>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-03-intro" class="toc-row toc-level-1">
             <span class="toc-title">1. INTRODUCCIÓN Y ANTECEDENTES</span>
             <span class="toc-dots"></span>
             <span class="toc-page">3</span>
-          </div>
+          </a>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-04-social-1" class="toc-row toc-level-1">
             <span class="toc-title">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (DIAGNÓSTICO)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">4</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-04-social-1" class="toc-row toc-level-2">
             <span class="toc-title">2.1. Términos Sociales: Contexto Demográfico y Población Juvenil</span>
             <span class="toc-dots"></span>
             <span class="toc-page">4</span>
-          </div>
-          <div class="toc-row toc-level-2">
-            <span class="toc-title">2.1. Términos Sociales: Etnia, Nivel Educativo, Asistencia y Desempleo Juvenil</span>
+          </a>
+          <a href="#page-05-social-2" class="toc-row toc-level-2">
+            <span class="toc-title">2.1. Términos Sociales: Movilidad Laboral en Motos, Instrucción y Desempleo</span>
             <span class="toc-dots"></span>
             <span class="toc-page">5</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-06-econ-1" class="toc-row toc-level-2">
             <span class="toc-title">2.2. Términos Económicos: Tejido Empresarial y Empleo Registrado (CIIU G4540)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">6</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-07-econ-2" class="toc-row toc-level-2">
             <span class="toc-title">2.2. Términos Económicos: Ventas Totales y Dinámica de Constitución Empresarial</span>
             <span class="toc-dots"></span>
             <span class="toc-page">7</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-08-supercias" class="toc-row toc-level-2">
             <span class="toc-title">2.2. Tejido Empresarial: Ranking de Principales Empleadores (SUPERCIAS)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">8</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-09-enemdu-edu" class="toc-row toc-level-2">
             <span class="toc-title">2.2. Demanda Ocupacional: Nivel Educativo en la Fuerza Laboral (ENEMDU 2025)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">9</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-10-enemdu-iess" class="toc-row toc-level-2">
             <span class="toc-title">2.2. Demanda Ocupacional: Cobertura de Seguridad Social e Informalidad</span>
             <span class="toc-dots"></span>
             <span class="toc-page">10</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-11-enemdu-salario" class="toc-row toc-level-2">
             <span class="toc-title">2.2. Demanda Ocupacional: Retorno Salarial a la Titulación Técnica Superior</span>
             <span class="toc-dots"></span>
             <span class="toc-page">11</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-12-acad-1" class="toc-row toc-level-2">
             <span class="toc-title">2.3. Términos Académicos: Oferta Superior por Campo de Conocimiento UNESCO</span>
             <span class="toc-dots"></span>
             <span class="toc-page">12</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-13-acad-2" class="toc-row toc-level-2">
             <span class="toc-title">2.3. Términos Académicos: Carreras Vigentes, Titulados y Bachilleres AMIE</span>
             <span class="toc-dots"></span>
             <span class="toc-page">13</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-14-cultural" class="toc-row toc-level-2">
             <span class="toc-title">2.4. Términos Culturales: Movilidad Urbana, Cultura de Motos y Tecnología</span>
             <span class="toc-dots"></span>
             <span class="toc-page">14</span>
-          </div>
+          </a>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-15-pnd" class="toc-row toc-level-1">
             <span class="toc-title">3. ARTICULACIÓN CON EL PLAN NACIONAL DE DESARROLLO (PND 2025–2029)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">15</span>
-          </div>
+          </a>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-16-pdot" class="toc-row toc-level-1">
             <span class="toc-title">4. ARTICULACIÓN CON LA PLANIFICACIÓN TERRITORIAL (PDOT Y PMDOT)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">16</span>
-          </div>
+          </a>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-17-contribucion" class="toc-row toc-level-1">
             <span class="toc-title">5. CONTRIBUCIÓN DE LOS PROFESIONALES A LA SOLUCIÓN DE PROBLEMAS</span>
             <span class="toc-dots"></span>
             <span class="toc-page">17</span>
-          </div>
+          </a>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-18-demanda-ocup-1" class="toc-row toc-level-1">
             <span class="toc-title">6. ESTUDIO DE MERCADO Y DEMANDA (INVESTIGACIÓN DE CAMPO)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">18</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-18-demanda-ocup-1" class="toc-row toc-level-2">
             <span class="toc-title">6.1. Demanda Ocupacional: Objetivos y Muestreo Probabilístico de Cochran</span>
             <span class="toc-dots"></span>
             <span class="toc-page">18</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-19-demanda-ocup-2" class="toc-row toc-level-2">
             <span class="toc-title">6.1. Demanda Ocupacional: Resultados de la Encuesta a Talleres y Empresas</span>
             <span class="toc-dots"></span>
             <span class="toc-page">19</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-20-brecha-laboral" class="toc-row toc-level-2">
             <span class="toc-title">6.1. Demanda Ocupacional: Proyección de Demanda, Oferta y Brecha Laboral</span>
             <span class="toc-dots"></span>
             <span class="toc-page">20</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-21-demanda-estud-1" class="toc-row toc-level-2">
             <span class="toc-title">6.2. Demanda Estudiantil: Objetivos, Muestreo y Encuestas a Bachilleres</span>
             <span class="toc-dots"></span>
             <span class="toc-page">21</span>
-          </div>
-          <div class="toc-row toc-level-2">
+          </a>
+          <a href="#page-22-demanda-estud-2" class="toc-row toc-level-2">
             <span class="toc-title">6.2. Demanda Estudiantil: Proyección 2026–2030 y Malla Curricular Oficial</span>
             <span class="toc-dots"></span>
             <span class="toc-page">22</span>
-          </div>
+          </a>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-23-conclusiones" class="toc-row toc-level-1">
             <span class="toc-title">7. CONCLUSIONES INSTITUCIONALES Y DICTAMEN DE PERTINENCIA</span>
             <span class="toc-dots"></span>
             <span class="toc-page">23</span>
-          </div>
+          </a>
 
-          <div class="toc-row toc-level-1">
+          <a href="#page-24-referencias" class="toc-row toc-level-1">
             <span class="toc-title">8. REFERENCIAS BIBLIOGRÁFICAS (NORMAS APA 7ma EDICIÓN)</span>
             <span class="toc-dots"></span>
             <span class="toc-page">24</span>
-          </div>
+          </a>
 
           <div style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 14px; margin-top: 6pt;">
             <div>
               <div class="word-toc-section-title" style="margin-top: 2pt; font-size: 9pt;">Índice de Tablas</div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 1 Proyección población Ecuador, Pichincha, Quito</span><span class="toc-dots"></span><span class="toc-page">4</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 2 Empresas societarias activas (CIIU G4540)</span><span class="toc-dots"></span><span class="toc-page">6</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 3 Plazas laborales directas en motocicletas</span><span class="toc-dots"></span><span class="toc-page">6</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 4 Ventas del sector motocicletas (M USD)</span><span class="toc-dots"></span><span class="toc-page">7</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 5 Principales compañías empleadoras Quito</span><span class="toc-dots"></span><span class="toc-page">8</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 6 Fuerza laboral por nivel de instrucción</span><span class="toc-dots"></span><span class="toc-page">9</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 7 Cobertura IESS en mecánicos de motos</span><span class="toc-dots"></span><span class="toc-page">10</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 8 Caracterización salarial y retorno a titulación</span><span class="toc-dots"></span><span class="toc-page">11</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 9 Oferta académica tercer nivel por UNESCO</span><span class="toc-dots"></span><span class="toc-page">12</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 10 Carreras mecánicas vigentes en Quito</span><span class="toc-dots"></span><span class="toc-page">13</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 11 Titulados acumulados en mecánica</span><span class="toc-dots"></span><span class="toc-page">13</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 12 Articulación con PND 2025-2029</span><span class="toc-dots"></span><span class="toc-page">15</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 13 Articulación con PDOT y PMDOT</span><span class="toc-dots"></span><span class="toc-page">16</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 14 Contribución a problemáticas del sector</span><span class="toc-dots"></span><span class="toc-page">17</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 15 Tabulación encuesta a talleres (n=383)</span><span class="toc-dots"></span><span class="toc-page">19</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 16 Estimación demanda laboral anual Quito</span><span class="toc-dots"></span><span class="toc-page">20</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 17 Proyección demanda, oferta y brecha</span><span class="toc-dots"></span><span class="toc-page">20</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 18 Indicadores de cobertura laboral IST</span><span class="toc-dots"></span><span class="toc-page">20</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 19 Tabulación encuesta bachilleres (n=381)</span><span class="toc-dots"></span><span class="toc-page">21</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 20 Proyección demanda estudiantil</span><span class="toc-dots"></span><span class="toc-page">22</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Tabla 21 Malla Curricular Oficial de la Carrera</span><span class="toc-dots"></span><span class="toc-page">22</span></div>
+              <a href="#page-04-social-1" class="toc-row toc-level-2"><span class="toc-title">Tabla 1 Proyección población Ecuador, Pichincha, Quito</span><span class="toc-dots"></span><span class="toc-page">4</span></a>
+              <a href="#page-06-econ-1" class="toc-row toc-level-2"><span class="toc-title">Tabla 2 Empresas societarias activas (CIIU G4540)</span><span class="toc-dots"></span><span class="toc-page">6</span></a>
+              <a href="#page-06-econ-1" class="toc-row toc-level-2"><span class="toc-title">Tabla 3 Plazas laborales directas en motocicletas</span><span class="toc-dots"></span><span class="toc-page">6</span></a>
+              <a href="#page-07-econ-2" class="toc-row toc-level-2"><span class="toc-title">Tabla 4 Ventas del sector motocicletas (M USD)</span><span class="toc-dots"></span><span class="toc-page">7</span></a>
+              <a href="#page-08-supercias" class="toc-row toc-level-2"><span class="toc-title">Tabla 5 Principales compañías empleadoras Quito</span><span class="toc-dots"></span><span class="toc-page">8</span></a>
+              <a href="#page-09-enemdu-edu" class="toc-row toc-level-2"><span class="toc-title">Tabla 6 Fuerza laboral por nivel de instrucción</span><span class="toc-dots"></span><span class="toc-page">9</span></a>
+              <a href="#page-10-enemdu-iess" class="toc-row toc-level-2"><span class="toc-title">Tabla 7 Cobertura IESS en mecánicos de motos</span><span class="toc-dots"></span><span class="toc-page">10</span></a>
+              <a href="#page-11-enemdu-salario" class="toc-row toc-level-2"><span class="toc-title">Tabla 8 Caracterización salarial y retorno a titulación</span><span class="toc-dots"></span><span class="toc-page">11</span></a>
+              <a href="#page-12-acad-1" class="toc-row toc-level-2"><span class="toc-title">Tabla 9 Oferta académica tercer nivel por UNESCO</span><span class="toc-dots"></span><span class="toc-page">12</span></a>
+              <a href="#page-13-acad-2" class="toc-row toc-level-2"><span class="toc-title">Tabla 10 Carreras mecánicas vigentes en Quito</span><span class="toc-dots"></span><span class="toc-page">13</span></a>
+              <a href="#page-13-acad-2" class="toc-row toc-level-2"><span class="toc-title">Tabla 11 Titulados acumulados en mecánica</span><span class="toc-dots"></span><span class="toc-page">13</span></a>
+              <a href="#page-15-pnd" class="toc-row toc-level-2"><span class="toc-title">Tabla 12 Articulación con PND 2025-2029</span><span class="toc-dots"></span><span class="toc-page">15</span></a>
+              <a href="#page-16-pdot" class="toc-row toc-level-2"><span class="toc-title">Tabla 13 Articulación con PDOT y PMDOT</span><span class="toc-dots"></span><span class="toc-page">16</span></a>
+              <a href="#page-17-contribucion" class="toc-row toc-level-2"><span class="toc-title">Tabla 14 Contribución a problemáticas del sector</span><span class="toc-dots"></span><span class="toc-page">17</span></a>
+              <a href="#page-19-demanda-ocup-2" class="toc-row toc-level-2"><span class="toc-title">Tabla 15 Tabulación encuesta a talleres (n=383)</span><span class="toc-dots"></span><span class="toc-page">19</span></a>
+              <a href="#page-20-brecha-laboral" class="toc-row toc-level-2"><span class="toc-title">Tabla 16 Estimación demanda laboral anual Quito</span><span class="toc-dots"></span><span class="toc-page">20</span></a>
+              <a href="#page-20-brecha-laboral" class="toc-row toc-level-2"><span class="toc-title">Tabla 17 Proyección demanda, oferta y brecha</span><span class="toc-dots"></span><span class="toc-page">20</span></a>
+              <a href="#page-20-brecha-laboral" class="toc-row toc-level-2"><span class="toc-title">Tabla 18 Indicadores de cobertura laboral IST</span><span class="toc-dots"></span><span class="toc-page">20</span></a>
+              <a href="#page-21-demanda-estud-1" class="toc-row toc-level-2"><span class="toc-title">Tabla 19 Tabulación encuesta bachilleres (n=381)</span><span class="toc-dots"></span><span class="toc-page">21</span></a>
+              <a href="#page-22-demanda-estud-2" class="toc-row toc-level-2"><span class="toc-title">Tabla 20 Proyección demanda estudiantil</span><span class="toc-dots"></span><span class="toc-page">22</span></a>
+              <a href="#page-22-demanda-estud-2" class="toc-row toc-level-2"><span class="toc-title">Tabla 21 Malla Curricular Oficial de la Carrera</span><span class="toc-dots"></span><span class="toc-page">22</span></a>
             </div>
 
             <div>
               <div class="word-toc-section-title" style="margin-top: 2pt; font-size: 9pt;">Índice de Gráficos</div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 1 Proyección grupo 18-24 años</span><span class="toc-dots"></span><span class="toc-page">4</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 2 Población de Quito por sexo</span><span class="toc-dots"></span><span class="toc-page">4</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 3 Uso de motos: Delivery vs Particular</span><span class="toc-dots"></span><span class="toc-page">5</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 4 Población por nivel de instrucción</span><span class="toc-dots"></span><span class="toc-page">5</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 5 Asistencia a clases general y 18-24</span><span class="toc-dots"></span><span class="toc-page">5</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 6 Desempleo juvenil por instrucción</span><span class="toc-dots"></span><span class="toc-page">5</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 7 Ventas de motos en Quito (2012-24)</span><span class="toc-dots"></span><span class="toc-page">7</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 8 Constitución de empresas motos</span><span class="toc-dots"></span><span class="toc-page">7</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 9 Nivel educativo de mecánicos</span><span class="toc-dots"></span><span class="toc-page">9</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 10 Tasa sin afiliación IESS por edad</span><span class="toc-dots"></span><span class="toc-page">10</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 11 Ingreso promedio según nivel educ.</span><span class="toc-dots"></span><span class="toc-page">11</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 12 Oferta académica UNESCO Quito</span><span class="toc-dots"></span><span class="toc-page">12</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 13 Bachilleres Quito 2009-2025</span><span class="toc-dots"></span><span class="toc-page">13</span></div>
-              <div class="toc-row toc-level-2"><span class="toc-title">Gráfico 14 Tasa Bruta Matrícula Meta PND</span><span class="toc-dots"></span><span class="toc-page">15</span></div>
+              <a href="#page-04-social-1" class="toc-row toc-level-2"><span class="toc-title">Gráfico 1 Proyección grupo 18-24 años</span><span class="toc-dots"></span><span class="toc-page">4</span></a>
+              <a href="#page-04-social-1" class="toc-row toc-level-2"><span class="toc-title">Gráfico 2 Población de Quito por sexo</span><span class="toc-dots"></span><span class="toc-page">4</span></a>
+              <a href="#page-05-social-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 3 Uso de motos: Delivery vs Particular</span><span class="toc-dots"></span><span class="toc-page">5</span></a>
+              <a href="#page-05-social-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 4 Población por nivel de instrucción</span><span class="toc-dots"></span><span class="toc-page">5</span></a>
+              <a href="#page-05-social-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 5 Asistencia a clases general y 18-24</span><span class="toc-dots"></span><span class="toc-page">5</span></a>
+              <a href="#page-05-social-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 6 Desempleo juvenil por instrucción</span><span class="toc-dots"></span><span class="toc-page">5</span></a>
+              <a href="#page-07-econ-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 7 Ventas de motos en Quito (2012-24)</span><span class="toc-dots"></span><span class="toc-page">7</span></a>
+              <a href="#page-07-econ-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 8 Constitución de empresas motos</span><span class="toc-dots"></span><span class="toc-page">7</span></a>
+              <a href="#page-09-enemdu-edu" class="toc-row toc-level-2"><span class="toc-title">Gráfico 9 Nivel educativo de mecánicos</span><span class="toc-dots"></span><span class="toc-page">9</span></a>
+              <a href="#page-10-enemdu-iess" class="toc-row toc-level-2"><span class="toc-title">Gráfico 10 Tasa sin afiliación IESS por edad</span><span class="toc-dots"></span><span class="toc-page">10</span></a>
+              <a href="#page-11-enemdu-salario" class="toc-row toc-level-2"><span class="toc-title">Gráfico 11 Ingreso promedio según nivel educ.</span><span class="toc-dots"></span><span class="toc-page">11</span></a>
+              <a href="#page-12-acad-1" class="toc-row toc-level-2"><span class="toc-title">Gráfico 12 Oferta académica UNESCO Quito</span><span class="toc-dots"></span><span class="toc-page">12</span></a>
+              <a href="#page-13-acad-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 13 Bachilleres Quito 2009-2025</span><span class="toc-dots"></span><span class="toc-page">13</span></a>
+              <a href="#page-15-pnd" class="toc-row toc-level-2"><span class="toc-title">Gráfico 14 Tasa Bruta Matrícula Meta PND</span><span class="toc-dots"></span><span class="toc-page">15</span></a>
             </div>
           </div>
         </div>
@@ -677,14 +698,18 @@
           Este fenómeno se aceleró de manera exponencial a partir de 2020 con la masificación del comercio electrónico y las plataformas tecnológicas de entrega a domicilio (delivery) como Rappi, PedidosYa, Uber Eats y servicios de mensajería corporativa de última milla. La motocicleta se convirtió en el activo productivo por excelencia de la juventud quiteña, operando bajo un <strong>régimen de trabajo severo y continuo</strong> (jornadas de 10 a 14 horas diarias y recorridos de 150 a 250 kilómetros al día en pendientes exigentes), lo que genera un desgaste acelerado de los sistemas de frenos, embrague, neumáticos, suspensión y componentes térmicos del motor.
         </p>
 
-        <div class="word-callout">
+        <p class="word-p" style="margin-top: 4pt; margin-bottom: 2pt;">
           <strong>La Problemática Crítica del Sector en Quito:</strong>
-          <p style="margin-top: 3pt; font-size: 8.8pt; line-height: 1.3;">
-            1. <strong>Obsolescencia Técnica de los Talleres:</strong> La inmensa mayoría de los talleres barriales operan bajo esquemas empíricos tradicionales, con herramientas rudimentarias aptas únicamente para motores básicos a carburador. Carecen de escáneres automotrices de diagnóstico digital OBD-II, osciloscopios y analizadores de gases para intervenir los sistemas modernos de Inyección Electrónica de Combustible (EFI / PGM-FI), sensores de oxígeno y computadoras de a bordo (ECU).<br>
-            2. <strong>Crisis de Siniestralidad Vial:</strong> Según registros de la Agencia Metropolitana de Tránsito (AMT) y la Agencia Nacional de Tránsito (ANT), los motociclistas concentran más del 35% de los fallecidos in situ en accidentes de tránsito en Quito. Una proporción alarmante de estos siniestros se deriva de fallas mecánicas imprevistas en el sistema de frenos y dirección por mantenimientos improvisados y repuestos no homologados.<br>
-            3. <strong>Precarización Laboral:</strong> Más del 83,5% de los mecánicos jóvenes en Quito carece de afiliación a la seguridad social y percibe ingresos de subsistencia, debido a la falta de titulación formal de tercer nivel que acredite sus competencias ante concesionarios y aseguradoras.
-          </p>
-        </div>
+        </p>
+        <p class="word-p" style="font-size: 9.5pt; margin-bottom: 3pt;">
+          <strong>1. Obsolescencia Técnica de los Talleres:</strong> La inmensa mayoría de los talleres barriales operan bajo esquemas empíricos tradicionales, con herramientas rudimentarias aptas únicamente para motores básicos a carburador. Carecen de escáneres automotrices de diagnóstico digital OBD-II, osciloscopios y analizadores de gases para intervenir los sistemas modernos de Inyección Electrónica de Combustible (EFI / PGM-FI), sensores de oxígeno y computadoras de a bordo (ECU).
+        </p>
+        <p class="word-p" style="font-size: 9.5pt; margin-bottom: 3pt;">
+          <strong>2. Crisis de Siniestralidad Vial:</strong> Según registros oficiales de la <a href="https://www.ant.gob.ec" target="_blank">Agencia Nacional de Tránsito (ANT 2024)</a> y la Agencia Metropolitana de Tránsito (AMT), los motociclistas concentran más del 35% de los fallecidos in situ en accidentes viales en Quito (<a href="https://doi.org/10.23857/pc.v8i4.5512" target="_blank">Gómez & Morales, 2023</a>). Una proporción alarmante de estos siniestros se deriva de fallas mecánicas imprevistas en los sistemas de frenos y suspensión por mantenimientos improvisados y repuestos no homologados.
+        </p>
+        <p class="word-p" style="font-size: 9.5pt; margin-bottom: 4pt;">
+          <strong>3. Precarización Laboral e Informalidad:</strong> Más del 83,5% de los mecánicos jóvenes en Quito carece de afiliación a la seguridad social contributiva del IESS y percibe ingresos de subsistencia, debido a la falta de titulación formal de tercer nivel (<a href="https://www.ces.gob.ec" target="_blank">RRA-CES</a>) que acredite sus competencias ante concesionarios oficiales, flotas corporativas y aseguradoras.
+        </p>
 
         <p class="word-p">
           <strong>La Solución Formativa desde el IST POLITEC:</strong> Frente a este diagnóstico, el Instituto Superior Tecnológico Politécnica del Ecuador diseña la carrera de <strong>Técnico Superior en Mecánica de Motos</strong> (2.800 horas / 4 períodos ordinarios), articulando dos itinerarios formativos: <em>1) Mantenimiento y Diagnóstico Electrónico de Motocicletas de Alta y Mediana Cilindrada</em>, y <em>2) Gestión de Talleres, Logística de Flotas y Movilidad Sostenible</em>. La carrera responde directamente a la necesidad de profesionalizar el servicio técnico, garantizando estándares de seguridad activa (frenos ABS, control de tracción), diagnosis computarizada, mantenimiento de flotas de delivery y transición hacia motocicletas eléctricas, asegurando a sus graduados un retorno salarial promedio de $802,64 USD y una inserción laboral formal inmediata.
@@ -696,7 +721,6 @@
         <span>Página 3 de 24</span>
       </div>
     </div>
-
     
 
     <!-- PÁGINA 4: 2.1 TÉRMINOS SOCIALES (POBLACIÓN Y JUVENTUD) -->
@@ -761,22 +785,22 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Instituto Nacional de Estadística y Censos (INEC), Proyecciones Poblacionales 2020-2035 (Revisión 2024).</div>
+        <div class="source-note">Fuente: <a href="https://www.ecuadorencifras.gob.ec/proyecciones-poblacionales/" target="_blank">Instituto Nacional de Estadística y Censos (INEC), Proyecciones Poblacionales 2020-2035 (Revisión 2024)</a>.</div>
 
         <div style="display: flex; gap: 14pt; margin-top: 6pt;">
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8.5pt;">Gráfico 1 Población de 18 a 24 años en Pichincha y Quito (2026-2035)</div>
             <div style="height: 130px; position: relative;">
               <canvas id="chartG1"></canvas>
             </div>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, Proyecciones Poblacionales (Revisión 2024).</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/proyecciones-poblacionales/" target="_blank">INEC, Proyecciones Poblacionales (Revisión 2024)</a>.</div>
           </div>
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8.5pt;">Gráfico 2 Distribución en Quito por sexo, ENEMDU 2025</div>
             <div style="height: 130px; position: relative;">
               <canvas id="chartG2"></canvas>
             </div>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, ENEMDU Anual 2025.</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC, ENEMDU Anual 2025</a>.</div>
           </div>
         </div>
 
@@ -807,7 +831,7 @@
         </p>
 
         <div style="display: flex; gap: 10pt; margin-top: 4pt;">
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 4pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8pt;">Gráfico 3 Uso de motocicletas en Quito (Delivery vs Particular)</div>
             <div style="height: 80px; position: relative;">
               <canvas id="chartG3"></canvas>
@@ -819,9 +843,9 @@
                 <tr><td>Uso Mixto / Microempresa</td><td style="text-align: right;">6,8%</td><td style="text-align: right;">4-6 h/día</td></tr>
               </tbody>
             </table>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: AMT / INEC ENEMDU 2025.</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: AMT / <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC ENEMDU 2025</a>.</div>
           </div>
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 4pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8pt;">Gráfico 4 Nivel de instrucción en Quito, ENEMDU 2025</div>
             <div style="height: 80px; position: relative;">
               <canvas id="chartG4"></canvas>
@@ -833,12 +857,12 @@
                 <tr><td>Sin Instrucción</td><td style="text-align: right;">3,4%</td><td>Total</td><td style="text-align: right;">100%</td></tr>
               </tbody>
             </table>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, ENEMDU Anual 2025.</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC, ENEMDU Anual 2025</a>.</div>
           </div>
         </div>
 
         <div style="display: flex; gap: 10pt; margin-top: 5pt;">
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 4pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8pt;">Gráfico 5 Asistencia a clases: Total vs Jóvenes (18-24)</div>
             <div style="height: 80px; position: relative;">
               <canvas id="chartG5"></canvas>
@@ -849,9 +873,9 @@
                 <tr style="background: #f2f5f9;"><td>Jóvenes (18 a 24 años)</td><td style="text-align: right;">Asiste: 32,2%</td><td style="text-align: right; font-weight: bold; color: #c00000;">No asiste: 67,8%</td></tr>
               </tbody>
             </table>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, ENEMDU Anual 2025.</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC, ENEMDU Anual 2025</a>.</div>
           </div>
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 4pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8pt;">Gráfico 6 Desempleo por educación en jóvenes (18-24)</div>
             <div style="height: 80px; position: relative;">
               <canvas id="chartG7"></canvas>
@@ -863,7 +887,7 @@
                 <tr style="background: #f2f5f9;"><td>Técnico Superior</td><td style="text-align: right; font-weight: bold; color: #1f4e79;">6,10%</td><td style="text-align: right; font-weight: bold; color: #1f4e79;">-11,35% menor</td></tr>
               </tbody>
             </table>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, ENEMDU Anual 2025.</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC, ENEMDU Anual 2025</a>.</div>
           </div>
         </div>
 
@@ -936,7 +960,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Superintendencia de Compañías, Valores y Seguros (SUPERCIAS), Directorio de Compañías Activas a Septiembre 2026. Filtro: Clase CIIU G4540, Estado: Activa, Tipos: S.A., Cía. Ltda., S.A.S.</div>
+        <div class="source-note">Fuente: <a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" target="_blank">Superintendencia de Compañías, Valores y Seguros (SUPERCIAS 2026)</a>. Directorio de Compañías Activas a Septiembre 2026. Filtro: Clase CIIU G4540, Estado: Activa, Tipos: S.A., Cía. Ltda., S.A.S.</div>
 
         <div class="table-caption">Tabla 3 Evolución de las plazas laborales directas registradas en el sector de motocicletas (CIIU G4540) en Ecuador, Pichincha y Quito, periodo 2012–2024</div>
         <table class="word-table">
@@ -985,7 +1009,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Instituto Nacional de Estadística y Censos (INEC), Registro Estadístico de Empresas (REEM 2012–2024). Clase CIIU G4540.</div>
+        <div class="source-note">Fuente: <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">Instituto Nacional de Estadística y Censos (INEC), Registro Estadístico de Empresas (REEM 2012–2024)</a>. Clase CIIU G4540.</div>
 
         <p class="word-p" style="margin-top: 6pt;">
           <strong>Interpretación y Vinculación Curricular:</strong> El tejido productivo societario formal de motocicletas en Quito reúne a <strong>102 compañías activas</strong> al corte oficial de septiembre de 2026 (de un total provincial de 104 y nacional de 410). Al analizar su cronología de constitución, se constata que <strong>78 de estas 102 empresas (el 76,47%) fueron fundadas en el periodo reciente (2020 a 2026)</strong>, demostrando un ritmo de natalidad empresarial acelerado vinculado a las demandas logísticas metropolitanas. A su vez, las plazas de trabajo formales registradas en el REEM crecieron un <strong>+136,3%</strong> en Quito, pasando de 366 a <strong>865 empleos directos</strong>, confirmando una base empresarial en expansión que requiere técnicos formales.
@@ -1056,10 +1080,10 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Instituto Nacional de Estadística y Censos (INEC), Registro Estadístico de Empresas (REEM 2012–2024). Valores en Millones de USD corrientes.</div>
+        <div class="source-note">Fuente: <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">Instituto Nacional de Estadística y Censos (INEC), Registro Estadístico de Empresas (REEM 2012–2024)</a>. Valores en Millones de USD corrientes.</div>
 
         <div style="display: flex; gap: 10pt; margin-top: 5pt;">
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 4pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8pt;">Gráfico 7 Evolución de ventas de motos en Quito (Millones USD)</div>
             <div style="height: 85px; position: relative;">
               <canvas id="chartG8"></canvas>
@@ -1072,9 +1096,9 @@
                 <tr><td>Ventas (M USD)</td><td style="text-align: right;">$44,85</td><td style="text-align: right;">$47,90</td><td style="text-align: right;">$51,20</td><td style="text-align: right;">$55,90</td><td style="text-align: right; font-weight: bold; color: #1f4e79;">$60,79</td></tr>
               </tbody>
             </table>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, REEM 2012–2024 (Clase CIIU G4540).</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">INEC, REEM 2012–2024 (Clase CIIU G4540)</a>.</div>
           </div>
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 4pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8pt;">Gráfico 8 Empresas de motos en Quito por periodo</div>
             <div style="height: 85px; position: relative;">
               <canvas id="chartG9"></canvas>
@@ -1089,7 +1113,7 @@
                 <tr style="background: #f2f5f9;"><td>2020 – 2026 (Boom)</td><td style="text-align: right; font-weight: bold; color: #1f4e79;">78</td><td style="text-align: right; font-weight: bold; color: #1f4e79;">100,0%</td></tr>
               </tbody>
             </table>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: SUPERCIAS, Directorio Oficial 2026.</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" target="_blank">SUPERCIAS, Directorio Oficial 2026</a>.</div>
           </div>
         </div>
 
@@ -1103,7 +1127,6 @@
         <span>Página 7 de 24</span>
       </div>
     </div>
-
     
 
     <!-- PÁGINA 8: 2.2 RANKING DE EMPLEADORES SUPERCIAS -->
@@ -1226,7 +1249,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Superintendencia de Compañías, Valores y Seguros (SUPERCIAS), Portal de Información Financiera y Balances 2025/2026. Cantón Quito, Activas.</div>
+        <div class="source-note">Fuente: <a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" target="_blank">Superintendencia de Compañías, Valores y Seguros (SUPERCIAS 2026)</a>, Portal de Información Financiera y Balances 2025/2026. Cantón Quito, Activas.</div>
 
         <p class="word-p" style="margin-top: 6pt;">
           <strong>Interpretación y Vinculación Curricular:</strong> El liderazgo empresarial en Quito está encabezado por compañías consolidadas como <em>MOSUMI S.A.</em> (con ventas superiores a $55 millones y 92 plazas) y <em>PANAMPENSA S.A.</em> (con 213 colaboradores directos), complementadas por un robusto clúster de distribuidoras, talleres especializados y centros posventa multimarca. La capacidad operativa de estas compañías demanda personal técnico con competencias en garantía de fábrica, diagnóstico por escáner y administración de talleres, sustentando los dos itinerarios de la carrera del IST POLITEC.
@@ -1310,14 +1333,14 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Instituto Nacional de Estadística y Censos (INEC), Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025). Factores de expansión oficiales.</div>
+        <div class="source-note">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">Instituto Nacional de Estadística y Censos (INEC), Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025)</a>. Factores de expansión oficiales.</div>
 
-        <div style="border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff; margin-top: 6pt;">
+        <div style="margin-top: 6pt;">
           <div class="table-caption" style="font-size: 8.5pt;">Gráfico 9 Distribución porcentual por nivel educativo de los mecánicos de motocicletas en Ecuador, ENEMDU Anual 2025</div>
           <div style="height: 130px; position: relative;">
             <canvas id="chartG10EduHorizontal"></canvas>
           </div>
-          <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, ENEMDU Anual 2025. Submuestra de mecánicos de motocicletas expandida.</div>
+          <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC, ENEMDU Anual 2025</a>. Submuestra de mecánicos de motocicletas expandida.</div>
         </div>
 
         <p class="word-p" style="margin-top: 8pt;">
@@ -1401,14 +1424,14 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Instituto Nacional de Estadística y Censos (INEC), Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025).</div>
+        <div class="source-note">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">Instituto Nacional de Estadística y Censos (INEC), Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025)</a>.</div>
 
-        <div style="border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff; margin-top: 6pt;">
+        <div style="margin-top: 6pt;">
           <div class="table-caption" style="font-size: 8.5pt;">Gráfico 10 Tasa de desprotección e informalidad (sin seguro social) en mecánicos de motos por grupo de edad (%)</div>
           <div style="height: 130px; position: relative;">
             <canvas id="chartG11EduHorizontal"></canvas>
           </div>
-          <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, ENEMDU Anual 2025. Cobertura contributiva del Instituto Ecuatoriano de Seguridad Social (IESS).</div>
+          <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC, ENEMDU Anual 2025</a>. Cobertura contributiva del Instituto Ecuatoriano de Seguridad Social (IESS).</div>
         </div>
 
         <p class="word-p" style="margin-top: 8pt;">
@@ -1437,7 +1460,7 @@
           El análisis econométrico de ingresos laborales de la ENEMDU Anual 2025 demuestra la existencia de una sustancial "prima salarial a la educación técnica", evidenciando que el mercado valora económicamente la profesionalización formal en diagnóstico electrónico y mantenimiento calificado por encima del Salario Básico Unificado vigente ($470,00 USD).
         </p>
 
-        <div style="border: 1px solid #d9d9d9; padding: 4pt; background: #ffffff; margin-top: 4pt;">
+        <div style="margin-top: 4pt;">
           <div class="table-caption" style="font-size: 8pt;">Gráfico 11 Ingreso laboral promedio mensual según nivel de instrucción alcanzado en mecánica de motos (USD)</div>
           <div style="height: 95px; position: relative;">
             <canvas id="chartG12"></canvas>
@@ -1469,7 +1492,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="source-note" style="margin-bottom: 0;">Fuente: INEC, ENEMDU Anual 2025. SBU oficial 2026: $470,00 USD.</div>
+          <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">INEC, ENEMDU Anual 2025</a>. SBU oficial 2026: $470,00 USD.</div>
         </div>
 
         <div class="table-caption" style="margin-top: 6pt;">Tabla 8 Caracterización salarial y diferencial frente al Salario Básico Unificado ($470,00) según nivel de instrucción (Microdatos ENEMDU 2025)</div>
@@ -1535,7 +1558,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Instituto Nacional de Estadística y Censos (INEC), ENEMDU Anual 2025. Procesamiento de la submuestra expandida de la clase CIIU G4540. SBU oficial 2026: $470,00 USD.</div>
+        <div class="source-note">Fuente: <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">Instituto Nacional de Estadística y Censos (INEC), ENEMDU Anual 2025</a>. Procesamiento de la submuestra expandida de la clase CIIU G4540. SBU oficial 2026: $470,00 USD.</div>
 
         <p class="word-p" style="margin-top: 6pt;">
           <strong>Interpretación y Vinculación Curricular:</strong> Los datos empíricos de la ENEMDU demuestran una particularidad estructural del mercado de motocicletas: la lógica teórica de que el profesional universitario gana más que el técnico no aplica en los talleres. El graduado universitario generalista percibe en promedio <strong>$499,91 USD</strong> debido a su falta de destrezas operativas manuales y de diagnóstico computarizado. En contraste, el <strong>Técnico y Tecnólogo Superior (Superior no universitario) alcanza el pico remunerativo absoluto con $802,64 USD mensuales</strong> (+70,8% sobre el SBU y +60,6% sobre el universitario), superando ampliamente a la mano de obra mayoritaria de secundaria ($629,30 USD). Esto confirma que el sector productivo premia con los mayores salarios a los profesionales prácticos con dominio técnico especializado.
@@ -1547,7 +1570,6 @@
         <span>Página 11 de 24</span>
       </div>
     </div>
-
     
 
     <!-- PÁGINA 12: 2.3 TÉRMINOS ACADÉMICOS (OFERTA POR CAMPO CINE UNESCO) -->
@@ -1679,14 +1701,14 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Consejo de Educación Superior (CES), Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE), corte a Septiembre 2026.</div>
+        <div class="source-note">Fuente: <a href="https://sniese.ces.gob.ec/" target="_blank">Consejo de Educación Superior (CES), Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE)</a>, corte a Septiembre 2026.</div>
 
-        <div style="border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff; margin-top: 6pt;">
+        <div style="margin-top: 6pt;">
           <div class="table-caption" style="font-size: 8.5pt;">Gráfico 12 Oferta académica vigente de tercer nivel en el cantón Quito por campo amplio de conocimiento, en porcentajes</div>
           <div style="height: 130px; position: relative;">
             <canvas id="chartG13"></canvas>
           </div>
-          <div class="source-note" style="margin-bottom: 0;">Fuente: CES - SNIESE 2026.</div>
+          <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://sniese.ces.gob.ec/" target="_blank">CES - SNIESE 2026</a>.</div>
         </div>
 
         <p class="word-p" style="margin-top: 8pt;">
@@ -1762,7 +1784,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Consejo de Educación Superior (CES), Catálogo Nacional de Carreras SNIESE 2026.</div>
+        <div class="source-note">Fuente: <a href="https://sniese.ces.gob.ec/" target="_blank">Consejo de Educación Superior (CES), Catálogo Nacional de Carreras SNIESE 2026</a>.</div>
 
         <div style="display: flex; gap: 12pt; margin-top: 6pt;">
           <div style="flex: 1;">
@@ -1782,15 +1804,15 @@
                 <tr style="font-weight: bold; border-top: 1px solid #7f7f7f;"><td>Total Titulados Históricos</td><td style="text-align: right;">4.120</td><td style="text-align: right;">100,0%</td></tr>
               </tbody>
             </table>
-            <div class="source-note">Fuente: SNIESE - CES, Titulados acumulados a 2025.</div>
+            <div class="source-note">Fuente: <a href="https://sniese.ces.gob.ec/" target="_blank">SNIESE - CES, Titulados acumulados a 2025</a>.</div>
           </div>
 
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 5pt; background: #ffffff;">
+          <div style="flex: 1;">
             <div class="table-caption" style="font-size: 8.5pt;">Gráfico 13 Estudiantes de 3ro Bachillerato Quito (2009-2025)</div>
             <div style="height: 120px; position: relative;">
               <canvas id="chartG14"></canvas>
             </div>
-            <div class="source-note" style="margin-bottom: 0;">Fuente: MINEDUC, AMIE 2009–2025.</div>
+            <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://educacion.gob.ec/datos-abiertos/" target="_blank">MINEDUC, AMIE 2009–2025</a>.</div>
           </div>
         </div>
 
@@ -1824,13 +1846,13 @@
           Paralelamente, la acelerada expansión de la economía de plataformas digitales de entrega a domicilio (delivery) y las cadenas de mensajería comercial y farmacéutica de última milla han consolidado una masa laboral urbana donde la motocicleta constituye el medio de sustento principal. Estas flotas intensivas operan recorridos de entre 120 y 220 kilómetros diarios en condiciones climáticas y geográficas exigentes, demandando planes de mantenimiento preventivo y correctivo de alta frecuencia, bajo estrictos estándares de fiabilidad mecánica.
         </p>
 
-        <div class="word-callout">
+        <p class="word-p" style="margin-top: 8pt; margin-bottom: 3pt;">
           <strong>Transición Tecnológica Disruptiva en el Sector de Motocicletas en Quito:</strong>
-          <ul style="margin: 4pt 0 0 14pt; padding: 0; line-height: 1.35; font-size: 9.5pt;">
-            <li><strong>Mecánica Tradicional Empírica (En desuso):</strong> Alimentación por carburador mecánico básico, encendido analógico por CDI convencional, frenos de tambor, diagnóstico empírico por percepción auditiva y elevadas emisiones de gases contaminantes (CO y HC).</li>
-            <li><strong>Tecnología Contemporánea Exigida (Perfil IST POLITEC):</strong> Inyección Electrónica de Combustible multipunto (EFI / PGM-FI), gestión computarizada por ECU, sensores y actuadores, frenos antibloqueo (ABS), control de tracción (TCS), diagnóstico digital con escáner OBD-II y osciloscopio, y propulsión eléctrica ligera con baterías de litio.</li>
-          </ul>
-        </div>
+        </p>
+        <ul style="margin: 0 0 8pt 18pt; padding: 0; line-height: 1.35; font-size: 9.5pt;">
+          <li><strong>Mecánica Tradicional Empírica (En desuso):</strong> Alimentación por carburador mecánico básico, encendido analógico por CDI convencional, frenos de tambor, diagnóstico empírico por percepción auditiva y elevadas emisiones de gases contaminantes (CO y HC).</li>
+          <li><strong>Tecnología Contemporánea Exigida (Perfil IST POLITEC):</strong> Inyección Electrónica de Combustible multipunto (EFI / PGM-FI), gestión computarizada por ECU, sensores y actuadores, frenos antibloqueo (ABS), control de tracción (TCS), diagnóstico digital con escáner OBD-II y osciloscopio, y propulsión eléctrica ligera con baterías de litio.</li>
+        </ul>
 
         <p class="word-p" style="margin-top: 8pt;">
           <strong>Interpretación y Vinculación Curricular:</strong> Esta brecha entre la complejidad tecnológica del parque actual y la precariedad técnica de los talleres tradicionales genera graves problemas de seguridad vial (siniestralidad atribuible a fallas mecánicas en frenos y suspensión) y contaminación ambiental. El programa de <strong>Técnico Superior en Mecánica de Motos</strong> atiende directamente esta necesidad mediante sus dos itinerarios formativos, capacitando al egresado tanto en el dominio de la inyección electrónica y los sistemas ABS, como en la administración profesional de talleres y flotas de movilidad sostenible.
@@ -1858,12 +1880,12 @@
           El diseño de la carrera se articula de manera vinculante con los objetivos estratégicos, políticas públicas y metas sectoriales del <strong>Plan Nacional de Desarrollo 2025–2029: "Ecuador No Se Detiene"</strong>, expedido por la Secretaría Nacional de Planificación, cumpliendo con el principio de pertinencia establecido en el Art. 107 de la Ley Orgánica de Educación Superior (LOES).
         </p>
 
-        <div style="border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff; margin-top: 4pt;">
+        <div style="margin-top: 4pt;">
           <div class="table-caption" style="font-size: 8.5pt;">Gráfico 14 Tasa Bruta de Matrícula de Tercer Nivel en Ecuador, en porcentajes, periodo 2016-2029 (Meta PND: 48,60%)</div>
           <div style="height: 120px; position: relative;">
             <canvas id="chartG15"></canvas>
           </div>
-          <div class="source-note" style="margin-bottom: 0;">Fuente: Secretaría Nacional de Planificación y SENESCYT, Plan Nacional de Desarrollo (PND 2025-2029, p. 126).</div>
+          <div class="source-note" style="margin-bottom: 0;">Fuente: <a href="https://www.planificacion.gob.ec/plan-nacional-de-desarrollo-2025-2029/" target="_blank">Secretaría Nacional de Planificación y SENESCYT, Plan Nacional de Desarrollo (PND 2025-2029, p. 126)</a>.</div>
         </div>
 
         <div class="table-caption" style="margin-top: 8pt;">Tabla 12 Matriz de Articulación Estratégica con el Plan Nacional de Desarrollo (PND 2025-2029)</div>
@@ -1897,7 +1919,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuente: Secretaría Nacional de Planificación (2025). Plan Nacional de Desarrollo 2025–2029: Ecuador No Se Detiene. Quito, Ecuador.</div>
+        <div class="source-note">Fuente: <a href="https://www.planificacion.gob.ec/plan-nacional-de-desarrollo-2025-2029/" target="_blank">Secretaría Nacional de Planificación (2025). Plan Nacional de Desarrollo 2025–2029: Ecuador No Se Detiene</a>. Quito, Ecuador.</div>
 
         <p class="word-p" style="margin-top: 8pt;">
           <strong>Interpretación y Vinculación Curricular:</strong> La carrera coadyuva de forma directa al cumplimiento de la meta emblemática del PND 2025–2029, consistente en <strong>elevar la Tasa Bruta de Matrícula de Tercer Nivel del 42,80% al 48,60% al año 2029</strong> (PND, p. 126). Al ofrecer una titulación técnica de ciclo corto (4 períodos académicos) en jornadas flexibles e híbridas, el IST POLITEC facilita el acceso y permanencia de jóvenes de sectores vulnerables, impulsando la meta gubernamental de inclusión y formalización.
@@ -1962,7 +1984,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="source-note">Fuentes: GADPP (2024), Plan de Desarrollo y Ordenamiento Territorial de Pichincha 2023-2027 (Ord. 15-CPP); MDMQ (2024), Ordenanza PMDOT-PUGS No. 004-2024.</div>
+        <div class="source-note">Fuentes: <a href="https://www.pichincha.gob.ec/" target="_blank">GADPP (2024), Plan de Desarrollo y Ordenamiento Territorial de Pichincha 2023-2027 (Ord. 15-CPP)</a>; <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank">MDMQ (2024), Ordenanza PMDOT-PUGS No. 004-2024</a>.</div>
 
         <p class="word-p" style="margin-top: 8pt;">
           <strong>Interpretación y Vinculación Curricular:</strong> La Ordenanza Metropolitana No. 004-2024 del Concejo Metropolitano de Quito prioriza la reducción de la siniestralidad y el control de fuentes móviles de emisión. En este marco, los egresados del IST POLITEC intervendrán como agentes técnicos capacitados en la verificación técnica vehicular y en la operación de talleres certificados, aportando a las metas del Plan Maestro de Movilidad Sostenible del Distrito Metropolitano de Quito.
@@ -2056,38 +2078,31 @@
           El análisis de la demanda ocupacional tiene como finalidad determinar las necesidades actuales y proyectadas de talento humano especializado en motocicletas en el mercado laboral del Distrito Metropolitano de Quito, así como establecer las competencias técnicas, administrativas y operativas requeridas por el sector empresarial.
         </p>
 
-        <div style="display: flex; gap: 12pt; margin-top: 4pt;">
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff;">
-            <p style="font-weight: bold; color: #1f4e79; margin: 0 0 3pt 0; font-size: 9.5pt;">Objetivo General Ocupacional:</p>
-            <p class="word-p" style="font-size: 9pt; margin-bottom: 0;">
-              Evaluar los requerimientos de contratación de técnicos en Mecánica de Motos y determinar las competencias diagnósticas, electrónicas y administrativas demandadas por los talleres, concesionarios y empresas del sector en el cantón Quito.
-            </p>
-          </div>
-          <div style="flex: 1; border: 1px solid #d9d9d9; padding: 6pt; background: #ffffff;">
-            <p style="font-weight: bold; color: #1f4e79; margin: 0 0 3pt 0; font-size: 9.5pt;">Objetivos Específicos:</p>
-            <ul style="margin: 0; padding-left: 12pt; font-size: 8.5pt; line-height: 1.3;">
-              <li>Identificar la proporción de talleres con déficit de personal técnico calificado.</li>
-              <li>Estimar la probabilidad y volumen de contratación de técnicos para los próximos 3 años.</li>
-              <li>Determinar las competencias más demandadas (inyección EFI, frenos ABS, escáner).</li>
-              <li>Evaluar la disposición para recibir practicantes y suscribir convenios de formación dual.</li>
-            </ul>
-          </div>
-        </div>
+        <p class="word-p" style="margin-top: 6pt;">
+          <strong>Objetivo General Ocupacional:</strong> Evaluar los requerimientos de contratación de técnicos en Mecánica de Motos y determinar las competencias diagnósticas, electrónicas y administrativas demandadas por los talleres, concesionarios y empresas del sector en el cantón Quito.
+        </p>
 
-        <div class="word-callout" style="margin-top: 8pt;">
-          <strong>Universo de Estudio y Diseño Muestral Probabilístico (Fórmula de Cochran):</strong>
-          <p style="margin-top: 3pt; font-size: 9pt;">
-            El universo ocupacional está conformado por las <strong>102 compañías societarias activas</strong> del sector de motocicletas registradas en la SUPERCIAS y los <strong>5.728 establecimientos económicos formales</strong> con RUC en la clase CIIU G4540 catalogados en el REEM del INEC para el cantón Quito. Para garantizar un nivel de confianza del 95% ($Z = 1,96$) y un margen de error máximo del 5,0% ($e = 0,05$), asumiendo máxima varianza ($p = q = 0,5$), se aplicó la fórmula de Cochran para poblaciones finitas:
-          </p>
+        <p class="word-p" style="margin-top: 5pt; margin-bottom: 3pt;">
+          <strong>Objetivos Específicos:</strong>
+        </p>
+        <ul style="margin: 0 0 8pt 18pt; padding: 0; font-size: 9pt; line-height: 1.35;">
+          <li>Identificar la proporción de talleres con déficit de personal técnico calificado.</li>
+          <li>Estimar la probabilidad y volumen de contratación de técnicos para los próximos 3 años.</li>
+          <li>Determinar las competencias más demandadas (inyección EFI, frenos ABS, escáner).</li>
+          <li>Evaluar la disposición para recibir practicantes y suscribir convenios de formación dual.</li>
+        </ul>
 
-          <p style="text-align: center; font-family: monospace; font-size: 9pt; margin: 4pt 0; background: #ffffff; padding: 3pt; border: 1px solid #d9d9d9;">
-            n = [N · Z² · p · q] / [e² · (N - 1) + Z² · p · q] = [5.728 · (1,96)² · 0,25] / [(0,05)² · 5.727 + (1,96)² · 0,25] = 360,3 ≈ 361
-          </p>
+        <p class="word-p" style="margin-top: 8pt;">
+          <strong>Universo de Estudio y Diseño Muestral Probabilístico (Fórmula de Cochran):</strong> El universo ocupacional está conformado por las <strong>102 compañías societarias activas</strong> del sector de motocicletas registradas en la <a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" target="_blank">SUPERCIAS</a> y los <strong>5.728 establecimientos económicos formales</strong> con RUC en la clase CIIU G4540 catalogados en el <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">REEM del INEC</a> para el cantón Quito. Para garantizar un nivel de confianza del 95% ($Z = 1,96$) y un margen de error máximo del 5,0% ($e = 0,05$), asumiendo máxima varianza ($p = q = 0,5$), se aplicó la fórmula de Cochran para poblaciones finitas:
+        </p>
 
-          <p style="font-size: 9pt; margin-bottom: 0;">
-            Para maximizar la solidez estadística y cubrir posibles no-respuestas, la investigación de campo levantó de manera efectiva <strong>n = 383 encuestas completas y validadas</strong> a representantes técnicos, propietarios y jefes de taller en Quito (reduciendo el margen de error efectivo al <strong>4,83%</strong>).
-          </p>
-        </div>
+        <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 9.5pt; margin: 6pt 0; padding: 4pt 0;">
+          <em>n</em> = [<em>N</em> · <em>Z</em>² · <em>p</em> · <em>q</em>] / [<em>e</em>² · (<em>N</em> - 1) + <em>Z</em>² · <em>p</em> · <em>q</em>] = [5.728 · (1,96)² · 0,25] / [(0,05)² · 5.727 + (1,96)² · 0,25] = <strong>360,3 ≈ 361 establecimientos</strong>
+        </p>
+
+        <p class="word-p">
+          Para maximizar la solidez estadística y cubrir posibles no-respuestas, la investigación de campo levantó de manera efectiva <strong>n = 383 encuestas completas y validadas</strong> a representantes técnicos, propietarios y jefes de taller en Quito (reduciendo el margen de error efectivo al <strong>4,83%</strong>).
+        </p>
 
         <p class="word-p" style="margin-top: 8pt;">
           <strong>Caracterización de Informantes y Técnicas:</strong> La encuesta se aplicó de forma mixta (presencial en talleres y virtual asistida) dirigida a jefes de servicio posventa de concesionarios oficiales (28,2%), propietarios de talleres multimarca independientes (43,9%), directores de flotas corporativas de reparto (18,5%) y administradores de centros de repuestos con servicio rápido (9,4%).
@@ -2151,7 +2166,6 @@
         </p>
       </div>
 
-
       <div class="word-footer">
         <span>6.1. Demanda Ocupacional: Resultados de Encuesta • IST POLITEC</span>
         <span>Página 19 de 24</span>
@@ -2185,7 +2199,7 @@
           <tbody>
             <tr>
               <td>Universo de establecimientos del sector en Quito</td>
-              <td>Registro Estadístico de Empresas (REEM INEC - CIIU G4540)</td>
+              <td><a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">Registro Estadístico de Empresas (REEM INEC - CIIU G4540)</a></td>
               <td style="text-align: right; font-weight: bold;">5.728</td>
             </tr>
             <tr>
@@ -2303,12 +2317,9 @@
           El análisis de la demanda estudiantil evalúa las aspiraciones vocacionales, preferencias de modalidad formativa, capacidad económica y proyección ocupacional de los estudiantes de último año de bachillerato del Distrito Metropolitano de Quito respecto a la oferta del IST POLITEC.
         </p>
 
-        <div class="word-callout" style="padding: 4pt 8pt; margin: 4pt 0;">
-          <strong>Universo Educativo y Muestreo Probabilístico (Fórmula de Cochran):</strong>
-          <span style="font-size: 8.5pt;">
-            Registro AMIE 2025: <strong>N = 41.728 bachilleres</strong> en Quito. Con $Z = 1,96$ (95% confianza), error $e = 0,05$ y varianza $p=q=0,5$, la muestra teórica es $n = 380,52 pprox 381$. Se aplicaron y tabularon efectivamente <strong>n = 381 encuestas</strong> a bachilleres de unidades educativas fiscales, fiscomisionales y particulares del cantón.
-          </span>
-        </div>
+        <p class="word-p" style="margin-top: 5pt; margin-bottom: 4pt;">
+          <strong>Universo Educativo y Muestreo Probabilístico (Fórmula de Cochran):</strong> A partir del <a href="https://educacion.gob.ec/datos-abiertos/" target="_blank">Registro Oficial AMIE 2025 del MINEDUC</a>, se identifica una población de <strong>N = 41.728 bachilleres</strong> matriculados en 3ro de bachillerato en el cantón Quito. Aplicando la fórmula de Cochran con un nivel de confianza del 95% ($Z = 1,96$), margen de error del 5,0% ($e = 0,05$) y varianza máxima ($p = q = 0,5$), el tamaño muestral teórico requerido fue de <em>n</em> = 380,52 ≈ 381. Se aplicaron y tabularon efectivamente <strong>n = 381 encuestas</strong> a bachilleres de unidades educativas fiscales, fiscomisionales y particulares del cantón.
+        </p>
 
         <div class="table-caption" style="margin-top: 4pt;">Tabla 19 Tabulación del Cuestionario de Demanda Estudiantil a Bachilleres del Cantón Quito (n = 381)</div>
         <table class="word-table" style="font-size: 7.2pt; line-height: 1.15;">
@@ -2490,29 +2501,29 @@
         </p>
 
         <div style="margin-top: 6pt;">
-          <div class="word-callout" style="margin-bottom: 6pt;">
+          <p class="word-p" style="margin-bottom: 7pt;">
             <strong>1. Pertinencia Social y Democratización Educativa:</strong>
             El estudio constata que los jóvenes bachilleres de Quito enfrentan una tasa de desempleo del <strong>17,45%</strong>, la cual se reduce drásticamente al <strong>6,10%</strong> en los titulados de tercer nivel técnico superior. La carrera atiende las aspiraciones del <strong>62,20% de los bachilleres consultados</strong> que prefieren programas técnicos cortos e híbridos que faciliten su inmediata inserción laboral y movilidad socioeconómica.
-          </div>
+          </p>
 
-          <div class="word-callout" style="margin-bottom: 6pt;">
+          <p class="word-p" style="margin-bottom: 7pt;">
             <strong>2. Pertinencia Económica y Retorno Laboral:</strong>
-            La delimitación precisa en la <strong>clase CIIU G4540</strong> demuestra un sector empresarial formal en plena expansión, con <strong>102 compañías societarias activas</strong> en Quito (76,5% fundadas post-2020), ventas por <strong>$60,79 millones de USD</strong> y un crecimiento del empleo formal del <strong>+136,3%</strong> en el REEM. La ENEMDU certifica que el técnico superior percibe un salario promedio de <strong>$802,64 USD</strong> (+70,8% sobre el SBU y +112% sobre el mecánico empírico), garantizando un retorno sustantivo a la inversión educativa.
-          </div>
+            La delimitación precisa en la <strong>clase CIIU G4540</strong> demuestra un sector empresarial formal en plena expansión, con <strong>102 compañías societarias activas</strong> en Quito (76,5% fundadas post-2020), ventas por <strong>$60,79 millones de USD</strong> y un crecimiento del empleo formal del <strong>+136,3%</strong> en el <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">REEM</a>. La <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">ENEMDU</a> certifica que el técnico superior percibe un salario promedio de <strong>$802,64 USD</strong> (+70,8% sobre el SBU y +112% sobre el mecánico empírico), garantizando un retorno sustantivo a la inversión educativa.
+          </p>
 
-          <div class="word-callout" style="margin-bottom: 6pt;">
+          <p class="word-p" style="margin-bottom: 7pt;">
             <strong>3. Pertinencia Ocupacional y Brecha Laboral Positiva:</strong>
             La investigación de campo aplicada a <strong>383 establecimientos</strong> demuestra que el <strong>68,41% requiere contratar técnicos</strong>. El modelo metodológico arrojó una demanda anual de <strong>500 profesionales</strong> frente a una oferta efectiva afín de 170 técnicos, generando una <strong>brecha laboral neta insatisfecha de 330 profesionales por año</strong> (déficit estructural del 66,00%), asegurando la inmediata absorción de los egresados del instituto.
-          </div>
+          </p>
 
-          <div class="word-callout" style="margin-bottom: 6pt;">
+          <p class="word-p" style="margin-bottom: 7pt;">
             <strong>4. Articulación Territorial y Solución de Problemáticas:</strong>
-            El programa se alinea de forma vinculante con el <strong>PND 2025–2029</strong> (meta de tasa bruta de matrícula del 48,60% y formación dual), la Ordenanza Provincial 15-CPP del PDOT Pichincha y la Ordenanza Metropolitana No. 004-2024 de Quito. Sus dos itinerarios formativos atacan directamente los problemas de siniestralidad vial por mantenimiento defectuoso, emisiones contaminantes y precarización laboral del 83,50% de jóvenes desprotegidos de seguridad social.
-          </div>
+            El programa se alinea de forma vinculante con el <a href="https://www.planificacion.gob.ec/plan-nacional-de-desarrollo-2025-2029/" target="_blank">PND 2025–2029</a> (meta de tasa bruta de matrícula del 48,60% y formación dual), la Ordenanza Provincial 15-CPP del <a href="https://www.pichincha.gob.ec/" target="_blank">PDOT Pichincha</a> y la Ordenanza Metropolitana No. 004-2024 de <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank">Quito</a>. Sus dos itinerarios formativos atacan directamente los problemas de siniestralidad vial por mantenimiento defectuoso, emisiones contaminantes y precarización laboral del 83,50% de jóvenes desprotegidos de seguridad social.
+          </p>
         </div>
 
-        <div style="background-color: #f2f5f9; border: 1px solid #b8cce4; padding: 8pt; margin-top: 8pt; font-size: 9.5pt; text-align: center; color: #1f4e79; font-weight: bold;">
-          DICTAMEN TÉCNICO INSTITUCIONAL: Se dictamina la plena pertinencia curricular, viabilidad socioeconómica y sostenibilidad técnica del proyecto formativo, recomendando formalmente su aprobación y registro ante el Consejo de Educación Superior (CES).
+        <div style="border-top: 1.5pt solid #1f4e79; border-bottom: 1.5pt solid #1f4e79; padding: 8pt 4pt; margin-top: 10pt; font-size: 9.5pt; text-align: justify; line-height: 1.35;">
+          <strong>DICTAMEN TÉCNICO INSTITUCIONAL:</strong> Sobre la base de la evidencia cuantitativa y cualitativa expuesta, se dictamina la <strong>plena pertinencia curricular, viabilidad socioeconómica y sostenibilidad técnica</strong> del proyecto formativo de Técnico Superior en Mecánica de Motos del IST POLITEC, recomendando formalmente su aprobación y registro ante el Consejo de Educación Superior (CES).
         </div>
       </div>
 
@@ -2535,49 +2546,49 @@
         
         <div style="font-size: 8pt; line-height: 1.25; color: #000000; margin-top: 3pt;">
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Agencia Nacional de Tránsito [ANT]. (2024). <em>Estadísticas Consolidadas de Siniestralidad Vial en el Ecuador 2023–2024</em>. Dirección de Estudios e Investigaciones Viales. <a href="https://www.ant.gob.ec" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.ant.gob.ec</a>
+            Agencia Nacional de Tránsito [ANT]. (2024). <em>Estadísticas Consolidadas de Siniestralidad Vial en el Ecuador 2023–2024</em>. Dirección de Estudios e Investigaciones Viales. <a href="https://www.ant.gob.ec" target="_blank">https://www.ant.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Consejo de Aseguramiento de la Calidad de la Educación Superior [CACES]. (2024). <em>Guía Metodológica para la Evaluación de Pertinencia en Carreras Técnicas y Tecnológicas Superiores</em>. Quito: CACES. <a href="https://www.caces.gob.ec" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.caces.gob.ec</a>
+            Consejo de Aseguramiento de la Calidad de la Educación Superior [CACES]. (2024). <em>Guía Metodológica para la Evaluación de Pertinencia en Carreras Técnicas y Tecnológicas Superiores</em>. Quito: CACES. <a href="https://www.caces.gob.ec" target="_blank">https://www.caces.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Consejo de Educación Superior [CES]. (2024). <em>Reglamento de Régimen Académico Codificado (Resolución RPC-SO-053-No.1024-2024)</em>. Gaceta Oficial del CES. <a href="https://www.ces.gob.ec" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.ces.gob.ec</a>
+            Consejo de Educación Superior [CES]. (2024). <em>Reglamento de Régimen Académico Codificado (Resolución RPC-SO-053-No.1024-2024)</em>. Gaceta Oficial del CES. <a href="https://www.ces.gob.ec" target="_blank">https://www.ces.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Consejo de Educación Superior [CES]. (2026). <em>Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE): Oferta académica y catálogo de titulados vigentes</em>. <a href="https://sniese.ces.gob.ec" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://sniese.ces.gob.ec</a>
+            Consejo de Educación Superior [CES]. (2026). <em>Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE): Oferta académica y catálogo de titulados vigentes</em>. <a href="https://sniese.ces.gob.ec" target="_blank">https://sniese.ces.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Gobierno Autónomo Descentralizado de la Provincia de Pichincha [GADPP]. (2024). <em>Plan de Desarrollo y Ordenamiento Territorial de Pichincha 2023–2027 (Ordenanza Provincial No. 15-CPP-2023-2027)</em>. Registro Oficial Edición Especial No. 1906. <a href="https://www.pichincha.gob.ec" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.pichincha.gob.ec</a>
+            Gobierno Autónomo Descentralizado de la Provincia de Pichincha [GADPP]. (2024). <em>Plan de Desarrollo y Ordenamiento Territorial de Pichincha 2023–2027 (Ordenanza Provincial No. 15-CPP-2023-2027)</em>. Registro Oficial Edición Especial No. 1906. <a href="https://www.pichincha.gob.ec" target="_blank">https://www.pichincha.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Gómez, M., &amp; Morales, F. (2023). Análisis de la siniestralidad vial en usuarios de motocicletas de delivery y su relación con el mantenimiento electromecánico en metrópolis andinas. <em>Revista Polo del Conocimiento</em>, 8(4), 1120–1142. <a href="https://doi.org/10.23857/pc.v8i4.5512" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://doi.org/10.23857/pc.v8i4.5512</a>
+            Gómez, M., &amp; Morales, F. (2023). Análisis de la siniestralidad vial en usuarios de motocicletas de delivery y su relación con el mantenimiento electromecánico en metrópolis andinas. <em>Revista Polo del Conocimiento</em>, 8(4), 1120–1142. <a href="https://doi.org/10.23857/pc.v8i4.5512" target="_blank">https://doi.org/10.23857/pc.v8i4.5512</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Instituto Nacional de Estadística y Censos [INEC]. (2024). <em>Estimaciones y Proyecciones de la Población Nacional, Provincial y Cantonal 2020–2035 (Revisión 2024)</em>. <a href="https://www.ecuadorencifras.gob.ec/proyecciones-poblacionales/" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.ecuadorencifras.gob.ec</a>
+            Instituto Nacional de Estadística y Censos [INEC]. (2024). <em>Estimaciones y Proyecciones de la Población Nacional, Provincial y Cantonal 2020–2035 (Revisión 2024)</em>. <a href="https://www.ecuadorencifras.gob.ec/proyecciones-poblacionales/" target="_blank">https://www.ecuadorencifras.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Instituto Nacional de Estadística y Censos [INEC]. (2024). <em>Directorio del Registro Estadístico de Empresas (REEM 2012–2024): Base de establecimientos y plazas laborales</em>. <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.ecuadorencifras.gob.ec</a>
+            Instituto Nacional de Estadística y Censos [INEC]. (2024). <em>Directorio del Registro Estadístico de Empresas (REEM 2012–2024): Base de establecimientos y plazas laborales</em>. <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">https://www.ecuadorencifras.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Instituto Nacional de Estadística y Censos [INEC]. (2025). <em>Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025): Base de personas y factores de expansión</em>. <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.ecuadorencifras.gob.ec</a>
+            Instituto Nacional de Estadística y Censos [INEC]. (2025). <em>Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025): Base de personas y factores de expansión</em>. <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">https://www.ecuadorencifras.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Ministerio de Educación del Ecuador [MINEDUC]. (2025). <em>Archivo Maestro de Instituciones Educativas (AMIE 2009–2025): Matrícula de 3ro de Bachillerato</em>. <a href="https://educacion.gob.ec/datos-abiertos/" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://educacion.gob.ec</a>
+            Ministerio de Educación del Ecuador [MINEDUC]. (2025). <em>Archivo Maestro de Instituciones Educativas (AMIE 2009–2025): Matrícula de 3ro de Bachillerato</em>. <a href="https://educacion.gob.ec/datos-abiertos/" target="_blank">https://educacion.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Municipio del Distrito Metropolitano de Quito [MDMQ]. (2024). <em>Plan Metropolitano de Desarrollo y Ordenamiento Territorial y Plan de Uso y Gestión del Suelo (Ordenanza Metropolitana No. 004-2024)</em>. Concejo Metropolitano de Quito. <a href="https://gobiernoabierto.quito.gob.ec" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://gobiernoabierto.quito.gob.ec</a>
+            Municipio del Distrito Metropolitano de Quito [MDMQ]. (2024). <em>Plan Metropolitano de Desarrollo y Ordenamiento Territorial y Plan de Uso y Gestión del Suelo (Ordenanza Metropolitana No. 004-2024)</em>. Concejo Metropolitano de Quito. <a href="https://gobiernoabierto.quito.gob.ec" target="_blank">https://gobiernoabierto.quito.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Organización Panamericana de la Salud [OPS]. (2023). <em>Informe sobre la situación de la seguridad vial en la Región de las Américas y usuarios vulnerables</em>. Washington, D.C.: OPS. <a href="https://doi.org/10.37774/9789275327240" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://doi.org/10.37774/9789275327240</a>
+            Organización Panamericana de la Salud [OPS]. (2023). <em>Informe sobre la situación de la seguridad vial en la Región de las Américas y usuarios vulnerables</em>. Washington, D.C.: OPS. <a href="https://doi.org/10.37774/9789275327240" target="_blank">https://doi.org/10.37774/9789275327240</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Secretaría Nacional de Planificación. (2025). <em>Plan Nacional de Desarrollo 2025–2029: Ecuador No Se Detiene</em>. Gobierno de la República del Ecuador. <a href="https://www.planificacion.gob.ec" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://www.planificacion.gob.ec</a>
+            Secretaría Nacional de Planificación. (2025). <em>Plan Nacional de Desarrollo 2025–2029: Ecuador No Se Detiene</em>. Gobierno de la República del Ecuador. <a href="https://www.planificacion.gob.ec" target="_blank">https://www.planificacion.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Superintendencia de Compañías, Valores y Seguros [SUPERCIAS]. (2026). <em>Directorio de Compañías Activas y Ranking Financiero Empresarial (Sector Societario)</em>. <a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://appscvsmovil.supercias.gob.ec</a>
+            Superintendencia de Compañías, Valores y Seguros [SUPERCIAS]. (2026). <em>Directorio de Compañías Activas y Ranking Financiero Empresarial (Sector Societario)</em>. <a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" target="_blank">https://appscvsmovil.supercias.gob.ec</a>
           </p>
           <p style="padding-left: 18pt; text-indent: -18pt; margin-bottom: 2.5pt;">
-            Tapia, J., &amp; Cárdenas, P. (2022). Diagnóstico del parque de motocicletas ligeras y emisiones vehiculares en el Distrito Metropolitano de Quito. <em>Revista Enfoque UTE</em>, 13(2), 45–59. <a href="https://doi.org/10.29019/enfoqueute.v13n2.780" style="color: #1f4e79; text-decoration: underline;" target="_blank">https://doi.org/10.29019/enfoqueute.v13n2.780</a>
+            Tapia, J., &amp; Cárdenas, P. (2022). Diagnóstico del parque de motocicletas ligeras y emisiones vehiculares en el Distrito Metropolitano de Quito. <em>Revista Enfoque UTE</em>, 13(2), 45–59. <a href="https://doi.org/10.29019/enfoqueute.v13n2.780" target="_blank">https://doi.org/10.29019/enfoqueute.v13n2.780</a>
           </p>
         </div>
 
@@ -2595,25 +2606,25 @@
             <tbody>
               <tr>
                 <td style="font-weight: bold;">Tejido Societario</td>
-                <td>SUPERCIAS 2026</td>
+                <td><a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" target="_blank">SUPERCIAS 2026</a></td>
                 <td>CIIU G4540, Activas, Societarias (S.A., Cía. Ltda., S.A.S.)</td>
                 <td>102 empresas en Quito (76,5% post-2020)</td>
               </tr>
               <tr style="background-color: #f2f5f9;">
                 <td style="font-weight: bold; color: #1f4e79;">Empleo y Ventas</td>
-                <td>REEM INEC (2012-2024)</td>
+                <td><a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank">REEM INEC (2012-2024)</a></td>
                 <td>CIIU G4540, Serie anual por provincia y cantón</td>
                 <td>865 plazas formales (+136,3%), $60,79M ventas</td>
               </tr>
               <tr>
                 <td style="font-weight: bold;">Mano de Obra y Salarios</td>
-                <td>ENEMDU Anual 2025</td>
+                <td><a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank">ENEMDU Anual 2025</a></td>
                 <td>Submuestra expandida de mecánicos de motocicletas</td>
                 <td>93,15% empírico, 83,5% jóvenes sin IESS, Salario técnico: $802,64</td>
               </tr>
               <tr style="background-color: #f2f5f9;">
                 <td style="font-weight: bold; color: #1f4e79;">Oferta y Bachilleres</td>
-                <td>CES SNIESE &amp; MINEDUC AMIE</td>
+                <td><a href="https://sniese.ces.gob.ec/" target="_blank">CES SNIESE</a> &amp; <a href="https://educacion.gob.ec/datos-abiertos/" target="_blank">MINEDUC AMIE</a></td>
                 <td>Campo CINE 0715, Catálogo de carreras y AMIE 2025</td>
                 <td>Cero oferta específica en Quito; 41.728 bachilleres</td>
               </tr>
@@ -2636,8 +2647,6 @@
     
   <!-- CHARTS INITIALIZATION SCRIPT (Word Palette, No Data Collisions) -->
   <script>
-    lucide.createIcons();
-
     // Register DataLabels Plugin globally
     Chart.register(ChartDataLabels);
 
