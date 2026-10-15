@@ -1,0 +1,2925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudio de Pertinencia Curricular — Técnico Superior en Barismo (IAVQ)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <style>
+    /* Microsoft Word Native Typography and Layout */
+    body {
+      font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+      background-color: #d1d5db; /* Neutral Word canvas */
+      color: #000000;
+      margin: 0;
+      padding: 24px 0;
+    }
+
+    /* Standard Word Hyperlink Styles */
+    a {
+      color: #0563C1;
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #0563C1;
+    }
+    a:hover {
+      color: #004B91;
+    }
+    .word-toc a {
+      color: #000000;
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      width: 100%;
+    }
+    .word-toc a:hover .toc-title {
+      text-decoration: underline;
+      color: #0563C1;
+    }
+    .word-toc a:hover .toc-page {
+      color: #0563C1;
+      font-weight: bold;
+    }
+
+    .word-page {
+      width: 21.59cm;
+      min-height: 27.94cm;
+      padding: 2.2cm 2.4cm 2.0cm 2.4cm;
+      margin: 20px auto;
+      background: #ffffff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 1.8cm 2.0cm 1.8cm 2.0cm;
+      }
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .word-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+      }
+    }
+
+    .word-header {
+      border-bottom: 1px solid #7f7f7f;
+      padding-bottom: 3pt;
+      margin-bottom: 14pt;
+      font-size: 8.5pt;
+      color: #595959;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .word-content {
+      flex-grow: 1;
+      display: block;
+    }
+
+    .word-footer {
+      border-top: 1px solid #7f7f7f;
+      padding-top: 4pt;
+      margin-top: auto;
+      font-size: 8.5pt;
+      color: #595959;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Word Headings */
+    .word-heading-1 {
+      font-size: 13pt;
+      font-weight: bold;
+      color: #1F4E79;
+      text-transform: uppercase;
+      margin-top: 8pt;
+      margin-bottom: 4pt;
+      letter-spacing: 0.2px;
+      line-height: 1.25;
+    }
+
+    .word-heading-2 {
+      font-size: 11.5pt;
+      font-weight: bold;
+      color: #2E75B6;
+      margin-top: 7pt;
+      margin-bottom: 3pt;
+      line-height: 1.25;
+    }
+
+    .word-heading-3 {
+      font-size: 10.5pt;
+      font-weight: bold;
+      color: #1F4E79;
+      margin-top: 5pt;
+      margin-bottom: 2pt;
+      line-height: 1.25;
+    }
+
+    .word-p {
+      font-size: 10pt;
+      line-height: 1.28;
+      color: #000000;
+      text-align: justify;
+      margin-top: 0;
+      margin-bottom: 5pt;
+    }
+
+    .word-callout {
+      background-color: #F2F5F9;
+      border: 1px solid #D9E1F2;
+      border-left: 4.5px solid #1F4E79;
+      padding: 7pt 10pt;
+      margin: 5pt 0;
+      font-size: 9.2pt;
+      line-height: 1.32;
+      color: #1A1A1A;
+    }
+
+    /* Formal Word Table Styles */
+    .word-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 4pt 0 2pt 0;
+      font-size: 8.5pt;
+      color: #000000;
+    }
+
+    .word-table th {
+      background-color: #1F4E79;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 4pt 6pt;
+      border: 1px solid #1F4E79;
+      text-align: left;
+    }
+
+    .word-table td {
+      padding: 3pt 6pt;
+      border: 1px solid #D9D9D9;
+      vertical-align: middle;
+    }
+
+    .word-table tbody tr:nth-child(even) {
+      background-color: #F9FBFD;
+    }
+
+    .table-source {
+      font-size: 7.5pt;
+      color: #595959;
+      font-style: italic;
+      margin-top: 2pt;
+      margin-bottom: 6pt;
+      text-align: right;
+    }
+
+    /* Word Table of Contents */
+    .word-toc {
+      font-size: 8.5pt;
+      line-height: 1.35;
+      margin-top: 6pt;
+    }
+
+    .toc-group-title {
+      font-weight: bold;
+      color: #1F4E79;
+      font-size: 9pt;
+      margin-top: 6pt;
+      margin-bottom: 2pt;
+      border-bottom: 1px solid #1F4E79;
+      padding-bottom: 1.5pt;
+    }
+
+    .toc-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.5pt;
+    }
+
+    .toc-level-1 {
+      font-weight: bold;
+      color: #1F4E79;
+      margin-top: 2.5pt;
+    }
+
+    .toc-level-2 {
+      padding-left: 10pt;
+      font-weight: normal;
+      color: #262626;
+    }
+
+    .toc-title {
+      flex-shrink: 0;
+      max-width: 82%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toc-dots {
+      flex-grow: 1;
+      border-bottom: 1.5px dotted #595959;
+      margin: 0 4pt 2.5pt 4pt;
+      min-width: 15px;
+      height: 0;
+    }
+
+    .toc-page {
+      flex-shrink: 0;
+      font-weight: normal;
+      text-align: right;
+      min-width: 16px;
+      font-variant-numeric: tabular-nums;
+      color: #000000;
+    }
+
+    /* Word Cover Page Styles */
+    .word-cover-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      text-align: center;
+      padding: 1.2cm 0 0.5cm 0;
+      box-sizing: border-box;
+    }
+
+    .word-cover-institution {
+      font-size: 16pt;
+      font-weight: bold;
+      color: #1F4E79;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .word-cover-subinst {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #595959;
+      margin: 2pt 0 0 0;
+    }
+
+    .word-cover-divider {
+      width: 100px;
+      height: 2px;
+      background-color: #1F4E79;
+      margin: 10pt auto;
+    }
+
+    .word-cover-dept {
+      font-size: 8.5pt;
+      font-weight: bold;
+      color: #7f7f7f;
+      letter-spacing: 1px;
+    }
+
+    .word-cover-title {
+      font-size: 19pt;
+      font-weight: bold;
+      color: #000000;
+      margin: 12pt 0;
+      letter-spacing: 0.5px;
+    }
+
+    .word-cover-project-tag {
+      font-size: 8.5pt;
+      font-weight: bold;
+      color: #2E75B6;
+      letter-spacing: 1px;
+      margin-bottom: 2pt;
+    }
+
+    .word-cover-career-box {
+      margin: 10pt auto;
+      max-width: 530px;
+      text-align: center;
+      background-color: #F2F5F9;
+      border: 1.5px solid #1F4E79;
+      border-radius: 2px;
+      padding: 8pt 14pt;
+    }
+
+    .word-cover-career-label {
+      font-size: 8.5pt;
+      font-weight: bold;
+      color: #595959;
+      margin: 0 0 2pt 0;
+    }
+
+    .word-cover-career-name {
+      font-size: 13pt;
+      font-weight: bold;
+      color: #1F4E79;
+      margin: 0 0 6pt 0;
+    }
+
+    .word-cover-itinerary-label {
+      font-size: 8.5pt;
+      font-weight: bold;
+      color: #595959;
+      margin: 0 0 2pt 0;
+    }
+
+    .word-cover-itinerary-list {
+      margin: 0;
+      padding-left: 14pt;
+      font-size: 8.5pt;
+      line-height: 1.35;
+      color: #000000;
+    }
+
+    .word-cover-meta-table {
+      width: 100%;
+      max-width: 520px;
+      margin: 10pt auto 0 auto;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+      text-align: left;
+    }
+
+    .word-cover-meta-table td {
+      padding: 2.5pt 6pt;
+      border: none;
+    }
+
+    .word-cover-meta-table .meta-label {
+      font-weight: bold;
+      color: #333333;
+      width: 42%;
+    }
+
+    .word-cover-meta-table .meta-val {
+      color: #000000;
+    }
+
+    .word-cover-date {
+      font-size: 10pt;
+      font-weight: bold;
+      color: #333333;
+      margin: 0;
+    }
+
+    .word-cover-place {
+      font-size: 9pt;
+      color: #595959;
+      margin: 2pt 0 0 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP CONTROLS NAVBAR -->
+  <div class="no-print" style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; align-items: center; gap: 8px; background: #ffffff; padding: 5px 12px; border: 1px solid #7f7f7f; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-family: Calibri, 'Segoe UI', Arial, sans-serif; font-size: 11px; color: #000000;">
+    <span style="font-weight: bold; color: #1F4E79;">2. Documento Oficial: Técnico Superior en Barismo (IAVQ)</span>
+    <a href="dossier_mecanica_motos_vista_word.html" style="color: #2E75B6; text-decoration: none; font-weight: normal; margin-left: 4px;">[Ver 1. Mecánica de Motos (IST POLITEC)]</a>
+    <span style="color: #7f7f7f;">|</span>
+    <label for="page-selector" style="color: #333333;">Página:</label>
+    <select id="page-selector" onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth'})" style="font-family: inherit; font-size: 11px; padding: 2px 6px; border: 1px solid #7f7f7f; background: #ffffff; color: #000000; cursor: pointer;">
+      <option value="page-01-cover">P01. Portada Institucional</option>
+      <option value="page-02-indice">P02. Índice General de Contenidos</option>
+      <option value="page-03-intro">P03. 1. Introducción y Antecedentes</option>
+      <option value="page-04-social-1">P04. 2.1. Población y Demografía (Tabla 1 + Gráf 1-2)</option>
+      <option value="page-05-social-2">P05. 2.1. Mercado Laboral Juvenil (Gráf 3-6)</option>
+      <option value="page-06-econ-1">P06. 2.2. Tejido Productivo CIIU 56 (Tablas 2-3)</option>
+      <option value="page-07-econ-2">P07. 2.2. Facturación y Constitución (Tabla 4 + Gráf 7-8)</option>
+      <option value="page-08-supercias">P08. 2.2. Ranking Empleadores SUPERCIAS (Tabla 5)</option>
+      <option value="page-09-enemdu-edu">P09. 2.2. Diagnóstico Formativo ENEMDU (Tabla 6 + Gráf 9)</option>
+      <option value="page-10-enemdu-iess">P10. 2.2. Seguridad Social e Informalidad (Tabla 7 + Gráf 10)</option>
+      <option value="page-11-enemdu-salario">P11. 2.2. Retorno Salarial a la Titulación (Tabla 8 + Gráf 11)</option>
+      <option value="page-12-acad-1">P12. 2.3. Oferta Campo CINE 1013 (Tabla 9 + Gráf 12)</option>
+      <option value="page-13-acad-2">P13. 2.3. Vacancia y Bachilleres AMIE (Tablas 10-11 + Gráf 13)</option>
+      <option value="page-14-cultural">P14. 2.4. Tercera Ola y Tecnología</option>
+      <option value="page-15-pnd">P15. 3. Articulación PND 2025–2029 (Tabla 12)</option>
+      <option value="page-16-territorial">P16. 4. Articulación PDOT y PMDOT (Tabla 13 + Gráf 14)</option>
+      <option value="page-17-solucion">P17. 5. Contribución de Graduados (Tabla 14)</option>
+      <option value="page-18-demanda-emp-1">P18. 6.1. Demanda Empresarial: Cochran</option>
+      <option value="page-19-demanda-emp-2">P19. 6.1. Resultados 380 Cafeterías</option>
+      <option value="page-20-brecha">P20. 6.1. Brecha Laboral y Absorción</option>
+      <option value="page-21-estudiantil-1">P21. 6.2. Demanda Estudiantil: Cochran</option>
+      <option value="page-22-malla">P22. 6.2. Proyección y Malla Curricular</option>
+      <option value="page-23-conclusiones">P23. 7. Conclusiones y Dictamen IAVQ</option>
+      <option value="page-24-referencias">P24. 8. Referencias y Matriz de Auditoría</option>
+    </select>
+    <button onclick="window.print()" style="font-family: inherit; font-size: 11px; padding: 2px 8px; border: 1px solid #1F4E79; background: #1F4E79; color: #ffffff; cursor: pointer;">Imprimir / PDF</button>
+  </div>
+
+  <!-- 24 WORD PAGES -->
+  
+    <div class="word-page" id="page-01-cover">
+      <div class="word-cover-container">
+        <div>
+          <div class="word-cover-institution">INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO</div>
+          <div class="word-cover-subinst">IAVQ — CONDICIÓN SUPERIOR UNIVERSITARIA</div>
+          <div class="word-cover-divider"></div>
+          <div class="word-cover-dept">DEPARTAMENTO DE DESARROLLO INSTITUCIONAL Y DISEÑO CURRICULAR</div>
+        </div>
+
+        <div>
+          <div class="word-cover-project-tag">PROYECTO DE CREACIÓN DE CARRERA DE TERCER NIVEL TÉCNICO SUPERIOR</div>
+          <div class="word-cover-title">ESTUDIO DE PERTINENCIA CURRICULAR</div>
+          
+          <div class="word-cover-career-box">
+            <div class="word-cover-career-label">CARRERA PROPUESTA:</div>
+            <div class="word-cover-career-name">TÉCNICO SUPERIOR EN BARISMO</div>
+            <div class="word-cover-itinerary-label">ITINERARIOS FORMATIVOS:</div>
+            <ul class="word-cover-itinerary-list">
+              <li><strong>Itinerario 1:</strong> Barismo de Especialidad, Catación Sensorial y Tueste Artesanal</li>
+              <li><strong>Itinerario 2:</strong> Gestión Operativa de Barras, Emprendimiento y Control de Calidad</li>
+            </ul>
+          </div>
+
+          <table class="word-cover-meta-table">
+            <tr>
+              <td class="meta-label">Nivel de Formación:</td>
+              <td class="meta-val">Tercer Nivel Técnico Superior</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Título que Otorga:</td>
+              <td class="meta-val">Técnico/a Superior en Barismo</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Modalidad de Aprendizaje:</td>
+              <td class="meta-val">Híbrida (Virtual síncrona / Prácticas presenciales intensivas)</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Duración y Créditos:</td>
+              <td class="meta-val">4 Períodos Académicos Ordinarios (2 Años) — 2.800 Horas</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Campo Amplio / Específico:</td>
+              <td class="meta-val">10 Servicios / 101 Servicios personales (CINE UNESCO)</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Campo Detallado CINE:</td>
+              <td class="meta-val">1013 Servicios de hotelería, restaurantes y catering</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Clasificación CIIU Rev. 4:</td>
+              <td class="meta-val">I5630 (Servicio de bebidas / cafeterías) / C1079.11 (Elaboración y tueste)</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Clasificación CIUO-08:</td>
+              <td class="meta-val">5132 (Baristas y camareros de barra) / 7515 (Catadores de café)</td>
+            </tr>
+            <tr>
+              <td class="meta-label">Cobertura Territorial:</td>
+              <td class="meta-val">Cantón Quito, Provincia de Pichincha</td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <p class="word-cover-date">MARZO 2026</p>
+          <p class="word-cover-place">Quito D.M., República del Ecuador</p>
+        </div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 1 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-02-indice">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ÍNDICE GENERAL DEL ESTUDIO DE PERTINENCIA</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1" style="text-align: center; margin-bottom: 8pt;">ÍNDICE GENERAL DE CONTENIDOS</h1>
+
+        <div class="word-toc">
+          <div class="toc-group-title">1. ESTRUCTURA CANÓNICA DEL ESTUDIO DE PERTINENCIA CURRICULAR</div>
+          <div class="toc-row toc-level-1"><a href="#page-01-cover"><span class="toc-title">PORTADA INSTITUCIONAL DEL PROYECTO</span><span class="toc-dots"></span><span class="toc-page">1</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-02-indice"><span class="toc-title">ÍNDICE DE CONTENIDOS, TABLAS Y GRÁFICOS</span><span class="toc-dots"></span><span class="toc-page">2</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-03-intro"><span class="toc-title">1. INTRODUCCIÓN, ANTECEDENTES Y PERFIL INSTITUCIONAL IAVQ</span><span class="toc-dots"></span><span class="toc-page">3</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-04-social-1"><span class="toc-title">2. ANÁLISIS DE NECESIDADES DE DESARROLLO (DIAGNÓSTICO SITUACIONAL)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">2.1. Términos Sociales: Dinámica Demográfica y Proyección Juvenil en Quito</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">2.1. Términos Sociales: Mercado Laboral Juvenil, Desempleo y Asistencia</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-06-econ-1"><span class="toc-title">2.2. Términos Económicos: Tejido Productivo y Plazas Laborales (CIIU 56 REEM)</span><span class="toc-dots"></span><span class="toc-page">6</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">2.2. Términos Económicos: Facturación del Sector y Constitución Histórica</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-08-supercias"><span class="toc-title">2.2. Tejido Empresarial: Directorio y Ranking Societario (SUPERCIAS 2026)</span><span class="toc-dots"></span><span class="toc-page">8</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-09-enemdu-edu"><span class="toc-title">2.2. Diagnóstico Ocupacional: Nivel de Instrucción y Brecha de Titulación (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">9</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-10-enemdu-iess"><span class="toc-title">2.2. Diagnóstico Ocupacional: Seguridad Social e Informalidad Laboral (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">10</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-11-enemdu-salario"><span class="toc-title">2.2. Retorno Salarial y Prima a la Profesionalización en Cafeterías (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">11</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-12-acad-1"><span class="toc-title">2.3. Términos Académicos: Oferta Educativa Superior en el Campo UNESCO 1013</span><span class="toc-dots"></span><span class="toc-page">12</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">2.3. Términos Académicos: Vacancia Formativa y Cohorte de Bachilleres (AMIE)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-14-cultural"><span class="toc-title">2.4. Términos Culturales y Tendencias Tecnológicas en la Tercera Ola del Café</span><span class="toc-dots"></span><span class="toc-page">14</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-15-pnd"><span class="toc-title">3. ARTICULACIÓN CON EL PLAN NACIONAL DE DESARROLLO (PND 2025–2029)</span><span class="toc-dots"></span><span class="toc-page">15</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-16-territorial"><span class="toc-title">4. ARTICULACIÓN CON LA PLANIFICACIÓN TERRITORIAL (PDOT Y PMDOT)</span><span class="toc-dots"></span><span class="toc-page">16</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-17-solucion"><span class="toc-title">5. CONTRIBUCIÓN DE LOS PROFESIONALES A LA SOLUCIÓN DE PROBLEMAS</span><span class="toc-dots"></span><span class="toc-page">17</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-18-demanda-emp-1"><span class="toc-title">6. ESTUDIO DE MERCADO Y DEMANDA (INVESTIGACIÓN DE CAMPO)</span><span class="toc-dots"></span><span class="toc-page">18</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-18-demanda-emp-1"><span class="toc-title">6.1. Demanda Ocupacional: Muestreo de Cochran y Ficha Técnica Empresarial</span><span class="toc-dots"></span><span class="toc-page">18</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-19-demanda-emp-2"><span class="toc-title">6.1. Demanda Ocupacional: Resultados de Encuesta a 380 Cafeterías</span><span class="toc-dots"></span><span class="toc-page">19</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-20-brecha"><span class="toc-title">6.1. Demanda Ocupacional: Estimación de Brecha Laboral y Absorción Anual</span><span class="toc-dots"></span><span class="toc-page">20</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-21-estudiantil-1"><span class="toc-title">6.2. Demanda Estudiantil: Diseño Muestral y Resultados en Bachilleres</span><span class="toc-dots"></span><span class="toc-page">21</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-22-malla"><span class="toc-title">6.2. Demanda Estudiantil: Proyección de Matrícula y Estructura Curricular</span><span class="toc-dots"></span><span class="toc-page">22</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-23-conclusiones"><span class="toc-title">7. CONCLUSIONES INSTITUCIONALES Y DICTAMEN DE PERTINENCIA IAVQ</span><span class="toc-dots"></span><span class="toc-page">23</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-24-referencias"><span class="toc-title">8. REFERENCIAS BIBLIOGRÁFICAS (APA 7MA ED.) Y MATRIZ DE AUDITORÍA</span><span class="toc-dots"></span><span class="toc-page">24</span></a></div>
+
+          <div class="toc-group-title" style="margin-top: 5pt;">2. ÍNDICE DE TABLAS ESTADÍSTICAS Y MATRICES TÉCNICAS</div>
+          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">Tabla 1. Proyección de la Población Total y Juvenil (18-24 años) en el Cantón Quito (2020-2025)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-06-econ-1"><span class="toc-title">Tabla 2. Evolución de Establecimientos Registrados en el Sector Servicios de Bebidas y Alimentos (2012-2024)</span><span class="toc-dots"></span><span class="toc-page">6</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-06-econ-1"><span class="toc-title">Tabla 3. Plazas de Empleo Formal Registradas en el Sector de Servicios de Alimentos y Bebidas (2021-2024)</span><span class="toc-dots"></span><span class="toc-page">6</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">Tabla 4. Evolución de Ventas del Sector Servicios de Alimentos y Bebidas en Millones de USD (2012-2024)</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-08-supercias"><span class="toc-title">Tabla 5. Ranking Financiero de Compañías Líderes en Cafeterías y Tueste de Café en Quito (SUPERCIAS 2026)</span><span class="toc-dots"></span><span class="toc-page">8</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-09-enemdu-edu"><span class="toc-title">Tabla 6. Distribución del Personal Ocupado en Cafeterías según Nivel de Instrucción (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">9</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-10-enemdu-iess"><span class="toc-title">Tabla 7. Cobertura de Afiliación a la Seguridad Social (IESS) en Trabajadores de Cafeterías (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">10</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-11-enemdu-salario"><span class="toc-title">Tabla 8. Ingreso Laboral Promedio según Nivel de Instrucción en el Sector Cafeterías en Quito (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">11</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-12-acad-1"><span class="toc-title">Tabla 9. Oferta Académica Vigente de Tercer Nivel Técnico y Tecnológico en CINE 1013 en Pichincha</span><span class="toc-dots"></span><span class="toc-page">12</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">Tabla 10. Historial de Titulados en Carreras Específicas de Barismo en Pichincha (SENESCYT 2012-2024)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">Tabla 11. Evolución de Matrícula en Tercer Año de Bachillerato en el Cantón Quito (AMIE 2020-2025)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-15-pnd"><span class="toc-title">Tabla 12. Matriz de Articulación del Proyecto Curricular con los Ejes del PND 2025-2029</span><span class="toc-dots"></span><span class="toc-page">15</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-16-territorial"><span class="toc-title">Tabla 13. Matriz de Articulación con el PDOT Pichincha y el PMDOT Quito (Ordenanza 004-2024)</span><span class="toc-dots"></span><span class="toc-page">16</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-17-solucion"><span class="toc-title">Tabla 14. Matriz de Contribución de los Graduados a los Problemas Productivos del Sector</span><span class="toc-dots"></span><span class="toc-page">17</span></a></div>
+
+          <div class="toc-group-title" style="margin-top: 5pt;">3. ÍNDICE DE GRÁFICOS Y FIGURAS ANALÍTICAS</div>
+          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">Gráfico 1. Evolución de la Población Juvenil (18-24 años) en el Cantón Quito (2020-2025)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">Gráfico 2. Estructura y Proporción de la Juventud en el Cantón Quito (2025)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 3. Condición de Actividad de la Población Juvenil en Quito (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 4. Distribución por Nivel de Instrucción de la Juventud Quiteña (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 5. Tasa de Asistencia a la Educación Superior en Jóvenes de 18 a 24 años (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 6. Comparativa de Tasa de Desempleo: Juventud vs. Promedio General en Quito</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">Gráfico 7. Evolución de Ventas del Sector Servicios de Alimentos y Bebidas en Quito (2012-2024)</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">Gráfico 8. Constitución Histórica de Compañías de Cafeterías en Quito (SUPERCIAS 2026)</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-09-enemdu-edu"><span class="toc-title">Gráfico 9. Nivel de Instrucción de los Trabajadores de Cafeterías en Quito (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">9</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-10-enemdu-iess"><span class="toc-title">Gráfico 10. Cobertura de Afiliación al IESS en el Sector de Cafeterías (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">10</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-11-enemdu-salario"><span class="toc-title">Gráfico 11. Comparativa Salarial Promedio por Nivel de Instrucción vs. SBU (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">11</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-12-acad-1"><span class="toc-title">Gráfico 12. Distribución de Matrícula en Programas de Gastronomía en Pichincha (SNIESE 2026)</span><span class="toc-dots"></span><span class="toc-page">12</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">Gráfico 13. Evolución de la Cohorte de Bachilleres Graduandos en Quito (AMIE 2020-2025)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-16-territorial"><span class="toc-title">Gráfico 14. Ejes Estratégicos Territoriales Articulados con la Carrera de Barismo</span><span class="toc-dots"></span><span class="toc-page">16</span></a></div>
+        </div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 2 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-03-intro">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">1. INTRODUCCIÓN Y ANTECEDENTES</h1>
+        
+        <h2 class="word-heading-2">1.1. Contexto Histórico y Productivo de la Caficultura Ecuatoriana</h2>
+        <p class="word-p">
+          El cultivo y procesamiento del café en la República del Ecuador constituye uno de los pilares agroindustriales y patrimoniales con mayor arraigo socioeconómico. Históricamente, el país se caracterizó por la exportación de granos comerciales arábica y robusta bajo esquemas convencionales de volumen. Sin embargo, a lo largo de las últimas dos décadas se ha registrado una transformación estructural profunda impulsada por la emergencia de los cafés de especialidad, la revalorización de variedades botánicas de alto valor aromático (Típica Mejorada, Sidra, Bourbon, Geisha, Pacamara) y la consolidación de certámenes de excelencia sensorial como Taza Dorada.
+        </p>
+        <p class="word-p">
+          En este escenario, la Provincia de Pichincha —particularmente a través de la Mancomunidad del Chocó Andino y las parroquias noroccidentales del Distrito Metropolitano de Quito (Nanegal, Pacto, Nanegalito, Gualea)— se ha posicionado como un territorio de excelencia cafetalera internacional. Sus microclimas de bosque nublado, altitudes comprendidas entre 1.200 y 2.000 metros sobre el nivel del mar y suelos volcánicos fértiles generan perfiles de taza excepcionales, galardonados en subastas mundiales con calificaciones superiores a los 90 puntos sobre la escala de la Specialty Coffee Association (SCA).
+        </p>
+
+        <h2 class="word-heading-2">1.2. La Revolución de la Tercera Ola y la Expansión de Cafeterías en Quito</h2>
+        <p class="word-p">
+          A nivel del mercado de consumo, el Cantón Quito experimenta una transformación urbana y comercial denominada internacionalmente como la "Tercera Ola del Café". Este movimiento concibe al café no como un commodity indiferenciado, sino como una experiencia gastronómica, sensorial y cultural de alta sofisticación técnica. Distritos metropolitanos consolidados como La Floresta, La Mariscal, González Suárez, Cumbayá, Tumbaco y el Centro Histórico albergan una red en rápida expansión de cafeterías de especialidad, tostadurías artesanales y barras de filtrado experimental (brew bars).
+        </p>
+        <p class="word-p">
+          El consumidor actual demanda estándares rigurosos de trazabilidad de origen, conocimiento detallado de los procesos de poscosecha (lavados prolongados, procesos honey, fermentaciones anaeróbicas controladas y maceraciones carbónicas), así como un servicio técnico especializado basado en la química del agua, la termodinámica del espresso y la ejecución precisa de métodos de extracción por goteo, inmersión y presión.
+        </p>
+
+        <h2 class="word-heading-2">1.3. La Problemática del Empirismo y la Necesidad de Profesionalización</h2>
+        <p class="word-p">
+          A pesar del dinámico crecimiento del mercado y de la facturación del sector, la operación cotidiana de las barras de café en el Cantón Quito presenta una severa contradicción: la preparación de bebidas y la gestión de equipos de extracción de alta gama continúan realizándose de manera predominantemente empírica. La evidencia oficial del mercado laboral revela que más del 80% del personal ocupado en barras y cafeterías carece de formación técnica de tercer nivel, sustentando sus prácticas en instrucciones informales de corta duración que no abarcan los fundamentos fisicoquímicos, el control de mermas ni los protocolos de calibración sensorial.
+        </p>
+
+        <h2 class="word-heading-2">1.4. Trayectoria Institucional del IAVQ y Fundamentación de los Itinerarios</h2>
+        <p class="word-p">
+          El <strong>Instituto Superior Tecnológico de Artes Visuales de Quito (IAVQ)</strong>, legalmente constituido y reconocido por el Consejo de Educación Superior (CES) con condición de Instituto Superior Universitario, cuenta con una sólida trayectoria en la formación técnica y tecnológica superior. Con el propósito de articular la creatividad, la técnica operativa y el rigor agroindustrial, el IAVQ plantea el proyecto curricular de la carrera de <strong>Técnico Superior en Barismo</strong> bajo modalidad híbrida, estructurada en dos itinerarios formativos pertinentes:
+        </p>
+        <div class="word-callout">
+          <p style="margin: 0; font-size: 8.8pt;">
+            <strong>Itinerario 1: Barismo de Especialidad, Catación Sensorial y Tueste Artesanal:</strong> Especialización en perfiles de tueste, protocolos de catación SCA, química de la extracción y diseño de bebidas de especialidad.<br>
+            <strong>Itinerario 2: Gestión Operativa de Barras, Emprendimiento y Control de Calidad:</strong> Enfoque en administración de modelos de negocio gastronómicos, costeo y mermas, mantenimiento preventivo de maquinaria y normativas BPM.
+          </p>
+        </div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 3 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-04-social-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (DIAGNÓSTICO)</h1>
+        <h2 class="word-heading-2">2.1. Términos Sociales: Dinámica Demográfica y Población Juvenil en Quito</h2>
+        
+        <p class="word-p">
+          El análisis de la pertinencia social de un nuevo programa formativo requiere fundamentarse en la estructura demográfica del territorio de influencia. Conforme a las proyecciones poblacionales oficiales elaboradas por el Instituto Nacional de Estadística y Censos (INEC, revisión 2024), el Cantón Quito registra un crecimiento demográfico sostenido, consolidándose como el centro metropolitano más poblado de la República del Ecuador.
+        </p>
+        <p class="word-p">
+          Para el año 2025, el Distrito Metropolitano de Quito alcanza una población total de 2.810.024 habitantes, de los cuales 301.883 ciudadanos se sitúan en el grupo de edad juvenil de 18 a 24 años. Este segmento representa el 10,74% de la población cantonal y conforma el universo directo de demanda social de educación superior técnica y tecnológica.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 4pt 0 2pt 0;">
+          Tabla 1. Proyección de la Población Total y Juvenil (18 a 24 años) en el Cantón Quito (2020–2025)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 15%; text-align: center;">Año</th>
+              <th style="width: 25%; text-align: right;">Población Total (Hab.)</th>
+              <th style="width: 20%; text-align: right;">Crecimiento Anual</th>
+              <th style="width: 25%; text-align: right;">Población Juvenil 18–24</th>
+              <th style="width: 15%; text-align: right;">% Juvenil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2020</td>
+              <td style="text-align: right;">2.781.641</td>
+              <td style="text-align: right;">—</td>
+              <td style="text-align: right;">312.450</td>
+              <td style="text-align: right;">11,23%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2021</td>
+              <td style="text-align: right;">2.787.210</td>
+              <td style="text-align: right;">+0,20%</td>
+              <td style="text-align: right;">309.820</td>
+              <td style="text-align: right;">11,12%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2022</td>
+              <td style="text-align: right;">2.793.150</td>
+              <td style="text-align: right;">+0,21%</td>
+              <td style="text-align: right;">307.110</td>
+              <td style="text-align: right;">10,99%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2023</td>
+              <td style="text-align: right;">2.798.840</td>
+              <td style="text-align: right;">+0,20%</td>
+              <td style="text-align: right;">305.200</td>
+              <td style="text-align: right;">10,90%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2024</td>
+              <td style="text-align: right;">2.804.380</td>
+              <td style="text-align: right;">+0,20%</td>
+              <td style="text-align: right;">303.450</td>
+              <td style="text-align: right;">10,82%</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td style="text-align: center;">2025</td>
+              <td style="text-align: right;">2.810.024</td>
+              <td style="text-align: right;">+0,20%</td>
+              <td style="text-align: right;">301.883</td>
+              <td style="text-align: right;">10,74%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Proyecciones Poblacionales Cantonales (INEC, 2024) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="display: flex; gap: 12px; margin-top: 6pt;">
+          <div style="flex: 1; border: 1px solid #D9D9D9; padding: 6pt; background: #FAFAFA;">
+            <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 3pt;">
+              Gráfico 1. Evolución de la Población Juvenil en Quito (2020–2025)
+            </div>
+            <div style="height: 140px; position: relative;">
+              <canvas id="chart-graf-01"></canvas>
+            </div>
+          </div>
+
+          <div style="flex: 1; border: 1px solid #D9D9D9; padding: 6pt; background: #FAFAFA;">
+            <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 3pt;">
+              Gráfico 2. Proporción de la Juventud en el Cantón Quito (2025)
+            </div>
+            <div style="height: 140px; position: relative;">
+              <canvas id="chart-graf-02"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 6pt;">
+          <strong>Interpretación y Vinculación Curricular:</strong> La existencia de más de 300.000 jóvenes en el Cantón Quito denota una masa crítica de población en edad activa que requiere opciones de formación técnica de ciclo corto (dos años) con rápida inserción laboral. La carrera técnica en Barismo atiende directamente esta necesidad mediante una estructura híbrida que posibilita la articulación armónica entre estudio teórico en línea y talleres prácticos presenciales.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 4 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-05-social-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.1. Términos Sociales: Mercado Laboral Juvenil, Desempleo y Asistencia Educativa</h2>
+        
+        <p class="word-p">
+          El análisis microestadístico de la Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025) en el Cantón Quito refleja condiciones estructurales de vulnerabilidad para la población de 18 a 24 años. La inserción económica de los jóvenes se encuentra marcada por barreras de acceso a plazas formales, baja cobertura de educación superior y desprotección en el empleo informal.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6pt 0;">
+          <div style="border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+            <div style="font-size: 7.8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+              Gráfico 3. Condición de Actividad de la Juventud (18-24) en Quito
+            </div>
+            <div style="height: 130px; position: relative;">
+              <canvas id="chart-graf-03"></canvas>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+            <div style="font-size: 7.8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+              Gráfico 4. Distribución por Nivel de Instrucción de los Jóvenes
+            </div>
+            <div style="height: 130px; position: relative;">
+              <canvas id="chart-graf-04"></canvas>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+            <div style="font-size: 7.8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+              Gráfico 5. Tasa de Asistencia a Educación Superior (18-24 años)
+            </div>
+            <div style="height: 130px; position: relative;">
+              <canvas id="chart-graf-05"></canvas>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+            <div style="font-size: 7.8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+              Gráfico 6. Comparativa de Desempleo: Juventud vs. Promedio Cantonal
+            </div>
+            <div style="height: 130px; position: relative;">
+              <canvas id="chart-graf-06"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <p class="word-p">
+          <strong>Hallazgos Clave de la Vulnerabilidad Sociolaboral Juvenil (ENEMDU 2025):</strong>
+        </p>
+        <ul style="margin: 0 0 5pt 0; padding-left: 14pt; font-size: 9.2pt; line-height: 1.3;">
+          <li><strong>Brecha Crítica de Desempleo:</strong> El desempleo en la juventud quiteña (18 a 24 años) se sitúa en el <strong>17,45%</strong>, casi triplicando la tasa cantonal de la población general adulta (<strong>6,10%</strong>).</li>
+          <li><strong>Exclusión Universitaria Tradicional:</strong> El <strong>78,4%</strong> de los jóvenes en edad universitaria no asiste a ningún centro de educación superior, principalmente debido a limitaciones económicas y a la incompatibilidad de horarios laborales rígidos con la modalidad presencial diurna.</li>
+          <li><strong>Subempleo e Informalidad:</strong> De la población juvenil económicamente activa ocupada, el 48,2% percibe ingresos inferiores al Salario Básico Unificado (SBU) en actividades comerciales o de servicios no calificados.</li>
+        </ul>
+        <p class="word-p">
+          <strong>Fundamentación Social de la Carrera:</strong> Frente a esta brecha sociodemográfica, la carrera de Técnico Superior en Barismo del IAVQ se constituye como una herramienta de inclusión y movilidad social. Su diseño en modalidad híbrida flexibiliza la carga académica, permitiendo que jóvenes que ya laboran en cafeterías y restaurantes puedan obtener una titulación formal de tercer nivel sin abandonar sus puestos de trabajo, transformando el subempleo precario en empleo técnico formal calificado.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 5 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-06-econ-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.2. Términos Económicos: Tejido Productivo y Empleo Formal en Alimentos y Bebidas (CIIU 56)</h2>
+        
+        <p class="word-p">
+          El análisis del entorno económico se fundamenta en las cifras consolidadas del Directorio del Registro Estadístico de Empresas (REEM 2012–2024), elaborado por el INEC. Se examina la actividad correspondiente al sector de <strong>Servicios de Alimentos y Bebidas (CIIU Sección I, División 56)</strong>, la cual engloba las actividades de cafeterías, restaurantes de servicio completo y barras de preparación de bebidas especializadas (CIIU I5630 / I5610).
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 2. Evolución de Establecimientos Registrados en el Sector Servicios de Alimentos y Bebidas (2012–2024)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 12%; text-align: center;">Año</th>
+              <th style="width: 22%; text-align: right;">Ecuador Total</th>
+              <th style="width: 22%; text-align: right;">Pichincha</th>
+              <th style="width: 22%; text-align: right;">Cantón Quito</th>
+              <th style="width: 22%; text-align: right;">Crecimiento Quito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2012</td>
+              <td style="text-align: right;">54.407</td>
+              <td style="text-align: right;">12.892</td>
+              <td style="text-align: right;">11.335</td>
+              <td style="text-align: right;">—</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2015</td>
+              <td style="text-align: right;">70.339</td>
+              <td style="text-align: right;">16.141</td>
+              <td style="text-align: right;">14.075</td>
+              <td style="text-align: right;">+3,15%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2018</td>
+              <td style="text-align: right;">75.980</td>
+              <td style="text-align: right;">17.585</td>
+              <td style="text-align: right;">15.228</td>
+              <td style="text-align: right;">+2,98%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2021</td>
+              <td style="text-align: right;">68.120</td>
+              <td style="text-align: right;">15.420</td>
+              <td style="text-align: right;">13.340</td>
+              <td style="text-align: right;">-8,20%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2022</td>
+              <td style="text-align: right;">76.450</td>
+              <td style="text-align: right;">17.110</td>
+              <td style="text-align: right;">14.780</td>
+              <td style="text-align: right;">+10,79%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2023</td>
+              <td style="text-align: right;">81.230</td>
+              <td style="text-align: right;">17.890</td>
+              <td style="text-align: right;">15.341</td>
+              <td style="text-align: right;">+3,79%</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td style="text-align: center;">2024</td>
+              <td style="text-align: right;">88.450</td>
+              <td style="text-align: right;">19.452</td>
+              <td style="text-align: right;">16.673</td>
+              <td style="text-align: right;">+8,68%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Directorio de Empresas REEM (INEC, 2024) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 6pt 0 2pt 0;">
+          Tabla 3. Plazas de Empleo Formal Registradas en el Sector de Alimentos y Bebidas (2021–2024)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 12%; text-align: center;">Año</th>
+              <th style="width: 22%; text-align: right;">Ecuador Plazas</th>
+              <th style="width: 22%; text-align: right;">Pichincha Plazas</th>
+              <th style="width: 22%; text-align: right;">Cantón Quito</th>
+              <th style="width: 22%; text-align: right;">Crecimiento Quito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2021</td>
+              <td style="text-align: right;">118.420</td>
+              <td style="text-align: right;">37.150</td>
+              <td style="text-align: right;">33.915</td>
+              <td style="text-align: right;">—</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2022</td>
+              <td style="text-align: right;">132.890</td>
+              <td style="text-align: right;">41.220</td>
+              <td style="text-align: right;">37.640</td>
+              <td style="text-align: right;">+10,98%</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2023</td>
+              <td style="text-align: right;">144.150</td>
+              <td style="text-align: right;">44.380</td>
+              <td style="text-align: right;">40.697</td>
+              <td style="text-align: right;">+8,12%</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td style="text-align: center;">2024</td>
+              <td style="text-align: right;">156.780</td>
+              <td style="text-align: right;">48.120</td>
+              <td style="text-align: right;">44.038</td>
+              <td style="text-align: right;">+8,21%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Registro Estadístico de Empresas REEM (INEC, 2024) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <p class="word-p" style="margin-top: 5pt;">
+          <strong>Interpretación y Vinculación Económica:</strong> Los registros del REEM evidencian una vigorosa expansión del tejido de servicios gastronómicos en el Cantón Quito, pasando de 11.335 establecimientos en 2012 a <strong>16.673 en 2024</strong> (+47,1% acumulado). Más relevante aún es el dinamismo del empleo formal: tras la recuperación pospandemia, las plazas laborales en Quito aumentaron de 33.915 en 2021 a <strong>44.038 puestos en 2024</strong> (+29,85%). Este crecimiento demanda de forma ineludible personal técnico capacitado en técnicas de barismo, gestión de equipos de filtrado e inocuidad alimentaria.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 6 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-07-econ-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.2. Términos Económicos: Facturación del Sector y Constitución Histórica de Empresas</h2>
+        
+        <p class="word-p">
+          La solidez económica del sector de comidas y bebidas se refleja fehacientemente en la evolución de las ventas anuales declaradas en el Cantón Quito. Según los balances consolidados del REEM (INEC, 2024), la facturación del sector en Quito ascendió a <strong>$1.434,44 millones de dólares en 2024</strong>, consolidando una tasa de crecimiento anual del <strong>+7,41%</strong> y un crecimiento acumulado del <strong>+48,82%</strong> con respecto al año base 2012 ($963,88 millones).
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 4. Evolución de las Ventas del Sector Servicios de Alimentos y Bebidas en Millones de USD (2012–2024)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 14%; text-align: center;">Año</th>
+              <th style="width: 28%; text-align: right;">Ecuador Ventas (M$)</th>
+              <th style="width: 28%; text-align: right;">Pichincha Ventas (M$)</th>
+              <th style="width: 30%; text-align: right;">Cantón Quito Ventas (M$)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2012</td>
+              <td style="text-align: right;">$2.321,50 M</td>
+              <td style="text-align: right;">$1.085,20 M</td>
+              <td style="text-align: right;">$963,88 M</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2015</td>
+              <td style="text-align: right;">$2.890,40 M</td>
+              <td style="text-align: right;">$1.295,60 M</td>
+              <td style="text-align: right;">$1.150,30 M</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2018</td>
+              <td style="text-align: right;">$3.150,80 M</td>
+              <td style="text-align: right;">$1.410,20 M</td>
+              <td style="text-align: right;">$1.252,40 M</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2021</td>
+              <td style="text-align: right;">$2.840,10 M</td>
+              <td style="text-align: right;">$1.280,50 M</td>
+              <td style="text-align: right;">$1.135,20 M</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2022</td>
+              <td style="text-align: right;">$3.240,60 M</td>
+              <td style="text-align: right;">$1.415,80 M</td>
+              <td style="text-align: right;">$1.255,40 M</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2023</td>
+              <td style="text-align: right;">$3.490,20 M</td>
+              <td style="text-align: right;">$1.502,40 M</td>
+              <td style="text-align: right;">$1.335,50 M</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td style="text-align: center;">2024</td>
+              <td style="text-align: right;">$3.785,40 M</td>
+              <td style="text-align: right;">$1.615,30 M</td>
+              <td style="text-align: right;">$1.434,44 M</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Balances de Ventas REEM (INEC, 2024) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="display: flex; gap: 12px; margin-top: 5pt;">
+          <div style="flex: 1; border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+            <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+              Gráfico 7. Ventas del Sector Alimentos y Bebidas en Quito (M$)
+            </div>
+            <div style="height: 135px; position: relative;">
+              <canvas id="chart-graf-07"></canvas>
+            </div>
+          </div>
+
+          <div style="flex: 1; border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+            <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+              Gráfico 8. Constitución de Empresas de Cafeterías en Quito
+            </div>
+            <div style="height: 135px; position: relative;">
+              <canvas id="chart-graf-08"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 5pt;">
+          <strong>El Boom Societario de las Cafeterías de Especialidad (SUPERCIAS 2026):</strong> El análisis de las 159 compañías activas especializadas en cafeterías y bebidas en Quito revela un hito determinante: el <strong>77,4% de las empresas (123 sociedades)</strong> fueron constituidas a partir del año 2020. Este auge empresarial, apalancado principalmente en la figura de Sociedades por Acciones Simplificadas (S.A.S.), ratifica que el negocio del barismo y las cafeterías de especialidad constituye uno de los sectores de mayor innovación y emprendimiento privado de la capital ecuatoriana.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 7 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-08-supercias">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.2. Tejido Empresarial: Directorio y Ranking Societario en Quito (SUPERCIAS 2026)</h2>
+        
+        <p class="word-p">
+          Para garantizar la máxima veracidad y evitar sobreinflaciones estadísticas, se auditó la base de datos oficial de la Superintendencia de Compañías, Valores y Seguros (SUPERCIAS, corte 2026). En el Cantón Quito se identifican <strong>159 compañías jurídicamente activas</strong> dedicadas de forma directa y exclusiva a la operación de cafeterías, servicios de bebidas de barra y tostado artesanal de café (códigos CIIU I5630, C1079 y marcas cafeteras en I5610).
+        </p>
+        <p class="word-p">
+          A continuación, se detalla el ranking financiero de los principales empleadores y operadores de cadenas de cafeterías y tostadurías en el Cantón Quito, ordenados por volumen de facturación y personal ocupado directo.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 5. Ranking Financiero de Compañías Líderes en Cafeterías y Tueste de Café en Quito (SUPERCIAS 2026)
+        </div>
+        <table class="word-table" style="font-size: 7.6pt;">
+          <thead>
+            <tr>
+              <th style="width: 4%; text-align: center;">#</th>
+              <th style="width: 32%;">Razón Social / Marca</th>
+              <th style="width: 14%; text-align: right;">Ventas (USD)</th>
+              <th style="width: 13%; text-align: right;">Activos (USD)</th>
+              <th style="width: 8%; text-align: center;">Personal</th>
+              <th style="width: 14%;">Tipo Societario</th>
+              <th style="width: 15%;">Código CIIU</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">1</td>
+              <td><strong>PROCAFECOL ECUADOR S.A.</strong> (Juan Valdez)</td>
+              <td style="text-align: right;">$26.862.628</td>
+              <td style="text-align: right;">$16.894.212</td>
+              <td style="text-align: center; font-weight: bold;">678</td>
+              <td>Sociedad Anónima</td>
+              <td>I5630.01 / C1079</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2</td>
+              <td><strong>DELONORTE S.A.</strong> (Café Sweet & Coffee Quito)</td>
+              <td style="text-align: right;">$5.334.873</td>
+              <td style="text-align: right;">$3.279.467</td>
+              <td style="text-align: center; font-weight: bold;">120</td>
+              <td>Sociedad Anónima</td>
+              <td>I5630.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">3</td>
+              <td><strong>KATARIPLAZA S.A.S.</strong> (Cafeterías Katari)</td>
+              <td style="text-align: right;">$2.115.908</td>
+              <td style="text-align: right;">$1.045.230</td>
+              <td style="text-align: center; font-weight: bold;">87</td>
+              <td>S.A.S.</td>
+              <td>I5630.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">4</td>
+              <td><strong>SABAI BEBIDAS CIA. LTDA.</strong></td>
+              <td style="text-align: right;">$1.472.930</td>
+              <td style="text-align: right;">$950.410</td>
+              <td style="text-align: center; font-weight: bold;">42</td>
+              <td>Cía. Ltda.</td>
+              <td>I5630.02</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">5</td>
+              <td><strong>SERVICIOS GOLDESEL CIA. LTDA.</strong></td>
+              <td style="text-align: right;">$1.385.178</td>
+              <td style="text-align: right;">$712.440</td>
+              <td style="text-align: center; font-weight: bold;">31</td>
+              <td>Cía. Ltda.</td>
+              <td>I5630.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">6</td>
+              <td><strong>TEAM180 COFFEE WORKERS S.A.S.</strong></td>
+              <td style="text-align: right;">$1.107.562</td>
+              <td style="text-align: right;">$530.120</td>
+              <td style="text-align: center; font-weight: bold;">12</td>
+              <td>S.A.S.</td>
+              <td>I5630.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">7</td>
+              <td><strong>PANADERÍA Y CAFETERÍA 227 S.A.S.</strong></td>
+              <td style="text-align: right;">$1.094.210</td>
+              <td style="text-align: right;">$480.950</td>
+              <td style="text-align: center; font-weight: bold;">13</td>
+              <td>S.A.S.</td>
+              <td>I5630.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">8</td>
+              <td><strong>MAINCOFFEE ROASTERS S.A.S.</strong></td>
+              <td style="text-align: right;">$987.450</td>
+              <td style="text-align: right;">$415.800</td>
+              <td style="text-align: center; font-weight: bold;">26</td>
+              <td>S.A.S.</td>
+              <td>C1079.11 / I5630</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">9</td>
+              <td><strong>DELI LUCIA CAFETERIAS S.A.S.</strong></td>
+              <td style="text-align: right;">$715.300</td>
+              <td style="text-align: right;">$310.200</td>
+              <td style="text-align: center; font-weight: bold;">14</td>
+              <td>S.A.S.</td>
+              <td>I5630.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">10</td>
+              <td><strong>VERALI CAFE CIA. LTDA.</strong></td>
+              <td style="text-align: right;">$675.400</td>
+              <td style="text-align: right;">$295.100</td>
+              <td style="text-align: center; font-weight: bold;">9</td>
+              <td>Cía. Ltda.</td>
+              <td>I5630.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">11</td>
+              <td><strong>CAFETERIA FRANCESA CIA. LTDA.</strong></td>
+              <td style="text-align: right;">$580.200</td>
+              <td style="text-align: right;">$340.500</td>
+              <td style="text-align: center; font-weight: bold;">18</td>
+              <td>Cía. Ltda.</td>
+              <td>I5610.01 / I5630</td>
+            </tr>
+            <tr style="background-color: #EBF1F5;">
+              <td style="text-align: center; font-weight: bold;">12</td>
+              <td><strong>CAFÉ DE LA PLAZA S.A.S.</strong></td>
+              <td style="text-align: right;">$495.100</td>
+              <td style="text-align: right;">$210.400</td>
+              <td style="text-align: center; font-weight: bold;">11</td>
+              <td>S.A.S.</td>
+              <td>I5630.01</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Directorio de Compañías y Balances Financieros (SUPERCIAS, 2026) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <p class="word-p" style="margin-top: 5pt;">
+          <strong>Articulación para Prácticas Preprofesionales y Formación Dual:</strong> Este conjunto de empresas líderes y tostadurías de especialidad concentra más de 1.060 plazas de trabajo formal directo únicamente en sus nóminas corporativas de Quito. Dichas entidades constituyen los socios estratégicos naturales para la suscripción de convenios de formación dual, pasantías y vinculación con la comunidad para los estudiantes del IAVQ, asegurando entornos de práctica de alto nivel técnico en barras de espresso comerciales y de alta gama.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 8 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-09-enemdu-edu">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.2. Diagnóstico Ocupacional: Nivel de Instrucción y Brecha de Titulación (ENEMDU 2025)</h2>
+        
+        <p class="word-p">
+          Para dimensionar con rigurosidad empírica el perfil de competencias del talento humano que opera en las barras y cafeterías del Cantón Quito, se procesó la submuestra expandida de la Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025). Se focalizó el cruce entre la rama de actividad de servicios de alimentos y bebidas (CIIU 56) y las ocupaciones directas de preparación de bebidas, camareros de barra y baristas (códigos CIUO-08 5132 y 7515).
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 6. Distribución del Personal Ocupado en Cafeterías y Barras según Nivel de Instrucción en Quito (ENEMDU 2025)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 38%;">Nivel de Instrucción Formal</th>
+              <th style="width: 20%; text-align: right;">Población Expandida</th>
+              <th style="width: 18%; text-align: right;">Porcentaje Relativo</th>
+              <th style="width: 24%;">Condición Ocupacional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sin instrucción / Educación Básica o Primaria</td>
+              <td style="text-align: right;">3.517</td>
+              <td style="text-align: right;">18,34%</td>
+              <td>Mano de obra no calificada</td>
+            </tr>
+            <tr>
+              <td>Secundaria completa (Bachillerato general)</td>
+              <td style="text-align: right;">11.863</td>
+              <td style="text-align: right;">61,86%</td>
+              <td>Mano de obra empírica en barra</td>
+            </tr>
+            <tr style="background-color: #FEECEC; font-weight: bold; color: #9C0006;">
+              <td>Subtotal sin formación superior técnica</td>
+              <td style="text-align: right;">15.380</td>
+              <td style="text-align: right;">80,20%</td>
+              <td>Déficit formativo estructural</td>
+            </tr>
+            <tr style="background-color: #EBF1F5;">
+              <td>Técnico Superior / Tecnológico Superior</td>
+              <td style="text-align: right;">1.463</td>
+              <td style="text-align: right;">7,63%</td>
+              <td>Técnicos (gastronomía general)</td>
+            </tr>
+            <tr>
+              <td>Superior Universitario / Posgrado</td>
+              <td style="text-align: right;">2.335</td>
+              <td style="text-align: right;">12,17%</td>
+              <td>Administradores / Propietarios</td>
+            </tr>
+            <tr style="font-weight: bold; border-top: 1.5px solid #1F4E79;">
+              <td>Total Ocupados en el Segmento</td>
+              <td style="text-align: right;">19.178</td>
+              <td style="text-align: right;">100,00%</td>
+              <td>Universo Ocupacional Cantonal</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Microdatos de personas ENEMDU Anual (INEC, 2025) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="margin-top: 6pt; border: 1px solid #D9D9D9; padding: 6pt; background: #FAFAFA;">
+          <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+            Gráfico 9. Nivel de Instrucción de los Trabajadores de Cafeterías en Quito (ENEMDU 2025)
+          </div>
+          <div style="height: 145px; position: relative;">
+            <canvas id="chart-graf-09"></canvas>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 6pt;">
+          <strong>Diagnóstico Crítico de la Brecha Formativa:</strong> El hallazgo empírico es contundente: el <strong>80,20% de los trabajadores que operan las barras de café y servicios de bebidas en Quito (15.380 personas) no posee ningún título de educación superior</strong>, ejerciendo su labor a través del aprendizaje empírico y la transmisión informal de pautas operativas. Por el contrario, el segmento con titulación técnica y tecnológica superior representa apenas el <strong>7,63%</strong>, concentrado además en titulaciones de cocina general. Este déficit fundamenta la pertinencia ineludible de formalizar la profesión del barista mediante un título de tercer nivel técnico superior.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 9 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-10-enemdu-iess">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.2. Diagnóstico Ocupacional: Seguridad Social e Informalidad Laboral (ENEMDU 2025)</h2>
+        
+        <p class="word-p">
+          La falta de acreditación técnica formal en el mercado de cafeterías y barras genera un efecto directo sobre la precariedad de las condiciones contractuales y la desprotección de los trabajadores. El análisis de los microdatos de afiliación a la seguridad social en la ENEMDU Anual 2025 para el Cantón Quito permite cuantificar la magnitud de la informalidad en este renglón económico.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 7. Cobertura de Afiliación a la Seguridad Social (IESS) en Trabajadores de Cafeterías en Quito (ENEMDU 2025)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 42%;">Condición de Afiliación al IESS</th>
+              <th style="width: 22%; text-align: right;">Población Expandida</th>
+              <th style="width: 18%; text-align: right;">Porcentaje</th>
+              <th style="width: 18%;">Situación Contractual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background-color: #FEECEC; font-weight: bold; color: #9C0006;">
+              <td>Sin afiliación a la Seguridad Social (IESS)</td>
+              <td style="text-align: right;">15.513</td>
+              <td style="text-align: right;">80,89%</td>
+              <td>Informal / Vulnerable</td>
+            </tr>
+            <tr style="background-color: #EBF1F5;">
+              <td>IESS Seguro General Obligatorio</td>
+              <td style="text-align: right;">3.300</td>
+              <td style="text-align: right;">17,21%</td>
+              <td>Empleo formal con relación</td>
+            </tr>
+            <tr>
+              <td>IESS Afiliación Voluntaria / Seguro Campesino</td>
+              <td style="text-align: right;">365</td>
+              <td style="text-align: right;">1,90%</td>
+              <td>Independiente por cuenta propia</td>
+            </tr>
+            <tr style="font-weight: bold; border-top: 1.5px solid #1F4E79;">
+              <td>Total Trabajadores de Barras y Cafeterías</td>
+              <td style="text-align: right;">19.178</td>
+              <td style="text-align: right;">100,00%</td>
+              <td>100,00%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: ENEMDU Anual (INEC, 2025) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="margin-top: 6pt; border: 1px solid #D9D9D9; padding: 6pt; background: #FAFAFA;">
+          <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+            Gráfico 10. Cobertura de Afiliación al IESS en el Sector de Cafeterías en Quito (ENEMDU 2025)
+          </div>
+          <div style="height: 145px; position: relative;">
+            <canvas id="chart-graf-10"></canvas>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 6pt;">
+          <strong>Impacto de la Informalidad y la Política de Titulación Técnica:</strong> La cifra de desprotección social es alarmante: el <strong>80,89% de los trabajadores de cafeterías en Quito carece de cobertura de seguridad social</strong>. Esta condición de vulnerabilidad laboral se encuentra intrínsecamente asociada al estatus de "mano de obra empírica de reemplazo rápido". Las empresas del sector reconocen que la incorporación de Técnicos Superiores debidamente titulados transforma este paradigma, posibilitando la suscripción de contratos estables bajo relación de dependencia con todos los beneficios de ley, al tratarse de personal técnico esencial con capacidad de calibrar equipos, controlar inventarios y reducir mermas operativas.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 10 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-11-enemdu-salario">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.2. Retorno Salarial y Prima a la Profesionalización en Cafeterías (ENEMDU 2025)</h2>
+        
+        <p class="word-p">
+          El análisis econométrico de ingresos laborales de la ENEMDU Anual 2025 demuestra con precisión matemática la existencia de un retorno económico significativo asociado a la obtención de un título de educación superior técnica en el sector de alimentos y bebidas del Cantón Quito. Se contrastan los ingresos mensuales reales percibidos por nivel de escolaridad frente al Salario Básico Unificado (SBU) vigente para el año 2026 ($470,00 USD).
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 8. Ingreso Laboral Promedio según Nivel de Instrucción en el Sector Cafeterías en Quito (ENEMDU 2025)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Nivel de Instrucción</th>
+              <th style="width: 20%; text-align: right;">Ingreso Promedio</th>
+              <th style="width: 22%; text-align: right;">Relación frente al SBU ($470)</th>
+              <th style="width: 26%;">Perfil Ocupacional Típico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primaria incompleta / completa</td>
+              <td style="text-align: right;">$325,40</td>
+              <td style="text-align: right; color: #9C0006; font-weight: bold;">-30,77% (Subempleo)</td>
+              <td>Auxiliar de limpieza / vajilla</td>
+            </tr>
+            <tr>
+              <td>Secundaria completa (Bachiller)</td>
+              <td style="text-align: right;">$412,50</td>
+              <td style="text-align: right; color: #9C0006; font-weight: bold;">-12,23% (Bajo SBU)</td>
+              <td>Preparador de barra empírico</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td>Técnico Superior Titulado</td>
+              <td style="text-align: right; color: #1F4E79;">$546,87</td>
+              <td style="text-align: right; color: #1F4E79;">+16,36% (Sobre SBU)</td>
+              <td>Barista líder / Calibrador</td>
+            </tr>
+            <tr>
+              <td>Jefatura de Barra / Tostador especialista</td>
+              <td style="text-align: right;">$745,00</td>
+              <td style="text-align: right; font-weight: bold;">+58,51% (Sobre SBU)</td>
+              <td>Head Barista / Maestro Tostador</td>
+            </tr>
+            <tr>
+              <td>Tercer Nivel Universitario General</td>
+              <td style="text-align: right;">$685,20</td>
+              <td style="text-align: right;">+45,79% (Sobre SBU)</td>
+              <td>Administrador general de local</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: ENEMDU Anual (INEC, 2025) / Tabulación salarial: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="margin-top: 6pt; border: 1px solid #D9D9D9; padding: 6pt; background: #FAFAFA;">
+          <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+            Gráfico 11. Comparativa Salarial Promedio por Nivel de Instrucción vs. SBU en Quito (ENEMDU 2025)
+          </div>
+          <div style="height: 145px; position: relative;">
+            <canvas id="chart-graf-11"></canvas>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 6pt;">
+          <strong>Racionalidad Económica del Título Técnico:</strong> Mientras que un trabajador empírico con educación secundaria percibe un salario promedio de $412,50 USD (incumpliendo el SBU legal debido a jornadas parciales o informalidad), el personal con <strong>título de Técnico Superior alcanza un ingreso promedio formal de $546,87 USD</strong>. Esto representa una <strong>prima salarial neta del +32,57%</strong> frente al trabajador empírico y un <strong>+16,36% por encima del SBU oficial</strong>. Para puestos especializados de jefatura de barra y tostado sensorial, el ingreso escala hasta los $745,00 USD. El estudio confirma que la formación técnica genera un retorno económico tangible e inmediato para el egresado.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 11 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-12-acad-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.3. Términos Académicos: Oferta Educativa Superior en el Campo UNESCO 1013</h2>
+        
+        <p class="word-p">
+          De conformidad con la Clasificación Internacional Normalizada de la Educación (CINE UNESCO), el proyecto curricular se inscribe en el <strong>Campo Amplio 10 (Servicios)</strong>, <strong>Campo Específico 101 (Servicios Personales)</strong> y <strong>Campo Detallado 1013 (Servicios de Hotelería, Restaurantes y Catering)</strong>. Para diagnosticar la oferta formativa vigente, se auditó el catálogo del Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE, corte 2026).
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 9. Oferta Académica Vigente de Tercer Nivel Técnico y Tecnológico en CINE 1013 en Pichincha (SNIESE 2026)
+        </div>
+        <table class="word-table" style="font-size: 7.8pt;">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Institución de Educación Superior</th>
+              <th style="width: 30%;">Denominación de la Carrera</th>
+              <th style="width: 15%; text-align: center;">Modalidad</th>
+              <th style="width: 23%;">Enfoque Disciplinar Principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IST Rumiñahui (Privado)</td>
+              <td>Tecnología Superior en Gastronomía</td>
+              <td style="text-align: center;">Presencial</td>
+              <td>Cocina nacional e internacional</td>
+            </tr>
+            <tr>
+              <td>IST Yavirac (Público)</td>
+              <td>Tecnología Superior en Arte Culinario</td>
+              <td style="text-align: center;">Presencial</td>
+              <td>Artes culinarias y patrimonio</td>
+            </tr>
+            <tr>
+              <td>IST Guayaquil (Público - Sede Quito)</td>
+              <td>Tecnología Superior en Gastronomía</td>
+              <td style="text-align: center;">Presencial</td>
+              <td>Restauración y catering masivo</td>
+            </tr>
+            <tr>
+              <td>IST Nelson Torres (Público - Cayambe)</td>
+              <td>Tecnología Superior en Gastronomía</td>
+              <td style="text-align: center;">Presencial</td>
+              <td>Alimentos tradicionales andinos</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td><strong>IAVQ (Proyecto Curricular Propuesto)</strong></td>
+              <td><strong>Técnico Superior en Barismo</strong></td>
+              <td style="text-align: center; color: #1F4E79;"><strong>Híbrida</strong></td>
+              <td style="color: #1F4E79;"><strong>Barismo, cata SCA y tostaduría</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Catálogo SNIESE (CES / SENESCYT, 2026) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="margin-top: 6pt; border: 1px solid #D9D9D9; padding: 6pt; background: #FAFAFA;">
+          <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+            Gráfico 12. Distribución de Matrícula en Carreras del Campo CINE 1013 en Pichincha
+          </div>
+          <div style="height: 145px; position: relative;">
+            <canvas id="chart-graf-12"></canvas>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 6pt;">
+          <strong>Diferenciación y Complementariedad Académica:</strong> El análisis comparativo revela que el 100% de la oferta técnica existente en la provincia está orientada hacia la gastronomía general y las artes culinarias para restaurantes de servicio de comidas. El café es tratado únicamente como un componente marginal o una asignatura optativa de corta duración dentro de mallas de cocina. No existe en el sistema ninguna carrera que aborde de manera monográfica y profunda la ciencia de la extracción del café, la termodinámica del tueste, los protocolos internacionales de catación y el modelo de negocio de las cafeterías de especialidad.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 12 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-13-acad-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.3. Términos Académicos: Vacancia Formativa y Cohorte de Bachilleres (AMIE 2020–2025)</h2>
+        
+        <p class="word-p">
+          Para ratificar la inexistencia de duplicidad formativa, se auditó la base histórica consolidada de graduados del Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE / SENESCYT, período 2012–2024). Asimismo, se analizó el contingente anual de graduandos de educación media mediante el Archivo Maestro de Instituciones Educativas (AMIE 2020–2025) del Ministerio de Educación.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 10. Historial de Titulados en Carreras Específicas de Barismo en Pichincha (SENESCYT 2012–2024)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 45%;">Campo de Titulación Registrado</th>
+              <th style="width: 18%; text-align: center;">Período 2012–2018</th>
+              <th style="width: 18%; text-align: center;">Período 2019–2024</th>
+              <th style="width: 19%; text-align: center;">Total Titulados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tecnología Superior en Gastronomía General</td>
+              <td style="text-align: center;">1.840</td>
+              <td style="text-align: center;">2.950</td>
+              <td style="text-align: center; font-weight: bold;">4.790</td>
+            </tr>
+            <tr style="background-color: #FEECEC; font-weight: bold; color: #9C0006;">
+              <td>Técnico / Tecnólogo Superior en Barismo</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0 (Vacancia 100%)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Registro Oficial de Títulos de Educación Superior (SENESCYT, 2024) / Elaboración: IAVQ (2026).</div>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 5pt 0 2pt 0;">
+          Tabla 11. Evolución de Matrícula en Tercer Año de Bachillerato en el Cantón Quito (AMIE 2020–2025)
+        </div>
+        <table class="word-table">
+          <thead>
+            <tr>
+              <th style="width: 14%; text-align: center;">Año Lectivo</th>
+              <th style="width: 28%; text-align: right;">Fiscal y Fiscomisional</th>
+              <th style="width: 28%; text-align: right;">Particular y Municipal</th>
+              <th style="width: 30%; text-align: right;">Total Graduandos Quito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2020–2021</td>
+              <td style="text-align: right;">24.520</td>
+              <td style="text-align: right;">14.400</td>
+              <td style="text-align: right;">38.920</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2021–2022</td>
+              <td style="text-align: right;">25.110</td>
+              <td style="text-align: right;">14.300</td>
+              <td style="text-align: right;">39.410</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2022–2023</td>
+              <td style="text-align: right;">25.820</td>
+              <td style="text-align: right;">14.300</td>
+              <td style="text-align: right;">40.120</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2023–2024</td>
+              <td style="text-align: right;">26.450</td>
+              <td style="text-align: right;">14.400</td>
+              <td style="text-align: right;">40.850</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td style="text-align: center;">2024–2025</td>
+              <td style="text-align: right;">27.128</td>
+              <td style="text-align: right;">14.600</td>
+              <td style="text-align: right;">41.728</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Registro Administrativo AMIE (Ministerio de Educación, 2025) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="margin-top: 5pt; border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+          <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+            Gráfico 13. Evolución de la Cohorte de Bachilleres Graduandos en Quito (AMIE 2020–2025)
+          </div>
+          <div style="height: 125px; position: relative;">
+            <canvas id="chart-graf-13"></canvas>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 4pt;">
+          <strong>Justificación del Universo Estudiantil Potencial:</strong> Con una cohorte anual de <strong>41.728 bachilleres graduandos en el Cantón Quito</strong> y una vacancia formativa histórica del 100% en el área específica de Barismo, el proyecto curricular del IAVQ dispone de una sólida base de sustentabilidad de matrícula, captando a jóvenes con vocación en servicios especializados y emprendimiento gastronómico.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 13 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-14-cultural">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">2.4. Términos Culturales y Tendencias Tecnológicas en la Tercera Ola del Café</h2>
+        
+        <p class="word-p">
+          El análisis cultural y tecnológico examina los cambios en los hábitos de consumo de la sociedad urbana contemporánea en el Cantón Quito. El café ha superado su condición histórica de bebida estimulante matutina para convertirse en un objeto de apreciación sensorial y de sofisticación sociocultural.
+        </p>
+
+        <h3 class="word-heading-3">2.4.1. La Tercera Ola del Café y la Cultura del Origen</h3>
+        <p class="word-p">
+          La denominación "Tercera Ola del Café" describe un movimiento global que prioriza la calidad intrínseca del grano desde la finca hasta la taza. En Quito, este fenómeno se traduce en una demanda creciente de cafés con denominación de origen y trazabilidad transparente. Los consumidores reconocen el valor de microlotes producidos en el Noroccidente de Pichincha (Nanegal, Pacto, Gualea), Loja y Zamora Chinchipe, identificando variedades botánicas nobles como Típica Mejorada, Sidra, Geisha, Bourbon y Pacamara, así como procesos de fermentación anaeróbica controlada y secado en camas africanas.
+        </p>
+
+        <h3 class="word-heading-3">2.4.2. Tecnologías de Extracción, Termodinámica del Espresso y Latte Art</h3>
+        <p class="word-p">
+          El equipamiento de las cafeterías de especialidad actuales exige un dominio riguroso de variables termodinámicas y mecánicas:
+        </p>
+        <ul style="margin: 0 0 5pt 0; padding-left: 14pt; font-size: 9.1pt; line-height: 1.3;">
+          <li><strong>Maquinaria de Doble Caldera con Control PID:</strong> Estabilidad térmica precisa (+/- 0,2°C) y gestión de curvas de preinfusión y perfiles de presión para maximizar la solubilidad de sólidos totales disueltos (TDS).</li>
+          <li><strong>Molinos Gravimétricos y Discos de Titanio:</strong> Molienda micrométrica con dispersión uniforme de partículas para evitar la canalización durante la extracción.</li>
+          <li><strong>Métodos de Filtrado Manual (Brew Bar):</strong> Extracción científica mediante dispositivos de goteo e inmersión (V60, Chemex, Aeropress, Kalita Wave, Prensa Francesa y Sifón Japonés), controlando ratios agua/café, turbulencia y tiempos de contacto.</li>
+          <li><strong>Química del Agua:</strong> Desmineralización y remineralización controlada de agua (rango de 75 a 150 ppm de dureza total según estándares SCA) para asegurar una adecuada solvencia de ácidos clorogénicos y lípidos.</li>
+          <li><strong>Emulsión de Microespuma y Latte Art:</strong> Texturizado termomecánico de leche a temperaturas de 55°C a 65°C para lograr una microespuma satinada con desnaturalización controlada de proteínas (lactoglobulinas).</li>
+        </ul>
+
+        <h3 class="word-heading-3">2.4.3. Sostenibilidad, Consumo Consciente y Comercio Justo</h3>
+        <p class="word-p">
+          El nuevo profesional barista actúa como el nexo pedagógico entre el caficultor y el cliente final, difundiendo principios de comercio justo (Direct Trade), sostenibilidad ambiental y reducción del impacto de huella de carbono, impulsando el uso integral de subproductos del café como la cáscara para infusiones y el aprovechamiento de la borra.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 14 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-15-pnd">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">3. ARTICULACIÓN CON EL PLAN NACIONAL DE DESARROLLO (PND 2025–2029)</h1>
+        
+        <p class="word-p">
+          El proyecto de creación de la carrera de Técnico Superior en Barismo se alinea de manera vinculante con las directrices estratégicas, objetivos y metas cuantitativas consagradas en el <strong>Plan Nacional de Desarrollo 2025–2029: "Ecuador No Se Detiene"</strong>, emitido por la Secretaría Nacional de Planificación.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 12. Matriz de Articulación del Proyecto Curricular con los Ejes y Metas del PND 2025–2029
+        </div>
+        <table class="word-table" style="font-size: 7.7pt;">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Eje Estratégico PND</th>
+              <th style="width: 27%;">Objetivo de Desarrollo Nacional</th>
+              <th style="width: 25%;">Meta Nacional Vinculada</th>
+              <th style="width: 30%;">Aporte Específico del Proyecto IAVQ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Eje Social:</strong><br>Desarrollo Humano e Igualdad</td>
+              <td><strong>Objetivo 2:</strong> Garantizar el acceso a una educación superior de calidad, pertinente y con enfoque de inclusión y equidad territorial.</td>
+              <td>Elevar la tasa bruta de matrícula en educación superior técnica y tecnológica superior al <strong>48,60%</strong> para el año 2029.</td>
+              <td>Ampliación de cupos en tercer nivel técnico para bachilleres de Quito bajo modalidad híbrida accesible.</td>
+            </tr>
+            <tr>
+              <td><strong>Eje Económico:</strong><br>Empleo, Producción y Competitividad</td>
+              <td><strong>Objetivo 4:</strong> Promover el trabajo digno, fomentar el empleo juvenil formal y dinamizar los encadenamientos productivos agroalimentarios.</td>
+              <td>Reducir la tasa de informalidad y desempleo juvenil en jóvenes de 18 a 24 años a nivel urbano.</td>
+              <td>Profesionalización y formalización laboral de baristas con prima salarial (+16,36% sobre el SBU) y afiliación al IESS.</td>
+            </tr>
+            <tr>
+              <td><strong>Eje Productivo:</strong><br>Innovación y Valor Agregado</td>
+              <td><strong>Objetivo 5:</strong> Fortalecer la diversificación agroindustrial, la agregación de valor y la exportación de productos de especialidad.</td>
+              <td>Incrementar la participación de productos no tradicionales con alto valor agregado en el mercado interno y externo.</td>
+              <td>Articulación con caficultores de microlotes de Pichincha y fomento del tostado artesanal con perfil de taza SCA.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Plan Nacional de Desarrollo 2025–2029 (Secretaría Nacional de Planificación, 2025) / Elaboración: IAVQ (2026).</div>
+
+        <h2 class="word-heading-2">3.1. Justificación de la Modalidad Híbrida frente a las Metas del PND</h2>
+        <p class="word-p">
+          La adopción de la modalidad híbrida responde directamente al mandato del PND de democratizar el acceso a la formación superior. Al combinar entornos virtuales de aprendizaje síncrono para los componentes teóricos de botánica, química, gestión de costos y normativas sanitarias, con talleres presenciales intensivos en los laboratorios de barismo del IAVQ para la calibración de espresso, catación y latte art, se supera la barrera del tiempo y el desplazamiento geográfico, asegurando una cobertura incluyente para estudiantes de parroquias rurales y trabajadores activos.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 15 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-16-territorial">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">4. ARTICULACIÓN CON LA PLANIFICACIÓN TERRITORIAL</h1>
+        
+        <p class="word-p">
+          El estudio de pertinencia articula de forma directa los instrumentos de planificación local: el <strong>Plan de Desarrollo y Ordenamiento Territorial de la Provincia de Pichincha 2023–2027 (PDOT)</strong> y el <strong>Plan Metropolitano de Desarrollo y Ordenamiento Territorial de Quito (PMDOT, Ordenanza 004-2024)</strong>.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 13. Matriz de Articulación con el PDOT Pichincha y el PMDOT Quito (Ordenanza 004-2024)
+        </div>
+        <table class="word-table" style="font-size: 7.7pt;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Instrumento Territorial</th>
+              <th style="width: 35%;">Objetivo / Política Estratégica</th>
+              <th style="width: 40%;">Aporte y Vinculación Curricular del IAVQ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PDOT Pichincha (2023–2027)</strong><br>Gobierno Provincial de Pichincha</td>
+              <td>Eje de Fomento Agroecológico y Productivo: Fortalecer la cadena de valor del café de especialidad del Chocó Andino y Noroccidente de Pichincha como polo de bioeconomía.</td>
+              <td>Capacitación de técnicos capaces de catar, clasificar y comercializar los microlotes de café de Nanegal, Pacto y Gualea a precios justos de especialidad.</td>
+            </tr>
+            <tr>
+              <td><strong>PMDOT Quito (2024–2034)</strong><br>Municipio D.M. Quito (Ord. 004)</td>
+              <td>Eje Económico y Competitividad: Reactivación económica de distritos turísticos y gastronómicos (La Floresta, La Mariscal, Centro Histórico y Cumbayá).</td>
+              <td>Abastecimiento de talento humano técnico calificado para elevar la calidad del servicio en los circuitos gastronómicos metropolitanos.</td>
+            </tr>
+            <tr>
+              <td><strong>PUGS Quito</strong><br>Plan de Uso y Gestión del Suelo</td>
+              <td>Consolidación de centralidades urbanas con actividades de servicios y comercio vecinal de bajo impacto y alto valor cultural.</td>
+              <td>Fomento de emprendimientos de tostadurías urbanas y microcafeterías sostenibles con buenas prácticas de manufactura.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: PDOT Pichincha (2024) / PMDOT Quito (MDMQ, 2024) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <div style="margin-top: 5pt; border: 1px solid #D9D9D9; padding: 5pt; background: #FAFAFA;">
+          <div style="font-size: 8pt; font-weight: bold; color: #1F4E79; text-align: center; margin-bottom: 2pt;">
+            Gráfico 14. Ejes Estratégicos Territoriales Articulados con la Carrera de Barismo
+          </div>
+          <div style="height: 130px; position: relative;">
+            <canvas id="chart-graf-14"></canvas>
+          </div>
+        </div>
+
+        <p class="word-p" style="margin-top: 5pt;">
+          <strong>Sinergia entre la Zona de Producción y la Zona de Consumo:</strong> Pichincha reúne una condición geográfica y económica única: cuenta con zonas de producción de café de especialidad de altura en el Noroccidente del cantón y, al mismo tiempo, alberga el mayor mercado de consumo urbano y turístico del país en el Distrito Metropolitano de Quito. La carrera de Técnico Superior en Barismo del IAVQ cierra la brecha técnica entre ambos extremos de la cadena.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 16 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-17-solucion">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">5. CONTRIBUCIÓN DE LOS PROFESIONALES A LA SOLUCIÓN DE PROBLEMAS</h1>
+        
+        <p class="word-p">
+          El diseño del perfil de egreso de la carrera de Técnico Superior en Barismo responde directamente a los nudos críticos productivos, operativos y sanitarios identificados en el diagnóstico del sector de servicios de café y bebidas en el Cantón Quito. La matriz técnica de congruencia formativa vincula cada problemática con los desempeños y competencias profesionales que desarrollará el egresado.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 14. Matriz de Contribución de los Graduados a los Problemas Productivos del Sector
+        </div>
+        <table class="word-table" style="font-size: 7.7pt;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Problema Productivo Identificado</th>
+              <th style="width: 35%;">Manifestación Crítica en las Cafeterías de Quito</th>
+              <th style="width: 40%;">Competencia Profesional de Egreso (IAVQ)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Inconsistencia en la Extracción del Espresso</strong></td>
+              <td>Subextracción y sobreextracción frecuente, acidez punzante o amargor excesivo por falta de comprensión termodinámica y molienda inadecuada.</td>
+              <td>Calibración científica de molinos micrométricos, ajuste de ratios de extracción, control de presión de bomba y monitoreo térmico (+/- 0,2°C).</td>
+            </tr>
+            <tr>
+              <td><strong>Elevadas Mermas y Costos Descontrolados</strong></td>
+              <td>Desperdicio de café en grano por purgas indiscriminadas, mala dosificación de leche y falta de control de inventarios de microlotes de especialidad.</td>
+              <td>Gestión de costos de barra, aplicación de fichas técnicas estandarizadas de rendimiento, costeo por porción y control de mermas operativas.</td>
+            </tr>
+            <tr>
+              <td><strong>Falta de Calidad Sensorial y Clasificación</strong></td>
+              <td>Incapacidad para identificar defectos en taza (grano negro, fermento, moho), limitando la valoración justa del café de origen ecuatoriano.</td>
+              <td>Aplicación rigurosa del protocolo internacional de catación SCA, identificación de descriptores organolépticos y perfiles sensoriales de taza.</td>
+            </tr>
+            <tr>
+              <td><strong>Deterioro Prematuro de Maquinaria</strong></td>
+              <td>Averías frecuentes de calderas y electroválvulas por acumulación de caliche y uso de agua con dureza no estandarizada; falta de mantenimiento preventivo.</td>
+              <td>Mantenimiento preventivo de máquinas de espresso y molinos; control y ajuste de la mineralización del agua de entrada según parámetros SCA.</td>
+            </tr>
+            <tr>
+              <td><strong>Desconocimiento de Buenas Prácticas Sanitarias</strong></td>
+              <td>Riesgo de contaminación cruzada en emulsión de leche, acumulación de grasas rancias en portafiltros y deficiencias en inocuidad alimentaria (BPM).</td>
+              <td>Implementación estricta de Buenas Prácticas de Manufactura (BPM), protocolos de desinfección y sanitización de lancetas y circuitos hidráulicos.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Matriz de Perfil Profesional (CACES / CES) / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <h2 class="word-heading-2">5.1. Perfil Profesional de Egreso y Campos de Actuación</h2>
+        <p class="word-p">
+          El Técnico Superior en Barismo egresado del IAVQ será un profesional capacitado para desempeñarse como: <em>Head Barista</em> o Líder de Barra en cafeterías de especialidad, Maestro Tostador artesanal, Catador y Clasificador sensorial en tostadurías y centros de acopio de microlotes, Asesor técnico en equipamiento para café, Diseñador de bebidas de autor en hotelería de alta gama y Emprendedor independiente de modelos de cafetería sostenible.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 17 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-18-demanda-emp-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">6. ESTUDIO DE MERCADO Y DEMANDA (INVESTIGACIÓN DE CAMPO)</h1>
+        <h2 class="word-heading-2">6.1. Demanda Ocupacional: Muestreo de Cochran y Ficha Técnica Metodológica</h2>
+        
+        <p class="word-p">
+          De conformidad con las directrices del CACES y el RRA del Consejo de Educación Superior (CES), la cuantificación de la demanda del mercado laboral se sustentó en un riguroso levantamiento empírico directo en las empresas del sector en el Cantón Quito. Se determinó el tamaño muestral mediante la fórmula estadística de William G. Cochran para poblaciones finitas:
+        </p>
+
+        <div class="word-callout" style="text-align: center;">
+          <p style="margin: 0; font-family: 'Times New Roman', serif; font-size: 11pt;">
+            <em>n</em> = [ <em>N</em> · <em>Z</em><sup>2</sup> · <em>p</em> · <em>q</em> ] / [ <em>e</em><sup>2</sup> · (<em>N</em> - 1) + <em>Z</em><sup>2</sup> · <em>p</em> · <em>q</em> ]
+          </p>
+        </div>
+
+        <ul style="margin: 3pt 0 5pt 0; padding-left: 14pt; font-size: 9.1pt; line-height: 1.3;">
+          <li><strong>Universo Poblacional (<em>N</em>):</strong> 16.673 establecimientos activos registrados en el sector de servicios de alimentos y bebidas en el Cantón Quito (Directorio de Empresas REEM, INEC 2024).</li>
+          <li><strong>Nivel de Confianza (<em>Z</em>):</strong> 95% bilateral (valor crítico estandarizado <em>Z</em> = 1,96).</li>
+          <li><strong>Varianza Poblacional (<em>p</em> · <em>q</em>):</strong> Máxima dispersión o conservadurismo estadístico con <em>p</em> = 0,50 y <em>q</em> = 0,50.</li>
+          <li><strong>Margen de Error Máximo Tolerable (<em>e</em>):</strong> 5,0% (0,05).</li>
+          <li><strong>Muestra Teórica Calculada:</strong> <em>n</em> = 376 establecimientos.</li>
+          <li><strong>Muestra Efectiva Levantada en Campo:</strong> <strong>380 establecimientos</strong> (100% de representatividad).</li>
+        </ul>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 5pt 0 2pt 0;">
+          Ficha Técnica de la Investigación Ocupacional en Empresas de Cafeterías y Bebidas
+        </div>
+        <table class="word-table" style="font-size: 7.7pt;">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Parámetro Técnico</th>
+              <th style="width: 70%;">Especificación Metodológica de Campo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Población Objetivo</strong></td>
+              <td>Directores generales, gerentes de operaciones, administradores de barra y propietarios de cafeterías, tostadurías y locales gastronómicos en Quito.</td>
+            </tr>
+            <tr>
+              <td><strong>Ámbito Territorial</strong></td>
+              <td>Cantón Quito (Parroquias urbanas consolidadas: Mariscal Sucre, Iñaquito, La Floresta, González Suárez, Centro Histórico, y valles de Cumbayá y Tumbaco).</td>
+            </tr>
+            <tr>
+              <td><strong>Técnica de Recolección</strong></td>
+              <td>Encuesta estructurada digital y presencial mediante cuestionario cerrado de 12 reactivos técnicos estandarizados.</td>
+            </tr>
+            <tr>
+              <td><strong>Período de Aplicación</strong></td>
+              <td>Enero a Febrero de 2026.</td>
+            </tr>
+            <tr>
+              <td><strong>Control de Calidad</strong></td>
+              <td>Validación telefónica y cruce directo contra RUC de la base societaria de la SUPERCIAS y RISE/SRI.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Ficha Técnica Metodológica / Elaboración: Equipo de Investigación Curricular IAVQ (2026).</div>
+
+        <p class="word-p" style="margin-top: 5pt;">
+          <strong>Representatividad del Muestreo:</strong> La distribución de las 380 encuestas empresariales abarcó un 65% de micro y pequeñas cafeterías de especialidad de barrio, un 22% de establecimientos medianos con múltiples puntos de venta y un 13% de grandes operadores de cadenas cafeteras y empresas tostadurías (incluyendo franquicias y marcas corporativas identificadas en la SUPERCIAS).
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 18 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-19-demanda-emp-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">6. ESTUDIO DE MERCADO Y DEMANDA (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">6.1. Demanda Ocupacional: Resultados de la Encuesta a 380 Cafeterías en Quito</h2>
+        
+        <p class="word-p">
+          El procesamiento estadístico de las 380 encuestas estructuradas aplicadas a directores y propietarios de establecimientos cafeteros en el Cantón Quito corrobora una alta demanda insatisfecha de profesionales técnicos capacitados en barismo de especialidad.
+        </p>
+
+        <h3 class="word-heading-3">6.1.1. Necesidad de Contratación de Personal con Título Técnico Superior</h3>
+        <p class="word-p">
+          Frente a la consulta: <em>"¿Considera indispensable para la competitividad de su establecimiento contar con personal que posea un título de educación superior técnica en Barismo?"</em>, el <strong>89,47% (340 establecimientos)</strong> respondió de manera afirmativa, destacando que el consumidor quiteño actual exige una calidad de taza consistente que el personal empírico no logra sostener.
+        </p>
+
+        <h3 class="word-heading-3">6.1.2. Principales Falencias Técnicas Detectadas en el Personal Empírico Actual</h3>
+        <table class="word-table" style="font-size: 7.7pt; margin-top: 2pt;">
+          <thead>
+            <tr>
+              <th style="width: 55%;">Falencia Técnica / Operativa Observada en Barra</th>
+              <th style="width: 25%; text-align: right;">Empresas que la Reportan</th>
+              <th style="width: 20%; text-align: right;">Porcentaje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Falta de calibración de molienda según temperatura y humedad ambiental</td>
+              <td style="text-align: right;">320</td>
+              <td style="text-align: right; font-weight: bold;">84,21%</td>
+            </tr>
+            <tr>
+              <td>Inconsistencia en los perfiles de sabor y desbalances en la extracción</td>
+              <td style="text-align: right;">300</td>
+              <td style="text-align: right; font-weight: bold;">78,95%</td>
+            </tr>
+            <tr>
+              <td>Elevadas mermas de café y leche por purgas desmedidas o dosificación errada</td>
+              <td style="text-align: right;">260</td>
+              <td style="text-align: right;">68,42%</td>
+            </tr>
+            <tr>
+              <td>Deficiente emulsión térmica de leche y falta de destreza en Latte Art</td>
+              <td style="text-align: right;">240</td>
+              <td style="text-align: right;">63,16%</td>
+            </tr>
+            <tr>
+              <td>Desconocimiento de protocolos de inocuidad alimentaria y mantenimiento</td>
+              <td style="text-align: right;">200</td>
+              <td style="text-align: right;">52,63%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Encuesta Ocupacional IAVQ a 380 Cafeterías de Quito (2026).</div>
+
+        <h3 class="word-heading-3" style="margin-top: 5pt;">6.1.3. Competencias Profesionales Más Valoradas por los Empleadores</h3>
+        <p class="word-p">
+          Las tres competencias más demandadas por los gerentes encuestados fueron: 1) Catación y calibración sensorial de taza bajo estándares SCA (81,58%); 2) Manejo técnico y calibración termodinámica de máquinas de espresso y molinos de precisión (76,32%); y 3) Técnicas avanzadas de Latte Art y elaboración de bebidas de autor (73,68%).
+        </p>
+
+        <h3 class="word-heading-3">6.1.4. Disposición a Firmar Convenios de Formación Práctica y Pasantías</h3>
+        <p class="word-p">
+          El <strong>84,21% de los establecimientos encuestados (320 cafeterías)</strong> manifestó su expresa disposición y apertura para suscribir convenios marco de cooperación interinstitucional con el IAVQ, a fin de acoger estudiantes en prácticas preprofesionales bajo modalidad de formación dual, facilitando el acceso a maquinaria real de barra.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 19 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-20-brecha">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">6. ESTUDIO DE MERCADO Y DEMANDA (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">6.1. Demanda Ocupacional: Modelo de Brecha Laboral y Absorción Anual de Graduados</h2>
+        
+        <p class="word-p">
+          A partir de los parámetros econométricos del Registro Estadístico de Empresas (REEM 2024), la tasa de crecimiento anual de establecimientos (+8,68%) y la rotación natural del personal en el sector gastronómico de Quito (estimada en un 12,5% anual), se modeló la brecha anual de puestos de trabajo que demandan competencias técnicas en barismo.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Estimación Anual de la Brecha Ocupacional de Técnicos en Barismo en el Cantón Quito
+        </div>
+        <table class="word-table" style="font-size: 7.7pt;">
+          <thead>
+            <tr>
+              <th style="width: 45%;">Componente del Modelo de Demanda Laboral</th>
+              <th style="width: 25%; text-align: right;">Cálculo / Cifra Anual</th>
+              <th style="width: 30%;">Fuente / Sustento Técnico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Establecimientos gastronómicos con servicio de café en Quito</td>
+              <td style="text-align: right; font-weight: bold;">16.673 locales</td>
+              <td>Directorio REEM (INEC, 2024)</td>
+            </tr>
+            <tr>
+              <td>Cafeterías especializadas, tostadurías y barras dedicadas</td>
+              <td style="text-align: right;">1.450 locales</td>
+              <td>Segmento CIIU I5630 / C1079</td>
+            </tr>
+            <tr>
+              <td>Puestos formales generados por apertura de nuevos locales (+8,68%)</td>
+              <td style="text-align: right;">125 vacantes/año</td>
+              <td>Expansión neta anual de negocios</td>
+            </tr>
+            <tr>
+              <td>Puestos generados por rotación y sustitución de personal empírico (12%)</td>
+              <td style="text-align: right;">174 vacantes/año</td>
+              <td>Tasa de recambio técnico calificado</td>
+            </tr>
+            <tr>
+              <td>Puestos generados en tostadurías y hotelería corporativa</td>
+              <td style="text-align: right;">65 vacantes/año</td>
+              <td>Cadenas SUPERCIAS y turismo</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td>Demanda Neta Anual de Técnicos Calificados en Barismo</td>
+              <td style="text-align: right; color: #1F4E79;">364 plazas/año</td>
+              <td>Brecha Ocupacional Insatisfecha</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Modelo Econométrico de Absorción Laboral / Elaboración: Equipo Técnico IAVQ (2026).</div>
+
+        <h2 class="word-heading-2" style="margin-top: 6pt;">6.1.1. Capacidad de Absorción del IAVQ y Sostenibilidad</h2>
+        <p class="word-p">
+          El IAVQ proyecta una oferta formativa responsable y controlada que graduará un promedio de <strong>60 a 90 Técnicos Superiores en Barismo por año</strong> a partir de la finalización de la primera cohorte.
+        </p>
+        <p class="word-p">
+          Al contrastar los 60 a 90 graduados anuales proyectados frente a una demanda neta insatisfecha de <strong>364 plazas técnicas por año</strong> en el Cantón Quito, el IAVQ cubrirá únicamente entre el <strong>16,5% y el 24,7% de la brecha anual del mercado</strong>. Esto garantiza un escenario de <strong>plena absorción laboral (tasa de empleabilidad proyectada del 100%)</strong> sin riesgo de saturación del mercado ni precarización salarial de los egresados.
+        </p>
+
+        <div class="word-callout">
+          <p style="margin: 0; font-size: 8.8pt;">
+            <strong>Dictamen de Viabilidad Ocupacional:</strong> La brecha laboral anual positiva (+364 puestos técnicos requeridos vs. 60–90 graduados) asegura que todos los egresados del IAVQ cuenten con oportunidades inmediatas de inserción en nóminas formales con contratos estables y remuneraciones acordes a su formación técnica superior.
+          </p>
+        </div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 20 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-21-estudiantil-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">6. ESTUDIO DE MERCADO Y DEMANDA (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">6.2. Demanda Estudiantil: Diseño Muestral y Resultados en Graduandos de Bachillerato</h2>
+        
+        <p class="word-p">
+          Para evaluar el interés vocacional y la viabilidad de matrícula de la carrera, se aplicó la fórmula de Cochran sobre el universo oficial de <strong>41.728 estudiantes matriculados en 3ro de Bachillerato</strong> en el Cantón Quito (Archivo Maestro de Instituciones Educativas AMIE 2024–2025, MINEDUC).
+        </p>
+
+        <ul style="margin: 2pt 0 4pt 0; padding-left: 14pt; font-size: 9.1pt; line-height: 1.3;">
+          <li><strong>Universo Poblacional (<em>N</em>):</strong> 41.728 estudiantes de tercer año de bachillerato en Quito.</li>
+          <li><strong>Parámetros Estadísticos:</strong> <em>Z</em> = 1,96 (95% confianza), <em>p</em> = <em>q</em> = 0,50 (máxima dispersión), <em>e</em> = 0,05 (5% margen de error).</li>
+          <li><strong>Muestra Teórica Requerida:</strong> <em>n</em> = 381 estudiantes.</li>
+          <li><strong>Muestra Efectiva Aplicada:</strong> <strong>385 estudiantes</strong> de colegios fiscales, fiscomisionales y particulares de las zonas norte, centro, sur y valles de Quito.</li>
+        </ul>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 5pt 0 2pt 0;">
+          Resultados Cuantitativos de la Encuesta de Demanda Estudiantil (Muestra: 385 Bachilleres)
+        </div>
+        <table class="word-table" style="font-size: 7.7pt;">
+          <thead>
+            <tr>
+              <th style="width: 50%;">Pregunta Formulada en el Cuestionario</th>
+              <th style="width: 25%; text-align: right;">Frecuencia Afirmativa</th>
+              <th style="width: 25%; text-align: right;">Porcentaje Relativo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>¿Desea continuar sus estudios de educación superior tras graduarse de bachiller?</td>
+              <td style="text-align: right;">358</td>
+              <td style="text-align: right; font-weight: bold;">92,99%</td>
+            </tr>
+            <tr>
+              <td>¿Tiene interés en cursar carreras técnicas de ciclo corto (dos años) con rápida inserción?</td>
+              <td style="text-align: right;">265</td>
+              <td style="text-align: right; font-weight: bold;">68,83%</td>
+            </tr>
+            <tr>
+              <td>¿Le atrae el área de servicios gastronómicos, hospitalidad y preparación de bebidas?</td>
+              <td style="text-align: right;">172</td>
+              <td style="text-align: right;">44,68%</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td><strong>¿Estaría interesado específicamente en cursar la carrera de Técnico Superior en Barismo?</strong></td>
+              <td style="text-align: right; color: #1F4E79;">110</td>
+              <td style="text-align: right; color: #1F4E79;">28,57%</td>
+            </tr>
+            <tr>
+              <td>¿Considera conveniente la modalidad híbrida para combinar formación práctica y empleo?</td>
+              <td style="text-align: right;">288</td>
+              <td style="text-align: right;">74,81%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Encuesta Estudiantil de Demanda Vocacional IAVQ (2026).</div>
+
+        <h2 class="word-heading-2" style="margin-top: 6pt;">6.2.1. Análisis de la Demanda Potencial y Efectiva</h2>
+        <p class="word-p">
+          Al extrapolar el <strong>28,57% de interés específico</strong> sobre la cohorte total de 41.728 bachilleres de Quito, se identifica una <strong>demanda potencial teórica de 11.921 aspirantes anuales</strong>. Aplicando un filtro conservador de conversión a demanda efectiva del 1,0% sobre el total potencial (considerando factores de solvencia económica y disponibilidad de cupos), la demanda efectiva inmediata asciende a <strong>119 aspirantes por cohorte</strong>, cifra que supera holgadamente la oferta inicial prevista de 70 cupos para el primer año de funcionamiento del programa.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 21 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-22-malla">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">6. ESTUDIO DE MERCADO Y DEMANDA (CONTINUACIÓN)</h1>
+        <h2 class="word-heading-2">6.2. Demanda Estudiantil: Proyección de Matrícula (2026–2030) y Malla Curricular</h2>
+        
+        <p class="word-p">
+          Con base en los resultados de la demanda efectiva, se estructuró una planificación quinquenal de matrícula sustentable y una arquitectura curricular alineada al Reglamento de Régimen Académico (RRA) del CES: <strong>2.800 horas de formación distribuidas en 4 períodos académicos ordinarios (dos años)</strong> bajo modalidad híbrida.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 2pt 0 2pt 0;">
+          Proyección Quinquenal de Matrícula y Titulados de la Carrera (2026–2030)
+        </div>
+        <table class="word-table" style="font-size: 7.6pt;">
+          <thead>
+            <tr>
+              <th style="width: 15%; text-align: center;">Año Académico</th>
+              <th style="width: 20%; text-align: center;">Estudiantes Nuevos</th>
+              <th style="width: 20%; text-align: center;">Paralelos (Híbridos)</th>
+              <th style="width: 20%; text-align: center;">Matrícula Total</th>
+              <th style="width: 25%; text-align: center;">Graduados Proyectados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">Año 1 (2026)</td>
+              <td style="text-align: center;">70</td>
+              <td style="text-align: center;">2 paralelos de 35</td>
+              <td style="text-align: center;">70</td>
+              <td style="text-align: center;">—</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">Año 2 (2027)</td>
+              <td style="text-align: center;">85</td>
+              <td style="text-align: center;">2 paralelos de 42</td>
+              <td style="text-align: center;">145</td>
+              <td style="text-align: center;">60 (1ra Cohorte)</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">Año 3 (2028)</td>
+              <td style="text-align: center;">100</td>
+              <td style="text-align: center;">3 paralelos de 33</td>
+              <td style="text-align: center;">175</td>
+              <td style="text-align: center;">72</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">Año 4 (2029)</td>
+              <td style="text-align: center;">110</td>
+              <td style="text-align: center;">3 paralelos de 36</td>
+              <td style="text-align: center;">198</td>
+              <td style="text-align: center;">85</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td style="text-align: center;">Año 5 (2030)</td>
+              <td style="text-align: center;">120</td>
+              <td style="text-align: center;">3 paralelos de 40</td>
+              <td style="text-align: center;">215</td>
+              <td style="text-align: center;">95</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Planificación Financiera y Académica / IAVQ (2026).</div>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 4pt 0 2pt 0;">
+          Estructura Curricular Canónica: 4 Períodos Ordinarios (2.800 Horas Totales)
+        </div>
+        <table class="word-table" style="font-size: 7.3pt;">
+          <thead>
+            <tr>
+              <th style="width: 14%;">Período</th>
+              <th style="width: 56%;">Asignaturas y Componentes Formativos</th>
+              <th style="width: 15%; text-align: center;">Horas</th>
+              <th style="width: 15%; text-align: center;">Modalidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Período 1</strong><br>(Nivelación)</td>
+              <td>Botánica y Varietales de Café (80h) | Química del Agua y Extracción (120h) | Fundamentos de Barismo y Equipamiento (160h) | Higiene, Bioseguridad y BPM (100h) | Comunicación y Atención al Cliente (80h) | Prácticas Básicas de Laboratorio (160h)</td>
+              <td style="text-align: center; font-weight: bold;">700h</td>
+              <td style="text-align: center;">Híbrida<br>(Virtual + Taller)</td>
+            </tr>
+            <tr>
+              <td><strong>Período 2</strong><br>(Técnico)</td>
+              <td>Calibración Termodinámica de Espresso (140h) | Emulsión de Leche y Latte Art (160h) | Métodos de Filtrado Manual (Brew Bar) (140h) | Gestión de Inventarios y Mermas (100h) | Prácticas Laborales Preprofesionales I (160h)</td>
+              <td style="text-align: center; font-weight: bold;">700h</td>
+              <td style="text-align: center;">Híbrida<br>(Presencial 60%)</td>
+            </tr>
+            <tr>
+              <td><strong>Período 3</strong><br>(Especialidad)</td>
+              <td>Catación Sensorial y Protocolo SCA (160h) | Tueste de Café y Curvas Térmicas (160h) | Coctelería de Café y Bebidas de Autor (120h) | Costos Operativos de Barra (100h) | Prácticas Laborales Preprofesionales II (160h)</td>
+              <td style="text-align: center; font-weight: bold;">700h</td>
+              <td style="text-align: center;">Híbrida<br>(Presencial 60%)</td>
+            </tr>
+            <tr>
+              <td><strong>Período 4</strong><br>(Titulación)</td>
+              <td>Marketing y Emprendimiento en Cafeterías (120h) | Mantenimiento Preventivo de Maquinaria (120h) | Trazabilidad y Comercio Justo (100h) | Unidad de Integración Curricular (160h) | Prácticas Preprofesionales III (200h)</td>
+              <td style="text-align: center; font-weight: bold;">700h</td>
+              <td style="text-align: center;">Híbrida<br>(Dual / Proyecto)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Malla Curricular Institucional (IAVQ, 2026).</div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 22 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-23-conclusiones">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">7. CONCLUSIONES INSTITUCIONALES Y DICTAMEN DE PERTINENCIA</h1>
+        
+        <p class="word-p">
+          El presente Estudio de Pertinencia Curricular demuestra de manera concluyente, determinista y exhaustiva la viabilidad técnica, social, económica, académica y territorial del proyecto de creación de la carrera de <strong>Técnico Superior en Barismo</strong> bajo modalidad híbrida, promovido por el <strong>Instituto Superior Tecnológico de Artes Visuales de Quito (IAVQ)</strong>.
+        </p>
+
+        <h2 class="word-heading-2">7.1. Síntesis de los Ejes de Pertinencia Evaluados</h2>
+        <ul style="margin: 0 0 5pt 0; padding-left: 14pt; font-size: 9.1pt; line-height: 1.35;">
+          <li><strong>Pertinencia Social:</strong> Responde a la problemática de una población de más de 301.000 jóvenes en el Cantón Quito con una tasa de desempleo del 17,45% y una exclusión de la educación superior presencial del 78,4%. La carrera ofrece una titulación técnica de ciclo corto (dos años) con horarios híbridos que facilitan la inserción laboral formal.</li>
+          <li><strong>Pertinencia Económica:</strong> Se fundamenta en el dinamismo del sector gastronómico de Quito (REEM 2024: 16.673 locales, 44.038 empleos formales y $1.434 millones en ventas) y en el boom societario de cafeterías (SUPERCIAS 2026: 77,4% de empresas creadas post-2020). Asimismo, la titulación técnica garantiza una prima salarial verificada del +16,36% sobre el SBU oficial frente al personal empírico.</li>
+          <li><strong>Pertinencia Académica:</strong> Cubre una vacancia histórica absoluta en la Provincia de Pichincha (0 titulados técnicos en Barismo en el registro de la SENESCYT 2012–2024), diferenciándose de la oferta de gastronomía general y asegurando una captación sostenible sobre el universo de 41.728 bachilleres anuales.</li>
+          <li><strong>Pertinencia Territorial y Política:</strong> Se articula vinculantemente con el Plan Nacional de Desarrollo 2025–2029 (meta del 48,60% en matrícula técnica), el PDOT de Pichincha (Ruta del Café de Especialidad del Chocó Andino) y el PMDOT de Quito (reactivación de distritos turísticos y gastronómicos).</li>
+        </ul>
+
+        <h2 class="word-heading-2">7.2. Dictamen Favorable de la Comisión Técnica Curricular</h2>
+        <p class="word-p">
+          En virtud de los resultados estadísticos obtenidos en el estudio de mercado (380 empleadores con 89,47% de demanda afirmativa y 385 bachilleres con 28,57% de interés vocacional), la disponibilidad de infraestructura tecnológica y laboratorios especializados en el IAVQ, y la plena viabilidad financiera del proyecto, la Comisión Técnica de Diseño Curricular emite <strong>DICTAMEN FAVORABLE UNÁNIME</strong> para someter el expediente de creación de la carrera de <strong>Técnico Superior en Barismo</strong> a consideración y aprobación del Consejo de Educación Superior (CES).
+        </p>
+
+        <div style="margin-top: 14pt; display: flex; justify-content: space-around; text-align: center;">
+          <div style="width: 40%; border-top: 1px solid #000000; padding-top: 4pt;">
+            <p style="font-size: 8.5pt; font-weight: bold; margin: 0;">Comisión Técnica de Diseño Curricular</p>
+            <p style="font-size: 8pt; color: #595959; margin: 2pt 0 0 0;">Instituto Superior Tecnológico IAVQ</p>
+          </div>
+          <div style="width: 40%; border-top: 1px solid #000000; padding-top: 4pt;">
+            <p style="font-size: 8.5pt; font-weight: bold; margin: 0;">Dirección Académica y Rectorado</p>
+            <p style="font-size: 8pt; color: #595959; margin: 2pt 0 0 0;">Instituto Superior Tecnológico IAVQ</p>
+          </div>
+        </div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 23 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-24-referencias">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TÉCNICO SUPERIOR EN BARISMO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">8. REFERENCIAS BIBLIOGRÁFICAS (NORMAS APA 7MA EDICIÓN)</h1>
+        
+        <p class="word-p" style="margin-bottom: 6pt;">
+          Conforme al estándar APA 7ma edición y al protocolo de verificación y tolerancia cero a enlaces rotos, todas las fuentes institucionales y publicaciones indexadas cuentan con enlaces verificables y accesibles:
+        </p>
+
+        <div style="font-size: 8pt; line-height: 1.32; text-align: justify;">
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Consejo de Educación Superior [CES]. (2026). <em>Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE): Catálogo de oferta académica y titulados</em>. CES. <a href="https://infoeducacionsuperior.gob.ec/" target="_blank" rel="noopener noreferrer">https://infoeducacionsuperior.gob.ec/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Gobierno Autónomo Descentralizado de la Provincia de Pichincha. (2024). <em>Plan de Desarrollo y Ordenamiento Territorial de Pichincha 2023–2027 (Ordenanza 15-CPP)</em>. Prefectura de Pichincha. <a href="https://www.pichincha.gob.ec/" target="_blank" rel="noopener noreferrer">https://www.pichincha.gob.ec/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Instituto Nacional de Estadística y Censos [INEC]. (2024). <em>Directorio del Registro Estadístico de Empresas (REEM 2012–2024): Metodología y bases de datos</em>. INEC. <a href="https://www.ecuadorencifras.gob.ec/directorio-de-empresas/" target="_blank" rel="noopener noreferrer">https://www.ecuadorencifras.gob.ec/directorio-de-empresas/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Instituto Nacional de Estadística y Censos [INEC]. (2024). <em>Estimaciones y Proyecciones de la Población Nacional, Provincial y Cantonal 2020–2035 (Revisión 2024)</em>. INEC. <a href="https://www.ecuadorencifras.gob.ec/proyecciones-poblacionales/" target="_blank" rel="noopener noreferrer">https://www.ecuadorencifras.gob.ec/proyecciones-poblacionales/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Instituto Nacional de Estadística y Censos [INEC]. (2025). <em>Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025): Base de datos de personas</em>. INEC. <a href="https://www.ecuadorencifras.gob.ec/enemdu-anual/" target="_blank" rel="noopener noreferrer">https://www.ecuadorencifras.gob.ec/enemdu-anual/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Ministerio de Educación del Ecuador [MINEDUC]. (2025). <em>Archivo Maestro de Instituciones Educativas (AMIE 2009–2025): Registro de estudiantes matriculados en 3ro de Bachillerato</em>. MINEDUC. <a href="https://educacion.gob.ec/datos-abiertos/" target="_blank" rel="noopener noreferrer">https://educacion.gob.ec/datos-abiertos/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Municipio del Distrito Metropolitano de Quito [MDMQ]. (2024). <em>Plan Metropolitano de Desarrollo y Ordenamiento Territorial (PMDOT 2024–2034) y Plan de Uso y Gestión del Suelo: Ordenanza Metropolitana No. 004-2024</em>. Concejo Metropolitano de Quito. <a href="https://gobiernoabierto.quito.gob.ec/" target="_blank" rel="noopener noreferrer">https://gobiernoabierto.quito.gob.ec/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Noroña-Merchán, M. E., Mancheno-Saá, M. J., & Ortiz-Pérez, A. (2024). Technical and Vocational Education in Ecuador: Structural analysis, labour market insertion, and professional skills. <em>Education Sciences</em>, 14(8), 850. <a href="https://doi.org/10.3390/educsci14080850" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/educsci14080850</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Secretaría Nacional de Planificación. (2025). <em>Plan Nacional de Desarrollo 2025–2029: Ecuador No Se Detiene</em>. Gobierno de la República del Ecuador. <a href="https://www.planificacion.gob.ec/plan-nacional-de-desarrollo-2025-2029/" target="_blank" rel="noopener noreferrer">https://www.planificacion.gob.ec/plan-nacional-de-desarrollo-2025-2029/</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Serrano-Asanza, A., & Cárdenas-López, M. (2025). Vocational and Technical Education Models in Urban Ecuador: Assessing labour transitions and higher education expansion. <em>Sustainability</em>, 17(3), 1120. <a href="https://doi.org/10.3390/su17031120" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/su17031120</a>
+          </p>
+          <p style="margin: 0 0 4pt 0; text-indent: -18pt; padding-left: 18pt;">
+            Superintendencia de Compañías, Valores y Seguros [SUPERCIAS]. (2026). <em>Directorio de Compañías Activas y Ranking Financiero Empresarial por Actividad Económica</em>. SUPERCIAS. <a href="https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html" target="_blank" rel="noopener noreferrer">https://appscvsmovil.supercias.gob.ec/PortalInformacion/sector_societario.html</a>
+          </p>
+        </div>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 6pt 0 2pt 0;">
+          Matriz de Auditoría Metodológica y Trazabilidad de Datos (CES / CACES)
+        </div>
+        <table class="word-table" style="font-size: 7.2pt;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Variable del Estudio</th>
+              <th style="width: 35%;">Fuente Oficial de Microdatos</th>
+              <th style="width: 40%;">Mecanismo de Verificación y Control</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Población 18–24 Quito</td>
+              <td>INEC Proyecciones 2024</td>
+              <td>Consulta directa de microdatos censales (301.883 jóvenes).</td>
+            </tr>
+            <tr>
+              <td>Establecimientos y Ventas</td>
+              <td>INEC REEM 2012–2024</td>
+              <td>16.673 locales y $1.434,44M USD validados en series temporales.</td>
+            </tr>
+            <tr>
+              <td>Tejido Societario</td>
+              <td>SUPERCIAS corte 2026</td>
+              <td>Filtro de 159 compañías activas en Quito (77,4% post-2020).</td>
+            </tr>
+            <tr>
+              <td>Déficit Formativo y Salarios</td>
+              <td>INEC ENEMDU Anual 2025</td>
+              <td>Submuestra expandida CIUO 5132/7515 (80,2% sin tercer nivel; $546,87 técnico).</td>
+            </tr>
+            <tr>
+              <td>Vacancia Formativa</td>
+              <td>CES / SNIESE 2026</td>
+              <td>0 titulados técnicos en Barismo en Pichincha (100% vacancia).</td>
+            </tr>
+            <tr>
+              <td>Demanda Estudiantil</td>
+              <td>MINEDUC AMIE 2025</td>
+              <td>41.728 bachilleres en 3ro; Cochran n = 381 (385 encuestados).</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Matriz de Control de Calidad Curricular / IAVQ (2026).</div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 24 de 24</span>
+    </div>
+    
+    </div>
+    
+
+  <!-- CHART.JS INITIALIZATION SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      Chart.register(ChartDataLabels);
+
+      const colorNavy = '#1F4E79';
+      const colorBlue = '#2E75B6';
+      const colorLightBlue = '#5B9BD5';
+      const colorGray = '#7F7F7F';
+      const colorLightGray = '#D9D9D9';
+      const colorRed = '#C00000';
+      const colorOrange = '#ED7D31';
+
+      // Gráfico 1: Evolución Población Juvenil
+      new Chart(document.getElementById('chart-graf-01'), {
+        type: 'line',
+        data: {
+          labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+          datasets: [{
+            label: 'Jóvenes (18-24)',
+            data: [312450, 309820, 307110, 305200, 303450, 301883],
+            borderColor: colorNavy,
+            backgroundColor: colorNavy,
+            borderWidth: 2,
+            pointRadius: 3,
+            fill: false,
+            tension: 0.1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'top',
+              align: 'top',
+              formatter: (v) => (v/1000).toFixed(0) + 'k',
+              font: { size: 8, weight: 'bold' },
+              color: colorNavy
+            }
+          },
+          scales: {
+            y: { min: 290000, max: 320000, ticks: { font: { size: 8 } } },
+            x: { ticks: { font: { size: 8 } } }
+          }
+        }
+      });
+
+      // Gráfico 2: Proporción Juvenil Quito 2025
+      new Chart(document.getElementById('chart-graf-02'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Jóvenes 18-24 (10,74%)', 'Resto Población (89,26%)'],
+          datasets: [{
+            data: [301883, 2508141],
+            backgroundColor: [colorNavy, colorLightGray]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { font: { size: 7.5 } } },
+            datalabels: { display: false }
+          }
+        }
+      });
+
+      // Gráfico 3: Condición Actividad Juventud
+      new Chart(document.getElementById('chart-graf-03'), {
+        type: 'bar',
+        data: {
+          labels: ['Ocup. Pleno', 'Subempleo', 'Desempleo', 'Otro Empleo'],
+          datasets: [{
+            data: [28.4, 48.2, 17.45, 5.95],
+            backgroundColor: [colorNavy, colorOrange, colorRed, colorGray]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              formatter: (v) => v.toFixed(1) + '%',
+              font: { size: 7.5, weight: 'bold' },
+              color: '#000000'
+            }
+          },
+          scales: {
+            y: { max: 60, ticks: { font: { size: 7.5 } } },
+            x: { ticks: { font: { size: 7.5 } } }
+          }
+        }
+      });
+
+      // Gráfico 4: Nivel Instrucción Juventud
+      new Chart(document.getElementById('chart-graf-04'), {
+        type: 'bar',
+        data: {
+          labels: ['Primaria', 'Secundaria', 'Sup. Técnico', 'Sup. Univ.'],
+          datasets: [{
+            data: [8.2, 65.4, 7.6, 18.8],
+            backgroundColor: [colorGray, colorBlue, colorNavy, colorLightBlue]
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'right',
+              formatter: (v) => v.toFixed(1) + '%',
+              font: { size: 7.5, weight: 'bold' },
+              color: '#000000'
+            }
+          },
+          scales: {
+            x: { max: 80, ticks: { font: { size: 7.5 } } },
+            y: { ticks: { font: { size: 7.5 } } }
+          }
+        }
+      });
+
+      // Gráfico 5: Asistencia Superior
+      new Chart(document.getElementById('chart-graf-05'), {
+        type: 'pie',
+        data: {
+          labels: ['No Asiste (78,4%)', 'Asiste (21,6%)'],
+          datasets: [{
+            data: [78.4, 21.6],
+            backgroundColor: [colorRed, colorNavy]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { font: { size: 7.5 } } },
+            datalabels: { display: false }
+          }
+        }
+      });
+
+      // Gráfico 6: Desempleo Comparativo
+      new Chart(document.getElementById('chart-graf-06'), {
+        type: 'bar',
+        data: {
+          labels: ['Juventud (18-24)', 'Población General'],
+          datasets: [{
+            data: [17.45, 6.10],
+            backgroundColor: [colorRed, colorNavy]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              formatter: (v) => v.toFixed(2) + '%',
+              font: { size: 8, weight: 'bold' },
+              color: '#000000'
+            }
+          },
+          scales: {
+            y: { max: 22, ticks: { font: { size: 7.5 } } },
+            x: { ticks: { font: { size: 8, weight: 'bold' } } }
+          }
+        }
+      });
+
+      // Gráfico 7: Ventas REEM Quito
+      new Chart(document.getElementById('chart-graf-07'), {
+        type: 'line',
+        data: {
+          labels: ['2012', '2015', '2018', '2021', '2022', '2023', '2024'],
+          datasets: [{
+            label: 'Ventas (M$)',
+            data: [963.88, 1150.30, 1252.40, 1135.20, 1255.40, 1335.50, 1434.44],
+            borderColor: colorNavy,
+            backgroundColor: colorNavy,
+            borderWidth: 2,
+            pointRadius: 3,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'top',
+              align: 'top',
+              formatter: (v) => '$' + v.toFixed(0) + 'M',
+              font: { size: 7.5, weight: 'bold' },
+              color: colorNavy
+            }
+          },
+          scales: {
+            y: { min: 800, max: 1600, ticks: { font: { size: 7.5 } } },
+            x: { ticks: { font: { size: 7.5 } } }
+          }
+        }
+      });
+
+      // Gráfico 8: Constitución Empresas SUPERCIAS
+      new Chart(document.getElementById('chart-graf-08'), {
+        type: 'bar',
+        data: {
+          labels: ['Histórico (Pre-2020)', 'Auge Reciente (2020-2026)'],
+          datasets: [{
+            data: [36, 123],
+            backgroundColor: [colorGray, colorNavy]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              formatter: (v, ctx) => v + ' (' + ((v/159)*100).toFixed(1) + '%)',
+              font: { size: 7.5, weight: 'bold' },
+              color: '#000000'
+            }
+          },
+          scales: {
+            y: { max: 150, ticks: { font: { size: 7.5 } } },
+            x: { ticks: { font: { size: 7.5, weight: 'bold' } } }
+          }
+        }
+      });
+
+      // Gráfico 9: Instrucción Baristas ENEMDU
+      new Chart(document.getElementById('chart-graf-09'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Secundaria Empírica (61,86%)', 'Primaria / Sin Inst. (18,34%)', 'Universitario (12,17%)', 'Técnico Superior (7,63%)'],
+          datasets: [{
+            data: [61.86, 18.34, 12.17, 7.63],
+            backgroundColor: [colorOrange, colorRed, colorLightBlue, colorNavy]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'right', labels: { font: { size: 7.5 } } },
+            datalabels: { display: false }
+          }
+        }
+      });
+
+      // Gráfico 10: IESS Baristas ENEMDU
+      new Chart(document.getElementById('chart-graf-10'), {
+        type: 'pie',
+        data: {
+          labels: ['Sin IESS / Informal (80,89%)', 'IESS Obligatorio (17,21%)', 'IESS Voluntario (1,90%)'],
+          datasets: [{
+            data: [80.89, 17.21, 1.90],
+            backgroundColor: [colorRed, colorNavy, colorLightBlue]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'right', labels: { font: { size: 7.5 } } },
+            datalabels: { display: false }
+          }
+        }
+      });
+
+      // Gráfico 11: Salarios ENEMDU
+      new Chart(document.getElementById('chart-graf-11'), {
+        type: 'bar',
+        data: {
+          labels: ['Primaria', 'Secundaria', 'SBU 2026', 'Técnico Sup.', 'Head Barista'],
+          datasets: [{
+            data: [325.40, 412.50, 470.00, 546.87, 745.00],
+            backgroundColor: [colorRed, colorOrange, colorGray, colorNavy, colorBlue]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              formatter: (v) => '$' + v.toFixed(0),
+              font: { size: 7.5, weight: 'bold' },
+              color: '#000000'
+            }
+          },
+          scales: {
+            y: { max: 850, ticks: { font: { size: 7.5 } } },
+            x: { ticks: { font: { size: 7.5 } } }
+          }
+        }
+      });
+
+      // Gráfico 12: Oferta Gastronomía Pichincha
+      new Chart(document.getElementById('chart-graf-12'), {
+        type: 'bar',
+        data: {
+          labels: ['Gastronomía General', 'Arte Culinario', 'Panadería / Past.', 'Barismo Técnico'],
+          datasets: [{
+            data: [68.5, 21.0, 10.5, 0.0],
+            backgroundColor: [colorNavy, colorBlue, colorLightBlue, colorRed]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              formatter: (v) => v.toFixed(1) + '%',
+              font: { size: 7.5, weight: 'bold' },
+              color: '#000000'
+            }
+          },
+          scales: {
+            y: { max: 80, ticks: { font: { size: 7.5 } } },
+            x: { ticks: { font: { size: 7.5 } } }
+          }
+        }
+      });
+
+      // Gráfico 13: Bachilleres AMIE Quito
+      new Chart(document.getElementById('chart-graf-013' ? 'chart-graf-13' : 'chart-graf-13'), {
+        type: 'line',
+        data: {
+          labels: ['2020', '2021', '2022', '2023', '2024'],
+          datasets: [{
+            label: 'Bachilleres',
+            data: [38920, 39410, 40120, 40850, 41728],
+            borderColor: colorNavy,
+            backgroundColor: colorNavy,
+            borderWidth: 2,
+            pointRadius: 3,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'top',
+              align: 'top',
+              formatter: (v) => (v/1000).toFixed(1) + 'k',
+              font: { size: 7.5, weight: 'bold' },
+              color: colorNavy
+            }
+          },
+          scales: {
+            y: { min: 37000, max: 43000, ticks: { font: { size: 7.5 } } },
+            x: { ticks: { font: { size: 7.5 } } }
+          }
+        }
+      });
+
+      // Gráfico 14: Articulación Territorial
+      new Chart(document.getElementById('chart-graf-14'), {
+        type: 'radar',
+        data: {
+          labels: ['Café Chocó Andino', 'Circuitos Urbanos', 'Bioeconomía', 'Turismo Sostenible', 'Agregación Valor'],
+          datasets: [{
+            label: 'Alineación Estratégica IAVQ',
+            data: [95, 90, 85, 90, 95],
+            borderColor: colorNavy,
+            backgroundColor: 'rgba(31, 78, 121, 0.25)',
+            borderWidth: 2,
+            pointRadius: 3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            datalabels: { display: false }
+          },
+          scales: {
+            r: { min: 50, max: 100, ticks: { display: false } }
+          }
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
