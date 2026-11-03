@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-11-03 18:37:39",
+  "duracion_segundos": 42.89,
+  "carrera": "Técnico Superior en Barismo y Gestión de Cafeterías",
+  "territorio": "QUITO, PICHINCHA",
+  "archivos_generados": [
+    "supercias_consolidado.json",
+    "enemdu_consolidado.json",
+    "senescyt_titulados_consolidado.json",
+    "amie_bachilleres_consolidado.json",
+    "reem_empresas_consolidado.json",
+    "mercado_demanda_consolidado.json"
+  ]
+}

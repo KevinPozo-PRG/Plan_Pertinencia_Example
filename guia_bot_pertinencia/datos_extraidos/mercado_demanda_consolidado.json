@@ -1,0 +1,80 @@
+{
+  "metadatos": {
+    "fuente": "Investigación de Campo Directa - CEDEPRO / IAVQ",
+    "metodologia_muestreo": "Muestreo Probabilístico Estratificado (Fórmula de Cochran con Población Finita)"
+  },
+  "diseno_muestral": {
+    "empresas": {
+      "universo_n": 16673,
+      "muestra_calculada_n": 376,
+      "confianza": 0.95,
+      "error": 0.05
+    },
+    "estudiantes": {
+      "universo_n": 41728,
+      "muestra_calculada_n": 381,
+      "confianza": 0.95,
+      "error": 0.05
+    }
+  },
+  "demanda_laboral": {
+    "universo_empresas_reem": 16673,
+    "muestra_encuestada": 376,
+    "factor_expansion_f": 44.3431,
+    "plazas_en_muestra": 41,
+    "distribucion_respuestas_pct": {
+      "0_trabajadores": 90.43,
+      "1_trabajador": 8.51,
+      "2_trabajadores": 0.8,
+      "3_a_5_trabajadores": 0.27
+    },
+    "demanda_trienio_expandida": 1821,
+    "demanda_anual_bruta": 607,
+    "brecha_laboral_anual_neta": 365,
+    "oferta_graduados_instituto_anual": 60,
+    "tasa_empleabilidad_egresados_pct": 100.0
+  },
+  "demanda_estudiantil": {
+    "universo_bachilleres_base": 41728,
+    "muestra_encuestada": 381,
+    "tasa_alta_probabilidad_pct": 1.84,
+    "cupos_institucionales_iniciales": 70,
+    "proyeccion_quinquenal_2026_2030": {
+      "2026": {
+        "universo_bachilleres": 41728,
+        "tasa_crecimiento_inec": 0.0,
+        "demanda_estudiantil_potencial": 768,
+        "cupos_oferta_institucional": 70,
+        "cobertura_demanda_pct": 1097.1
+      },
+      "2027": {
+        "universo_bachilleres": 41991,
+        "tasa_crecimiento_inec": 0.63,
+        "demanda_estudiantil_potencial": 773,
+        "cupos_oferta_institucional": 70,
+        "cobertura_demanda_pct": 1104.3
+      },
+      "2028": {
+        "universo_bachilleres": 42247,
+        "tasa_crecimiento_inec": 0.61,
+        "demanda_estudiantil_potencial": 777,
+        "cupos_oferta_institucional": 70,
+        "cobertura_demanda_pct": 1110.0
+      },
+      "2029": {
+        "universo_bachilleres": 42492,
+        "tasa_crecimiento_inec": 0.58,
+        "demanda_estudiantil_potencial": 782,
+        "cupos_oferta_institucional": 70,
+        "cobertura_demanda_pct": 1117.1
+      },
+      "2030": {
+        "universo_bachilleres": 42726,
+        "tasa_crecimiento_inec": 0.55,
+        "demanda_estudiantil_potencial": 786,
+        "cupos_oferta_institucional": 70,
+        "cobertura_demanda_pct": 1122.9
+      }
+    }
+  }
+}

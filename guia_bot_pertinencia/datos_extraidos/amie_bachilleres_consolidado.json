@@ -1,0 +1,20 @@
+{
+  "metadatos": {
+    "fuente": "Ministerio de Educación del Ecuador (MINEDUC) - Archivo Maestro de Instituciones Educativas (AMIE)",
+    "canton": "QUITO",
+    "provincia": "PICHINCHA",
+    "periodo_corte_base": "2025-2026",
+    "universo_bachilleres_base": 41728
+  },
+  "serie_historica_matriculados": {
+    "2020-2021": 48615,
+    "2021-2022": 43964,
+    "2022-2023": 43297,
+    "2023-2024": 43573,
+    "2024-2025": 43756,
+    "2025-2026": 41728
+  },
+  "analisis_tendencia": {
+    "explicacion": "La serie oficial de 3ro de bachillerato en el cantón QUITO muestra una estabilización en 41,728 estudiantes para el periodo lectivo 2025-2026, tras alcanzar un pico de 43.756 en el ciclo 2024-2025 y un registro atípico de 48.615 durante la modalidad virtual por pandemia (2020-2021). Este valor de 41,728 constituye el universo formal (N) para la proyección quinquenal de demanda."
+  }
+}

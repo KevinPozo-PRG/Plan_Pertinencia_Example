@@ -1,0 +1,115 @@
+{
+  "metadatos": {
+    "fuente": "INEC - Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025)",
+    "canton_dpa": "170150",
+    "sector_ciiu": "56",
+    "muestra_encuestada": 1123,
+    "poblacion_expandida": 70578
+  },
+  "diagnostico_educativo": {
+    "tasa_mano_obra_sin_titulo_superior": 81.56,
+    "poblacion_tecnica_actual": 4448,
+    "poblacion_universitaria_actual": 8568,
+    "distribucion_completa": [
+      {
+        "codigo_nivel": 1,
+        "nivel_instruccion": "Ninguno",
+        "poblacion_expandida": 810,
+        "porcentaje": 1.15
+      },
+      {
+        "codigo_nivel": 4,
+        "nivel_instruccion": "Primaria",
+        "poblacion_expandida": 16576,
+        "porcentaje": 23.49
+      },
+      {
+        "codigo_nivel": 5,
+        "nivel_instruccion": "Educación Básica",
+        "poblacion_expandida": 1374,
+        "porcentaje": 1.95
+      },
+      {
+        "codigo_nivel": 6,
+        "nivel_instruccion": "Secundaria",
+        "poblacion_expandida": 24216,
+        "porcentaje": 34.31
+      },
+      {
+        "codigo_nivel": 7,
+        "nivel_instruccion": "Bachillerato / Media",
+        "poblacion_expandida": 14586,
+        "porcentaje": 20.67
+      },
+      {
+        "codigo_nivel": 8,
+        "nivel_instruccion": "Superior Técnico / Tecnológico",
+        "poblacion_expandida": 4448,
+        "porcentaje": 6.3
+      },
+      {
+        "codigo_nivel": 9,
+        "nivel_instruccion": "Superior Universitario",
+        "poblacion_expandida": 8115,
+        "porcentaje": 11.5
+      },
+      {
+        "codigo_nivel": 10,
+        "nivel_instruccion": "Postgrado (Especialidad / Maestría / PhD)",
+        "poblacion_expandida": 453,
+        "porcentaje": 0.64
+      }
+    ]
+  },
+  "retorno_salarial": {
+    "salario_promedio_empirico_usd": 457.38,
+    "salario_promedio_tecnico_usd": 528.91,
+    "salario_basico_unificado_ref_usd": 460.0,
+    "diferencial_profesionalizacion_pct": 15.64,
+    "desglose_por_nivel": {
+      "1": {
+        "nivel": "Ninguno",
+        "salario_medio_usd": 305.02,
+        "poblacion_con_ingreso": 380
+      },
+      "4": {
+        "nivel": "Primaria",
+        "salario_medio_usd": 417.32,
+        "poblacion_con_ingreso": 14708
+      },
+      "5": {
+        "nivel": "Educación Básica",
+        "salario_medio_usd": 370.24,
+        "poblacion_con_ingreso": 1078
+      },
+      "6": {
+        "nivel": "Secundaria",
+        "salario_medio_usd": 491.76,
+        "poblacion_con_ingreso": 20879
+      },
+      "7": {
+        "nivel": "Bachillerato / Media",
+        "salario_medio_usd": 459.37,
+        "poblacion_con_ingreso": 11742
+      },
+      "8": {
+        "nivel": "Superior Técnico / Tecnológico",
+        "salario_medio_usd": 528.91,
+        "poblacion_con_ingreso": 3596
+      },
+      "9": {
+        "nivel": "Superior Universitario",
+        "salario_medio_usd": 614.02,
+        "poblacion_con_ingreso": 7055
+      },
+      "10": {
+        "nivel": "Postgrado (Especialidad / Maestría / PhD)",
+        "salario_medio_usd": 2649.66,
+        "poblacion_con_ingreso": 333
+      }
+    }
+  },
+  "seguridad_social": {
+    "tasa_informalidad_sin_iess_pct": 1.55
+  }
+}

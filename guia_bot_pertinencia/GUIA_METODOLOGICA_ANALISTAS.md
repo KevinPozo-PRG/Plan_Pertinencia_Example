@@ -136,35 +136,75 @@ Siguiendo las directrices del CACES, se elimina cualquier filtro subjetivo:
 
 ---
 
-## 4. Estructura de Scripts y Arquitectura de Software
+## 4. Pipeline de Minería y Extracción de Microdatos (`scripts/mineria/`)
 
-La suite de scripts desarrollada reside en la carpeta `scripts/` y opera de forma modular:
+Para realizar la extracción automatizada y depuración de las bases de datos crudas del Estado ecuatoriano sin saturar la memoria ni depender de procesos manuales, se desarrolló una suite especializada de **minería de datos en Python** ubicada en `scripts/mineria/`:
 
-* **`config_parametros.py`:** Diccionario centralizado de configuración. Permite a los analistas modificar nombres de carreras, códigos CINE, CIIU, cantón, universo muestral y tasas sin tocar la lógica de presentación.
+```text
+scripts/mineria/
+├── mineria_supercias.py      # Extracción y cruce de directorios y balances SUPERCIAS
+├── mineria_enemdu.py         # Procesamiento econométrico de microdatos ENEMDU
+├── mineria_senescyt.py       # Minería de catálogo SNIESE y títulos registrados
+├── mineria_mineduc_amie.py   # Streaming y agregación de matrículas de bachillerato AMIE
+├── mineria_reem_sri.py       # Conteo y agregación de empresas y empleo formal REEM
+├── mineria_encuestas.py      # Modelado de muestreo Cochran, factores de expansión y proyección
+└── orquestador_mineria.py    # Pipeline maestro que ejecuta toda la extracción en 40 segundos
+```
+
+### 4.1. Detalle Operativo de los Scripts de Minería
+
+| Script de Minería | Base de Datos Origen | Filtros y Variables Clave | Salida Generada |
+| :--- | :--- | :--- | :--- |
+| **`mineria_supercias.py`** | `directorio_companias.xlsx`<br>`bi_ranking.csv` | • Estado: `ACTIVA`<br>• Cantón y Rama CIIU a 4 dígitos<br>• Cruce por Expediente en chunks de 100k filas | `datos_extraidos/supercias_consolidado.json`<br>(Top 15 empleadores, ventas, activos, empleados e histórico de constitución). |
+| **`mineria_enemdu.py`** | `BDDenemdu_personas_2025_anual.csv` | • Cantón DPA (`170150`)<br>• Rama CIIU (`56`) y CIUO (`5132`)<br>• `fexp`, `ingrl`, `p10a` (educación) y `p05a` (IESS) | `datos_extraidos/enemdu_consolidado.json`<br>(Déficit formativo, salarios ponderados por nivel, prima técnica y tasa de informalidad). |
+| **`mineria_senescyt.py`** | `Titulos_Senescyt_Ecuador_2025.xlsx` | • Búsqueda de términos de disciplina (`GASTRONOM`, `BARISMO`, etc.)<br>• Segregación: Tecnológico vs Grado<br>• Cruce provincial (`PICHINCHA`) | `datos_extraidos/senescyt_titulados_consolidado.json`<br>(Titulados nacionales y provinciales, desglose por IST y alerta de 0 títulos en carreras nuevas). |
+| **`mineria_mineduc_amie.py`** | `registro-administrativo-historico_2009-2024-fin.xlsx` | • Lectura en streaming (`openpyxl read_only`)<br>• Filtro cantonal (`QUITO`)<br>• Conteo de 3ro de bachillerato | `datos_extraidos/amie_bachilleres_consolidado.json`<br>(Serie histórica de 5 años, análisis de tendencia y universo base N = 41.728). |
+| **`mineria_reem_sri.py`** | `EMPRESAS_periodo_2025.csv` | • Cantón DPA y Sección/División CIIU (`I` / `56`)<br>• Lectura tolerante a inconsistencias (`on_bad_lines='skip'`) | `datos_extraidos/reem_empresas_consolidado.json`<br>(Universo de 16.673 empresas, 62.450 plazas de trabajo, ventas y distribución por tamaño). |
+| **`mineria_encuestas.py`** | Respuestas de encuestas de campo | • Fórmula de Cochran con corrección finita<br>• Frecuencia de contratación trienal<br>• Tasa de alta probabilidad (1,84%) | `datos_extraidos/mercado_demanda_consolidado.json`<br>(Factor de expansión, brecha neta insatisfecha y proyección quinquenal con tasas INEC). |
+
+### 4.2. Ejecución Automatizada del Pipeline de Minería
+
+Para ejecutar la minería completa sobre todas las fuentes y generar los resúmenes estructurados en un solo paso, el analista solo debe correr:
+
+```bash
+python scripts/mineria/orquestador_mineria.py
+```
+
+El orquestador procesa todas las bases de datos en paralelo/secuencia en aproximadamente **40 segundos**, depositando los archivos JSON en `datos_extraidos/` y registrando el índice maestro con marcas de tiempo verificables.
+
+---
+
+## 5. Estructura de Scripts y Arquitectura de Generación Documental
+
+Una vez que la fase de minería de datos ha generado los resúmenes consolidados en `datos_extraidos/`, la suite modular de generación compila el dossier HTML:
+
+* **`config_parametros.py`:** Diccionario centralizado de configuración. Lee los indicadores de `datos_extraidos/` o permite a los analistas modificar nombres de carreras, códigos CINE, CIIU, cantón, universo muestral y tasas sin tocar la lógica de presentación.
 * **`modulo_1_social_economico.py`:** Genera las Páginas 1 a 8 (Portada institucional, Índice estructurado con enlaces internos, Introducción, Diagnóstico Social Demográfico con ENEMDU y Diagnóstico Económico con REEM y SUPERCIAS).
 * **`modulo_2_academico_planificacion.py`:** Genera las Páginas 9 a 16 (Diagnóstico ocupacional ENEMDU con retorno salarial, Oferta CINE 1013 comparativa, Historial de titulados de la SENESCYT, Serie AMIE de bachilleres, Diagnóstico cultural y tecnológico, Matriz PND con metas cuantitativas y Articulación territorial al 2033).
-* **`modulo_3_mercado_demanda.py`:** Genera las Páginas 17 a 24 (Contribución al perfil de egreso, Ficha muestral Cochran, Resultados de encuestas a 380 empresas y 385 estudiantes, Derivación cuantitativa con factores de expansión y balance de brecha, Proyección quinquenal de matrícula 2026–2030, Malla curricular de 2.800 horas, Conclusiones y Referencias APA 7ma edición).
-* **`ensamblador_dossier_html.py`:** Ensambla el documento unificado completo, inyecta las directivas de diseño visual idéntico a Word e inicializa los 14 gráficos interactivos con la librería Chart.js.
+* **`modulo_3_mercado_demanda.py`:** Genera las Páginas 17 a 24 (Contribución al perfil de egreso, Ficha muestral Cochran, Resultados de encuestas a 380 empresas y 381 estudiantes, Derivación cuantitativa con factores de expansión y balance de brecha, Proyección quinquenal de matrícula 2026–2030, Malla curricular de 2.800 horas, Conclusiones y Referencias APA 7ma edición).
+* **`ensamblador_dossier_html.py`:** Ensambla el documento unificado completo, inyecta las directivas de diseño visual idéntico a Word e inicializa los gráficos interactivos con la librería Chart.js.
 * **`auditor_dossier.py`:** Script de auditoría de calidad que verifica automáticamente que el documento cumpla las reglas del CACES (24 páginas exactas, IDs canónicos, tablas formales, canvas de gráficos y cero enlaces externos en el cuerpo de texto).
 
 ---
 
-## 5. Procedimiento de Ejecución para Nuevos Proyectos
+## 6. Procedimiento de Ejecución Integral para Nuevos Proyectos
 
-Para formular un nuevo plan de pertinencia (otra carrera u otro cantón), el analista de datos debe seguir estos pasos:
+Para formular un nuevo plan de pertinencia (otra carrera u otro cantón), el equipo de analistas sigue este flujo directo en dos pasos:
 
-1. **Editar los Parámetros del Proyecto:**
-   Abrir `config_parametros.py` y actualizar las variables clave de la nueva titulación (carrera, cantón, códigos CINE/CIIU, universos poblacionales y datos de encuestas).
-2. **Ejecutar el Ensamblador:**
-   ```bash
-   python ensamblador_dossier_html.py
-   ```
-   El script compilará los módulos, generará el archivo HTML optimizado e inyectará los gráficos dinámicos.
-3. **Auditar la Calidad del Documento:**
-   ```bash
-   python auditor_dossier.py
-   ```
-   El auditor emitirá el dictamen de verificación confirmando que no existan inconsistencias estructurales.
-4. **Generar el PDF Final:**
-   Abrir el archivo HTML generado en el navegador web (Chrome, Edge o Firefox), presionar el botón superior **"Imprimir / PDF"** y seleccionar la opción *"Guardar como PDF"*. El documento se guardará con paginación perfecta de tamaño carta sin distorsiones tipográficas.
+### Paso 1: Ejecutar la Minería de Datos
+```bash
+python scripts/mineria/orquestador_mineria.py
+```
+*(Opcional: Si se requiere cambiar de cantón o rama CIIU, modificar los parámetros iniciales dentro de `orquestador_mineria.py`).*
+
+### Paso 2: Compilar y Auditar el Dossier
+```bash
+# Compilar el dossier en HTML tipo Word
+python scripts/ensamblador_dossier_html.py
+
+# Auditar el cumplimiento normativo CACES
+python scripts/auditor_dossier.py
+```
+
+Al finalizar, abrir el archivo HTML generado en el navegador web (Chrome, Edge o Firefox), presionar el botón superior **"Imprimir / PDF"** y guardar el archivo oficial en PDF.
 

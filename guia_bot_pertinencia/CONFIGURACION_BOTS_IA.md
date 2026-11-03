@@ -8,10 +8,10 @@ Este documento contiene las directrices, especificaciones técnicas y configurac
 
 Para garantizar que el estudio cumpla con los estándares de rigor técnico y evitar cualquier error o alteración de cifras, el sistema opera bajo una **arquitectura en dos niveles**:
 
-1. **Nivel Determinista (Scripts en Python):**
-   * Las bases de datos oficiales del Estado ecuatoriano (ENEMDU, REEM, SNIESE, AMIE) contienen cientos de miles de registros y pesan varios cientos de megabytes.
-   * Ningún modelo de lenguaje comercial debe procesar microdatos crudos directamente en una ventana de chat, ya que esto provoca saturación de memoria, truncamiento de texto y aproximaciones imprecisas.
-   * Los scripts incluidos en la carpeta `scripts/` (en especial `procesador_datos_crudos.py` y `config_parametros.py`) realizan el filtrado territorial, los conteos oficiales, las fórmulas de muestreo de Cochran, los factores de expansión y las proyecciones demográficas exactas.
+1. **Nivel Determinista y Minería de Datos (Scripts en Python):**
+   * Las bases de datos oficiales del Estado ecuatoriano (ENEMDU, REEM, SNIESE, AMIE, SUPERCIAS) contienen cientos de miles de registros y pesan varios gigabytes en su conjunto.
+   * Ningún modelo de lenguaje comercial debe procesar microdatos crudos directamente en una ventana de chat, ya que esto provoca saturación de memoria, truncamiento de texto y aproximaciones imprecisas o alucinadas.
+   * La suite de minería de datos ubicada en `scripts/mineria/` (compuesta por `mineria_supercias.py`, `mineria_enemdu.py`, `mineria_senescyt.py`, `mineria_mineduc_amie.py`, `mineria_reem_sri.py` y `mineria_encuestas.py`, coordinados por `orquestador_mineria.py`) extrae, filtra y consolida automáticamente las cifras oficiales en la carpeta `datos_extraidos/` en formato JSON en menos de 45 segundos.
 
 2. **Nivel Cognitivo y de Redacción (Asistente de IA):**
    * El asistente de IA recibe los datos ya consolidados y procesados.

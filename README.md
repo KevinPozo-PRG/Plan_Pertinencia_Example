@@ -30,9 +30,25 @@ guia_bot_pertinencia/
 ├── CONFIGURACION_BOTS_IA.md        # Guía paso a paso para configurar ChatGPT, Claude, Gemini y Antigravity
 ├── GUIA_METODOLOGICA_ANALISTAS.md  # Manual metodológico: 7 bases de datos, periodos, fórmulas y taxonomías
 │
+├── datos_extraidos/                # Datos procesados en JSON listos para alimentar el bot y los módulos
+│   ├── supercias_consolidado.json  # Top 15 empleadores, balances y ventas SUPERCIAS
+│   ├── enemdu_consolidado.json     # Salarios ponderados, informalidad IESS y déficit formativo
+│   ├── senescyt_titulados_consolidado.json # Conteo de graduados y verificación de 0 títulos
+│   ├── amie_bachilleres_consolidado.json   # Serie histórica oficial de bachillerato (41.728 estudiantes)
+│   ├── reem_empresas_consolidado.json      # Universo empresarial formal (16.673 empresas)
+│   └── mercado_demanda_consolidado.json    # Derivación cuantitativa de brecha y proyección quinquenal
+│
 └── scripts/                        # Suite modular en Python para procesar datos, ensamblar y auditar
+    ├── mineria/                    # SCRIPTS DE MINERÍA DE BASES DE DATOS OFICIALES
+    │   ├── mineria_supercias.py    # Extracción y cruce de balances y directores SUPERCIAS
+    │   ├── mineria_enemdu.py       # Procesamiento econométrico de microdatos ENEMDU
+    │   ├── mineria_senescyt.py     # Minería de oferta SNIESE y titulados históricos
+    │   ├── mineria_mineduc_amie.py # Streaming y agregación de matrículas de bachillerato
+    │   ├── mineria_reem_sri.py     # Conteo y agregación de empresas y empleo formal
+    │   ├── mineria_encuestas.py    # Derivación de demanda laboral y proyección demográfica
+    │   └── orquestador_mineria.py  # Pipeline maestro que ejecuta toda la minería en 40 segundos
+    │
     ├── config_parametros.py        # Diccionario central de parámetros de la carrera y territorio
-    ├── procesador_datos_crudos.py  # Algoritmos de extracción y filtrado de microdatos oficiales
     ├── modulo_1_social_economico.py # Generador de Páginas 1 a 8 (Diagnóstico Social y Económico)
     ├── modulo_2_academico_planificacion.py # Generador de Páginas 9 a 16 (Académico y Articulación PND)
     ├── modulo_3_mercado_demanda.py # Generador de Páginas 17 a 24 (Mercado, Malla y Conclusiones)

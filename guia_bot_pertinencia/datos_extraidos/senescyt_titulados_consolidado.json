@@ -1,0 +1,50 @@
+{
+  "metadatos": {
+    "fuente": "SENESCYT - Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE 2025)",
+    "provincia": "PICHINCHA",
+    "terminos_busqueda": [
+      "BARISMO",
+      "GASTRONOM",
+      "CULINAR",
+      "COCIN",
+      "ALIMENTOS Y BEBIDAS"
+    ],
+    "termino_especifico_propuesta": "BARISMO"
+  },
+  "totales_disciplina_macro": {
+    "nacional_tecnologico": 13420,
+    "nacional_universitario_grado": 65530,
+    "nacional_total": 65798,
+    "provincial_tecnologico": 4241,
+    "provincial_universitario_grado": 9992,
+    "provincial_total": 14233
+  },
+  "desglose_institutos_tecnologicos_provincia": {
+    "Instituto Superior Tecnológico Sudamericano": 1637,
+    "Instituto Superior Tecnológico ILADES": 522,
+    "Instituto Superior Tecnológico Rumiñahui": 517,
+    "Instituto Superior Tecnológico Internacional ITI": 402,
+    "Instituto Tecnologico Superior De Turismo Y Hoteleria": 260,
+    "Instituto Superior Tecnológico Turismo y Patrimonio Yavirac": 156,
+    "Instituto Superior Tecnológico El Pacífico": 135,
+    "Instituto Superior Tecnológico ISMAC": 88,
+    "Instituto Superior Tecnológico Japón": 88,
+    "Universidad San Francisco De Quito": 86,
+    "Instituto Superior Tecnológico Cenestur": 82,
+    "Instituto Superior Tecnológico Universitec": 79,
+    "Universidad De Las Americas": 74,
+    "Escuela Superior Politecnica De Chimborazo": 29,
+    "Universidad Alfredo Perez Guerrero": 21,
+    "Instituto Tecnologico Superior Benvenuto Cellini": 19,
+    "Pontificia Universidad Catolica Del Ecuador": 18,
+    "Universidad Iberoamericana Del Ecuador": 16,
+    "Instituto Superior Tecnologico Para El Desarrollo": 4,
+    "Instituto Tecnologico Superior Franklin Verduga Loor": 4,
+    "Universidad De Especialidades Turisticas": 4
+  },
+  "evaluacion_carrera_especifica": {
+    "titulados_historicos_carrera_especifica": 0,
+    "es_carrera_nueva_sin_titulados": true,
+    "nota_aclaratoria": "La propuesta específica registra exactamente 0 titulados históricos en los registros oficiales de SENESCYT, lo que fundamenta su carácter innovador y vacancia absoluta de oferta en el territorio. Las cifras macro reportadas corresponden al área afín de formación."
+  }
+}

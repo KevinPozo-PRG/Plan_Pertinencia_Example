@@ -15,9 +15,26 @@ guia_bot_pertinencia/
 ├── CONFIGURACION_BOTS_IA.md        # Manual de configuración para ChatGPT, Claude, Gemini y Antigravity
 ├── GUIA_METODOLOGICA_ANALISTAS.md  # Manual técnico para analistas: bases de datos, fórmulas y taxonomías
 │
-└── scripts/                        # Suite modular de procesamiento, generación y auditoría en Python
+├── datos_extraidos/                # Repositorio de resúmenes JSON generados por la minería de datos
+│   ├── indice_datos_mineria.json   # Índice y metadatos de ejecución del pipeline
+│   ├── supercias_consolidado.json  # Top 15 empleadores, balances y ventas SUPERCIAS
+│   ├── enemdu_consolidado.json     # Salarios ponderados, informalidad IESS y déficit formativo
+│   ├── senescyt_titulados_consolidado.json # Conteo de títulos nacionales/provinciales y alerta de vacancia
+│   ├── amie_bachilleres_consolidado.json   # Serie histórica de 3ro de bachillerato (N = 41.728)
+│   ├── reem_empresas_consolidado.json      # Universo empresarial formal (N = 16.673)
+│   └── mercado_demanda_consolidado.json    # Muestreo Cochran, brecha laboral y proyección quinquenal
+│
+└── scripts/                        # Suite de minería, generación y auditoría en Python
+    ├── mineria/                    # SCRIPTS DE MINERÍA DE BASES DE DATOS OFICIALES
+    │   ├── mineria_supercias.py    # Extracción de directorios y ranking de balances SUPERCIAS
+    │   ├── mineria_enemdu.py       # Procesamiento econométrico de microdatos de la ENEMDU
+    │   ├── mineria_senescyt.py     # Minería de catálogo SNIESE y graduados históricos
+    │   ├── mineria_mineduc_amie.py # Streaming y consolidación de matrículas de bachillerato
+    │   ├── mineria_reem_sri.py     # Agregación de empresas formales y plazas de trabajo
+    │   ├── mineria_encuestas.py    # Derivación cuantitativa de brecha laboral y proyección INEC
+    │   └── orquestador_mineria.py  # Ejecutor maestro de toda la fase de minería de datos
+    │
     ├── config_parametros.py        # Diccionario central de parámetros configurables
-    ├── procesador_datos_crudos.py  # Funciones algorítmicas de extracción y agregación de microdatos
     ├── modulo_1_social_economico.py # Generador de Páginas 1 a 8 (Social y Económico)
     ├── modulo_2_academico_planificacion.py # Generador de Páginas 9 a 16 (Académico y Planificación)
     ├── modulo_3_mercado_demanda.py # Generador de Páginas 17 a 24 (Mercado, Malla y Conclusiones)

@@ -1,0 +1,20 @@
+{
+  "metadatos": {
+    "fuente": "INEC - Directorio del Registro Estadístico de Empresas (REEM 2025)",
+    "canton_dpa": "170150",
+    "seccion_ciiu": "I",
+    "division_ciiu": "56",
+    "universo_empresas_formal_n": 16673
+  },
+  "indicadores_economicos": {
+    "total_empresas": 16673,
+    "total_puestos_trabajo_formal": 62450,
+    "ventas_anuales_usd": 845200000.0,
+    "estructura_por_tamanio": {
+      "Microempresa": 14850,
+      "Pequeña Empresa": 1420,
+      "Mediana Empresa": 340,
+      "Grande Empresa": 63
+    }
+  }
+}
