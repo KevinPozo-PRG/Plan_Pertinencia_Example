@@ -116,3 +116,4 @@ Para alcanzar una extensión de **32 páginas**, se recomienda incorporar los si
 
 ### ¿Cómo proceder para probar los cambios actuales?
 Los archivos del proyecto se encuentran actualizados en este repositorio. Al realizar la sincronización con el servidor de despliegue, el documento reflejará de inmediato todos los ajustes cuantitativos y de formato, quedando listo para su revisión institucional.
+
