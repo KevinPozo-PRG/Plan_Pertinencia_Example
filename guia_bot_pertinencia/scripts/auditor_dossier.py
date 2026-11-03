@@ -83,3 +83,4 @@ if __name__ == "__main__":
     # Ruta al archivo HTML del repositorio
     repo_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "dossier_barismo_iavq_vista_word.html"))
     auditar_documento(repo_file)
+

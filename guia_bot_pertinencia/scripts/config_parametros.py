@@ -70,3 +70,4 @@ CONFIG = {
     "pdot_pichincha_periodo": "2023–2027",
     "pmdot_quito_horizonte": "2024–2033"  # Ordenanza Metropolitana No. 004-2024
 }
+

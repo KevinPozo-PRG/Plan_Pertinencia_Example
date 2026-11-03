@@ -167,3 +167,4 @@ Para formular un nuevo plan de pertinencia (otra carrera u otro cantón), el ana
    El auditor emitirá el dictamen de verificación confirmando que no existan inconsistencias estructurales.
 4. **Generar el PDF Final:**
    Abrir el archivo HTML generado en el navegador web (Chrome, Edge o Firefox), presionar el botón superior **"Imprimir / PDF"** y seleccionar la opción *"Guardar como PDF"*. El documento se guardará con paginación perfecta de tamaño carta sin distorsiones tipográficas.
+
