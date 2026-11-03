@@ -174,3 +174,4 @@ if __name__ == "__main__":
     # Términos para el área de Barismo y Gastronomía
     TERMINOS = ['BARISMO', 'GASTRONOM', 'CULINAR', 'COCIN', 'ALIMENTOS Y BEBIDAS']
     ejecutar_mineria_senescyt(EXCEL_SENESCYT, TERMINOS, provincia="PICHINCHA", ruta_salida_json=OUT_JSON)
+

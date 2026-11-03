@@ -189,3 +189,4 @@ def ejecutar_mineria_encuestas(universo_emp, universo_bach, out_json):
 if __name__ == "__main__":
     OUT_JSON = r"guia_bot_pertinencia\datos_extraidos\mercado_demanda_consolidado.json"
     ejecutar_mineria_encuestas(universo_emp=16673, universo_bach=41728, out_json=OUT_JSON)
+

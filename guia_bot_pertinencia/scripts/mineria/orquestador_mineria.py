@@ -190,3 +190,4 @@ def ejecutar_pipeline_completo(ruta_raiz_bd="BD", carpeta_salida="guia_bot_perti
 
 if __name__ == "__main__":
     ejecutar_pipeline_completo()
+
