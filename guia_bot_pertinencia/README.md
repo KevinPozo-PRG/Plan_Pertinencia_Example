@@ -11,11 +11,13 @@ El contenido de esta carpeta está organizado para responder tanto a la gestión
 ```text
 guia_bot_pertinencia/
 │
-├── README.md                       # Resumen ejecutivo, avances y guía de configuración del asistente
+├── README.md                       # Resumen ejecutivo, avances y guía de configuración general
+├── CONFIGURACION_BOTS_IA.md        # Manual de configuración para ChatGPT, Claude, Gemini y Antigravity
 ├── GUIA_METODOLOGICA_ANALISTAS.md  # Manual técnico para analistas: bases de datos, fórmulas y taxonomías
 │
-└── scripts/                        # Suite modular de generación y auditoría en Python
+└── scripts/                        # Suite modular de procesamiento, generación y auditoría en Python
     ├── config_parametros.py        # Diccionario central de parámetros configurables
+    ├── procesador_datos_crudos.py  # Funciones algorítmicas de extracción y agregación de microdatos
     ├── modulo_1_social_economico.py # Generador de Páginas 1 a 8 (Social y Económico)
     ├── modulo_2_academico_planificacion.py # Generador de Páginas 9 a 16 (Académico y Planificación)
     ├── modulo_3_mercado_demanda.py # Generador de Páginas 17 a 24 (Mercado, Malla y Conclusiones)
@@ -27,15 +29,22 @@ guia_bot_pertinencia/
 
 ## 2. Documentos Disponibles
 
-1. **[GUIA_METODOLOGICA_ANALISTAS.md](GUIA_METODOLOGICA_ANALISTAS.md):** 
+1. **[CONFIGURACION_BOTS_IA.md](CONFIGURACION_BOTS_IA.md):**
+   Manual de configuración para asistentes de Inteligencia Artificial. Explica:
+   * La arquitectura de trabajo en dos niveles (procesamiento numérico por scripts vs. redacción académica por IA).
+   * Los 6 insumos exactos que debe recibir el asistente (ficha curricular, datos REEM/SUPERCIAS, catálogo SNIESE, serie AMIE, encuestas tabuladas y metas PND/PMDOT).
+   * La Instrucción Maestra del Sistema (Prompt Base) lista para copiar y pegar.
+   * Pasos de configuración para ChatGPT (Custom GPT), Claude (Claude Projects), Google Gemini (Gems) y Google Antigravity (AGY).
+
+2. **[GUIA_METODOLOGICA_ANALISTAS.md](GUIA_METODOLOGICA_ANALISTAS.md):** 
    Manual técnico detallado dirigido a analistas de datos. Explica a fondo:
    * El inventario de las 7 bases de datos oficiales utilizadas (INEC Proyecciones 2020–2035, ENEMDU 2025, REEM 2012–2024, SUPERCIAS 2026, SNIESE 2026, SENESCYT 2012–2024, AMIE MINEDUC 2009–2026).
    * Los periodos de corte y las variables específicas extraídas.
    * Los 4 sistemas taxonómicos de estandarización oficial (UNESCO CINE-F 2013, CIIU Rev. 4, CIUO-08 y DPA INEC).
    * El desarrollo matemático de las fórmulas: Muestreo de Cochran, Factor de Expansión muestral, Derivación cuantitativa de demanda y brecha laboral, y Proyección quinquenal de matrícula con tasas demográficas del INEC.
 
-2. **Suite de Scripts Modulares en Python (`scripts/`):**
-   Código fuente listo para ejecutar y adaptar a cualquier nueva carrera técnica o tecnológica, o a cualquier cantón del país.
+3. **Suite de Scripts Modulares en Python (`scripts/`):**
+   Código fuente para procesar microdatos, generar los bloques de contenido del dossier, ensamblar el documento final con gráficos Chart.js y auditar el cumplimiento normativo.
 
 ---
 
