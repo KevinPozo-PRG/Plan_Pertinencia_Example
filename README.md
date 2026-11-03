@@ -12,10 +12,11 @@ Los estudios de pertinencia compilados se encuentran disponibles tanto en el rep
 
 | Carrera / Proyecto | Institución | Formato Web | Despliegue en Línea |
 | :--- | :--- | :--- | :--- |
-| **Técnico Superior en Barismo y Gestión de Cafeterías** | IAVQ | [Ver HTML](dossier_barismo_iavq_vista_word.html) | [Enlace Vercel](https://planpertinenciasexample.vercel.app/dossier_barismo_iavq_vista_word) |
+| **Técnico Superior en Barismo (Versión Ampliada 32 Págs)** | IAVQ | [Ver HTML 32 Págs](dossier_barismo_iavq_32_paginas.html) | [Enlace Vercel (32 Págs)](https://planpertinenciasexample.vercel.app/dossier_barismo_iavq_32_paginas) |
+| **Técnico Superior en Barismo (Versión Ejecutiva 24 Págs)** | IAVQ | [Ver HTML 24 Págs](dossier_barismo_iavq_vista_word.html) | [Enlace Vercel (24 Págs)](https://planpertinenciasexample.vercel.app/dossier_barismo_iavq_vista_word) |
 | **Tecnólogo Superior en Mecánica de Motos** | IAVQ | [Ver HTML](dossier_mecanica_motos_vista_word.html) | [Enlace Vercel](https://planpertinenciasexample.vercel.app/dossier_mecanica_motos_vista_word) |
 
-> **Nota de Impresión:** Ambos dossiers cuentan con estilos de impresión optimizados (`@media print`). Al pulsar el botón superior **"Imprimir / Guardar como PDF"**, el navegador genera un documento formal de 24 páginas en tamaño carta sin cortes de tabla ni distorsiones.
+> **Nota de Impresión:** Todos los dossiers cuentan con estilos de impresión optimizados (`@media print`). Al pulsar el botón superior **"Imprimir / Guardar como PDF"**, el navegador genera el documento formal de 24 o 32 páginas en tamaño carta sin cortes de tabla ni distorsiones.
 
 ---
 
@@ -52,7 +53,8 @@ guia_bot_pertinencia/
     ├── modulo_1_social_economico.py # Generador de Páginas 1 a 8 (Diagnóstico Social y Económico)
     ├── modulo_2_academico_planificacion.py # Generador de Páginas 9 a 16 (Académico y Articulación PND)
     ├── modulo_3_mercado_demanda.py # Generador de Páginas 17 a 24 (Mercado, Malla y Conclusiones)
-    ├── ensamblador_dossier_html.py # Compilador del documento HTML interactivo con gráficos Chart.js
+    ├── ensamblador_dossier_html.py # Compilador del documento HTML interactivo (24 Págs)
+    ├── ensamblador_dossier_32_paginas.py # Compilador del documento ampliado oficial (32 Págs)
     └── auditor_dossier.py          # Script de auditoría automática de cumplimiento normativo CACES
 ```
 
