@@ -159,3 +159,4 @@ En Antigravity, la inteligencia y las reglas de negocio del asistente se encapsu
    * **Paso 3:** El agente corre el ensamblador para compilar el dossier HTML de 24 o 32 páginas.
    * **Paso 4:** El agente ejecuta `auditor_dossier.py` para emitir el dictamen de validación formal.
    * **Paso 5:** El usuario abre el archivo resultante en su navegador y pulsa el botón de impresión para obtener el documento oficial en PDF.
+

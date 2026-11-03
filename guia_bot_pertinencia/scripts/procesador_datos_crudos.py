@@ -185,3 +185,4 @@ if __name__ == "__main__":
     print(f" - Brecha Laboral Neta: {resultado['brecha_laboral_anual_neta']} puestos/año")
     print(f" - Proyección Estudiantil Quinquenal (2026-2030): {resultado['proyeccion_estudiantil_quinquenio']}")
     print("\n[OK] Script de preprocesamiento operativo y validado.")
+
