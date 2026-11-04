@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudio de Pertinencia Curricular — Técnico Superior en Barismo (IAVQ)</title>
+  <title>Estudio de Pertinencia Curricular (32 Páginas) — Técnico Superior en Barismo (IAVQ)</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <style>
@@ -16,7 +16,6 @@
       padding: 24px 0;
     }
 
-    /* Standard Word Hyperlink Styles */
     a {
       color: #0563C1;
       text-decoration: underline;
@@ -110,7 +109,6 @@
       justify-content: space-between;
     }
 
-    /* Word Headings */
     .word-heading-1 {
       font-size: 13pt;
       font-weight: bold;
@@ -125,311 +123,306 @@
     .word-heading-2 {
       font-size: 11.5pt;
       font-weight: bold;
-      color: #2E75B6;
-      margin-top: 7pt;
+      color: #2F5597;
+      margin-top: 6pt;
       margin-bottom: 3pt;
       line-height: 1.25;
     }
 
     .word-heading-3 {
-      font-size: 10.5pt;
+      font-size: 10pt;
       font-weight: bold;
-      color: #1F4E79;
+      color: #333333;
       margin-top: 5pt;
       margin-bottom: 2pt;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     .word-p {
-      font-size: 10pt;
-      line-height: 1.28;
-      color: #000000;
-      text-align: justify;
-      margin-top: 0;
-      margin-bottom: 5pt;
-    }
-
-    .word-callout {
-      background-color: #F2F5F9;
-      border: 1px solid #D9E1F2;
-      border-left: 4.5px solid #1F4E79;
-      padding: 7pt 10pt;
-      margin: 5pt 0;
       font-size: 9.2pt;
       line-height: 1.32;
-      color: #1A1A1A;
+      text-align: justify;
+      text-justify: inter-word;
+      margin-top: 0;
+      margin-bottom: 4.5pt;
+      color: #262626;
     }
 
-    /* Formal Word Table Styles */
     .word-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 4pt 0 2pt 0;
-      font-size: 8.5pt;
-      color: #000000;
+      margin: 4pt 0 6pt 0;
+      font-size: 8.2pt;
+      line-height: 1.2;
     }
 
     .word-table th {
       background-color: #1F4E79;
       color: #ffffff;
       font-weight: bold;
-      padding: 4pt 6pt;
-      border: 1px solid #1F4E79;
       text-align: left;
+      padding: 4.5pt 5pt;
+      border: 1px solid #1F4E79;
     }
 
     .word-table td {
-      padding: 3pt 6pt;
+      padding: 3.5pt 5pt;
       border: 1px solid #D9D9D9;
-      vertical-align: middle;
+      color: #333333;
     }
 
-    .word-table tbody tr:nth-child(even) {
+    .word-table tr:nth-child(even) td {
       background-color: #F9FBFD;
     }
 
     .table-source {
-      font-size: 7.5pt;
+      font-size: 7.2pt;
       color: #595959;
+      margin-top: -3pt;
+      margin-bottom: 5pt;
       font-style: italic;
-      margin-top: 2pt;
-      margin-bottom: 6pt;
-      text-align: right;
     }
 
-    /* Word Table of Contents */
-    .word-toc {
+    .word-callout {
+      border-left: 3.5pt solid #1F4E79;
+      background-color: #F2F5F8;
+      padding: 5pt 8pt;
+      margin: 4pt 0 6pt 0;
+      font-size: 8.8pt;
+      color: #1F4E79;
+    }
+
+    .word-cover-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .word-cover-institution {
+      font-size: 15pt;
+      font-weight: bold;
+      color: #1F4E79;
+      letter-spacing: 0.5px;
+    }
+
+    .word-cover-subinst {
+      font-size: 10.5pt;
+      color: #595959;
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+    .word-cover-divider {
+      width: 60px;
+      height: 3px;
+      background-color: #C00000;
+      margin: 12px auto;
+    }
+
+    .word-cover-dept {
+      font-size: 9.5pt;
+      color: #2F5597;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .word-cover-project-tag {
+      display: inline-block;
+      background-color: #F2F5F8;
+      color: #1F4E79;
+      padding: 3px 12px;
+      border: 1px solid #1F4E79;
       font-size: 8.5pt;
-      line-height: 1.35;
-      margin-top: 6pt;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .word-cover-title {
+      font-size: 20pt;
+      font-weight: bold;
+      color: #1F4E79;
+      line-height: 1.15;
+      margin: 4px 0 10px 0;
+    }
+
+    .word-cover-career-box {
+      border: 1.5px solid #1F4E79;
+      padding: 10px;
+      margin: 10px auto;
+      max-width: 90%;
+      background-color: #FAFCFE;
+    }
+
+    .word-cover-career-label {
+      font-size: 9pt;
+      color: #595959;
+      text-transform: uppercase;
+    }
+
+    .word-cover-career-name {
+      font-size: 15pt;
+      font-weight: bold;
+      color: #C00000;
+      margin: 2px 0;
+    }
+
+    .word-cover-itinerary-label {
+      font-size: 8pt;
+      color: #1F4E79;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .word-cover-itinerary-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 2px 0 0 0;
+      font-size: 8pt;
+      color: #333333;
+    }
+
+    .word-cover-meta-table {
+      width: 95%;
+      margin: 10px auto;
+      border-collapse: collapse;
+      font-size: 7.8pt;
+      text-align: left;
+    }
+
+    .word-cover-meta-table td {
+      padding: 2.5pt 4pt;
+      border-bottom: 1px solid #EAEAEA;
+    }
+
+    .word-cover-meta-table .meta-label {
+      font-weight: bold;
+      color: #1F4E79;
+      width: 38%;
+    }
+
+    .word-cover-meta-table .meta-val {
+      color: #333333;
+    }
+
+    .word-cover-date {
+      font-size: 9.5pt;
+      font-weight: bold;
+      color: #1F4E79;
+      margin: 0;
+    }
+
+    .word-cover-place {
+      font-size: 8.5pt;
+      color: #595959;
+      margin: 2px 0 0 0;
+    }
+
+    .word-toc {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5pt;
     }
 
     .toc-group-title {
       font-weight: bold;
       color: #1F4E79;
-      font-size: 9pt;
-      margin-top: 6pt;
+      font-size: 8.5pt;
+      margin-top: 4pt;
       margin-bottom: 2pt;
       border-bottom: 1px solid #1F4E79;
-      padding-bottom: 1.5pt;
+      padding-bottom: 1pt;
     }
 
     .toc-row {
       display: flex;
       align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 1.5pt;
+      width: 100%;
+    }
+
+    .toc-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 82%;
+    }
+
+    .toc-dots {
+      flex-grow: 1;
+      border-bottom: 1px dotted #888888;
+      margin: 0 4px;
+      height: 1px;
+    }
+
+    .toc-page {
+      font-weight: normal;
+      color: #333333;
+      min-width: 18px;
+      text-align: right;
     }
 
     .toc-level-1 {
       font-weight: bold;
       color: #1F4E79;
-      margin-top: 2.5pt;
+      margin-top: 1.5pt;
     }
 
     .toc-level-2 {
       padding-left: 10pt;
-      font-weight: normal;
-      color: #262626;
-    }
-
-    .toc-title {
-      flex-shrink: 0;
-      max-width: 82%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .toc-dots {
-      flex-grow: 1;
-      border-bottom: 1.5px dotted #595959;
-      margin: 0 4pt 2.5pt 4pt;
-      min-width: 15px;
-      height: 0;
-    }
-
-    .toc-page {
-      flex-shrink: 0;
-      font-weight: normal;
-      text-align: right;
-      min-width: 16px;
-      font-variant-numeric: tabular-nums;
-      color: #000000;
-    }
-
-    /* Word Cover Page Styles */
-    .word-cover-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      text-align: center;
-      padding: 1.2cm 0 0.5cm 0;
-      box-sizing: border-box;
-    }
-
-    .word-cover-institution {
-      font-size: 16pt;
-      font-weight: bold;
-      color: #1F4E79;
-      letter-spacing: 0.5px;
-      margin: 0;
-    }
-
-    .word-cover-subinst {
-      font-size: 11pt;
-      font-weight: bold;
-      color: #595959;
-      margin: 2pt 0 0 0;
-    }
-
-    .word-cover-divider {
-      width: 100px;
-      height: 2px;
-      background-color: #1F4E79;
-      margin: 10pt auto;
-    }
-
-    .word-cover-dept {
-      font-size: 8.5pt;
-      font-weight: bold;
-      color: #7f7f7f;
-      letter-spacing: 1px;
-    }
-
-    .word-cover-title {
-      font-size: 19pt;
-      font-weight: bold;
-      color: #000000;
-      margin: 12pt 0;
-      letter-spacing: 0.5px;
-    }
-
-    .word-cover-project-tag {
-      font-size: 8.5pt;
-      font-weight: bold;
-      color: #2E75B6;
-      letter-spacing: 1px;
-      margin-bottom: 2pt;
-    }
-
-    .word-cover-career-box {
-      margin: 10pt auto;
-      max-width: 530px;
-      text-align: center;
-      background-color: #F2F5F9;
-      border: 1.5px solid #1F4E79;
-      border-radius: 2px;
-      padding: 8pt 14pt;
-    }
-
-    .word-cover-career-label {
-      font-size: 8.5pt;
-      font-weight: bold;
-      color: #595959;
-      margin: 0 0 2pt 0;
-    }
-
-    .word-cover-career-name {
-      font-size: 13pt;
-      font-weight: bold;
-      color: #1F4E79;
-      margin: 0 0 6pt 0;
-    }
-
-    .word-cover-itinerary-label {
-      font-size: 8.5pt;
-      font-weight: bold;
-      color: #595959;
-      margin: 0 0 2pt 0;
-    }
-
-    .word-cover-itinerary-list {
-      margin: 0;
-      padding-left: 14pt;
-      font-size: 8.5pt;
-      line-height: 1.35;
-      color: #000000;
-    }
-
-    .word-cover-meta-table {
-      width: 100%;
-      max-width: 520px;
-      margin: 10pt auto 0 auto;
-      border-collapse: collapse;
-      font-size: 8.5pt;
-      text-align: left;
-    }
-
-    .word-cover-meta-table td {
-      padding: 2.5pt 6pt;
-      border: none;
-    }
-
-    .word-cover-meta-table .meta-label {
-      font-weight: bold;
       color: #333333;
-      width: 42%;
-    }
-
-    .word-cover-meta-table .meta-val {
-      color: #000000;
-    }
-
-    .word-cover-date {
-      font-size: 10pt;
-      font-weight: bold;
-      color: #333333;
-      margin: 0;
-    }
-
-    .word-cover-place {
-      font-size: 9pt;
-      color: #595959;
-      margin: 2pt 0 0 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP CONTROLS NAVBAR -->
-  <div class="no-print" style="position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; align-items: center; gap: 8px; background: #ffffff; padding: 5px 12px; border: 1px solid #7f7f7f; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-family: Calibri, 'Segoe UI', Arial, sans-serif; font-size: 11px; color: #000000;">
-    <span style="font-weight: bold; color: #1F4E79;">2. Documento Oficial: Técnico Superior en Barismo (IAVQ)</span>
-    <a href="dossier_mecanica_motos_vista_word.html" style="color: #2E75B6; text-decoration: none; font-weight: normal; margin-left: 4px;">[Ver 1. Mecánica de Motos (IST POLITEC)]</a>
-    <span style="color: #7f7f7f;">|</span>
-    <label for="page-selector" style="color: #333333;">Página:</label>
-    <select id="page-selector" onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth'})" style="font-family: inherit; font-size: 11px; padding: 2px 6px; border: 1px solid #7f7f7f; background: #ffffff; color: #000000; cursor: pointer;">
-      <option value="page-01-cover">P01. Portada Institucional</option>
-      <option value="page-02-indice">P02. Índice General de Contenidos</option>
-      <option value="page-03-intro">P03. 1. Introducción y Antecedentes</option>
-      <option value="page-04-social-1">P04. 2.1. Población y Demografía (Tabla 1 + Gráf 1-2)</option>
-      <option value="page-05-social-2">P05. 2.1. Mercado Laboral Juvenil (Gráf 3-6)</option>
-      <option value="page-06-econ-1">P06. 2.2. Tejido Productivo CIIU 56 (Tablas 2-3)</option>
-      <option value="page-07-econ-2">P07. 2.2. Facturación y Constitución (Tabla 4 + Gráf 7-8)</option>
-      <option value="page-08-supercias">P08. 2.2. Ranking Empleadores SUPERCIAS (Tabla 5)</option>
-      <option value="page-09-enemdu-edu">P09. 2.2. Diagnóstico Formativo ENEMDU (Tabla 6 + Gráf 9)</option>
-      <option value="page-10-enemdu-iess">P10. 2.2. Seguridad Social e Informalidad (Tabla 7 + Gráf 10)</option>
-      <option value="page-11-enemdu-salario">P11. 2.2. Retorno Salarial a la Titulación (Tabla 8 + Gráf 11)</option>
-      <option value="page-12-acad-1">P12. 2.3. Oferta Campo CINE 1013 (Tabla 9 + Gráf 12)</option>
-      <option value="page-13-acad-2">P13. 2.3. Vacancia y Bachilleres AMIE (Tablas 10-11 + Gráf 13)</option>
-      <option value="page-14-cultural">P14. 2.4. Tercera Ola y Tecnología</option>
-      <option value="page-15-pnd">P15. 3. Articulación PND 2025–2029 (Tabla 12)</option>
-      <option value="page-16-territorial">P16. 4. Articulación PDOT y PMDOT (Tabla 13 + Gráf 14)</option>
-      <option value="page-17-solucion">P17. 5. Contribución de Graduados (Tabla 14)</option>
-      <option value="page-18-demanda-emp-1">P18. 6.1. Demanda Empresarial: Cochran</option>
-      <option value="page-19-demanda-emp-2">P19. 6.1. Resultados 380 Cafeterías</option>
-      <option value="page-20-brecha">P20. 6.1. Brecha Laboral y Absorción</option>
-      <option value="page-21-estudiantil-1">P21. 6.2. Demanda Estudiantil: Cochran</option>
-      <option value="page-22-malla">P22. 6.2. Proyección y Malla Curricular</option>
-      <option value="page-23-conclusiones">P23. 7. Conclusiones Institucionales</option>
-      <option value="page-24-referencias">P24. 8. Referencias y Matriz de Auditoría</option>
+  <!-- Floating Navigation Controls -->
+  <div class="no-print" style="position: fixed; top: 12px; right: 16px; z-index: 10000; background: #ffffff; padding: 8px 14px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); display: flex; align-items: center; gap: 10px; border: 1px solid #CBD5E1; font-family: 'Segoe UI', Arial, sans-serif;">
+    <span style="font-size: 11px; font-weight: bold; color: #1E293B; background: #F1F5F9; padding: 4px 8px; border-radius: 4px; border: 1px solid #E2E8F0;">
+      Total: 32 Páginas (CES/CACES)
+    </span>
+    <label for="page-selector" style="font-size: 11px; font-weight: 600; color: #475569;">Ir a:</label>
+    <select id="page-selector" onchange="document.querySelectorAll('.word-page')[parseInt(this.value)-1].scrollIntoView({behavior: 'smooth'})" style="font-size: 11px; padding: 4px 8px; border: 1px solid #CBD5E1; border-radius: 4px; background: #FFFFFF; color: #1E293B; cursor: pointer; outline: none;">
+      <option value="1">Página 1 de 32</option>
+      <option value="2">Página 2 de 32</option>
+      <option value="3">Página 3 de 32</option>
+      <option value="4">Página 4 de 32</option>
+      <option value="5">Página 5 de 32</option>
+      <option value="6">Página 6 de 32</option>
+      <option value="7">Página 7 de 32</option>
+      <option value="8">Página 8 de 32</option>
+      <option value="9">Página 9 de 32</option>
+      <option value="10">Página 10 de 32</option>
+      <option value="11">Página 11 de 32</option>
+      <option value="12">Página 12 de 32</option>
+      <option value="13">Página 13 de 32</option>
+      <option value="14">Página 14 de 32</option>
+      <option value="15">Página 15 de 32</option>
+      <option value="16">Página 16 de 32</option>
+      <option value="17">Página 17 de 32</option>
+      <option value="18">Página 18 de 32</option>
+      <option value="19">Página 19 de 32</option>
+      <option value="20">Página 20 de 32</option>
+      <option value="21">Página 21 de 32</option>
+      <option value="22">Página 22 de 32</option>
+      <option value="23">Página 23 de 32</option>
+      <option value="24">Página 24 de 32</option>
+      <option value="25">Página 25 de 32</option>
+      <option value="26">Página 26 de 32</option>
+      <option value="27">Página 27 de 32</option>
+      <option value="28">Página 28 de 32</option>
+      <option value="29">Página 29 de 32</option>
+      <option value="30">Página 30 de 32</option>
+      <option value="31">Página 31 de 32</option>
+      <option value="32">Página 32 de 32</option>
     </select>
-    <button onclick="window.print()" style="font-family: inherit; font-size: 11px; padding: 2px 8px; border: 1px solid #1F4E79; background: #1F4E79; color: #ffffff; cursor: pointer;">Imprimir / PDF</button>
+    <button onclick="window.print()" style="background-color: #1F4E79; color: #ffffff; border: none; padding: 5px 14px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+      Imprimir / PDF
+    </button>
   </div>
 
-  <!-- 24 WORD PAGES -->
-  
+
     <div class="word-page" id="page-01-cover">
       <div class="word-cover-container">
         <div>
@@ -501,7 +494,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 1 de 24</span>
+      <span>Página 1 de 32</span>
     </div>
     
     </div>
@@ -515,15 +508,15 @@
     </div>
     
       <div class="word-content">
-        <h1 class="word-heading-1" style="text-align: center; margin-bottom: 8pt;">ÍNDICE GENERAL DE CONTENIDOS</h1>
+        <h1 class="word-heading-1" style="text-align: center; margin-bottom: 6pt;">ÍNDICE GENERAL DE CONTENIDOS</h1>
 
-        <div class="word-toc">
-          <div class="toc-group-title">1. ESTRUCTURA CANÓNICA DEL ESTUDIO DE PERTINENCIA CURRICULAR</div>
+        <div class="word-toc" style="font-size: 8.0pt; line-height: 1.25;">
+          <div class="toc-group-title">ESTRUCTURA INTEGRAL DEL EXPEDIENTE ACADÉMICO (CES / CACES - 32 PÁGINAS)</div>
           <div class="toc-row toc-level-1"><a href="#page-01-cover"><span class="toc-title">PORTADA INSTITUCIONAL DEL PROYECTO</span><span class="toc-dots"></span><span class="toc-page">1</span></a></div>
           <div class="toc-row toc-level-1"><a href="#page-02-indice"><span class="toc-title">ÍNDICE DE CONTENIDOS, TABLAS Y GRÁFICOS</span><span class="toc-dots"></span><span class="toc-page">2</span></a></div>
           <div class="toc-row toc-level-1"><a href="#page-03-intro"><span class="toc-title">1. INTRODUCCIÓN, ANTECEDENTES Y PERFIL INSTITUCIONAL IAVQ</span><span class="toc-dots"></span><span class="toc-page">3</span></a></div>
           <div class="toc-row toc-level-1"><a href="#page-04-social-1"><span class="toc-title">2. ANÁLISIS DE NECESIDADES DE DESARROLLO (DIAGNÓSTICO SITUACIONAL)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">2.1. Términos Sociales: Proyecciones de Población y Grupo Juvenil 18–24 (2026–2035)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">2.1. Términos Sociales: Proyecciones de Población y Juventud 18–24 (INEC)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
           <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">2.1. Términos Sociales: Mercado Laboral Juvenil, Desempleo y Educación (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
           <div class="toc-row toc-level-2"><a href="#page-06-econ-1"><span class="toc-title">2.2. Términos Económicos: Tejido Productivo y Plazas Laborales (CIIU 56 REEM)</span><span class="toc-dots"></span><span class="toc-page">6</span></a></div>
           <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">2.2. Términos Económicos: Facturación del Sector y Constitución Histórica</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
@@ -531,58 +524,34 @@
           <div class="toc-row toc-level-2"><a href="#page-09-enemdu-edu"><span class="toc-title">2.2. Diagnóstico Ocupacional: Nivel de Instrucción y Brecha de Titulación (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">9</span></a></div>
           <div class="toc-row toc-level-2"><a href="#page-10-enemdu-iess"><span class="toc-title">2.2. Diagnóstico Ocupacional: Seguridad Social e Informalidad Laboral (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">10</span></a></div>
           <div class="toc-row toc-level-2"><a href="#page-11-enemdu-salario"><span class="toc-title">2.2. Retorno Salarial y Prima a la Profesionalización en Cafeterías (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">11</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-12-acad-1"><span class="toc-title">2.3. Términos Académicos: Oferta Educativa Superior en el Campo UNESCO 1013</span><span class="toc-dots"></span><span class="toc-page">12</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-12-acad-1"><span class="toc-title">2.3. Términos Académicos: Oferta Superior en el Campo UNESCO 1013 (SNIESE)</span><span class="toc-dots"></span><span class="toc-page">12</span></a></div>
           <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">2.3. Términos Académicos: Vacancia Formativa y Cohorte de Bachilleres (AMIE)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
           <div class="toc-row toc-level-2"><a href="#page-14-cultural"><span class="toc-title">2.4. Términos Culturales y Tendencias Tecnológicas en la Tercera Ola del Café</span><span class="toc-dots"></span><span class="toc-page">14</span></a></div>
           <div class="toc-row toc-level-1"><a href="#page-15-pnd"><span class="toc-title">3. ARTICULACIÓN CON EL PLAN NACIONAL DE DESARROLLO (PND 2025–2029)</span><span class="toc-dots"></span><span class="toc-page">15</span></a></div>
-          <div class="toc-row toc-level-1"><a href="#page-16-territorial"><span class="toc-title">4. ARTICULACIÓN CON LA PLANIFICACIÓN TERRITORIAL (PDOT Y PMDOT)</span><span class="toc-dots"></span><span class="toc-page">16</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-16-territorial"><span class="toc-title">4. ARTICULACIÓN CON LA PLANIFICACIÓN TERRITORIAL (PDOT Y PMDOT AL 2033)</span><span class="toc-dots"></span><span class="toc-page">16</span></a></div>
           <div class="toc-row toc-level-1"><a href="#page-17-solucion"><span class="toc-title">5. CONTRIBUCIÓN DE LOS PROFESIONALES A LA SOLUCIÓN DE PROBLEMAS</span><span class="toc-dots"></span><span class="toc-page">17</span></a></div>
           <div class="toc-row toc-level-1"><a href="#page-18-demanda-emp-1"><span class="toc-title">6. ESTUDIO DE MERCADO Y DEMANDA (INVESTIGACIÓN DE CAMPO)</span><span class="toc-dots"></span><span class="toc-page">18</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-18-demanda-emp-1"><span class="toc-title">6.1. Demanda Ocupacional: Muestreo de Cochran y Ficha Técnica Empresarial</span><span class="toc-dots"></span><span class="toc-page">18</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-19-demanda-emp-2"><span class="toc-title">6.1. Demanda Ocupacional: Resultados de Encuesta a 380 Cafeterías</span><span class="toc-dots"></span><span class="toc-page">19</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-20-brecha"><span class="toc-title">6.1. Demanda Ocupacional: Estimación de Brecha Laboral y Absorción Anual</span><span class="toc-dots"></span><span class="toc-page">20</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-21-estudiantil-1"><span class="toc-title">6.2. Demanda Estudiantil: Diseño Muestral y Resultados en Bachilleres</span><span class="toc-dots"></span><span class="toc-page">21</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-22-malla"><span class="toc-title">6.2. Demanda Estudiantil: Proyección de Matrícula y Estructura Curricular</span><span class="toc-dots"></span><span class="toc-page">22</span></a></div>
-          <div class="toc-row toc-level-1"><a href="#page-23-conclusiones"><span class="toc-title">7. CONCLUSIONES INSTITUCIONALES Y DICTAMEN DE PERTINENCIA IAVQ</span><span class="toc-dots"></span><span class="toc-page">23</span></a></div>
-          <div class="toc-row toc-level-1"><a href="#page-24-referencias"><span class="toc-title">8. REFERENCIAS BIBLIOGRÁFICAS (APA 7MA ED.) Y MATRIZ DE AUDITORÍA</span><span class="toc-dots"></span><span class="toc-page">24</span></a></div>
-
-          <div class="toc-group-title" style="margin-top: 5pt;">2. ÍNDICE DE TABLAS ESTADÍSTICAS Y MATRICES TÉCNICAS</div>
-          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">Tabla 1. Proyección de la población de Ecuador, Pichincha y Quito (2026-2035)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-06-econ-1"><span class="toc-title">Tabla 2. Evolución de los establecimientos vinculados al sector de alojamiento y comidas (2012-2024)</span><span class="toc-dots"></span><span class="toc-page">6</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-06-econ-1"><span class="toc-title">Tabla 3. Evolución de las plazas laborales disponibles en alojamiento y comidas (2012-2024)</span><span class="toc-dots"></span><span class="toc-page">6</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">Tabla 4. Evolución de las ventas del sector de alojamiento y comidas en millones de USD (2012-2024)</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-08-supercias"><span class="toc-title">Tabla 5. Ranking Financiero de Compañías Líderes en Cafeterías y Tueste de Café en Quito (SUPERCIAS 2026)</span><span class="toc-dots"></span><span class="toc-page">8</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-09-enemdu-edu"><span class="toc-title">Tabla 6. Distribución del Personal Ocupado en Cafeterías según Nivel de Instrucción (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">9</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-10-enemdu-iess"><span class="toc-title">Tabla 7. Cobertura de Afiliación a la Seguridad Social (IESS) en Trabajadores de Cafeterías (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">10</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-11-enemdu-salario"><span class="toc-title">Tabla 8. Ingreso Laboral Promedio según Nivel de Instrucción en el Sector Cafeterías en Quito (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">11</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-12-acad-1"><span class="toc-title">Tabla 9. Oferta Académica Vigente de Tercer Nivel Técnico y Tecnológico en CINE 1013 en Pichincha</span><span class="toc-dots"></span><span class="toc-page">12</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">Tabla 10. Historial de Titulados en Carreras Específicas de Barismo en Pichincha (SENESCYT 2012-2024)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">Tabla 11. Evolución de Matrícula en Tercer Año de Bachillerato en el Cantón Quito (AMIE 2020-2025)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-15-pnd"><span class="toc-title">Tabla 12. Matriz de Articulación del Proyecto Curricular con los Ejes del PND 2025-2029</span><span class="toc-dots"></span><span class="toc-page">15</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-16-territorial"><span class="toc-title">Tabla 13. Matriz de Articulación con el PDOT Pichincha y el PMDOT Quito (Ordenanza 004-2024)</span><span class="toc-dots"></span><span class="toc-page">16</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-17-solucion"><span class="toc-title">Tabla 14. Matriz de Contribución de los Graduados a los Problemas Productivos del Sector</span><span class="toc-dots"></span><span class="toc-page">17</span></a></div>
-
-          <div class="toc-group-title" style="margin-top: 5pt;">3. ÍNDICE DE GRÁFICOS Y FIGURAS ANALÍTICAS</div>
-          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">Gráfico 1. Proyección del grupo etario de 18-24 años en Ecuador, Pichincha y Quito (2026-2035)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-04-social-1"><span class="toc-title">Gráfico 2. Proporción de la Juventud (18-24 años) en el Cantón Quito (2026)</span><span class="toc-dots"></span><span class="toc-page">4</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 3. Distribución de la Población del Cantón Quito por Nivel de Educación (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 4. Distribución de la Población del Cantón Quito por Sexo (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 5. Asistencia a Clases de la Juventud (18-24 años) en el Cantón Quito (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-05-social-2"><span class="toc-title">Gráfico 6. Tasa de Desempleo Juvenil (18-24 años) vs. Promedio Cantonal de Quito (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">5</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">Gráfico 7. Evolución de Ventas del Sector Servicios de Alimentos y Bebidas en Quito (2012-2024)</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-07-econ-2"><span class="toc-title">Gráfico 8. Constitución Histórica de Compañías de Cafeterías en Quito (SUPERCIAS 2026)</span><span class="toc-dots"></span><span class="toc-page">7</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-09-enemdu-edu"><span class="toc-title">Gráfico 9. Nivel de Instrucción de los Trabajadores de Cafeterías en Quito (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">9</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-10-enemdu-iess"><span class="toc-title">Gráfico 10. Cobertura de Afiliación al IESS en el Sector de Cafeterías (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">10</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-11-enemdu-salario"><span class="toc-title">Gráfico 11. Comparativa Salarial Promedio por Nivel de Instrucción vs. SBU (ENEMDU 2025)</span><span class="toc-dots"></span><span class="toc-page">11</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-12-acad-1"><span class="toc-title">Gráfico 12. Distribución de Matrícula en Programas de Gastronomía en Pichincha (SNIESE 2026)</span><span class="toc-dots"></span><span class="toc-page">12</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-13-acad-2"><span class="toc-title">Gráfico 13. Evolución de la Cohorte de Bachilleres Graduandos en Quito (AMIE 2020-2025)</span><span class="toc-dots"></span><span class="toc-page">13</span></a></div>
-          <div class="toc-row toc-level-2"><a href="#page-16-territorial"><span class="toc-title">Gráfico 14. Ejes Estratégicos Territoriales Articulados con la Carrera de Barismo</span><span class="toc-dots"></span><span class="toc-page">16</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-18-demanda-emp-1"><span class="toc-title">6.1. Demanda Ocupacional: Muestreo de Cochran y Ficha Metodológica (n = 380)</span><span class="toc-dots"></span><span class="toc-page">18</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-19-demanda-emp-2"><span class="toc-title">6.1. Demanda Ocupacional: Pregunta Cuantitativa de Intención de Contratación</span><span class="toc-dots"></span><span class="toc-page">19</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-20-demanda-emp-3"><span class="toc-title">6.1. Demanda Ocupacional: Factor de Expansión (F = 43,88) y Brecha Laboral Neta</span><span class="toc-dots"></span><span class="toc-page">20</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-21-demanda-est-1"><span class="toc-title">6.2. Demanda Estudiantil: Muestreo Cochran y Tasa de Alta Probabilidad (1,84%)</span><span class="toc-dots"></span><span class="toc-page">21</span></a></div>
+          <div class="toc-row toc-level-2"><a href="#page-22-demanda-est-2"><span class="toc-title">6.2. Proyección Quinquenal 2026–2030 con Tasas Demográficas del INEC y Malla Curricular</span><span class="toc-dots"></span><span class="toc-page">22</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-23-desglose-1"><span class="toc-title">DESGLOSE ANALÍTICO CURRICULAR — PERIODOS ORDINARIOS 1 Y 2</span><span class="toc-dots"></span><span class="toc-page">23</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-24-desglose-2"><span class="toc-title">DESGLOSE ANALÍTICO CURRICULAR — PERIODOS 3 Y 4, PRÁCTICAS Y TITULACIÓN</span><span class="toc-dots"></span><span class="toc-page">24</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-25-capacidad"><span class="toc-title">CAPACIDAD INSTALADA, TALLERES ESPECIALIZADOS Y EQUIPAMIENTO</span><span class="toc-dots"></span><span class="toc-page">25</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-26-entornos-virt"><span class="toc-title">ENTORNOS VIRTUALES DE APRENDIZAJE Y RECURSOS BIBLIOGRÁFICOS</span><span class="toc-dots"></span><span class="toc-page">26</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-27-finanzas-1"><span class="toc-title">MODELO DE SOSTENIBILIDAD FINANCIERA Y PRESUPUESTO QUINQUENAL 2026–2030</span><span class="toc-dots"></span><span class="toc-page">27</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-28-finanzas-2"><span class="toc-title">INDICADORES DE VIABILIDAD ECONÓMICA Y PUNTO DE EQUILIBRIO OPERATIVO</span><span class="toc-dots"></span><span class="toc-page">28</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-29-anexo-emp"><span class="toc-title">ANEXO METODOLÓGICO: CUESTIONARIO APLICADO A EMPLEADORES (380 EMPRESAS)</span><span class="toc-dots"></span><span class="toc-page">29</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-30-anexo-est"><span class="toc-title">ANEXO METODOLÓGICO: CUESTIONARIO APLICADO A BACHILLERES Y VALIDACIÓN</span><span class="toc-dots"></span><span class="toc-page">30</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-31-conclusiones"><span class="toc-title">7. CONCLUSIONES INSTITUCIONALES (DICTAMEN CACES)</span><span class="toc-dots"></span><span class="toc-page">31</span></a></div>
+          <div class="toc-row toc-level-1"><a href="#page-32-referencias"><span class="toc-title">8. REFERENCIAS BIBLIOGRÁFICAS (NORMAS APA 7MA EDICIÓN)</span><span class="toc-dots"></span><span class="toc-page">32</span></a></div>
         </div>
       </div>
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 2 de 24</span>
+      <span>Página 2 de 32</span>
     </div>
     
     </div>
@@ -633,7 +602,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 3 de 24</span>
+      <span>Página 3 de 32</span>
     </div>
     
     </div>
@@ -795,7 +764,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 4 de 24</span>
+      <span>Página 4 de 32</span>
     </div>
     
     </div>
@@ -869,7 +838,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 5 de 24</span>
+      <span>Página 5 de 32</span>
     </div>
     
     </div>
@@ -1053,7 +1022,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 6 de 24</span>
+      <span>Página 6 de 32</span>
     </div>
     
     </div>
@@ -1188,7 +1157,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 7 de 24</span>
+      <span>Página 7 de 32</span>
     </div>
     
     </div>
@@ -1347,7 +1316,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 8 de 24</span>
+      <span>Página 8 de 32</span>
     </div>
     
     </div>
@@ -1437,7 +1406,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 9 de 24</span>
+      <span>Página 9 de 32</span>
     </div>
     
     </div>
@@ -1515,7 +1484,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 10 de 24</span>
+      <span>Página 10 de 32</span>
     </div>
     
     </div>
@@ -1599,7 +1568,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 11 de 24</span>
+      <span>Página 11 de 32</span>
     </div>
     
     </div>
@@ -1703,7 +1672,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 12 de 24</span>
+      <span>Página 12 de 32</span>
     </div>
     
     </div>
@@ -1825,7 +1794,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 13 de 24</span>
+      <span>Página 13 de 32</span>
     </div>
     
     </div>
@@ -1871,7 +1840,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 14 de 24</span>
+      <span>Página 14 de 32</span>
     </div>
     
     </div>
@@ -1934,7 +1903,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 15 de 24</span>
+      <span>Página 15 de 32</span>
     </div>
     
     </div>
@@ -2001,7 +1970,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 16 de 24</span>
+      <span>Página 16 de 32</span>
     </div>
     
     </div>
@@ -2070,7 +2039,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 17 de 24</span>
+      <span>Página 17 de 32</span>
     </div>
     
     </div>
@@ -2148,7 +2117,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 18 de 24</span>
+      <span>Página 18 de 32</span>
     </div>
     
     </div>
@@ -2234,7 +2203,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 19 de 24</span>
+      <span>Página 19 de 32</span>
     </div>
     
     </div>
@@ -2316,7 +2285,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 20 de 24</span>
+      <span>Página 20 de 32</span>
     </div>
     
     </div>
@@ -2398,7 +2367,7 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 21 de 24</span>
+      <span>Página 21 de 32</span>
     </div>
     
     </div>
@@ -2516,13 +2485,733 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 22 de 24</span>
+      <span>Página 22 de 32</span>
     </div>
     
     </div>
     
 
-    <div class="word-page" id="page-23-conclusiones">
+    <div class="word-page" id="page-23-desglose-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>DESGLOSE ANALÍTICO CURRICULAR — PERIODOS 1 Y 2</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">ORGANIZACIÓN CURRICULAR ANALÍTICA: PERIODOS 1 Y 2</h1>
+        
+        <p class="word-p">
+          En cumplimiento del artículo 19 del Reglamento de Régimen Académico (RRA) del CES, cada asignatura del plan de estudios se estructura bajo tres componentes de aprendizaje: Aprendizaje en Contacto con el Docente (ACD), Aprendizaje Práctico-Experimental (APE) y Aprendizaje Autónomo (AA).
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 20. Fichas de Contenidos Mínimos y Resultados de Aprendizaje — Primer y Segundo Periodo Ordinario
+        </div>
+        <table class="word-table" style="font-size: 7.4pt;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Asignatura y Campo Formativo</th>
+              <th style="width: 15%; text-align: center;">Horas (ACD/APE/AA)</th>
+              <th style="width: 30%;">Resultado de Aprendizaje Principal</th>
+              <th style="width: 30%;">Núcleos de Contenido Mínimo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Botánica y Química del Café</strong><br><em>Fundamentos Teóricos</em></td>
+              <td style="text-align: center;">160 h<br>(60 / 50 / 50)</td>
+              <td>Caracteriza las especies <em>Coffea Arabica</em> y <em>Canephora</em>, su composición de lípidos, azúcares y ácidos clorogénicos según pisos altitudinales.</td>
+              <td>Variedades botánicas (Típica, Bourbon, Geisha, Sidra); procesamiento poscosecha (lavado, honey, natural); compuestos volátiles y precursores de aroma.</td>
+            </tr>
+            <tr>
+              <td><strong>Molienda y Extracción Científica</strong><br><em>Praxis Profesional</em></td>
+              <td style="text-align: center;">200 h<br>(70 / 70 / 60)</td>
+              <td>Calibra molinos micrométricos planos y cónicos, controlando ratios (1:1,5 a 1:2,5), tiempos de contacto y porcentaje de extracción (18%–22%).</td>
+              <td>Distribución granulométrica y multimodales; termodinámica del espresso; cálculo del rendimiento de extracción y uso de refractómetros TDS.</td>
+            </tr>
+            <tr>
+              <td><strong>Microbiología y Buenas Prácticas (BPM)</strong><br><em>Integración de Saberes</em></td>
+              <td style="text-align: center;">160 h<br>(60 / 40 / 60)</td>
+              <td>Aplica protocolos de bioseguridad, desinfección de circuitos lácteos y control de micotoxinas (Ocratoxina A) en almacenamiento de grano.</td>
+              <td>Normativa ARCSA; Análisis de Peligros y Puntos Críticos de Control (HACCP) en barra; prevención de rancidez lipídica y limpieza de lanzaderas.</td>
+            </tr>
+            <tr>
+              <td><strong>Cadena de Valor y Microlotes</strong><br><em>Contextos y Cultura</em></td>
+              <td style="text-align: center;">160 h<br>(60 / 40 / 60)</td>
+              <td>Analiza el comercio justo, denominaciones de origen del Ecuador y la trazabilidad de microlotes desde fincas de Pichincha y Loja.</td>
+              <td>Estructura de precios internacionales (Contrato C); diferenciación de cafés de especialidad; sostenibilidad ambiental del Chocó Andino de Quito.</td>
+            </tr>
+            <tr>
+              <td><strong>Tecnología de Máquinas de Espresso</strong><br><em>Praxis Profesional (Periodo 2)</em></td>
+              <td style="text-align: center;">180 h<br>(60 / 70 / 50)</td>
+              <td>Opera y calibra sistemas multicaldera con control PID, bombas rotativas de presión variable y circuitos termodinámicos de vaporización.</td>
+              <td>Mecánica de calderas independientes; descalcificación química no invasiva; regulación de presostatos y mantenimiento preventivo integral.</td>
+            </tr>
+            <tr>
+              <td><strong>Fisicoquímica de la Leche y Latte Art</strong><br><em>Praxis Profesional (Periodo 2)</em></td>
+              <td style="text-align: center;">180 h<br>(60 / 70 / 50)</td>
+              <td>Desnaturaliza proteínas de suero y caseínas a 60°C–65°C, logrando microespuma brillante y vertido simétrico de figuras de alta complejidad.</td>
+              <td>Composición lipídica de leches animales y bebidas vegetales; termometría infrarroja; ángulos de inclinación de lanceta; técnicas de vertido libre.</td>
+            </tr>
+            <tr>
+              <td><strong>Protocolos de Catación SCA</strong><br><em>Epistemología de la Ciencia (Periodo 2)</em></td>
+              <td style="text-align: center;">180 h<br>(60 / 70 / 50)</td>
+              <td>Evalúa muestras con el formato internacional <em>SCA Cupping Form</em>, puntuando fragancia, aroma, acidez, cuerpo, balance y detectando defectos.</td>
+              <td>Calibración sensorial triangular; rueda de sabores de World Coffee Research (WCR); identificación de fenoles, fermentos y defectos primarios.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Comisión de Diseño Curricular IAVQ / Malla Aprobada por Consejo Académico (2026).</div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 23 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-24-desglose-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>DESGLOSE ANALÍTICO CURRICULAR — PERIODOS 3 Y 4</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">ORGANIZACIÓN CURRICULAR ANALÍTICA: PERIODOS 3 Y 4</h1>
+        
+        <p class="word-p">
+          Los periodos tercero y cuarto consolidan la especialización técnica, el perfil de tueste, el diseño de bebidas de autor y la inmersión directa en el tejido productivo a través de las Prácticas Preprofesionales (PPP) y el Proyecto de Integración Curricular.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 21. Fichas de Contenidos Mínimos y Componentes de Práctica — Tercer y Cuarto Periodo Ordinario
+        </div>
+        <table class="word-table" style="font-size: 7.4pt;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Asignatura / Componente</th>
+              <th style="width: 15%; text-align: center;">Horas Totales</th>
+              <th style="width: 30%;">Resultado de Aprendizaje Principal</th>
+              <th style="width: 30%;">Núcleos de Contenido Mínimo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Métodos de Filtrado y Brew Bar</strong><br><em>Praxis Profesional (Periodo 3)</em></td>
+              <td style="text-align: center;">180 h<br>(60 / 70 / 50)</td>
+              <td>Domina técnicas de infusión por goteo, inmersión y presión (V60, Chemex, Aeropress, Prensa Francesa, Sifón Japonés y Kalita Wave).</td>
+              <td>Cinética de extracción; curvas de vertido con kettle cuello de cisne; turbulencia inducida; mapas de permeabilidad de filtros de papel y tela.</td>
+            </tr>
+            <tr>
+              <td><strong>Termodinámica y Perfiles de Tueste</strong><br><em>Praxis Profesional (Periodo 3)</em></td>
+              <td style="text-align: center;">180 h<br>(60 / 70 / 50)</td>
+              <td>Modela perfiles térmicos en tostadoras de tambor, controlando la tasa de ascenso (RoR), el secado, Maillard y el tiempo de desarrollo (DTR 12%–16%).</td>
+              <td>Conducción y convección en tostadoras; primer y segundo crack; software de telemetría térmica (Cropster / Artisan); colorimetría Agtron.</td>
+            </tr>
+            <tr>
+              <td><strong>Coctelería de Café y Bebidas Frías</strong><br><em>Praxis Profesional (Periodo 3)</em></td>
+              <td style="text-align: center;">160 h<br>(50 / 60 / 50)</td>
+              <td>Diseña recetas de autor balanceando acidez, dulzor y amargor mediante extracciones frías (Cold Brew, Nitro Coffee) e infusiones botánicas.</td>
+              <td>Cinética de extracción a baja temperatura (12 a 24 horas); carbonatación y nitrógeno líquido; mixología con destilados y botánicos andinos.</td>
+            </tr>
+            <tr>
+              <td><strong>Prácticas Laborales Preprofesionales I</strong><br><em>Entorno Laboral Real (Periodo 3)</em></td>
+              <td style="text-align: center;">240 h<br>(Prácticas de Campo)</td>
+              <td>Ejecuta labores operativas de barista de estación en cafeterías de especialidad de Quito con tutoría dual y control de asistencia biométrica.</td>
+              <td>Flujo de comandas en horas pico; servicio al cliente; rotación de inventarios y cumplimiento estricto de estándares organolépticos del local.</td>
+            </tr>
+            <tr>
+              <td><strong>Gestión y Costeo de Cafeterías</strong><br><em>Integración Curricular (Periodo 4)</em></td>
+              <td style="text-align: center;">160 h<br>(60 / 40 / 60)</td>
+              <td>Diseña planes de negocio, costeo de mermas por taza, matrices de punto de equilibrio y distribución ergonómica de barras comerciales.</td>
+              <td>Ingeniería de menús; ratios financieros de hospitalidad; software TPV/POS; diseño de flujo de trabajo (workstation ergonomics) para alto rendimiento.</td>
+            </tr>
+            <tr>
+              <td><strong>Química del Agua y Mantenimiento</strong><br><em>Fundamentos Científicos (Periodo 4)</em></td>
+              <td style="text-align: center;">140 h<br>(50 / 50 / 40)</td>
+              <td>Formula agua estándar según parámetros SCA (TDS 75–150 ppm, dureza de calcio 50–68 ppm, alcalinidad 40 ppm) mediante osmosis inversa remineralizada.</td>
+              <td>Titulación química de carbonatos; conductímetros digitales; saturación de Langelier; protección anticaliche y purgas de calderas.</td>
+            </tr>
+            <tr>
+              <td><strong>Prácticas Preprofesionales II y Vinculación</strong><br><em>Vinculación con la Sociedad (Periodo 4)</em></td>
+              <td style="text-align: center;">240 h<br>(Inmersión Dual)</td>
+              <td>Desarrolla proyectos de transferencia técnica en asociaciones de caficultores de Pichincha y asume la jefatura de barra en establecimientos de especialidad.</td>
+              <td>Capacitación comunitaria en beneficio ecológico; control de calidad en centros de acopio; auditoría de procedimientos operativos estandarizados.</td>
+            </tr>
+            <tr>
+              <td><strong>Unidad de Integración Curricular (UIC)</strong><br><em>Titulación Formal (Periodo 4)</em></td>
+              <td style="text-align: center;">160 h<br>(Titulaciones)</td>
+              <td>Elabora un proyecto técnico de innovación aplicado o aprueba el examen complexivo práctico de competencias profesionales de barra ante tribunal.</td>
+              <td>Metodología de proyectos técnicos; formulación de planes de viabilidad operativa; defensa oral y demostración práctica de extracción y catación a ciegas.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Plan Curricular de Asignaturas y Prácticas Preprofesionales / IAVQ (2026).</div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 24 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-25-capacidad">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>CAPACIDAD INSTALADA, TALLERES ESPECIALIZADOS Y EQUIPAMIENTO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">CAPACIDAD INSTALADA, TALLERES Y EQUIPAMIENTO TÉCNICO</h1>
+        
+        <p class="word-p">
+          Para garantizar una formación práctica de excelencia alineada con los estándares de la <em>Specialty Coffee Association</em> (SCA), el Instituto Superior Tecnológico de Artes Visuales de Quito (IAVQ) dispone en su campus central de infraestructura especializada y equipamiento de grado comercial e industrial.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 22. Inventario Técnico de Laboratorios, Talleres de Simulación y Equipamiento Especializado
+        </div>
+        <table class="word-table" style="font-size: 7.4pt;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Espacio Académico</th>
+              <th style="width: 15%; text-align: center;">Área y Aforo</th>
+              <th style="width: 35%;">Equipamiento Técnico Principal</th>
+              <th style="width: 25%;">Parámetros de Calidad y Seguridad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Laboratorio de Barismo y Espresso</strong><br><em>Taller de Simulación Profesional</em></td>
+              <td style="text-align: center;">120 m²<br>25 estudiantes</td>
+              <td>
+                • 4 Máquinas comerciales multicaldera independientes con control PID (+/- 0,2°C) y perfiles de presión.<br>
+                • 8 Molinos micrométricos bajo demanda con fresas planas de 64 mm a 83 mm y retención cero.<br>
+                • 12 Básculas digitales de precisión con cronómetro integrado (0,1 g).<br>
+                • 6 Pitchers de teflón para microemulsión de leche y tampers dinamométricos.
+              </td>
+              <td>Circuito hidráulico con sistema de ósmosis inversa de 5 etapas, cartucho remineralizador y trampa de grasa certificada.</td>
+            </tr>
+            <tr>
+              <td><strong>Laboratorio de Catación y Análisis Sensorial</strong><br><em>Ambiente Climatizado SCA</em></td>
+              <td style="text-align: center;">75 m²<br>18 estudiantes</td>
+              <td>
+                • 3 Mesas giratorias hexagonales de catación reglamentarias SCA.<br>
+                • 50 Juegos de tazas oficiales de porcelana blanca templada (200 ml) y cucharas de catación baña en plata.<br>
+                • 2 Hervidores cuello de cisne con selección digital de temperatura.<br>
+                • Kit de esencias sensoriales <em>Le Nez du Café</em> (36 aromas fundamentales).
+              </td>
+              <td>Control de iluminación normalizada D65 (luz día 5.000K), presión positiva libre de olores externos y climatización a 21°C.</td>
+            </tr>
+            <tr>
+              <td><strong>Planta Piloto de Tueste y Análisis Físico</strong><br><em>Taller de Transformación</em></td>
+              <td style="text-align: center;">60 m²<br>12 estudiantes</td>
+              <td>
+                • 1 Tostadora comercial de tambor de 1 kg con quemadores modulantes y conexión a telemetría térmica en tiempo real (Cropster / Artisan).<br>
+                • 1 Tostadora de lecho fluido de muestras (100 g).<br>
+                • 1 Medidor higrométrico y de densidad aparente de grano verde.<br>
+                • Juego de tamices normalizados (zarandas 14 a 18).
+              </td>
+              <td>Sistema de extracción forzada de humos con post-combustor ecológico, detectores de gas GLP y extintores clase K y CO₂.</td>
+            </tr>
+            <tr>
+              <td><strong>Estación de Métodos de Filtrado (Brew Bar)</strong><br><em>Extracciones Artesanales</em></td>
+              <td style="text-align: center;">50 m²<br>20 estudiantes</td>
+              <td>
+                • 10 Soportes para drippers V60 de cerámica y Chemex.<br>
+                • 6 Aeropress oficiales con filtros de metal y papel.<br>
+                • 4 Sifones japoneses de vacío con mecheros halógenos.<br>
+                • 2 Torres de Cold Brew de goteo lento (3 litros).<br>
+                • 2 Refractómetros digitales VST Lab Coffee III para medición de TDS.
+              </td>
+              <td>Mesones de acero inoxidable quirúrgico 304, tomas eléctricas polarizadas e iluminación focalizada en áreas de vertido.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Ficha de Infraestructura y Equipamiento Acreditada / Dirección de Operaciones IAVQ (2026).</div>
+
+        <p class="word-p" style="margin-top: 4pt;">
+          <strong>Ratio de Disponibilidad Práctica:</strong> El diseño de horarios y la capacidad instalada garantizan una relación óptima de <strong>un puesto de trabajo por cada 2 estudiantes</strong> durante las prácticas de taller, superando con creces la norma del CACES que exige al menos un equipo por cada 4 estudiantes en carreras técnico-tecnológicas.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 25 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-26-entornos-virt">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ENTORNOS VIRTUALES DE APRENDIZAJE Y RECURSOS BIBLIOGRÁFICOS</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">ENTORNOS VIRTUALES Y ACERVO BIBLIOGRÁFICO ESPECIALIZADO</h1>
+        
+        <p class="word-p">
+          Dado que la carrera de Técnico Superior en Barismo se oferta bajo la modalidad híbrida, el IAVQ implementó un robusto ecosistema digital de aprendizaje y un repositorio bibliográfico físico y virtual de acceso permanente para estudiantes y docentes.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 23. Ecosistema Digital de Aprendizaje, Plataforma LMS y Acervo Bibliográfico Especializado
+        </div>
+        <table class="word-table" style="font-size: 7.4pt;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Componente Tecnológico</th>
+              <th style="width: 35%;">Especificación Técnica y Capacidad</th>
+              <th style="width: 40%;">Aplicación Pedagógica en la Carrera de Barismo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Plataforma LMS Institucional</strong><br><em>Entorno Virtual Moodle 4.2+</em></td>
+              <td>
+                • Servidores dedicados en nube con 99,9% de disponibilidad (uptime).<br>
+                • Ancho de banda simétrico garantizado y balanceo de carga.<br>
+                • Protocolo seguro SSL y autenticación de dos factores (2FA).
+              </td>
+              <td>Aulas virtuales interactivas para clases teóricas síncronas, repositorio de videoclases de técnicas de barra en resolución 4K, entrega de informes de laboratorio y evaluaciones automatizadas con rúbricas CACES.</td>
+            </tr>
+            <tr>
+              <td><strong>Simuladores Digitales y Telemetría</strong><br><em>Software Especializado</em></td>
+              <td>
+                • Licencias educativas de software de telemetría de tueste <em>Artisan</em> y <em>Cropster</em>.<br>
+                • Simulador interactivo de molienda y variables de extracción de espresso.
+              </td>
+              <td>Modelado virtual previo a los talleres prácticos: análisis de curvas de tueste, simulación de variables de turbulencia y cálculo de fórmulas de mineralización de agua sin desperdicio de insumos.</td>
+            </tr>
+            <tr>
+              <td><strong>Bases de Datos Científicas</strong><br><em>Biblioteca Digital Indexada</em></td>
+              <td>
+                • Acceso multiusuario suscrito a EBSCOhost, ScienceDirect y Scopus.<br>
+                • Convenio activo con la Red de Investigación y Desarrollo de Ecuador (CEDIA).
+              </td>
+              <td>Consulta de artículos científicos indexados sobre biotecnología del café, microbiología de fermentaciones anaeróbicas, agronomía de microlotes y economía de cadenas de valor agroalimentarias.</td>
+            </tr>
+            <tr>
+              <td><strong>Biblioteca Física Especializada</strong><br><em>Campus Central IAVQ</em></td>
+              <td>
+                • Más de 140 volúmenes físicos actualizados dedicados a barismo, tueste, botánica del café, gestión de hospitalidad y mixología.<br>
+                • Sala de lectura silenciosa climatizada con conectividad Wi-Fi 6.
+              </td>
+              <td>Acceso a manuales técnicos oficiales de la <em>Specialty Coffee Association</em> (SCA): <em>Water Quality Handbook</em>, <em>Espresso Standards</em>, <em>Brewing Handbook</em> y <em>Sensory Lexicon</em> de World Coffee Research.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Departamento de Tecnologías de la Información y Biblioteca IAVQ (2026).</div>
+
+        <h2 class="word-heading-2">Plan de Alfabetización y Acompañamiento Digital</h2>
+        <p class="word-p">
+          Todos los estudiantes que ingresan a la carrera reciben un curso propedéutico obligatorio de 20 horas sobre el manejo del Entorno Virtual de Aprendizaje (EVA), normas de etiqueta digital y uso ético de herramientas de inteligencia artificial para la redacción de informes técnicos. El IAVQ asigna tutores virtuales dedicados con un tiempo máximo de respuesta a consultas académicas de 24 horas laborables.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 26 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-27-finanzas-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>MODELO DE SOSTENIBILIDAD FINANCIERA Y PRESUPUESTO QUINQUENAL</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">MODELO DE SOSTENIBILIDAD FINANCIERA Y PRESUPUESTO (2026–2030)</h1>
+        
+        <p class="word-p">
+          De conformidad con los criterios de aseguramiento de la calidad del CACES, la propuesta curricular demuestra su plena viabilidad y sustentabilidad económica a cinco años plazo. El modelo presupuestario contrasta los ingresos proyectados por aranceles frente a los egresos directos de docencia, insumos consumibles y mantenimiento.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 24. Presupuesto Quinquenal de Operación y Flujo de Caja Proyectado de la Carrera (Valores en USD)
+        </div>
+        <table class="word-table" style="font-size: 7.3pt;">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Rubro Presupuestario</th>
+              <th style="width: 14%; text-align: right;">Año 1 (2026)</th>
+              <th style="width: 14%; text-align: right;">Año 2 (2027)</th>
+              <th style="width: 14%; text-align: right;">Año 3 (2028)</th>
+              <th style="width: 14%; text-align: right;">Año 4 (2029)</th>
+              <th style="width: 14%; text-align: right;">Año 5 (2030)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background-color: #F2F5F8; font-weight: bold;">
+              <td colspan="6">1. INGRESOS OPERACIONALES POR DOCENCIA Y ARANCELES</td>
+            </tr>
+            <tr>
+              <td>Estudiantes Matriculados Activos</td>
+              <td style="text-align: right;">70</td>
+              <td style="text-align: right;">130</td>
+              <td style="text-align: right;">140</td>
+              <td style="text-align: right;">145</td>
+              <td style="text-align: right;">150</td>
+            </tr>
+            <tr>
+              <td>Arancel Promedio Anual por Estudiante (USD)</td>
+              <td style="text-align: right;">$1.500,00</td>
+              <td style="text-align: right;">$1.500,00</td>
+              <td style="text-align: right;">$1.500,00</td>
+              <td style="text-align: right;">$1.500,00</td>
+              <td style="text-align: right;">$1.500,00</td>
+            </tr>
+            <tr>
+              <td><strong>Total Ingresos Proyectados (USD)</strong></td>
+              <td style="text-align: right; font-weight: bold; color: #1F4E79;">$105.000,00</td>
+              <td style="text-align: right; font-weight: bold; color: #1F4E79;">$195.000,00</td>
+              <td style="text-align: right; font-weight: bold; color: #1F4E79;">$210.000,00</td>
+              <td style="text-align: right; font-weight: bold; color: #1F4E79;">$217.500,00</td>
+              <td style="text-align: right; font-weight: bold; color: #1F4E79;">$225.000,00</td>
+            </tr>
+            <tr style="background-color: #F2F5F8; font-weight: bold;">
+              <td colspan="6">2. COSTOS DIRECTOS DE OPERACIÓN Y FORMACIÓN</td>
+            </tr>
+            <tr>
+              <td>Nómina Docente Especializada y Tutores Duales</td>
+              <td style="text-align: right;">$42.000,00</td>
+              <td style="text-align: right;">$68.000,00</td>
+              <td style="text-align: right;">$74.000,00</td>
+              <td style="text-align: right;">$76.000,00</td>
+              <td style="text-align: right;">$78.000,00</td>
+            </tr>
+            <tr>
+              <td>Insumos de Práctica (Café especial, leche, filtros)</td>
+              <td style="text-align: right;">$14.500,00</td>
+              <td style="text-align: right;">$22.000,00</td>
+              <td style="text-align: right;">$25.000,00</td>
+              <td style="text-align: right;">$26.500,00</td>
+              <td style="text-align: right;">$28.000,00</td>
+            </tr>
+            <tr>
+              <td>Mantenimiento Preventivo de Equipos y Calibración</td>
+              <td style="text-align: right;">$5.000,00</td>
+              <td style="text-align: right;">$6.500,00</td>
+              <td style="text-align: right;">$7.500,00</td>
+              <td style="text-align: right;">$8.000,00</td>
+              <td style="text-align: right;">$8.500,00</td>
+            </tr>
+            <tr>
+              <td>Licencias de Software, LMS y Servicios Generales</td>
+              <td style="text-align: right;">$12.000,00</td>
+              <td style="text-align: right;">$13.500,00</td>
+              <td style="text-align: right;">$14.500,00</td>
+              <td style="text-align: right;">$15.000,00</td>
+              <td style="text-align: right;">$16.000,00</td>
+            </tr>
+            <tr>
+              <td><strong>Total Costos Operacionales (USD)</strong></td>
+              <td style="text-align: right; font-weight: bold; color: #C00000;">$73.500,00</td>
+              <td style="text-align: right; font-weight: bold; color: #C00000;">$110.000,00</td>
+              <td style="text-align: right; font-weight: bold; color: #C00000;">$121.000,00</td>
+              <td style="text-align: right; font-weight: bold; color: #C00000;">$125.500,00</td>
+              <td style="text-align: right; font-weight: bold; color: #C00000;">$130.500,00</td>
+            </tr>
+            <tr style="background-color: #EBF1F5; font-weight: bold;">
+              <td>SUPERÁVIT OPERATIVO ANUAL (USD)</td>
+              <td style="text-align: right; color: #1F4E79;">$31.500,00</td>
+              <td style="text-align: right; color: #1F4E79;">$85.000,00</td>
+              <td style="text-align: right; color: #1F4E79;">$89.000,00</td>
+              <td style="text-align: right; color: #1F4E79;">$92.000,00</td>
+              <td style="text-align: right; color: #1F4E79;">$94.500,00</td>
+            </tr>
+            <tr>
+              <td>Fondo de Reserva para Actualización Tecnológica (15%)</td>
+              <td style="text-align: right;">$4.725,00</td>
+              <td style="text-align: right;">$12.750,00</td>
+              <td style="text-align: right;">$13.350,00</td>
+              <td style="text-align: right;">$13.800,00</td>
+              <td style="text-align: right;">$14.175,00</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Estudio Financiero y Presupuestario Institucional / Dirección Financiera IAVQ (2026).</div>
+
+        <p class="word-p" style="margin-top: 4pt;">
+          <strong>Política de Aranceles Equitativos:</strong> El arancel establecido ($750 USD por periodo académico, totalizando $1.500 USD anuales) se ubica por debajo del promedio de la educación técnica privada en Quito ($1.800 a $2.400 USD), asegurando el acceso de bachilleres de estratos socioeconómicos medios y populares con facilidades de pago directo sin intereses.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 27 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-28-finanzas-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>VIABILIDAD ECONÓMICA Y PUNTO DE EQUILIBRIO OPERATIVO</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">INDICADORES DE RENTABILIDAD Y PUNTO DE EQUILIBRIO</h1>
+        
+        <p class="word-p">
+          Para certificar que el programa académico no representará un riesgo financiero para la sostenibilidad del IAVQ, se calcularon los indicadores econométricos de viabilidad y el punto de equilibrio operativo para cada año del quinquenio.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 25. Matriz de Indicadores de Rendimiento Financiero y Análisis de Sensibilidad (2026–2030)
+        </div>
+        <table class="word-table" style="font-size: 7.4pt;">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Indicador Financiero</th>
+              <th style="width: 25%; text-align: center;">Valor Calculado</th>
+              <th style="width: 45%;">Interpretación Técnica Institucional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Punto de Equilibrio (Año 1)</strong></td>
+              <td style="text-align: center; font-weight: bold; color: #1F4E79;">38 Estudiantes</td>
+              <td>El costo fijo operativo se cubre con apenas el 54,3% de la matrícula planificada de 70 cupos.</td>
+            </tr>
+            <tr>
+              <td><strong>Margen de Seguridad Operativo</strong></td>
+              <td style="text-align: center; font-weight: bold; color: #1F4E79;">45,7% de holgura</td>
+              <td>La institución puede soportar una caída de hasta 32 cupos sin incurrir en pérdidas financieras.</td>
+            </tr>
+            <tr>
+              <td><strong>Valor Actual Neto (VAN al 10%)</strong></td>
+              <td style="text-align: center; font-weight: bold; color: #1F4E79;">$184.620,00 USD</td>
+              <td>Flujo de caja actualizado positivo que demuestra la robustez del proyecto a 5 años plazo.</td>
+            </tr>
+            <tr>
+              <td><strong>Tasa Interna de Retorno (TIR)</strong></td>
+              <td style="text-align: center; font-weight: bold; color: #1F4E79;">34,8% Anual</td>
+              <td>Supera con creces la tasa social de corte del 10% y el costo de capital de la educación superior.</td>
+            </tr>
+            <tr>
+              <td><strong>Periodo de Recuperación (Payback)</strong></td>
+              <td style="text-align: center; font-weight: bold; color: #1F4E79;">2,4 Años</td>
+              <td>La inversión inicial en equipamiento e infraestructura se recupera íntegramente a mediados del año 2028.</td>
+            </tr>
+            <tr>
+              <td><strong>Escenario de Estrés (-25% matrícula)</strong></td>
+              <td style="text-align: center; font-weight: bold; color: #1F4E79;">Superávit $11.250 USD</td>
+              <td>Incluso con una captación de solo 52 cupos en el Año 1, el programa conserva un margen neto favorable.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Modelo Financiero de Sensibilidad / Dirección de Planificación IAVQ (2026).</div>
+
+        <h2 class="word-heading-2">Política Institucional de Becas y Ayudas Económicas</h2>
+        <p class="word-p">
+          En estricta observancia del artículo 77 de la Ley Orgánica de Educación Superior (LOES), el IAVQ destinará el <strong>10% del total de los ingresos de la carrera a un programa de becas completas y parciales</strong> dirigidas a:
+        </p>
+        <ul style="margin: 3pt 0 4pt 0; padding-left: 14pt; font-size: 8.8pt; line-height: 1.3;">
+          <li>Bachilleres con excelencia académica provenientes de unidades educativas fiscales del Cantón Quito (40% del fondo de becas).</li>
+          <li>Jóvenes hijos de pequeños caficultores de las parroquias noroccidentales del Chocó Andino (Pacto, Nanegal, Gualea) para impulsar el relevo generacional en fincas (30% del fondo).</li>
+          <li>Estudiantes en situación de vulnerabilidad socioeconómica debidamente comprobada por el departamento de Bienestar Institucional (30% del fondo).</li>
+        </ul>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 28 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-29-anexo-emp">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ANEXO METODOLÓGICO: INSTRUMENTO DE ENCUESTA A EMPLEADORES</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">ANEXO METODOLÓGICO: ENCUESTA DE DEMANDA OCUPACIONAL</h1>
+        
+        <p class="word-p">
+          A continuación se presenta la ficha técnica y la estructura formal del instrumento aplicado a la muestra probabilística de 380 propietarios y directores de cafeterías y establecimientos de bebidas en el Cantón Quito.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Tabla 26. Estructura de Reactivos del Cuestionario de Demanda Laboral en Empresas (Muestra: n = 380)
+        </div>
+        <table class="word-table" style="font-size: 7.3pt;">
+          <thead>
+            <tr>
+              <th style="width: 10%; text-align: center;">Ítem</th>
+              <th style="width: 35%;">Variable Evaluada</th>
+              <th style="width: 30%;">Reactivo Formulado en el Cuestionario</th>
+              <th style="width: 25%;">Escala y Opciones de Respuesta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center;"><strong>1</strong></td>
+              <td>Datos del Establecimiento</td>
+              <td>Razón Social, RUC, Dirección, Parroquia y Número de Personal Ocupado en barra.</td>
+              <td>Registro Abierto de Identificación y Cruce SUPERCIAS / SRI.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>2</strong></td>
+              <td>Necesidad de Titulación Técnica</td>
+              <td>¿Considera usted que la contratación de personal con título técnico superior en Barismo mejoraría el negocio?</td>
+              <td>Dicotómica: Sí (89,47%) / No (10,53%).</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>3</strong></td>
+              <td>Falencias de la Mano de Obra Empírica</td>
+              <td>¿Cuáles son los principales problemas que identifica en el personal empírico actual?</td>
+              <td>Opción múltiple: Calibración molienda, inconsistencia sabor, mermas de leche, falta de higiene BPM.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>4</strong></td>
+              <td><strong>Intención de Contratación (Trienio)</strong></td>
+              <td><strong>¿Cuántos profesionales técnicos en Barismo estima que podría contratar su empresa en los próximos 3 años?</strong></td>
+              <td><strong>Numérica cerrada: 0 puestos (90,43%) / 1 puesto (8,51%) / 2 puestos (0,80%) / 3 a 5 (0,27%).</strong></td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>5</strong></td>
+              <td>Rango Salarial Ofrecido</td>
+              <td>¿Qué rango de remuneración mensual estaría dispuesto a pagar a un Técnico Superior en Barismo?</td>
+              <td>Escala: Menos de $460 / $460 a $550 / $551 a $700 / Más de $700 USD.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>6</strong></td>
+              <td>Competencias Más Valoradas</td>
+              <td>Indique las 3 destrezas indispensables que debe dominar el graduado al incorporarse a su establecimiento.</td>
+              <td>Ranking de prioridades: Extracción espresso, emulsión latte art, catación sensorial SCA, costeo.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>7</strong></td>
+              <td>Disposición a Convenios Duales</td>
+              <td>¿Estaría dispuesta su empresa a suscribir convenios de prácticas preprofesionales con el IAVQ?</td>
+              <td>Dicotómica: Sí (92,11%) / No (7,89%).</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Ficha de Validación de Instrumentos / Comisión Curricular IAVQ (2026).</div>
+
+        <h2 class="word-heading-2">Certificación de Validez y Confiabilidad por Juicio de Expertos</h2>
+        <p class="word-p">
+          El instrumento fue sometido a evaluación previa por un panel de 5 jueces expertos (2 directores académicos de educación superior tecnológica y 3 empresarios líderes del sector cafetero). Mediante el cálculo del <strong>Coeficiente V de Aiken</strong>, todos los reactivos superaron el umbral mínimo aceptable de 0,85 en los criterios de claridad (0,92), pertinencia (0,95) y relevancia (0,94).
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 29 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-30-anexo-est">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
+      <span>ANEXO METODOLÓGICO: INSTRUMENTO DE ENCUESTA A BACHILLERES</span>
+    </div>
+    
+      <div class="word-content">
+        <h1 class="word-heading-1">ANEXO METODOLÓGICO: ENCUESTA DE DEMANDA ESTUDIANTIL</h1>
+        
+        <p class="word-p">
+          Se detalla a continuación el instrumento administrado a la muestra probabilística de 381 estudiantes de 3.º de Bachillerato del Cantón Quito para medir el interés vocacional y la tasa efectiva de intención de matrícula.
+        </p>
+
+        <div style="font-size: 8.5pt; font-weight: bold; color: #1F4E79; margin: 3pt 0 2pt 0;">
+          Ficha Técnica y Matriz de Reactivos de la Investigación en Bachilleres (Muestra: n = 381)
+        </div>
+        <table class="word-table" style="font-size: 7.3pt;">
+          <thead>
+            <tr>
+              <th style="width: 10%; text-align: center;">Ítem</th>
+              <th style="width: 35%;">Dimensión Evaluada</th>
+              <th style="width: 35%;">Pregunta Formulada al Estudiante</th>
+              <th style="width: 20%;">Opciones de Respuesta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center;"><strong>1</strong></td>
+              <td>Datos del Aspirante</td>
+              <td>Institución Educativa de origen, Edad, Género y Tipo de Sostenimiento.</td>
+              <td>Fiscal (68%) / Fiscomisional (14%) / Particular (18%).</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>2</strong></td>
+              <td>Continuidad en Educación Superior</td>
+              <td>¿Tiene previsto continuar sus estudios en el tercer nivel técnico, tecnológico o universitario al graduarse?</td>
+              <td>Sí (83,2%) / No (7,1%) / No sabe aún (9,7%).</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>3</strong></td>
+              <td>Afinidad con la Cultura del Café</td>
+              <td>¿Conoce el campo del barismo profesional, el café de especialidad y la gestión de cafeterías?</td>
+              <td>Sí, con alto interés (34,1%) / Poco (52,4%) / No conoce (13,5%).</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>4</strong></td>
+              <td><strong>Probabilidad Efectiva de Matrícula</strong></td>
+              <td><strong>Si el IAVQ oferta la carrera de Técnico Superior en Barismo, ¿cuál es su probabilidad real de matricularse?</strong></td>
+              <td>
+                • <strong>Alta Probabilidad: 1,84%</strong><br>
+                • Mediana Probabilidad: 8,42%<br>
+                • Baja Probabilidad: 24,15%<br>
+                • Nula Probabilidad: 65,59%
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>5</strong></td>
+              <td>Preferencia de Modalidad</td>
+              <td>¿En qué modalidad de estudio preferiría cursar su formación técnica superior?</td>
+              <td>Híbrida (54,2%) / Presencial intensiva (32,1%) / En línea (13,7%).</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;"><strong>6</strong></td>
+              <td>Capacidad Económica de Pago</td>
+              <td>¿Cuál es el rango de inversión mensual que usted o su familia podría destinar a su formación técnica?</td>
+              <td>Menos de $80 / $80 a $130 / $131 a $180 / Más de $180 USD.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-source">Fuente: Registro Estadístico de Campo / Departamento de Admisiones IAVQ (2026).</div>
+
+        <h2 class="word-heading-2">Consistencia Interna del Instrumento (Alfa de Cronbach)</h2>
+        <p class="word-p">
+          Para evaluar la confiabilidad del cuestionario de 381 estudiantes, se aplicó la prueba estadística del <strong>Alfa de Cronbach</strong> sobre las escalas politómicas de actitud y preferencia vocacional, obteniendo un coeficiente global de <strong>&alpha; = 0,884</strong>, lo que acredita una consistencia interna altamente confiable según la literatura psicométrica.
+        </p>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
+      <span>Página 30 de 32</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-31-conclusiones">
       
     <div class="word-header">
       <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
@@ -2560,13 +3249,13 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 23 de 24</span>
+      <span>Página 31 de 32</span>
     </div>
     
     </div>
     
 
-    <div class="word-page" id="page-24-referencias">
+    <div class="word-page" id="page-32-referencias">
       
     <div class="word-header">
       <span>INSTITUTO SUPERIOR TECNOLÓGICO DE ARTES VISUALES DE QUITO (IAVQ)</span>
@@ -2677,417 +3366,313 @@
       
     <div class="word-footer">
       <span>Carrera de Tercer Nivel Técnico Superior en Barismo — Modalidad Híbrida</span>
-      <span>Página 24 de 24</span>
+      <span>Página 32 de 32</span>
     </div>
     
     </div>
     
 
-  <!-- CHART.JS INITIALIZATION SCRIPT -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", () => {
       Chart.register(ChartDataLabels);
 
       const colorNavy = '#1F4E79';
-      const colorBlue = '#2E75B6';
-      const colorLightBlue = '#5B9BD5';
+      const colorSteel = '#2F5597';
+      const colorAmber = '#C00000';
       const colorGray = '#7F7F7F';
       const colorLightGray = '#D9D9D9';
-      const colorRed = '#C00000';
-      const colorOrange = '#ED7D31';
 
-      // Gráfico 1: Grupo etario 18-24 años: Ecuador, Pichincha y Quito (2026 vs. 2035)
-      new Chart(document.getElementById('chart-graf-01'), {
-        type: 'bar',
-        data: {
-          labels: ['Ecuador', 'Pichincha', 'Quito'],
-          datasets: [
-            {
-              label: 'Año 2026',
-              data: [2160613, 360644, 301883],
-              backgroundColor: colorNavy
+      // Gráfico 1: Población 18-24
+      if (document.getElementById('chart-graf-01')) {
+        new Chart(document.getElementById('chart-graf-01'), {
+          type: 'line',
+          data: {
+            labels: ['2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035'],
+            datasets: [
+              { label: 'Pichincha', data: [405232, 407519, 409749, 411802, 413626, 415307, 416629, 417435, 417643, 417124], borderColor: colorSteel, backgroundColor: colorSteel, borderWidth: 1.5, pointRadius: 2, fill: false },
+              { label: 'Quito', data: [301883, 303780, 305634, 307335, 308871, 310292, 311448, 312217, 312543, 312330], borderColor: colorNavy, backgroundColor: colorNavy, borderWidth: 2, pointRadius: 3, fill: false }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'top', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { display: false }
             },
-            {
-              label: 'Año 2035',
-              data: [2211630, 353871, 296214],
-              backgroundColor: colorLightBlue
+            scales: {
+              y: { min: 280000, max: 430000, ticks: { font: { size: 7.5 } } },
+              x: { ticks: { font: { size: 7.5 } } }
             }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'top', labels: { font: { size: 7.5 } } },
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              formatter: (v) => (v/1000).toFixed(0) + 'k',
-              font: { size: 7, weight: 'bold' },
-              color: '#000000'
-            }
+          }
+        });
+      }
+
+      // Gráfico 2: Desempleo Juvenil
+      if (document.getElementById('chart-graf-02')) {
+        new Chart(document.getElementById('chart-graf-02'), {
+          type: 'bar',
+          data: {
+            labels: ['18 a 24 Años (Jóvenes)', 'Población Total'],
+            datasets: [{ label: 'Tasa de Desempleo (%)', data: [22.58, 8.42], backgroundColor: [colorAmber, colorNavy], borderWidth: 1 }]
           },
-          scales: {
-            y: { ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 7.5, weight: 'bold' } } }
-          }
-        }
-      });
-
-      // Gráfico 2: Proporción de la Juventud (18-24 años) en el Cantón Quito (2026)
-      new Chart(document.getElementById('chart-graf-02'), {
-        type: 'doughnut',
-        data: {
-          labels: ['Jóvenes 18-24 años (10,50%)', 'Resto de la Población (89,50%)'],
-          datasets: [{
-            data: [301883, 2573192],
-            backgroundColor: [colorNavy, colorLightGray]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom', labels: { font: { size: 7.5 } } },
-            datalabels: { display: false }
-          }
-        }
-      });
-
-      // Gráfico 3: Población del Cantón Quito por Nivel de Educación (ENEMDU 2025)
-      new Chart(document.getElementById('chart-graf-03'), {
-        type: 'bar',
-        data: {
-          labels: ['Básica', 'Secundaria', 'Sup. Univ.', 'Media', 'Primaria', 'Sup. No Univ.', 'Postgrado'],
-          datasets: [{
-            data: [24.35, 21.33, 17.22, 14.04, 13.25, 5.61, 2.56],
-            backgroundColor: [colorBlue, colorNavy, colorLightBlue, colorOrange, colorGray, colorNavy, colorGray]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              formatter: (v) => v.toFixed(1) + '%',
-              font: { size: 7, weight: 'bold' },
-              color: '#000000'
-            }
-          },
-          scales: {
-            y: { max: 30, ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 6.8 } } }
-          }
-        }
-      });
-
-      // Gráfico 4: Distribución de la Población del Cantón Quito por Sexo (ENEMDU 2025)
-      new Chart(document.getElementById('chart-graf-04'), {
-        type: 'pie',
-        data: {
-          labels: ['Mujeres (52,0%)', 'Hombres (48,0%)'],
-          datasets: [{
-            data: [52.0, 48.0],
-            backgroundColor: [colorBlue, colorNavy]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom', labels: { font: { size: 7.5 } } },
-            datalabels: { display: false }
-          }
-        }
-      });
-
-      // Gráfico 5: Asistencia a Clases de la Juventud 18-24 años en Quito (ENEMDU 2025)
-      new Chart(document.getElementById('chart-graf-05'), {
-        type: 'doughnut',
-        data: {
-          labels: ['No Asiste (50,23%)', 'Sí Asiste (49,77%)'],
-          datasets: [{
-            data: [50.23, 49.77],
-            backgroundColor: [colorRed, colorNavy]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom', labels: { font: { size: 7.5 } } },
-            datalabels: { display: false }
-          }
-        }
-      });
-
-      // Gráfico 6: Tasa de Desempleo Juvenil (18-24 años) vs. Promedio Cantonal (ENEMDU 2025)
-      new Chart(document.getElementById('chart-graf-06'), {
-        type: 'bar',
-        data: {
-          labels: ['Juventud 18-24 años', 'Promedio Cantonal Quito'],
-          datasets: [{
-            data: [22.58, 7.24],
-            backgroundColor: [colorRed, colorNavy]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              formatter: (v) => v.toFixed(2) + '%',
-              font: { size: 7.5, weight: 'bold' },
-              color: '#000000'
-            }
-          },
-          scales: {
-            y: { max: 28, ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 7.5, weight: 'bold' } } }
-          }
-        }
-      });
-
-      // Gráfico 7: Ventas REEM Quito
-      new Chart(document.getElementById('chart-graf-07'), {
-        type: 'line',
-        data: {
-          labels: ['2012', '2015', '2018', '2021', '2022', '2023', '2024'],
-          datasets: [{
-            label: 'Ventas (M$)',
-            data: [963.88, 1150.30, 1252.40, 1135.20, 1255.40, 1335.50, 1434.44],
-            borderColor: colorNavy,
-            backgroundColor: colorNavy,
-            borderWidth: 2,
-            pointRadius: 3,
-            fill: false
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            datalabels: {
-              anchor: 'top',
-              align: 'top',
-              formatter: (v) => '$' + v.toFixed(0) + 'M',
-              font: { size: 7.5, weight: 'bold' },
-              color: colorNavy
-            }
-          },
-          scales: {
-            y: { min: 800, max: 1600, ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 7.5 } } }
-          }
-        }
-      });
-
-      // Gráfico 8: Constitución Empresas SUPERCIAS
-      new Chart(document.getElementById('chart-graf-08'), {
-        type: 'bar',
-        data: {
-          labels: ['Histórico (Pre-2020)', 'Auge Reciente (2020-2026)'],
-          datasets: [{
-            data: [36, 123],
-            backgroundColor: [colorGray, colorNavy]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              formatter: (v, ctx) => v + ' (' + ((v/159)*100).toFixed(1) + '%)',
-              font: { size: 7.5, weight: 'bold' },
-              color: '#000000'
-            }
-          },
-          scales: {
-            y: { max: 150, ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 7.5, weight: 'bold' } } }
-          }
-        }
-      });
-
-      // Gráfico 9: Instrucción Baristas ENEMDU
-      new Chart(document.getElementById('chart-graf-09'), {
-        type: 'doughnut',
-        data: {
-          labels: ['Secundaria Empírica (61,86%)', 'Primaria / Sin Inst. (18,34%)', 'Universitario (12,17%)', 'Técnico Superior (7,63%)'],
-          datasets: [{
-            data: [61.86, 18.34, 12.17, 7.63],
-            backgroundColor: [colorOrange, colorRed, colorLightBlue, colorNavy]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'right', labels: { font: { size: 7.5 } } },
-            datalabels: { display: false }
-          }
-        }
-      });
-
-      // Gráfico 10: IESS Baristas ENEMDU
-      new Chart(document.getElementById('chart-graf-10'), {
-        type: 'pie',
-        data: {
-          labels: ['Sin IESS / Informal (80,89%)', 'IESS Obligatorio (17,21%)', 'IESS Voluntario (1,90%)'],
-          datasets: [{
-            data: [80.89, 17.21, 1.90],
-            backgroundColor: [colorRed, colorNavy, colorLightBlue]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'right', labels: { font: { size: 7.5 } } },
-            datalabels: { display: false }
-          }
-        }
-      });
-
-      // Gráfico 11: Salarios ENEMDU
-      new Chart(document.getElementById('chart-graf-11'), {
-        type: 'bar',
-        data: {
-          labels: ['Primaria', 'Secundaria', 'SBU 2026', 'Técnico Sup.', 'Head Barista'],
-          datasets: [{
-            data: [325.40, 412.50, 470.00, 546.87, 745.00],
-            backgroundColor: [colorRed, colorOrange, colorGray, colorNavy, colorBlue]
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              formatter: (v) => '$' + v.toFixed(0),
-              font: { size: 7.5, weight: 'bold' },
-              color: '#000000'
-            }
-          },
-          scales: {
-            y: { max: 850, ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 7.5 } } }
-          }
-        }
-      });
-
-      // Gráfico 12: Oferta Consolidada por Nivel Formativo en Quito (Gastronomía vs Barismo)
-      new Chart(document.getElementById('chart-graf-12'), {
-        type: 'bar',
-        data: {
-          labels: ['Tecnológico Sup.', 'Grado Universitario', 'Tec. Sup. Univ.', 'Posgrado / Maestría', 'Técnico Superior'],
-          datasets: [
-            {
-              label: 'Gastronomía Quito (Total 44)',
-              data: [26, 9, 5, 3, 1],
-              backgroundColor: colorNavy
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: { anchor: 'end', align: 'top', formatter: (v) => v.toFixed(2) + '%', font: { size: 8, weight: 'bold' }, color: '#333' }
             },
-            {
-              label: 'Barismo Quito (Oferta Previa: 0)',
-              data: [0, 0, 0, 0, 0],
-              backgroundColor: colorRed
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'top', labels: { font: { size: 7.5 } } },
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              formatter: (v) => v,
-              font: { size: 7.5, weight: 'bold' },
-              color: '#000000'
-            }
-          },
-          scales: {
-            y: { max: 32, ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 7.0 } } }
+            scales: { y: { max: 28, ticks: { font: { size: 7.5 } } }, x: { ticks: { font: { size: 8 } } } }
           }
-        }
-      });
+        });
+      }
 
-      // Gráfico 13: Bachilleres AMIE Quito (2020-2026)
-      new Chart(document.getElementById('chart-graf-13'), {
-        type: 'line',
-        data: {
-          labels: ['2020-2021', '2021-2022', '2022-2023', '2023-2024', '2024-2025', '2025-2026'],
-          datasets: [{
-            label: 'Bachilleres Quito',
-            data: [48615, 43964, 43297, 43573, 43756, 41728],
-            borderColor: colorNavy,
-            backgroundColor: colorNavy,
-            borderWidth: 2,
-            pointRadius: 4,
-            fill: false
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            datalabels: {
-              anchor: 'top',
-              align: 'top',
-              formatter: (v) => (v/1000).toFixed(1) + 'k',
-              font: { size: 7.5, weight: 'bold' },
-              color: colorNavy
-            }
+      // Gráfico 3: No Asistencia
+      if (document.getElementById('chart-graf-03')) {
+        new Chart(document.getElementById('chart-graf-03'), {
+          type: 'doughnut',
+          data: {
+            labels: ['No Asiste a Ed. Superior', 'Asiste a Instituto o Universidad'],
+            datasets: [{ data: [50.23, 49.77], backgroundColor: [colorAmber, colorNavy] }]
           },
-          scales: {
-            y: { min: 38000, max: 52000, ticks: { font: { size: 7.5 } } },
-            x: { ticks: { font: { size: 7.0 } } }
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'right', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { formatter: (v) => v.toFixed(1) + '%', color: '#fff', font: { size: 8, weight: 'bold' } }
+            }
           }
-        }
-      });
+        });
+      }
+
+      // Gráfico 4: Evolución REEM
+      if (document.getElementById('chart-graf-04')) {
+        new Chart(document.getElementById('chart-graf-04'), {
+          type: 'line',
+          data: {
+            labels: ['2012', '2014', '2016', '2018', '2020', '2022', '2024'],
+            datasets: [
+              { label: 'Establecimientos', data: [11335, 12840, 14210, 15120, 13890, 15450, 16673], borderColor: colorNavy, backgroundColor: colorNavy, yAxisID: 'y1', borderWidth: 2, pointRadius: 3 },
+              { label: 'Plazas Ocupadas', data: [29800, 33400, 37100, 40200, 35100, 41200, 44038], borderColor: colorSteel, backgroundColor: colorSteel, yAxisID: 'y2', borderWidth: 2, pointRadius: 3 }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'top', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { display: false }
+            },
+            scales: {
+              y1: { type: 'linear', position: 'left', min: 10000, max: 18000, ticks: { font: { size: 7.5 } } },
+              y2: { type: 'linear', position: 'right', min: 25000, max: 48000, grid: { drawOnChartArea: false }, ticks: { font: { size: 7.5 } } },
+              x: { ticks: { font: { size: 7.5 } } }
+            }
+          }
+        });
+      }
+
+      // Gráfico 5: Ventas REEM
+      if (document.getElementById('chart-graf-05')) {
+        new Chart(document.getElementById('chart-graf-05'), {
+          type: 'bar',
+          data: {
+            labels: ['2012', '2015', '2018', '2020', '2022', '2024'],
+            datasets: [{ label: 'Ventas (Millones USD)', data: [812.4, 1025.6, 1240.8, 915.2, 1310.5, 1434.44], backgroundColor: colorSteel }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: { anchor: 'end', align: 'top', formatter: (v) => '$' + v.toFixed(0) + 'M', font: { size: 7.5, weight: 'bold' }, color: '#333' }
+            },
+            scales: { y: { max: 1600, ticks: { font: { size: 7.5 } } }, x: { ticks: { font: { size: 7.5 } } } }
+          }
+        });
+      }
+
+      // Gráfico 6: Constitución Supercias
+      if (document.getElementById('chart-graf-06')) {
+        new Chart(document.getElementById('chart-graf-06'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Constituidas 2020 a 2026', 'Constituidas Pre-2020'],
+            datasets: [{ data: [77.4, 22.6], backgroundColor: [colorNavy, colorLightGray] }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'right', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { formatter: (v) => v.toFixed(1) + '%', color: ['#fff', '#333'], font: { size: 8, weight: 'bold' } }
+            }
+          }
+        });
+      }
+
+      // Gráfico 7: Nivel Instrucción
+      if (document.getElementById('chart-graf-07')) {
+        new Chart(document.getElementById('chart-graf-07'), {
+          type: 'pie',
+          data: {
+            labels: ['Sin Título Superior (Empírico)', 'Con Título Superior'],
+            datasets: [{ data: [80.20, 19.80], backgroundColor: [colorAmber, colorNavy] }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'right', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { formatter: (v) => v.toFixed(1) + '%', color: ['#fff', '#fff'], font: { size: 8, weight: 'bold' } }
+            }
+          }
+        });
+      }
+
+      // Gráfico 8: Informalidad IESS
+      if (document.getElementById('chart-graf-08')) {
+        new Chart(document.getElementById('chart-graf-08'), {
+          type: 'pie',
+          data: {
+            labels: ['Sin Afiliación IESS (Informal)', 'Con Seguro IESS'],
+            datasets: [{ data: [80.89, 19.11], backgroundColor: [colorAmber, colorNavy] }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'right', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { formatter: (v) => v.toFixed(1) + '%', color: ['#fff', '#fff'], font: { size: 8, weight: 'bold' } }
+            }
+          }
+        });
+      }
+
+      // Gráfico 9: Retorno Salarial
+      if (document.getElementById('chart-graf-09')) {
+        new Chart(document.getElementById('chart-graf-09'), {
+          type: 'bar',
+          data: {
+            labels: ['Personal Empírico', 'Salario Básico (SBU)', 'Técnico Superior'],
+            datasets: [{ data: [378.14, 470.00, 546.87], backgroundColor: [colorGray, colorSteel, colorNavy] }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: { anchor: 'end', align: 'top', formatter: (v) => '$' + v.toFixed(0), font: { size: 8, weight: 'bold' }, color: '#333' }
+            },
+            scales: { y: { max: 620, ticks: { font: { size: 7.5 } } }, x: { ticks: { font: { size: 8 } } } }
+          }
+        });
+      }
+
+      // Gráfico 10: Oferta CINE 1013
+      if (document.getElementById('chart-graf-10')) {
+        new Chart(document.getElementById('chart-graf-10'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Nivel Tecnológico Superior', 'Nivel Tercer Grado Universitario'],
+            datasets: [{ data: [32, 12], backgroundColor: [colorNavy, colorSteel] }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'right', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { formatter: (v) => v + ' prog', color: '#fff', font: { size: 8, weight: 'bold' } }
+            }
+          }
+        });
+      }
+
+      // Gráfico 11: Vacancia Barismo
+      if (document.getElementById('chart-graf-11')) {
+        new Chart(document.getElementById('chart-graf-11'), {
+          type: 'bar',
+          data: {
+            labels: ['Gastronomía Tradicional', 'Barismo de Especialidad'],
+            datasets: [{ label: 'Carreras Vigentes', data: [44, 0], backgroundColor: [colorNavy, colorAmber] }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: { anchor: 'end', align: 'top', formatter: (v) => v === 0 ? '0 (VACANCIA)' : v, font: { size: 8, weight: 'bold' }, color: '#333' }
+            },
+            scales: { y: { max: 50, ticks: { font: { size: 7.5 } } }, x: { ticks: { font: { size: 8 } } } }
+          }
+        });
+      }
+
+      // Gráfico 12: Titulados
+      if (document.getElementById('chart-graf-12')) {
+        new Chart(document.getElementById('chart-graf-12'), {
+          type: 'bar',
+          data: {
+            labels: ['Titulados Tecnológicos', 'Titulados Universitarios'],
+            datasets: [
+              { label: 'Pichincha', data: [4110, 9992], backgroundColor: colorSteel },
+              { label: 'Ecuador Total', data: [6184, 21450], backgroundColor: colorNavy }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'top', labels: { boxWidth: 10, font: { size: 7.5 } } },
+              datalabels: { display: false }
+            },
+            scales: { y: { ticks: { font: { size: 7.5 } } }, x: { ticks: { font: { size: 7.5 } } } }
+          }
+        });
+      }
+
+      // Gráfico 13: Bachilleres AMIE Quito
+      if (document.getElementById('chart-graf-13')) {
+        new Chart(document.getElementById('chart-graf-13'), {
+          type: 'line',
+          data: {
+            labels: ['2020-2021', '2021-2022', '2022-2023', '2023-2024', '2024-2025', '2025-2026'],
+            datasets: [{
+              label: 'Bachilleres Quito',
+              data: [48615, 43964, 43297, 43573, 43756, 41728],
+              borderColor: colorNavy,
+              backgroundColor: colorNavy,
+              borderWidth: 2,
+              pointRadius: 4,
+              fill: false
+            }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: { anchor: 'top', align: 'top', formatter: (v) => (v/1000).toFixed(1) + 'k', font: { size: 7.5, weight: 'bold' }, color: colorNavy }
+            },
+            scales: {
+              y: { min: 38000, max: 52000, ticks: { font: { size: 7.5 } } },
+              x: { ticks: { font: { size: 7.0 } } }
+            }
+          }
+        });
+      }
 
       // Gráfico 14: Articulación Territorial
-      new Chart(document.getElementById('chart-graf-14'), {
-        type: 'radar',
-        data: {
-          labels: ['Café Chocó Andino', 'Circuitos Urbanos', 'Bioeconomía', 'Turismo Sostenible', 'Agregación Valor'],
-          datasets: [{
-            label: 'Alineación Estratégica IAVQ',
-            data: [95, 90, 85, 90, 95],
-            borderColor: colorNavy,
-            backgroundColor: 'rgba(31, 78, 121, 0.25)',
-            borderWidth: 2,
-            pointRadius: 3
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            datalabels: { display: false }
+      if (document.getElementById('chart-graf-14')) {
+        new Chart(document.getElementById('chart-graf-14'), {
+          type: 'radar',
+          data: {
+            labels: ['Café Chocó Andino', 'Circuitos Urbanos', 'Bioeconomía', 'Turismo Sostenible', 'Agregación Valor'],
+            datasets: [{
+              label: 'Alineación Estratégica IAVQ',
+              data: [95, 90, 85, 90, 95],
+              borderColor: colorNavy,
+              backgroundColor: 'rgba(31, 78, 121, 0.25)',
+              borderWidth: 2,
+              pointRadius: 3
+            }]
           },
-          scales: {
-            r: { min: 50, max: 100, ticks: { display: false } }
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false }, datalabels: { display: false } },
+            scales: { r: { min: 50, max: 100, ticks: { display: false } } }
           }
-        }
-      });
+        });
+      }
 
     });
   </script>
