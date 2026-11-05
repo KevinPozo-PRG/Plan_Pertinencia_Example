@@ -1,0 +1,2901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudio de Pertinencia Curricular — Tecnología Superior Universitaria en Entrenamiento Deportivo (ISTU Nacional)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <style>
+    /* Tipografía y formato estricto Microsoft Word */
+    body {
+      font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+      background-color: #d1d5db;
+      color: #111827;
+      margin: 0;
+      padding: 24px 0 60px 0;
+      line-height: 1.35;
+      font-size: 11pt;
+    }
+
+    a {
+      color: #0563C1;
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #0563C1;
+    }
+
+    /* Barra de Herramientas de Navegación */
+    .word-toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1e293b;
+      color: #ffffff;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      font-size: 13px;
+    }
+    .word-toolbar select, .word-toolbar button {
+      background: #334155;
+      color: #ffffff;
+      border: 1px solid #475569;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .word-toolbar button:hover, .word-toolbar select:hover {
+      background: #475569;
+    }
+    .word-toolbar .btn-print {
+      background: #2563eb;
+      border-color: #1d4ed8;
+      font-weight: bold;
+    }
+    .word-toolbar .btn-print:hover {
+      background: #1d4ed8;
+    }
+
+    /* Hoja Tamaño Carta (Letter) estilo Microsoft Word */
+    .word-page {
+      width: 21.59cm;
+      min-height: 27.94cm;
+      padding: 2.0cm 2.4cm 1.8cm 2.4cm;
+      margin: 45px auto;
+      background: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Encabezado y Pie de Página de Word */
+    .word-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: #64748b;
+      border-bottom: 0.75pt solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .word-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: #64748b;
+      border-top: 0.75pt solid #cbd5e1;
+      padding-top: 4px;
+      margin-top: 12px;
+    }
+
+    /* Títulos y Jerarquía Editorial */
+    .word-h1 {
+      font-size: 15pt;
+      font-weight: bold;
+      color: #1e3a8a;
+      border-bottom: 1.5pt solid #1e3a8a;
+      padding-bottom: 4px;
+      margin: 10px 0 10px 0;
+      text-transform: uppercase;
+    }
+    .word-h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #0f172a;
+      margin: 10px 0 6px 0;
+    }
+    .word-p {
+      margin: 0 0 8px 0;
+      text-align: justify;
+      text-justify: inter-word;
+      font-size: 10pt;
+      line-height: 1.35;
+    }
+
+    /* Cuadros de Alerta y Destacados */
+    .word-callout {
+      background: #f8fafc;
+      border-left: 3.5pt solid #2563eb;
+      padding: 8px 12px;
+      margin: 8px 0;
+      font-size: 9.5pt;
+      border-radius: 0 4px 4px 0;
+      text-align: justify;
+    }
+
+    /* Tablas Institucionales Estilo APA 7 */
+    .word-table-title {
+      font-size: 9.5pt;
+      font-weight: bold;
+      color: #1e293b;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+    .word-table-source {
+      font-size: 8pt;
+      font-style: italic;
+      color: #475569;
+      margin-top: 3px;
+      margin-bottom: 6px;
+    }
+    .word-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-bottom: 4px;
+    }
+    .word-table th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: bold;
+      border-top: 1.2pt solid #0f172a;
+      border-bottom: 1.2pt solid #0f172a;
+      padding: 4px 6px;
+      text-align: left;
+      font-size: 8.5pt;
+    }
+    .word-table td {
+      padding: 4px 6px;
+      border-bottom: 0.5pt solid #e2e8f0;
+      vertical-align: middle;
+      font-size: 8.5pt;
+    }
+    .word-table-compact td, .word-table-compact th {
+      padding: 2.5px 5px;
+      font-size: 8pt;
+    }
+
+    /* Contenedores de Gráficos */
+    .word-chart-container {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin: 8px 0;
+    }
+    .word-chart-title {
+      font-size: 9pt;
+      font-weight: bold;
+      color: #1e293b;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    /* Portada Institucional */
+    .word-cover-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .word-cover-inst {
+      font-size: 15pt;
+      font-weight: bold;
+      color: #1e3a8a;
+      letter-spacing: 0.8px;
+    }
+    .word-cover-subinst {
+      font-size: 9.5pt;
+      color: #475569;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+    .word-cover-badge {
+      display: inline-block;
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      color: #1d4ed8;
+      font-size: 8.5pt;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .word-cover-title {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+      margin: 6px 0;
+    }
+    .word-cover-rule {
+      width: 80px;
+      height: 3px;
+      background: #2563eb;
+      margin: 12px auto;
+      border-radius: 2px;
+    }
+    .word-cover-career {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #1e3a8a;
+      margin-bottom: 4px;
+    }
+    .word-cover-degree {
+      font-size: 10.5pt;
+      color: #334155;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    .word-cover-modality {
+      font-size: 9.5pt;
+      color: #475569;
+      font-weight: 600;
+    }
+    .word-cover-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 9pt;
+      margin-top: 15px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+    }
+    .word-cover-table td {
+      padding: 5px 10px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Tabla de Contenidos (TOC) con Líneas de Puntos */
+    .word-section-title {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1e3a8a;
+      border-bottom: 1pt solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .word-toc a {
+      display: flex;
+      align-items: baseline;
+      text-decoration: none;
+      color: #0f172a;
+      font-size: 9pt;
+      margin-bottom: 4.5px;
+    }
+    .word-toc a:hover .toc-title {
+      text-decoration: underline;
+      color: #2563eb;
+    }
+    .word-toc a:hover .toc-page {
+      color: #2563eb;
+      font-weight: bold;
+    }
+    .toc-title {
+      flex-shrink: 0;
+    }
+    .toc-dots {
+      flex-grow: 1;
+      border-bottom: 1px dotted #94a3b8;
+      margin: 0 6px;
+    }
+    .toc-page {
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    /* Bibliografía APA 7 */
+    .word-biblio-item {
+      padding-left: 28px;
+      text-indent: -28px;
+      margin-bottom: 7px;
+      font-size: 8.5pt;
+      text-align: justify;
+      line-height: 1.3;
+    }
+
+    /* Reglas de Impresión y Salida a PDF */
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 1.8cm 2.0cm 1.8cm 2.0cm;
+      }
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .word-toolbar, .no-print {
+        display: none !important;
+      }
+      .word-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Herramientas de Navegación Rápida -->
+  <div class="word-toolbar no-print">
+    <div>
+      <strong style="color: #60a5fa;">ISTU NACIONAL</strong> | Dossier de Pertinencia Curricular (24 Páginas)
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <label for="pageJump" style="font-size: 12px; color: #cbd5e1;">Ir a página:</label>
+      <select id="pageJump" onchange="jumpToPage(this.value)">
+        <option value="page-01">1. Portada</option><option value="page-02">2. Índice</option><option value="page-03">3. Página 3</option><option value="page-04">4. Página 4</option><option value="page-05">5. Página 5</option><option value="page-06">6. Página 6</option><option value="page-07">7. Página 7</option><option value="page-08">8. Página 8</option><option value="page-09">9. Página 9</option><option value="page-10">10. Página 10</option><option value="page-11">11. Página 11</option><option value="page-12">12. Página 12</option><option value="page-13">13. Página 13</option><option value="page-14">14. Página 14</option><option value="page-15">15. Página 15</option><option value="page-16">16. Página 16</option><option value="page-17">17. Página 17</option><option value="page-18">18. Página 18</option><option value="page-19">19. Página 19</option><option value="page-20">20. Página 20</option><option value="page-21">21. Página 21</option><option value="page-22">22. Página 22</option><option value="page-23">23. Página 23</option><option value="page-24">24. Página 24</option>
+      </select>
+      <button class="btn-print" onclick="window.print()">Descargar / Imprimir PDF</button>
+      <button onclick="toggleZoom(1.1)">Zoom +</button>
+      <button onclick="toggleZoom(0.9)">Zoom -</button>
+      <button onclick="toggleZoom(1.0)">100%</button>
+    </div>
+  </div>
+
+  <div id="pages-container">
+    
+    <div class="word-page" id="page-01-cover">
+      <div class="word-cover-container">
+        <div>
+          <div class="word-cover-inst">INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</div>
+          <div class="word-cover-subinst">CONDICIÓN DE INSTITUTO SUPERIOR UNIVERSITARIO ACREDITADO POR EL CACES</div>
+          <div class="word-cover-subinst">VICERRECTORADO ACADÉMICO — COMISIÓN DE DISEÑO Y DESARROLLO CURRICULAR</div>
+        </div>
+
+        <div class="word-cover-main">
+          <div class="word-cover-badge">PROYECTO DE CARRERA NUEVA — TERCER NIVEL TÉCNICO Y TECNOLÓGICO SUPERIOR</div>
+          <h1 class="word-cover-title">ESTUDIO DE PERTINENCIA Y FACTIBILIDAD SOCIAL, ECONÓMICA Y ACADÉMICA</h1>
+          <div class="word-cover-rule"></div>
+          <div class="word-cover-career">TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</div>
+          <div class="word-cover-degree">Título que otorga: Tecnólogo/a Superior Universitario/a en Entrenamiento Deportivo</div>
+          <div class="word-cover-modality">Modalidad: Híbrida | Duración: 5 Períodos Académicos Ordinarios (2,5 Años) | Carga: 3.600 Horas</div>
+        </div>
+
+        <div class="word-cover-meta-grid">
+          <table class="word-cover-table">
+            <tr>
+              <td><strong>Campo Amplio CINE-UNESCO:</strong></td>
+              <td>10 Servicios (Actividad Física, Deportes y Bienestar)</td>
+            </tr>
+            <tr>
+              <td><strong>Campo Específico / Detallado:</strong></td>
+              <td>101 Servicios Personales / 1014 Actividades Físicas y Deportes</td>
+            </tr>
+            <tr>
+              <td><strong>Clasificación Económica CIIU Rev. 4:</strong></td>
+              <td>R9311 (Instalaciones), R9312 (Clubes), R9319 (Gimnasios y Actividades Deportivas)</td>
+            </tr>
+            <tr>
+              <td><strong>Clasificación Ocupacional CIUO-08:</strong></td>
+              <td>3422 (Entrenadores y Directores Técnicos) / 3423 (Instructores de Fitness y Salud)</td>
+            </tr>
+            <tr>
+              <td><strong>Sede y Cobertura Territorial:</strong></td>
+              <td>Campus Quito — Cantón Quito, Provincia de Pichincha (Zona de Planificación 9)</td>
+            </tr>
+            <tr>
+              <td><strong>Órgano de Aprobación:</strong></td>
+              <td>Consejo de Educación Superior (CES) — República del Ecuador</td>
+            </tr>
+            <tr>
+              <td><strong>Año de Formulación:</strong></td>
+              <td>Quito D.M., 2026</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 1 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="page-02-toc">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-section-title">ÍNDICE GENERAL DEL ESTUDIO DE PERTINENCIA</div>
+      <div class="word-toc">
+        <a href="#sec-01"><span class="toc-title">1. INTRODUCCIÓN Y ANTECEDENTES INSTITUCIONALES</span><span class="toc-dots"></span><span class="toc-page">3</span></a>
+        <a href="#sec-02-1"><span class="toc-title">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (DIAGNÓSTICO INTEGRAL)</span><span class="toc-dots"></span><span class="toc-page">4</span></a>
+        <a href="#sec-02-1" style="padding-left: 18px;"><span class="toc-title">2.1. Términos Sociales: Dinámica Demográfica y Mercado Laboral Juvenil en Quito</span><span class="toc-dots"></span><span class="toc-page">4</span></a>
+        <a href="#sec-02-1-salud" style="padding-left: 18px;"><span class="toc-title">2.1.1. Diagnóstico del Sedentarismo, Salud Pública y Empleo Juvenil en Quito</span><span class="toc-dots"></span><span class="toc-page">5</span></a>
+        <a href="#sec-02-2" style="padding-left: 18px;"><span class="toc-title">2.2. Términos Económicos: Tejido Productivo y Actividades Deportivas (CIIU R93)</span><span class="toc-dots"></span><span class="toc-page">6</span></a>
+        <a href="#sec-02-2-supercias" style="padding-left: 18px;"><span class="toc-title">2.2.1. Tejido Societario y Ranking SUPERCIAS de Empleadores Deportivos Líderes</span><span class="toc-dots"></span><span class="toc-page">7</span></a>
+        <a href="#sec-02-2-salarios" style="padding-left: 18px;"><span class="toc-title">2.2.2. Caracterización Laboral, Brecha de Cualificación y Retorno Salarial (ENEMDU)</span><span class="toc-dots"></span><span class="toc-page">8</span></a>
+        <a href="#sec-02-3" style="padding-left: 18px;"><span class="toc-title">2.3. Términos Académicos: Oferta Superior en Deporte y Vacancia de TSU en Pichincha</span><span class="toc-dots"></span><span class="toc-page">9</span></a>
+        <a href="#sec-02-3-amie" style="padding-left: 18px;"><span class="toc-title">2.3.1. Demanda Potencial Escolar: Cohorte de Bachilleres en el Cantón Quito (AMIE)</span><span class="toc-dots"></span><span class="toc-page">10</span></a>
+        <a href="#sec-02-4" style="padding-left: 18px;"><span class="toc-title">2.4. Términos Culturales y Tendencias Tecnológicas en Entrenamiento y Fitness</span><span class="toc-dots"></span><span class="toc-page">11</span></a>
+        <a href="#sec-03"><span class="toc-title">3. ARTICULACIÓN CON EL PLAN NACIONAL DE DESARROLLO (PND 2025–2029)</span><span class="toc-dots"></span><span class="toc-page">12</span></a>
+        <a href="#sec-04"><span class="toc-title">4. ARTICULACIÓN CON LA PLANIFICACIÓN TERRITORIAL (PDOT PICHINCHA Y PMDOT QUITO)</span><span class="toc-dots"></span><span class="toc-page">13</span></a>
+        <a href="#sec-05"><span class="toc-title">5. CONTRIBUCIÓN DE LOS PROFESIONALES A LA SOLUCIÓN DE PROBLEMAS</span><span class="toc-dots"></span><span class="toc-page">14</span></a>
+        <a href="#sec-06-1"><span class="toc-title">6. ESTUDIO DE MERCADO Y DEMANDA OCUPACIONAL (EMPLEADORES)</span><span class="toc-dots"></span><span class="toc-page">15</span></a>
+        <a href="#sec-06-1" style="padding-left: 18px;"><span class="toc-title">6.1.1. Diseño Muestral Probabilístico de Cochran para Empleadores (n = 350)</span><span class="toc-dots"></span><span class="toc-page">15</span></a>
+        <a href="#sec-06-1-resultados" style="padding-left: 18px;"><span class="toc-title">6.1.2. Resultados de Campo: Cualificación, Déficit de Competencias y Vacantes</span><span class="toc-dots"></span><span class="toc-page">16</span></a>
+        <a href="#sec-06-1-brecha" style="padding-left: 18px;"><span class="toc-title">6.1.3. Factor de Expansión y Estimación Cuantitativa de la Brecha Laboral</span><span class="toc-dots"></span><span class="toc-page">17</span></a>
+        <a href="#sec-06-2"><span class="toc-title">6.2. DEMANDA ESTUDIANTIL (ASPIRANTES DE 3RO DE BACHILLERATO)</span><span class="toc-dots"></span><span class="toc-page">18</span></a>
+        <a href="#sec-06-2" style="padding-left: 18px;"><span class="toc-title">6.2.1. Diseño Muestral Probabilístico de Cochran para Bachilleres (n = 381)</span><span class="toc-dots"></span><span class="toc-page">18</span></a>
+        <a href="#sec-06-2-resultados" style="padding-left: 18px;"><span class="toc-title">6.2.2. Resultados de Campo: Interés Vocacional, Modalidad Híbrida y Aranceles</span><span class="toc-dots"></span><span class="toc-page">19</span></a>
+        <a href="#sec-06-2-proyeccion" style="padding-left: 18px;"><span class="toc-title">6.2.3. Proyección Quinquenal de Matrícula Institucional y Capacidad Operativa</span><span class="toc-dots"></span><span class="toc-page">20</span></a>
+        <a href="#sec-07"><span class="toc-title">7. ORGANIZACIÓN CURRICULAR, ITINERARIOS Y PERFIL DE EGRESO (3.600 HORAS)</span><span class="toc-dots"></span><span class="toc-page">21</span></a>
+        <a href="#sec-07" style="padding-left: 18px;"><span class="toc-title">7.1. Malla Curricular por Períodos y Distribución de Componentes de Aprendizaje</span><span class="toc-dots"></span><span class="toc-page">21</span></a>
+        <a href="#sec-07-perfil" style="padding-left: 18px;"><span class="toc-title">7.2. Resultados de Aprendizaje, Itinerarios de Especialización y Campo Laboral</span><span class="toc-dots"></span><span class="toc-page">22</span></a>
+        <a href="#sec-08"><span class="toc-title">8. CONCLUSIONES INSTITUCIONALES DEL ESTUDIO DE PERTINENCIA</span><span class="toc-dots"></span><span class="toc-page">23</span></a>
+        <a href="#sec-09"><span class="toc-title">9. REFERENCIAS BIBLIOGRÁFICAS (NORMATIVA Y BASES OFICIALES APA 7MA ED.)</span><span class="toc-dots"></span><span class="toc-page">24</span></a>
+      </div>
+
+      <div class="word-section-title" style="margin-top: 16px;">ÍNDICE DE TABLAS Y GRÁFICOS PRINCIPALES</div>
+      <table class="word-table-compact">
+        <thead>
+          <tr>
+            <th style="width: 18%;">Código</th>
+            <th style="width: 67%;">Denominación Técnica</th>
+            <th style="width: 15%; text-align: center;">Página</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tabla 1 / Gráfico 1</td><td>Proyecciones de Población Joven (18–24 años) en Ecuador, Pichincha y Quito (2026–2035)</td><td style="text-align: center;">4</td></tr>
+          <tr><td>Tabla 2</td><td>Indicadores Laborales del Cantón Quito y Prevalencia de Sedentarismo (ENEMDU / ENSANUT)</td><td style="text-align: center;">5</td></tr>
+          <tr><td>Tabla 3 / Gráfico 2</td><td>Estructura Empresarial, Plazas y Facturación de Actividades Deportivas en Quito (CIIU R93)</td><td style="text-align: center;">6</td></tr>
+          <tr><td>Tabla 4</td><td>Ranking SUPERCIAS de Empleadores Deportivos Líderes y Cadenas Fitness en Quito</td><td style="text-align: center;">7</td></tr>
+          <tr><td>Tabla 5 / Gráfico 3</td><td>Nivel de Instrucción y Retorno Salarial de Ocupados en Deporte y Fitness (CIUO 3422/3423)</td><td style="text-align: center;">8</td></tr>
+          <tr><td>Tabla 6</td><td>Oferta Superior en Ciencias del Deporte en Pichincha y Vacancia en Nivel TSU</td><td style="text-align: center;">9</td></tr>
+          <tr><td>Tabla 7 / Gráfico 4</td><td>Población Matriculada en 3ro de Bachillerato en el Cantón Quito por Distrito (AMIE)</td><td style="text-align: center;">10</td></tr>
+          <tr><td>Tabla 8</td><td>Alineación Estratégica de la Carrera con los Ejes y Metas del PND 2025–2029</td><td style="text-align: center;">12</td></tr>
+          <tr><td>Tabla 9</td><td>Alineación Territorial con el PMDOT Quito 2033 y el PDOT Pichincha 2023–2027</td><td style="text-align: center;">13</td></tr>
+          <tr><td>Tabla 10 / Gráfico 5</td><td>Resultados de Encuestas a Empleadores (n = 350): Competencias Requeridas y Déficit</td><td style="text-align: center;">16</td></tr>
+          <tr><td>Tabla 11</td><td>Balance Oferta-Demanda y Proyección de la Brecha Laboral Quinquenal en Quito</td><td style="text-align: center;">17</td></tr>
+          <tr><td>Tabla 12</td><td>Distribución Zonal de la Muestra de Bachilleres de Quito (Cochran n = 381)</td><td style="text-align: center;">18</td></tr>
+          <tr><td>Tabla 13 / Gráfico 6</td><td>Resultados de Encuestas a Bachilleres (n = 381): Interés y Aceptación Modalidad Híbrida</td><td style="text-align: center;">19</td></tr>
+          <tr><td>Tabla 14</td><td>Proyección Quinquenal de Matrícula Nueva, Retención y Egresados (2026–2030)</td><td style="text-align: center;">20</td></tr>
+          <tr><td>Tabla 15</td><td>Malla Curricular Institucional (5 Periodos Ordinarios — 3.600 Horas — 2 Itinerarios)</td><td style="text-align: center;">21</td></tr>
+        </tbody>
+      </table>
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 2 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-01">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">1. INTRODUCCIÓN Y ANTECEDENTES INSTITUCIONALES</div>
+      
+      <p class="word-p">
+        El Instituto Superior Tecnológico Universitario Nacional, en ejercicio de su autonomía académica, administrativa y financiera reconocida por la Ley Orgánica de Educación Superior (LOES, Art. 18) y en virtud de su acreditación institucional con Condición de Instituto Superior Universitario conferida por el Consejo de Aseguramiento de la Calidad de la Educación Superior (CACES), presenta ante el Consejo de Educación Superior (CES) el presente Estudio de Pertinencia Curricular para la aprobación y creación de la carrera de <strong>Tecnología Superior Universitaria en Entrenamiento Deportivo</strong>, a ser impartida bajo la <strong>modalidad híbrida</strong> en el Campus Matriz del Cantón Quito, Provincia de Pichincha.
+      </p>
+
+      <p class="word-p">
+        La formulación del proyecto curricular responde con rigurosidad a lo prescrito en el artículo 107 de la LOES, el cual preceptúa que el principio de pertinencia radica en que la educación superior responda a las expectativas y necesidades de la sociedad, a la planificación nacional, a la estructura productiva, a la diversidad cultural y a las demandas del desarrollo sostenible territorial. Asimismo, la propuesta se estructura en concordancia plena con el Reglamento de Régimen Académico (RRA) codificado por el CES mediante Resolución RPC-SO-053-No.845-2023, particularmente en sus artículos 19, 21, 28 y 45, estableciendo una duración de <strong>cinco (5) periodos académicos ordinarios (2,5 años de formación integral)</strong>, equivalentes a <strong>3.600 horas de labor académica</strong> articuladas en docencia presencial/virtual sincrónica, prácticas experimentales en campo y laboratorios, trabajo autónomo y prácticas preprofesionales laborales y de servicio comunitario.
+      </p>
+
+      <div class="word-h2">1.1. Contexto Problemático y Justificación Institucional</div>
+      <p class="word-p">
+        En las últimas dos décadas, la práctica de actividades físicas, el deporte federado y formativo, así como el sector del acondicionamiento físico (fitness) y la readaptación funcional de la salud han experimentado una expansión estructural sin precedentes en la provincia de Pichincha y particularmente en el Distrito Metropolitano de Quito. Sin embargo, este crecimiento del tejido socioeconómico y productivo coexiste con una paradoja estructural: el <strong>47,8% de la fuerza laboral</strong> que ejerce funciones de instrucción deportiva, preparación física y entrenamiento de fuerza en gimnasios, clubes y ligas barriales carece de títulos de educación superior, operando de manera empírica, mientras que en todo el territorio de Pichincha existen <strong>cero (0) instituciones de educación superior</strong> que oferten títulos de tercer nivel con la condición de <em>Tecnología Superior Universitaria</em> en esta disciplina (SENESCYT, 2026).
+      </p>
+
+      <div class="word-callout">
+        <strong>Mandato de la Condición Universitaria (RRA-CES):</strong> La titulación de Tecnólogo/a Superior Universitario/a en Entrenamiento Deportivo confiere a los graduados una habilitación profesional de tercer nivel de grado que combina el dominio técnico-operativo de campo con la capacidad analítica, metodológica, investigativa y de gestión requerida para planificar cargas de entrenamiento, diseñar protocolos de prevención de lesiones y continuar estudios de cuarto nivel de posgrado tecnológico (Maestrías Tecnológicas).
+      </div>
+
+      <div class="word-h2">1.2. Pertinencia de la Modalidad Híbrida</div>
+      <p class="word-p">
+        La elección de la modalidad híbrida constituye un factor de innovación pedagógica y accesibilidad democrática fundamental. En el ámbito del entrenamiento deportivo, una proporción sustancial de los aspirantes y de los actuales trabajadores empíricos ejercen labores activas en jornadas matutinas o vespertinas en centros de fitness, academias y escuelas deportivas. La modalidad híbrida implementada por el Instituto Nacional combina armónicamente un entorno virtual de aprendizaje de alta interactividad (plataforma LMS para componentes teóricos de fisiología del ejercicio, biomecánica, nutrición deportiva, periodización y gestión deportiva) con concentraciones prácticas presenciales intensivas de carácter experimental en laboratorios biomecánicos, pistas de atletismo, gimnasios de sobrecarga y campos de juego polideportivos, complementadas mediante convenios de prácticas preprofesionales con clubes de alto rendimiento, ligas barriales y cadenas de fitness líderes.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 3 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">2. ANÁLISIS DE LAS NECESIDADES DE DESARROLLO (DIAGNÓSTICO)</div>
+      <div class="word-h2">2.1. Términos Sociales: Dinámica Demográfica y Población Joven en Quito</div>
+      
+      <p class="word-p">
+        El análisis de la pertinencia social de la carrera exige examinar la evolución demográfica del entorno geográfico directo en el cual se insertará la oferta académica. Conforme a las proyecciones oficiales de población emitidas por el Instituto Nacional de Estadística y Censos (INEC, Revisión 2024 basada en el Censo de Población y Vivienda 2022), el Cantón Quito se consolida como el territorio más poblado de la República del Ecuador, con una población proyectada de <strong>2.872.456 habitantes para el año 2026</strong>, la cual ascenderá de manera sostenida hasta alcanzar los <strong>3.024.180 habitantes hacia el año 2035</strong>.
+      </p>
+
+      <p class="word-p">
+        Dentro de esta dinámica sociodemográfica, el segmento etario de jóvenes comprendido entre los <strong>18 y 24 años de edad</strong> —grupo objetivo primordial para la demanda de educación superior tecnológica— registra en el Distrito Metropolitano de Quito una masa crítica de <strong>348.512 jóvenes en el año 2026</strong>, proyectándose una estabilización por encima de los 340.000 individuos durante la próxima década. Esta cohorte poblacional no solo representa los futuros postulantes al sistema formativo superior, sino también el grupo etario con mayor tasa de afiliación a prácticas deportivas, uso de gimnasios y demanda de servicios de acondicionamiento físico preventivo.
+      </p>
+
+      <div class="word-table-title">Tabla 1: Proyección de la Población General y del Grupo Etario 18–24 Años en Ecuador, Pichincha y Quito (2026–2035)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Ámbito Territorial</th>
+            <th colspan="4" style="text-align: center;">Población Total Proyectada</th>
+            <th colspan="3" style="text-align: center;">Grupo Etario 18–24 Años (2026)</th>
+          </tr>
+          <tr>
+            <th>2026</th>
+            <th>2029</th>
+            <th>2032</th>
+            <th>2035</th>
+            <th>Total Jóvenes</th>
+            <th>Hombres</th>
+            <th>Mujeres</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>República del Ecuador</strong></td>
+            <td>18.158.420</td>
+            <td>18.672.456</td>
+            <td>19.099.478</td>
+            <td>19.468.210</td>
+            <td>2.214.890</td>
+            <td>1.125.164</td>
+            <td>1.089.726</td>
+          </tr>
+          <tr>
+            <td><strong>Provincia de Pichincha</strong></td>
+            <td>3.321.450</td>
+            <td>3.380.169</td>
+            <td>3.437.380</td>
+            <td>3.491.220</td>
+            <td>412.350</td>
+            <td>208.660</td>
+            <td>203.690</td>
+          </tr>
+          <tr>
+            <td><strong>Cantón Quito (D.M.)</strong></td>
+            <td>2.872.456</td>
+            <td>2.927.602</td>
+            <td>2.974.544</td>
+            <td>3.024.180</td>
+            <td>348.512</td>
+            <td>175.998</td>
+            <td>172.514</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Instituto Nacional de Estadística y Censos — INEC (2024). Proyecciones de la Población Ecuatoriana 2020–2035. Procesamiento: Comisión Curricular ISTU Nacional.</div>
+
+      <div class="word-chart-container">
+        <div class="word-chart-title">Gráfico 1: Evolución Proyectada de la Población Joven (18–24 años) en el Cantón Quito (2026–2035)</div>
+        <div style="height: 180px; position: relative;">
+          <canvas id="chartEtarioQuito"></canvas>
+        </div>
+        <div class="word-table-source">Fuente: INEC (2024). Estimaciones Proyecciones Poblacionales Cantonales. Elaboración técnica institucional.</div>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        La concentración del 84,5% de la población joven de Pichincha en el Cantón Quito ratifica la idoneidad geográfica y la masa demográfica necesaria para sustentar una carrera técnica de tercer nivel que canalice la vocación deportiva y profesional de miles de jóvenes bachilleres hacia un mercado de alta empleabilidad.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 4 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-1-salud">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">2.1.1. Diagnóstico del Sedentarismo, Salud Pública y Empleo Juvenil en Quito</div>
+      
+      <p class="word-p">
+        El análisis social de la pertinencia debe articularse estrechamente con la problemática de la salud comunitaria y la situación sociolaboral de la juventud. De acuerdo con los datos epidemiológicos del Ministerio de Salud Pública (MSP) y la Encuesta Nacional de Salud y Nutrición (ENSANUT), el <strong>63,6% de la población adulta urbana en el Ecuador</strong> presenta condiciones de sobrepeso u obesidad, mientras que en el Distrito Metropolitano de Quito más del <strong>58,4% de los habitantes mayores de 18 años no cumple con el nivel mínimo de actividad física</strong> aeróbica y de fuerza muscular recomendado por la Organización Mundial de la Salud (OMS, 2024: 150 a 300 minutos semanales de actividad moderada).
+      </p>
+
+      <p class="word-p">
+        Este déficit de movimiento corporal se traduce en una elevadísima incidencia de Enfermedades Crónicas No Transmisibles (ECNT) —tales como diabetes mellitus tipo 2, hipertensión arterial, cardiopatías isquémicas y trastornos metabólicos— cuya atención sobrecarga severamente el presupuesto del sistema de salud pública y del Instituto Ecuatoriano de Seguridad Social (IESS). La evidencia científica moderna demuestra de manera concluyente que la prescripción individualizada del ejercicio físico dosificada por tecnólogos universitarios calificados constituye la intervención no farmacológica de mayor costo-efectividad para revertir estos indicadores epidemiológicos.
+      </p>
+
+      <div class="word-table-title">Tabla 2: Indicadores Sociodemográficos, Empleo Juvenil y Salud Física en el Cantón Quito (ENEMDU / MSP 2025)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Dimensión Sociolaboral / Sanitaria</th>
+            <th style="text-align: center;">Magnitud Cantón Quito</th>
+            <th style="text-align: center;">Porcentaje Relativo</th>
+            <th>Implicación Curricular y Pertinencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Población Económicamente Activa (PEA)</strong></td>
+            <td style="text-align: center;">1.342.180 hab.</td>
+            <td style="text-align: center;">100,0%</td>
+            <td>Mercado potencial activo que demanda servicios de acondicionamiento físico y salud.</td>
+          </tr>
+          <tr>
+            <td><strong>Tasa de Subempleo y No Pleno Empleo Juvenil</strong></td>
+            <td style="text-align: center;">261.725 jóvenes</td>
+            <td style="text-align: center;">19,5%</td>
+            <td>Urgencia de carreras de ciclo corto (2,5 años) con inmediata inserción laboral técnica.</td>
+          </tr>
+          <tr>
+            <td><strong>Tasa de Sedentarismo en Población Urbana</strong></td>
+            <td style="text-align: center;">1.677.514 hab.</td>
+            <td style="text-align: center;">58,4%</td>
+            <td>Generación masiva de demanda de entrenadores personales y readaptadores físicos.</td>
+          </tr>
+          <tr>
+            <td><strong>Población que Practica Deporte Recreativo / Barrial</strong></td>
+            <td style="text-align: center;">512.000 practicantes</td>
+            <td style="text-align: center;">17,8%</td>
+            <td>Más de 280 ligas barriales y parroquiales en Quito carecen de directores técnicos formados.</td>
+          </tr>
+          <tr>
+            <td><strong>Centros Deportivos y Fitness con Personal Empírico</strong></td>
+            <td style="text-align: center;">1.840 centros aprox.</td>
+            <td style="text-align: center;">47,8%</td>
+            <td>Riesgo de lesiones músculo-esqueléticas en usuarios por mala prescripción del ejercicio.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: INEC — ENEMDU Anual 2025; Ministerio de Salud Pública (ENSANUT, 2024). Consolidación técnica ISTU Nacional.</div>
+
+      <p class="word-p" style="margin-top: 10px;">
+        Por otra parte, la Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU, 2025) visibiliza que la tasa de desempleo y empleo no pleno en jóvenes de 18 a 29 años en Quito alcanza el 19,5%, afectando predominantemente a quienes solo culminaron el bachillerato. En este escenario, la formación de <strong>Tecnólogos Superiores Universitarios en Entrenamiento Deportivo</strong> en modalidad híbrida provee una vía inmediata de cualificación profesional, dotando al estudiante de capacidades técnicas para emplearse en gimnasios, federaciones, clubes o emprender servicios autónomos de asesoramiento físico y fitness saludable.
+      </p>
+
+      <div class="word-callout">
+        <strong>Conclusión de Pertinencia Social:</strong> La carrera atiende simultáneamente dos urgencias sociales: combate la crisis de sedentarismo y patologías crónicas mediante la profesionalización del ejercicio físico dosificado, y ofrece a la juventud quiteña una titulación tecnológica universitaria de rápida inserción laboral y alta rentabilidad social.
+      </div>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 5 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">2.2. Términos Económicos: Tejido Productivo y Actividades Deportivas en Quito</div>
+      <div class="word-h2">2.2.1. Dinámica Empresarial del Sector Deportivo (CIIU División R93)</div>
+      
+      <p class="word-p">
+        La fundamentación económica del proyecto se sustenta en la explotación rigurosa de las bases estadísticas del <strong>Directorio del Registro Estadístico de Empresas (REEM 2024)</strong> publicado por el INEC. De acuerdo con la Clasificación Industrial Internacional Uniforme (CIIU Rev. 4.0), las actividades vinculadas al entrenamiento físico y la cultura deportiva se agrupan en la <strong>Sección R (Actividades artísticas, de entretenimiento y recreativas), División 93 (Actividades deportivas y de esparcimiento)</strong>, desglosada en las clases R9311 (Gestión de instalaciones deportivas), R9312 (Actividades de clubes deportivos) y R9319 (Otras actividades deportivas, que incluye gimnasios, centros de fitness, entrenamiento funcional y servicios independientes).
+      </p>
+
+      <p class="word-p">
+        En el Cantón Quito, el sector deportivo constituye un motor productivo en sostenida expansión. Hacia el año 2024, el REEM registra un universo consolidado de <strong>3.852 empresas jurídicas y personas naturales con RUC activo</strong>, operando a través de <strong>4.215 establecimientos físicos</strong> abiertos al público, los cuales generan <strong>5.897 plazas directas de empleo formal registrado</strong> y alcanzan una facturación comercial anual acumulada de <strong>$214.532.840 USD</strong>.
+      </p>
+
+      <div class="word-table-title">Tabla 3: Evolución de Empresas, Establecimientos, Plazas y Ventas en el Sector Deportivo de Quito (REEM 2018–2024)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Año Fiscal</th>
+            <th style="text-align: center;">Empresas Activas (RUC)</th>
+            <th style="text-align: center;">Establecimientos Físicos</th>
+            <th style="text-align: center;">Plazas de Empleo Formal</th>
+            <th style="text-align: right;">Ventas Anuales Totales (USD)</th>
+            <th style="text-align: center;">Crecimiento Anual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2018</td>
+            <td style="text-align: center;">2.910</td>
+            <td style="text-align: center;">3.145</td>
+            <td style="text-align: center;">4.230</td>
+            <td style="text-align: right;">$ 148.920.450</td>
+            <td style="text-align: center;">—</td>
+          </tr>
+          <tr>
+            <td>2019</td>
+            <td style="text-align: center;">3.120</td>
+            <td style="text-align: center;">3.380</td>
+            <td style="text-align: center;">4.580</td>
+            <td style="text-align: right;">$ 162.340.110</td>
+            <td style="text-align: center;">+ 9,0%</td>
+          </tr>
+          <tr>
+            <td>2020 (Pandemia)</td>
+            <td style="text-align: center;">2.840</td>
+            <td style="text-align: center;">3.010</td>
+            <td style="text-align: center;">3.710</td>
+            <td style="text-align: right;">$ 112.450.000</td>
+            <td style="text-align: center;">- 30,7%</td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td style="text-align: center;">3.215</td>
+            <td style="text-align: center;">3.490</td>
+            <td style="text-align: center;">4.495</td>
+            <td style="text-align: right;">$ 145.890.300</td>
+            <td style="text-align: center;">+ 29,7%</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td style="text-align: center;">3.510</td>
+            <td style="text-align: center;">3.820</td>
+            <td style="text-align: center;">5.120</td>
+            <td style="text-align: right;">$ 178.640.200</td>
+            <td style="text-align: center;">+ 22,4%</td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td style="text-align: center;">3.720</td>
+            <td style="text-align: center;">4.065</td>
+            <td style="text-align: center;">5.580</td>
+            <td style="text-align: right;">$ 198.710.500</td>
+            <td style="text-align: center;">+ 11,2%</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td>2024 (Consolidado)</td>
+            <td style="text-align: center;">3.852</td>
+            <td style="text-align: center;">4.215</td>
+            <td style="text-align: center;">5.897</td>
+            <td style="text-align: right;">$ 214.532.840</td>
+            <td style="text-align: center;">+ 8,0%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Instituto Nacional de Estadística y Censos — Directorio REEM (2012–2024), División CIIU 93. Procesamiento: ISTU Nacional.</div>
+
+      <div class="word-chart-container">
+        <div class="word-chart-title">Gráfico 2: Evolución de las Ventas y Plazas de Empleo Formal en Deportes en Quito (2018–2024)</div>
+        <div style="height: 180px; position: relative;">
+          <canvas id="chartReemDeportes"></canvas>
+        </div>
+        <div class="word-table-source">Fuente: Directorio de Empresas REEM (INEC, 2024). Elaboración analítica institucional.</div>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        La tasa de recuperación post-pandemia y la subsecuente aceleración entre 2021 y 2024 demuestran la resiliencia y el dinamismo inversor del rubro fitness y deportivo, el cual registra un crecimiento acumulado en ventas del 44,0% respecto a los niveles pre-pandemia. Este volumen transaccional exige la presencia de cuadros técnicos con formación universitaria que aseguren la calidad, seguridad y rigor científico de los servicios prestados.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 6 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-2-supercias">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">2.2.2. Tejido Societario y Ranking SUPERCIAS de Empleadores Deportivos Líderes</div>
+      
+      <p class="word-p">
+        Para complementar los datos censales del REEM, se realizó una extracción exhaustiva del <strong>Directorio de Compañías Activas de la Superintendencia de Compañías, Valores y Seguros (SUPERCIAS, 2026)</strong> en el Cantón Quito, identificando las sociedades anónimas mercantiles (S.A.), compañías de responsabilidad limitada (Cía. Ltda.), sociedades anónimas deportivas (S.A.D.) y sociedades por acciones simplificadas (S.A.S.) que lideran la inversión privada y la contratación laboral formal en el ámbito deportivo y del bienestar físico.
+      </p>
+
+      <p class="word-p">
+        El tejido societario de Quito evidencia la coexistencia de dos núcleos empresariales de alta demanda de talento humano especializado: 1) Los <strong>clubes deportivos profesionales de alto rendimiento</strong> que compiten en ligas nacionales e internacionales y mantienen divisiones formativas de fútbol, baloncesto y atletismo; y 2) Las <strong>grandes cadenas de acondicionamiento físico, gimnasios y centros de bienestar</strong> que operan modelos corporativos de múltiples sedes urbanas con cientos de entrenadores personales de planta.
+      </p>
+
+      <div class="word-table-title">Tabla 4: Ranking SUPERCIAS de Principales Organizaciones Deportivas y Cadenas Fitness en Quito (2025–2026)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Entidad Empleadora / Razón Social</th>
+            <th>Tipo Societario</th>
+            <th>Línea de Negocio / Especialidad</th>
+            <th style="text-align: right;">Facturación Anual (USD)</th>
+            <th style="text-align: center;">Personal Estimado</th>
+            <th>Perfil Requerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>LIGA DEPORTIVA UNIVERSITARIA DE QUITO S.A.D.</strong></td>
+            <td>Sociedad Anónima Deportiva</td>
+            <td>Alto rendimiento, formativas y preparación física</td>
+            <td style="text-align: right;">$ 18.450.000</td>
+            <td style="text-align: center;">185 colab.</td>
+            <td>Preparador físico, evaluador GPS, analista táctico</td>
+          </tr>
+          <tr>
+            <td><strong>CLUB DEPORTIVO INDEPENDIENTE DEL VALLE S.A.D.</strong></td>
+            <td>Sociedad Anónima Deportiva</td>
+            <td>Formación infanto-juvenil de élite y rendimiento</td>
+            <td style="text-align: right;">$ 16.890.000</td>
+            <td style="text-align: center;">210 colab.</td>
+            <td>Entrenador formativo, readaptador funcional</td>
+          </tr>
+          <tr>
+            <td><strong>SMART FIT ECUADOR (SMARTFITCORP S.A.S.)</strong></td>
+            <td>Soc. Acciones Simplificadas</td>
+            <td>Cadena de gimnasios low-cost y fitness masivo</td>
+            <td style="text-align: right;">$ 12.340.000</td>
+            <td style="text-align: center;">340 colab.</td>
+            <td>Instructor de sala de fuerza, personal trainer</td>
+          </tr>
+          <tr>
+            <td><strong>SOCIEDAD DEPORTIVA AUCAS S.A.D.</strong></td>
+            <td>Sociedad Anónima Deportiva</td>
+            <td>Fútbol profesional y escuelas formativas</td>
+            <td style="text-align: right;">$ 6.780.000</td>
+            <td style="text-align: center;">115 colab.</td>
+            <td>Preparador atlético, preparador físico formativo</td>
+          </tr>
+          <tr>
+            <td><strong>PHISIQUE WELLNESS CLUB CIA. LTDA.</strong></td>
+            <td>Cía. Responsabilidad Ltda.</td>
+            <td>Centros premium de wellness, salud y fitness</td>
+            <td style="text-align: right;">$ 5.420.000</td>
+            <td style="text-align: center;">145 colab.</td>
+            <td>Entrenador personalizado, especialista funcional</td>
+          </tr>
+          <tr>
+            <td><strong>CLUB DEPORTIVO UNIVERSIDAD CATÓLICA S.A.D.</strong></td>
+            <td>Sociedad Anónima Deportiva</td>
+            <td>Fútbol profesional y canteras formativas</td>
+            <td style="text-align: right;">$ 4.950.000</td>
+            <td style="text-align: center;">95 colab.</td>
+            <td>Director técnico de formativas, asistente físico</td>
+          </tr>
+          <tr>
+            <td><strong>TAURUS FITNESS GROUP S.A.S.</strong></td>
+            <td>Soc. Acciones Simplificadas</td>
+            <td>Gimnasios de sobrecarga y entrenamiento cruzado</td>
+            <td style="text-align: right;">$ 2.890.000</td>
+            <td style="text-align: center;">78 colab.</td>
+            <td>Instructor de hipertrofia y fuerza, nutrición dep.</td>
+          </tr>
+          <tr>
+            <td><strong>CONCENTRACIÓN DEPORTIVA DE PICHINCHA (CDP)</strong></td>
+            <td>Entidad Federativa Provincial</td>
+            <td>Selecciones provinciales multidisciplinarias</td>
+            <td style="text-align: right;">Presupuesto Institucional</td>
+            <td style="text-align: center;">280 ent.</td>
+            <td>Entrenadores de disciplinas olímpicas y juveniles</td>
+          </tr>
+          <tr>
+            <td><strong>ENERGYM FITNESS CENTER CIA. LTDA.</strong></td>
+            <td>Cía. Responsabilidad Ltda.</td>
+            <td>Acondicionamiento físico y clases grupales</td>
+            <td style="text-align: right;">$ 1.950.000</td>
+            <td style="text-align: center;">52 colab.</td>
+            <td>Instructor fitness, readaptación postural</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: SUPERCIAS (Directorio de Compañías Activas, 2026); Concentración Deportiva de Pichincha (CDP). Compilación técnica ISTU Nacional.</div>
+
+      <div class="word-callout">
+        <strong>Centros Receptores de Prácticas y Graduados:</strong> Las organizaciones sociodeportivas identificadas en el ranking constituyen el tejido directo para la suscripción de convenios marco de cooperación interinstitucional y centros de acogida para las 432 horas de Prácticas Preprofesionales y Servicio Comunitario que cursarán los estudiantes del ISTU Nacional.
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        La existencia de una masa salarial formal y de operaciones empresariales que superan los $70 millones de dólares anuales en estas entidades líderes avala plenamente la estabilidad económica y la demanda incesante de profesionales debidamente acreditados en métodos contemporáneos de preparación física.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 7 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-2-salarios">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">2.2.3. Caracterización Laboral, Brecha de Cualificación y Retorno Salarial (ENEMDU)</div>
+      
+      <p class="word-p">
+        La caracterización sociolaboral de la fuerza de trabajo en actividades de entrenamiento se efectuó a partir de los microdatos de la <strong>Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025)</strong>, filtrando las observaciones del Cantón Quito asociadas a los códigos de la Clasificación Internacional Uniforme de Ocupaciones (CIUO-08): <strong>3422 (Entrenadores, instructores y árbitros de deportes)</strong> y <strong>3423 (Instructores de educación física, actividades recreativas y fitness)</strong>.
+      </p>
+
+      <p class="word-p">
+        El análisis revela una submuestra expandida representativa de <strong>5.961 personas ocupadas</strong> en estas funciones en Quito. De este contingente, el <strong>47,8% (2.850 personas) posee únicamente instrucción primaria o secundaria</strong>, ejerciendo labores de entrenamiento sobre bases meramente empíricas o tras la obtención de certificados informales de cursos de fin de semana no reconocidos por el sistema de educación superior. Tan solo el <strong>4,3% (256 personas)</strong> cuenta con un título de nivel técnico o tecnológico superior, lo cual evidencia una profunda brecha de cualificación profesional.
+      </p>
+
+      <div class="word-table-title">Tabla 5: Distribución de Ocupados en Deporte y Fitness por Nivel de Instrucción e Ingreso Promedio en Quito (ENEMDU 2025)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Nivel de Instrucción Formal</th>
+            <th style="text-align: center;">Ocupados Expandidos</th>
+            <th style="text-align: center;">Distribución (%)</th>
+            <th style="text-align: right;">Ingreso Medio Mensual (USD)</th>
+            <th style="text-align: center;">Tasa Afiliación IESS</th>
+            <th>Condición Laboral Predominante</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Secundaria / Bachillerato Incompleto</td>
+            <td style="text-align: center;">1.133</td>
+            <td style="text-align: center;">19,0%</td>
+            <td style="text-align: right;">$ 415,20</td>
+            <td style="text-align: center;">18,4%</td>
+            <td>Informal / Pago por horas sueltas</td>
+          </tr>
+          <tr>
+            <td>Bachillerato Completo</td>
+            <td style="text-align: center;">1.717</td>
+            <td style="text-align: center;">28,8%</td>
+            <td style="text-align: right;">$ 485,40</td>
+            <td style="text-align: center;">29,6%</td>
+            <td>Cuenta propia / Entrenador empírico</td>
+          </tr>
+          <tr>
+            <td>Superior No Universitario (Técnicos Antiguos)</td>
+            <td style="text-align: center;">256</td>
+            <td style="text-align: center;">4,3%</td>
+            <td style="text-align: right;">$ 685,50</td>
+            <td style="text-align: center;">54,2%</td>
+            <td>Empleado privado en sala fitness</td>
+          </tr>
+          <tr>
+            <td>Superior Universitario (Licenciaturas afines)</td>
+            <td style="text-align: center;">2.855</td>
+            <td style="text-align: center;">47,9%</td>
+            <td style="text-align: right;">$ 842,30</td>
+            <td style="text-align: center;">62,8%</td>
+            <td>Docente escolar / Preparador físico</td>
+          </tr>
+          <tr style="background-color: #f8fafc; font-weight: bold;">
+            <td>Total Ocupados en Deporte (CIUO 3422/3423)</td>
+            <td style="text-align: center;">5.961</td>
+            <td style="text-align: center;">100,0%</td>
+            <td style="text-align: right;">$ 527,06</td>
+            <td style="text-align: center;">38,2%</td>
+            <td>Promedio Ponderado General</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Instituto Nacional de Estadística y Censos — ENEMDU Anual 2025. Procesamiento con factores de ponderación poblacional por el ISTU Nacional.</div>
+
+      <div class="word-chart-container">
+        <div class="word-chart-title">Gráfico 3: Retorno Salarial Mensual a la Titulación Superior en el Sector Deportivo de Quito (USD)</div>
+        <div style="height: 180px; position: relative;">
+          <canvas id="chartSalariosDeportes"></canvas>
+        </div>
+        <div class="word-table-source">Fuente: ENEMDU Anual 2025 (INEC). Salario Básico Unificado de referencia: $470,00 USD.</div>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        Los datos certifican un <strong>retorno salarial a la educación superior formal de hasta el 73,5%</strong> en comparación con los entrenadores con bachillerato ($842,30 vs. $485,40 USD), superando ampliamente el Salario Básico Unificado fijado en $470 USD. La formación universitaria otorga así no solo blindaje contra la precarización, sino acceso efectivo a la afiliación a la seguridad social y a posiciones de dirección técnica.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 8 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-3">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">2.3. Términos Académicos: Oferta de Educación Superior en Pichincha</div>
+      <div class="word-h2">2.3.1. Diagnóstico de la Oferta Existente y Vacancia en Nivel Tecnológico Universitario</div>
+      
+      <p class="word-p">
+        La fundamentación académica del proyecto curricular se sustenta en la consulta sistemática de las bases de datos abiertas del <strong>Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE)</strong>, administradas por el Consejo de Educación Superior (CES) y la Secretaría de Educación Superior, Ciencia, Tecnología e Innovación (SENESCYT, 2026), relativas a la oferta vigente y a los registros históricos de títulos otorgados en el campo del conocimiento CINE 1014 (Actividades físicas y deportes / Entrenamiento deportivo).
+      </p>
+
+      <p class="word-p">
+        El análisis de la oferta en la Provincia de Pichincha y el Cantón Quito evidencia una marcada polarización institucional. Por un lado, las universidades tradicionales (Universidad Central del Ecuador, Universidad de las Fuerzas Armadas ESPE) ofertan programas de <em>Licenciatura en Pedagogía de la Actividad Física y Deporte</em>, con una duración de cuatro a cinco años (8 a 10 semestres) y un enfoque prioritariamente orientado a la docencia en el sistema escolar primario y secundario. Por otro lado, en el nivel técnico superior, la oferta de institutos se restringe casi exclusivamente al Instituto Superior Tecnológico de Fútbol de Quito (ISTFQ), el cual ha titulado a 464 técnicos enfocados monográficamente en el fútbol.
+      </p>
+
+      <div class="word-table-title">Tabla 6: Oferta Vigente de Tercer Nivel en Actividad Física y Deporte en la Provincia de Pichincha (CES / SNIESE 2026)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Institución de Educación Superior</th>
+            <th>Nivel de Formación Formal</th>
+            <th>Denominación de la Carrera</th>
+            <th>Modalidad</th>
+            <th style="text-align: center;">Duración</th>
+            <th>Orientación Formativa Principal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Univ. Central del Ecuador (UCE)</strong></td>
+            <td>Tercer Nivel Grado (Licenciatura)</td>
+            <td>Pedagogía de la Actividad Física y Deporte</td>
+            <td>Presencial</td>
+            <td style="text-align: center;">8 semestres</td>
+            <td>Docencia en educación general básica y bachillerato</td>
+          </tr>
+          <tr>
+            <td><strong>Univ. de Fuerzas Armadas (ESPE)</strong></td>
+            <td>Tercer Nivel Grado (Licenciatura)</td>
+            <td>Pedagogía de la Actividad Física y Deporte</td>
+            <td>Presencial</td>
+            <td style="text-align: center;">9 semestres</td>
+            <td>Pedagogía deportiva y educación física militar/civil</td>
+          </tr>
+          <tr>
+            <td><strong>IST de Fútbol de Quito (ISTFQ)</strong></td>
+            <td>Tercer Nivel Técnico Superior</td>
+            <td>Director Técnico de Fútbol / Entrenamiento</td>
+            <td>Semipresencial</td>
+            <td style="text-align: center;">4 semestres</td>
+            <td>Exclusivamente fútbol (entrenador de cancha)</td>
+          </tr>
+          <tr>
+            <td><strong>Univ. Metropolitana (UMET)</strong></td>
+            <td>Tercer Nivel Grado (Licenciatura)</td>
+            <td>Entrenamiento Deportivo</td>
+            <td>Presencial</td>
+            <td style="text-align: center;">8 semestres</td>
+            <td>Ciencias del deporte y alto rendimiento</td>
+          </tr>
+          <tr style="background-color: #fef2f2; font-weight: bold; border-left: 4px solid #ef4444;">
+            <td><strong>ISTU Nacional (Propuesta)</strong></td>
+            <td>Tecnológico Superior Universitario</td>
+            <td>Entrenamiento Deportivo</td>
+            <td>Híbrida</td>
+            <td style="text-align: center;">5 periodos (2,5 a.)</td>
+            <td>Alto rendimiento, fitness, salud y readaptación funcional</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Consejo de Educación Superior — SNIESE (2026). Registro Nacional de Carreras Aprobadas. Análisis técnico: ISTU Nacional.</div>
+
+      <div class="word-callout">
+        <strong>Hallazgo Crítico de Vacancia Curricular (100% de Vacancia en Nivel TSU):</strong> En la provincia de Pichincha y en la Zona de Planificación 9 existen <strong>cero (0) carreras aprobadas</strong> con la titulación de <em>Tecnólogo/a Superior Universitario/a en Entrenamiento Deportivo</em>. La propuesta del ISTU Nacional llena este vacío ofreciendo una titulación universitaria de tercer nivel de grado que articula la preparación física polideportiva, el fitness masivo y la readaptación funcional en tan solo 2,5 años.
+      </div>
+
+      <p class="word-p" style="margin-top: 10px;">
+        Esta ausencia de alternativas tecnológicas universitarias obliga a miles de jóvenes deportistas e instructores a elegir entre cursar licenciaturas docentes excesivamente largas (4 o 5 años) o resignarse al ejercicio empírico desprovisto de título universitario habilitante.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 9 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-3-amie">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">2.3.2. Demanda Potencial Escolar: Cohorte de Bachilleres en el Cantón Quito (AMIE)</div>
+      
+      <p class="word-p">
+        El dimensionamiento de la demanda estudiantil potencial para la nueva carrera parte de la cuantificación de la población escolar que cursa el último nivel de la educación secundaria en el Cantón Quito. A partir del <strong>Archivo Maestro de Instituciones Educativas (AMIE 2024–2025)</strong> suministrado por el Ministerio de Educación del Ecuador (MINEDUC), se identificó un universo consolidado de <strong>41.745 estudiantes matriculados en 3ro de Bachillerato</strong> (Régimen Sierra-Amazonía) en los distritos educativos del Distrito Metropolitano de Quito.
+      </p>
+
+      <p class="word-p">
+        La distribución institucional de los futuros graduados indica que el <strong>64,2% (26.792 estudiantes)</strong> cursa sus estudios en colegios de sostenimiento fiscal; el <strong>28,5% (11.897 estudiantes)</strong> en unidades educativas particulares; y el <strong>7,3% restante (3.056 estudiantes)</strong> en instituciones fiscomisionales y municipales. Esta masa de graduados presiona anualmente por cupos de educación superior en Quito, enfrentando tasas de absorción restringidas en las universidades públicas tradicionales.
+      </p>
+
+      <div class="word-table-title">Tabla 7: Estudiantes Matriculados en 3ro de Bachillerato por Distritos Educativos del Cantón Quito (AMIE 2024–2025)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Distrito Educativo Metropolitano</th>
+            <th>Zonas Urbanas / Rurales Comprendidas</th>
+            <th style="text-align: center;">Total Bachilleres</th>
+            <th style="text-align: center;">Sostenimiento Fiscal</th>
+            <th style="text-align: center;">Sostenimiento Particular</th>
+            <th style="text-align: center;">Fiscomisional / Mpal.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Distrito 17D06 (Eloy Alfaro)</strong></td>
+            <td>Chilibulo, San Bartolo, La Magdalena, La Argelia</td>
+            <td style="text-align: center;">6.890</td>
+            <td style="text-align: center;">4.850</td>
+            <td style="text-align: center;">1.520</td>
+            <td style="text-align: center;">520</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D05 (Norte - Eugenio Espejo)</strong></td>
+            <td>Iñaquito, Mariscal Sucre, Rumipamba, Cochapamba</td>
+            <td style="text-align: center;">6.420</td>
+            <td style="text-align: center;">3.110</td>
+            <td style="text-align: center;">2.890</td>
+            <td style="text-align: center;">420</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D07 (Quitumbe - Sur)</strong></td>
+            <td>Chillogallo, Guamaní, Quitumbe, Turubamba</td>
+            <td style="text-align: center;">7.240</td>
+            <td style="text-align: center;">5.320</td>
+            <td style="text-align: center;">1.430</td>
+            <td style="text-align: center;">490</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D03 (La Delicia)</strong></td>
+            <td>Cotocollao, El Condado, Ponceano, Carcelén</td>
+            <td style="text-align: center;">5.780</td>
+            <td style="text-align: center;">3.640</td>
+            <td style="text-align: center;">1.780</td>
+            <td style="text-align: center;">360</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D02 (Calderón)</strong></td>
+            <td>Calderón, Llano Chico, Carapungo</td>
+            <td style="text-align: center;">4.950</td>
+            <td style="text-align: center;">3.580</td>
+            <td style="text-align: center;">1.050</td>
+            <td style="text-align: center;">320</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D04 (Centro - Manuela Sáenz)</strong></td>
+            <td>Centro Histórico, San Juan, Itchimbía, Puengasí</td>
+            <td style="text-align: center;">4.120</td>
+            <td style="text-align: center;">2.890</td>
+            <td style="text-align: center;">910</td>
+            <td style="text-align: center;">320</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D08 / 17D09 (Valles)</strong></td>
+            <td>Cumbayá, Tumbaco, Los Chillos, Conocoto</td>
+            <td style="text-align: center;">6.345</td>
+            <td style="text-align: center;">3.402</td>
+            <td style="text-align: center;">2.317</td>
+            <td style="text-align: center;">626</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td>Total Cantón Quito (Población Objetivo N)</td>
+            <td>Área Urbana y Rural Metropolitana</td>
+            <td style="text-align: center;">41.745</td>
+            <td style="text-align: center;">26.792 (64,2%)</td>
+            <td style="text-align: center;">11.897 (28,5%)</td>
+            <td style="text-align: center;">3.056 (7,3%)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Ministerio de Educación del Ecuador (MINEDUC) — Base Abierta AMIE 2024–2025. Consolidación: ISTU Nacional.</div>
+
+      <div class="word-chart-container">
+        <div class="word-chart-title">Gráfico 4: Distribución de Bachilleres por Distritos Educativos en el Cantón Quito (AMIE 2025)</div>
+        <div style="height: 180px; position: relative;">
+          <canvas id="chartBachilleresQuito"></canvas>
+        </div>
+        <div class="word-table-source">Fuente: Base AMIE 2025 (MINEDUC). Visualización: Comisión de Diseño Curricular ISTU Nacional.</div>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        La disponibilidad de una masa anual de más de 41.000 bachilleres en el cantón confirma la existencia de un mercado estudiantil robusto y permanente, garantizando la sostenibilidad de la matrícula del programa académico a lo largo del tiempo.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 10 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-02-4">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">2.4. Términos Culturales y Tendencias Tecnológicas en el Entrenamiento Deportivo</div>
+      <div class="word-h2">2.4.1. Transformación Sociocultural de la Cultura Física y Deporte Comunitario</div>
+      
+      <p class="word-p">
+        En la sociedad quiteña contemporánea, la actividad física y el deporte han transitado desde una concepción meramente lúdica o recreativa hacia una práctica sociocultural indispensable para la calidad de vida, la salud mental y la cohesión comunitaria. En el Distrito Metropolitano de Quito, el fenómeno de las <strong>ligas deportivas barriales y parroquiales</strong> representa una de las expresiones organizativas más potentes de la región, agrupando bajo la Federación de Ligas de Quito (FLQ) y FEDENALIGAS a más de <strong>280 ligas filiales con aproximadamente 350.000 deportistas comunitarios</strong> en disciplinas como fútbol, baloncesto, ecuavóley y atletismo.
+      </p>
+
+      <p class="word-p">
+        Paralelamente, se ha consolidado una vibrante cultura urbana de acondicionamiento físico, evidenciada por la proliferación de comunidades de corredores (running clubs), clubes ciclistas urbanos y de montaña, centros de cross-training y disciplinas como el entrenamiento funcional al aire libre en la red de parques metropolitanos (La Carolina, Bicentenario, Metropolitano Guangüiltagua, Parque del Sur). Esta evolución cultural demanda directores y entrenadores capaces de liderar procesos de formación deportiva con sensibilidad comunitaria, ética y rigor técnico.
+      </p>
+
+      <div class="word-h2">2.4.2. Incorporación de Tecnologías Contemporáneas en las Ciencias del Ejercicio</div>
+      <p class="word-p">
+        El paradigma del entrenamiento deportivo ha experimentado una profunda revolución tecnológica a escala global, transformando las metodologías empíricas basadas en la intuición en procesos científicos basados en el análisis de datos (Sport Data Analytics). El perfil del <strong>Tecnólogo Superior Universitario en Entrenamiento Deportivo</strong> del ISTU Nacional incorpora de manera transversal el dominio de herramientas de vanguardia:
+      </p>
+
+      <div class="word-callout">
+        <strong>Ejes Tecnológicos Incorporados en el Plan de Estudios:</strong>
+        <ul style="margin: 4px 0 0 16px; padding: 0;">
+          <li><strong>Dispositivos Wearables y Monitoreo de Carga Externa:</strong> Uso de chalecos con sensores GPS/GNSS de 10-18 Hz, acelerómetros triaxiales y pulsómetros de telemetría para el control de la carga interna y externa en tiempo real.</li>
+          <li><strong>Entrenamiento Basado en la Velocidad (VBT):</strong> Aplicación de transductores lineales de posición (encoders) y acelerometría para dosificar la intensidad en el entrenamiento de fuerza y potencia muscular.</li>
+          <li><strong>Videoanálisis Biomecánico Cinemático:</strong> Evaluación cualitativa y cuantitativa de gestos técnicos y angulaciones articulares mediante software open-source (Kinovea) y plataformas profesionales para prevención de lesiones articulares (ligamento cruzado anterior, tendinopatías).</li>
+          <li><strong>Composición Corporal y Bioimpedanciometría Octopolar:</strong> Análisis avanzado de masa magra segmentaria, ángulo de fase y agua intra/extracelular para la optimización de planes nutricionales y físicos.</li>
+        </ul>
+      </div>
+
+      <p class="word-p">
+        La convergencia entre la masificación del deporte comunitario y la tecnificación digital de las salas de entrenamiento ratifica la necesidad perentoria de formar tecnólogos superiores universitarios con capacidades híbridas: sólidas competencias pedagógicas y humanas de campo combinadas con alfabetización digital en el manejo de instrumental biomédico y deportivo.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 11 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-03">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">3. ARTICULACIÓN CON EL PLAN NACIONAL DE DESARROLLO (PND 2025–2029)</div>
+      
+      <p class="word-p">
+        De conformidad con el artículo 107 de la Ley Orgánica de Educación Superior (LOES) y los lineamientos del Consejo de Aseguramiento de la Calidad de la Educación Superior (CACES), los proyectos curriculares deben demostrar una rigurosa alineación estratégica con los instrumentos rectores de la planificación estatal. La carrera de <strong>Tecnología Superior Universitaria en Entrenamiento Deportivo</strong> se articula directamente con los ejes, objetivos, políticas y metas fijadas en el <strong>Plan Nacional de Desarrollo 2025–2029: "Ecuador No Se Detiene"</strong>, promulgado por la Secretaría Nacional de Planificación.
+      </p>
+
+      <div class="word-table-title">Tabla 8: Matriz de Articulación Estratégica con el Plan Nacional de Desarrollo (PND 2025–2029)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Eje Estratégico PND</th>
+            <th style="width: 25%;">Objetivo Nacional</th>
+            <th style="width: 30%;">Política Pública y Línea de Acción</th>
+            <th style="width: 25%;">Contribución Específica de la Carrera</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Eje Social: Igualdad, Salud y Cohesión</strong></td>
+            <td><strong>Objetivo 1:</strong> Garantizar una vida digna con iguales oportunidades para todas las personas a lo largo de su ciclo de vida.</td>
+            <td><strong>Política 1.3:</strong> Promover estilos de vida saludables, la práctica masiva de la actividad física y el deporte recreativo y formativo como mecanismos de prevención de enfermedades crónicas no transmisibles.</td>
+            <td>Formación de profesionales capacitados para prescribir ejercicio físico en centros comunitarios, clubes formativos y gimnasios, reduciendo las tasas de obesidad y sedentarismo urbano.</td>
+          </tr>
+          <tr>
+            <td><strong>Eje Productivo: Empleo y Competitividad</strong></td>
+            <td><strong>Objetivo 5:</strong> Desarrollar las capacidades productivas y el talento humano para la generación de empleo digno y sostenible.</td>
+            <td><strong>Política 5.4:</strong> Fortalecer la educación técnica y tecnológica superior orientándola hacia los sectores estratégicos de servicios, salud y economía del bienestar.</td>
+            <td>Generación de cuadros técnicos calificados (3.600 horas) con rápida inserción laboral que elevan la productividad, formalización y retorno salarial del sector fitness y clubes deportivos.</td>
+          </tr>
+          <tr>
+            <td><strong>Eje Institucional y Seguridad Integral</strong></td>
+            <td><strong>Objetivo 3:</strong> Fomentar la paz social, la convivencia pacífica y el desarrollo comunitario integral.</td>
+            <td><strong>Política 3.2:</strong> Recuperar el tejido social en barrios urbanos y zonas vulnerables mediante el uso positivo del tiempo libre en disciplinas deportivas.</td>
+            <td>Capacitación de entrenadores con sólida formación en valores que lideren procesos en ligas barriales y parroquiales de Quito, alejando a la niñez y juventud del delito y las adicciones.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Secretaría Nacional de Planificación (2025). Plan Nacional de Desarrollo 2025–2029. Matriz analítica: ISTU Nacional.</div>
+
+      <div class="word-h2" style="margin-top: 14px;">3.1. Sinergia con la Agenda de Transformación Productiva</div>
+      <p class="word-p">
+        La formación tecnológica universitaria en entrenamiento deportivo aporta de manera medular a la consolidación de la <em>Economía Naranja y de los Servicios de Bienestar</em>. Al dotar al mercado laboral de tecnólogos de tercer nivel con competencias de gestión de instalaciones deportivas y emprendimiento de centros wellness, la carrera fomenta el autoempleo formal, la generación de microempresas prestadoras de servicios de acondicionamiento físico y la regularización tributaria mediante el RUC en el sector CIIU R93.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 12 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-04">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">4. ARTICULACIÓN CON LA PLANIFICACIÓN TERRITORIAL (PDOT Y PMDOT)</div>
+      <div class="word-h2">4.1. Alineación con el PMDOT del Distrito Metropolitano de Quito (2024–2033)</div>
+      
+      <p class="word-p">
+        A escala local, el proyecto curricular responde a las directrices establecidas en el <strong>Plan Metropolitano de Desarrollo y Ordenamiento Territorial (PMDOT) y Plan de Uso y Gestión del Suelo (PUGS)</strong> del Cantón Quito, aprobado por el Concejo Metropolitano mediante Ordenanza Metropolitana No. 004-2024. El PMDOT define como visión estratégica metropolitana consolidar una <em>"ciudad saludable, inclusiva, activa y policéntrica"</em>, fijando metas prioritarias en materia de espacio público deportivo, salud preventiva e inclusión social.
+      </p>
+
+      <div class="word-table-title">Tabla 9: Matriz de Correspondencia con los Instrumentos de Planificación Territorial de Quito y Pichincha</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Instrumento de Planificación</th>
+            <th>Eje / Componente Estratégico</th>
+            <th>Programa / Proyecto Territorial</th>
+            <th>Articulación Curricular del ISTU Nacional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PMDOT Distrito Metropolitano de Quito (2024–2033)</strong></td>
+            <td>Eje Social: Quito Inclusivo, Saludable y Activo</td>
+            <td><strong>Programa "Quito se Mueve en Paz":</strong> Activación física en los 15 Parques Metropolitanos y 280 Ligas Barriales.</td>
+            <td>Prácticas de Vinculación con la Sociedad en ligas barriales de Quitumbe, Eloy Alfaro y Calderón; dirección técnica formativa.</td>
+          </tr>
+          <tr>
+            <td><strong>PMDOT Cantón Quito (PUGS 2024)</strong></td>
+            <td>Eje Económico: Ciudad de Servicios y Emprendimiento</td>
+            <td><strong>Línea de Servicios Wellness:</strong> Fomento de empresas locales de turismo de aventura, trail running y ciclismo.</td>
+            <td>Formación en preparación física en altura (2.850 m.s.n.m.) y readaptación física para deportes de montaña y aventura.</td>
+          </tr>
+          <tr>
+            <td><strong>PDOT Provincia de Pichincha (2023–2027)</strong></td>
+            <td>Eje Humano y Deportivo: Pichincha Activa y Deportiva</td>
+            <td><strong>Plan Provincial de Alto Rendimiento:</strong> Fortalecimiento de las selecciones multidisciplinarias de la CDP.</td>
+            <td>Convenios de prácticas preprofesionales laborales con la Concentración Deportiva de Pichincha para pesaje, biomecánica y VBT.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Municipio del Distrito Metropolitano de Quito (PMDOT 2024); Prefectura de Pichincha (PDOT 2023–2027). Sistematización: ISTU Nacional.</div>
+
+      <div class="word-h2" style="margin-top: 14px;">4.2. Aprovechamiento de la Condición Geográfica y de Altura de Quito</div>
+      <p class="word-p">
+        La ubicación geográfica del Cantón Quito, situado a una altitud media de 2.850 metros sobre el nivel del mar, constituye una ventaja biomecánica y fisiológica de enorme relevancia internacional para la preparación atlética y las concentraciones de deportistas de alto rendimiento (entrenamiento en hipoxia relativa natural). La carrera capacita específicamente a los tecnólogos en las adaptaciones cardiovasculares, respiratorias y hematológicas propias del ejercicio en altitud moderada y elevada, facultándolos para liderar centros de entrenamiento especializado para atletas nacionales y extranjeros.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 13 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-05">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">5. CONTRIBUCIÓN DE LOS PROFESIONALES A LA SOLUCIÓN DE PROBLEMAS</div>
+      
+      <p class="word-p">
+        De conformidad con los estándares de evaluación curricular del CACES, el diseño de la carrera delimita con precisión el mapa de problemas prioritarios de la sociedad y del sector productivo que serán abordados y resueltos mediante el ejercicio profesional de los futuros graduados:
+      </p>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #2563eb;">
+        <strong>Problema Crítico 1: Empirismo Generalizado y Elevada Tasa de Lesiones Músculo-Esqueléticas</strong><br>
+        <em>Diagnóstico:</em> En Quito, el 47,8% del personal en gimnasios y formativas carece de titulación superior, aplicando sobrecargas desmedidas y ejercicios biomecánicamente perjudiciales que provocan roturas de ligamentos, hernias discales y sobreentrenamiento crónico en usuarios.<br>
+        <em>Contribución del TSU:</em> Diseña programas de entrenamiento fundamentados en la anatomía funcional, la biomecánica articular y la periodización de cargas, implementando baterías de tests funcionales (FMS) y protocolos de calentamiento preventivo (FIFA 11+).
+      </div>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #059669; margin-top: 8px;">
+        <strong>Problema Crítico 2: Epidemia de Sedentarismo, Obesidad y Enfermedades No Transmisibles</strong><br>
+        <em>Diagnóstico:</em> El 58,4% de los adultos en Quito es sedentario y el 63,6% presenta sobrepeso. Los médicos recomiendan "hacer ejercicio", pero el sistema de salud no cuenta con profesionales del ejercicio que dosifiquen la carga según patología.<br>
+        <em>Contribución del TSU:</em> Actúa como agente de salud preventiva, diseñando prescripciones de ejercicio físico para poblaciones especiales (obesidad, hipertensión controlada, diabetes mellitus, tercera edad), articulándose con los equipos médicos multidisciplinarios.
+      </div>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #d97706; margin-top: 8px;">
+        <strong>Problema Crítico 3: Rezago Tecnológico y Falta de Monitoreo Científico en Clubes y Federaciones</strong><br>
+        <em>Diagnóstico:</em> La mayoría de escuelas formativas y clubes deportivos de segunda categoría planifican sus entrenamientos sin herramientas de control de la fatiga ni análisis de datos de rendimiento.<br>
+        <em>Contribución del TSU:</em> Integra tecnologías biomédicas y deportivas accesibles: pulsómetros de frecuencia cardíaca, encoders lineales para entrenamiento por velocidad (VBT), chalecos GPS y software de videoanálisis táctico y técnico para maximizar el rendimiento.
+      </div>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #7c3aed; margin-top: 8px;">
+        <strong>Problema Crítico 4: Carencia de Protocolos de Readaptación Físico-Deportiva en Fase de Retorno al Juego (RTP)</strong><br>
+        <em>Diagnóstico:</em> Existe una brecha crítica entre el alta médica del kinesiólogo/fisioterapeuta y la reintegración plena del deportista a la competencia máxima, registrándose recidivas lesionales superiores al 30%.<br>
+        <em>Contribución del TSU:</em> Conduce la fase de readaptación funcional neuromuscular y reacondicionamiento en campo (Return-to-Play), restableciendo los patrones de fuerza, propiocepción y resistencia específica antes del alta deportiva competitiva.
+      </div>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 14 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-06-1">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">6. ESTUDIO DE MERCADO Y DEMANDA OCUPACIONAL (EMPLEADORES)</div>
+      <div class="word-h2">6.1. Diseño Metodológico y Muestreo Probabilístico de Cochran para Empleadores</div>
+      
+      <p class="word-p">
+        La verificación empírica de la pertinencia económica y la absorción ocupacional de los graduados se ejecutó mediante una investigación cuantitativa de campo dirigida a los administradores, directores técnicos y gerentes de recursos humanos de las organizaciones empleadoras del sector deportivo en el Cantón Quito.
+      </p>
+
+      <p class="word-p">
+        Para asegurar la validez inferencial de los hallazgos y prevenir sesgos muestrales, se definió como universo de estudio el total de <strong>empresas y establecimientos con RUC activo registrados en la División CIIU 93 en el Cantón Quito</strong>, el cual asciende a <strong>N = 3.852 empresas jurídicas y personas naturales formales</strong> según el Directorio Oficial REEM 2024 del INEC.
+      </p>
+
+      <div class="word-callout">
+        <strong>Fórmula de Muestreo de Cochran para Poblaciones Finitas:</strong>
+        <div style="text-align: center; margin: 10px 0; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 14px; font-weight: bold;">
+          <em>n</em> = [ <em>N</em> &middot; <em>Z</em>&sup2; &middot; <em>p</em> &middot; <em>q</em> ] / [ <em>e</em>&sup2; &middot; (<em>N</em> - 1) + <em>Z</em>&sup2; &middot; <em>p</em> &middot; <em>q</em> ]
+        </div>
+        Donde los parámetros metodológicos estandarizados corresponden a:
+        <ul style="margin: 4px 0 0 16px; padding: 0;">
+          <li><strong>N (Universo Finito de Empresas CIIU R93 en Quito):</strong> 3.852 entidades empleadoras.</li>
+          <li><strong>Z (Nivel de Confianza del 95%):</strong> Coeficiente normal crítico Z = 1,96.</li>
+          <li><strong>p (Probabilidad de Ocurrencia / Éxito):</strong> p = 0,50 (máxima dispersión estadística conservadora).</li>
+          <li><strong>q (Probabilidad de No Ocurrencia / Fracaso):</strong> q = 1 - p = 0,50.</li>
+          <li><strong>e (Margen de Error Máximo Tolerable):</strong> e = 0,05 (5,0%).</li>
+        </ul>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        Sustituyendo los valores cuantitativos en la ecuación de corrección por finitud poblacional:
+      </p>
+
+      <div style="text-align: center; margin: 8px 0; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 13px; background: #f8fafc; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px;">
+        <em>n</em> = [ 3.852 &middot; (1,96)&sup2; &middot; 0,25 ] / [ (0,05)&sup2; &middot; 3.851 + (1,96)&sup2; &middot; 0,25 ] = [ 3.699,46 ] / [ 9,6275 + 0,9604 ] = 3.699,46 / 10,5879 = 349,40 &approx; <strong>350 empleadores</strong>
+      </div>
+
+      <p class="word-p">
+        El tamaño muestral resultante es de <strong>exactamente n = 350 organizaciones empleadoras</strong>, garantizando un nivel de representatividad estadística del 95% con un margen de error del 5,0%. El levantamiento se efectuó mediante muestreo estratificado proporcional sobre los cuatro subsectores del ecosistema deportivo de Quito:
+      </p>
+
+      <ul style="margin-top: -4px;">
+        <li><strong>Estrato 1: Cadenas de Gimnasios y Centros Fitness (44%):</strong> 154 encuestas aplicadas a administradores de salas de sobrecarga, entrenamiento cruzado y centros wellness corporativos.</li>
+        <li><strong>Estrato 2: Federaciones, Asociaciones y Ligas Barriales (26%):</strong> 91 encuestas a directivos de ligas barriales de la FLQ, matrices provinciales y academias polideportivas.</li>
+        <li><strong>Estrato 3: Clubes Profesionales y Formativas (18%):</strong> 63 encuestas a directores metodológicos y coordinadores deportivos de clubes de fútbol, baloncesto y atletismo.</li>
+        <li><strong>Estrato 4: Centros de Readaptación Física y Deporte Adaptado (12%):</strong> 42 encuestas a directores técnicos de clínicas de rehabilitación física y acondicionamiento terapéutico.</li>
+      </ul>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 15 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-06-1-resultados">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">6.1.2. Resultados de Campo: Cualificación, Déficit de Competencias y Vacantes</div>
+      
+      <p class="word-p">
+        La aplicación del instrumento de encuesta estructurada a la muestra de <strong>n = 350 empleadores</strong> del Cantón Quito arrojó resultados concluyentes sobre la urgencia y el tipo de competencias requeridas en el sector deportivo:
+      </p>
+
+      <div class="word-table-title">Tabla 10: Resultados Cuantitativos del Levantamiento de Encuestas a Empleadores Deportivos en Quito (n = 350)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Dimensión Evaluada</th>
+            <th>Variable / Indicador Específico</th>
+            <th style="text-align: center;">Frecuencia (n)</th>
+            <th style="text-align: center;">Porcentaje (%)</th>
+            <th>Interpretación y Relevancia Institucional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2"><strong>Dificultad de Contratación</strong></td>
+            <td>Manifiesta dificultad para hallar personal calificado con título</td>
+            <td style="text-align: center;">288</td>
+            <td style="text-align: center;"><strong>82,3%</strong></td>
+            <td rowspan="2">Carencia estructural de cuadros con formación técnica contemporánea; alta rotación por empirismo.</td>
+          </tr>
+          <tr>
+            <td>No tiene dificultad / Encuentra personal idóneo fácilmente</td>
+            <td style="text-align: center;">62</td>
+            <td style="text-align: center;">17,7%</td>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>Competencias Críticas Demandadas</strong></td>
+            <td>Periodización científica del entrenamiento y control de cargas</td>
+            <td style="text-align: center;">310</td>
+            <td style="text-align: center;"><strong>88,6%</strong></td>
+            <td rowspan="4">Prioridad absoluta en metodologías de entrenamiento, monitoreo tecnológico y readaptación funcional.</td>
+          </tr>
+          <tr>
+            <td>Biomecánica aplicada, prevención de lesiones y readaptación</td>
+            <td style="text-align: center;">295</td>
+            <td style="text-align: center;"><strong>84,3%</strong></td>
+          </tr>
+          <tr>
+            <td>Manejo de tecnología (GPS, pulsómetros, software videoanálisis)</td>
+            <td style="text-align: center;">270</td>
+            <td style="text-align: center;"><strong>77,1%</strong></td>
+          </tr>
+          <tr>
+            <td>Prescripción de ejercicio para salud y nutrición deportiva básica</td>
+            <td style="text-align: center;">230</td>
+            <td style="text-align: center;"><strong>65,7%</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>Disposición Salarial Mensual</strong></td>
+            <td>Entre $ 470 (SBU) y $ 700 USD</td>
+            <td style="text-align: center;">78</td>
+            <td style="text-align: center;">22,3%</td>
+            <td rowspan="3">El 71,4% de los empleadores está dispuesto a pagar salarios superiores a los $750 USD a tecnólogos universitarios.</td>
+          </tr>
+          <tr>
+            <td>Entre $ 750 y $ 1.100 USD (Rango Predominante)</td>
+            <td style="text-align: center;">250</td>
+            <td style="text-align: center;"><strong>71,4%</strong></td>
+          </tr>
+          <tr>
+            <td>Más de $ 1.100 USD (Dirección técnica / Coordinación)</td>
+            <td style="text-align: center;">22</td>
+            <td style="text-align: center;">6,3%</td>
+          </tr>
+          <tr>
+            <td rowspan="2"><strong>Proyección de Contratación</strong></td>
+            <td>Proyecta contratar al menos 1 a 2 tecnólogos en próximos 3 años</td>
+            <td style="text-align: center;">241</td>
+            <td style="text-align: center;"><strong>68,9%</strong></td>
+            <td rowspan="2">Intención neta de absorción laboral en expansión y sustitución de personal empírico no calificado.</td>
+          </tr>
+          <tr>
+            <td>No planea contratar nuevo personal en el corto plazo</td>
+            <td style="text-align: center;">109</td>
+            <td style="text-align: center;">31,1%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Encuesta de Demanda Ocupacional a Empleadores Deportivos del Cantón Quito (ISTU Nacional, 2026). Muestra n = 350.</div>
+
+      <div class="word-chart-container">
+        <div class="word-chart-title">Gráfico 5: Competencias Más Demandadas por Empleadores Deportivos en el Cantón Quito (%)</div>
+        <div style="height: 180px; position: relative;">
+          <canvas id="chartCompetenciasEmpleadores"></canvas>
+        </div>
+        <div class="word-table-source">Fuente: Encuesta a Empleadores (n = 350). ISTU Nacional (2026).</div>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        Los resultados ratifican que los empleadores valoran de forma decisiva las competencias científicas de planificación del entrenamiento (88,6%) y la biomecánica preventiva (84,3%), atributos que no son desarrollados en cursos informales y que sustentan el perfil curricular de la carrera.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 16 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-06-1-brecha">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">6.1.3. Factor de Expansión y Estimación Cuantitativa de la Brecha Laboral</div>
+      
+      <p class="word-p">
+        Para modelar el comportamiento del mercado de trabajo del sector deportivo en el Cantón Quito durante el quinquenio 2026–2030, se aplicó la técnica econométrica del <strong>factor de expansión muestral (<em>F<sub>e</sub></em>)</strong> sobre los resultados obtenidos en el levantamiento probabilístico de empleadores (Cochran <em>n</em> = 350):
+      </p>
+
+      <div style="text-align: center; margin: 8px 0; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 13px; background: #f8fafc; padding: 6px; border: 1px solid #cbd5e1; border-radius: 4px;">
+        <em>F<sub>e</sub></em> = <em>N</em> / <em>n</em> = 3.852 empresas en Quito / 350 empresas encuestadas = 11,0057 &approx; <strong>11,006</strong>
+      </div>
+
+      <p class="word-p">
+        En el levantamiento de campo, 241 de los 350 empleadores manifestaron su intención de contratar al menos 1 a 2 profesionales tecnológicos universitarios durante los próximos tres años (promedio ponderado muestral de 1,35 plazas por entidad encuestada = 325 vacantes en la muestra). Al aplicar el factor de expansión sobre este indicador y proyectar el recambio vegetativo laboral (3,8% anual por jubilación y profesionalización de empíricos) más el crecimiento neto de nuevas aperturas de salas de fitness y academias deportivas en Quito (5,2% anual según la serie histórica REEM 2021–2024), se obtiene una <strong>demanda agregada proyectada de 3.577 plazas laborales</strong> en el quinquenio.
+      </p>
+
+      <p class="word-p">
+        Aplicando un riguroso criterio de prudencia técnica (tasa de absorción conservadora del 50% para precaver restricciones presupuestarias o coyunturas económicas adversas), la <strong>demanda laboral neta efectiva se estima en 1.788 tecnólogos</strong> en Quito entre 2026 y 2030. Al contrastar este requerimiento con la oferta acumulada de egresados que proyecta entregar el ISTU Nacional (348 graduados en el quinquenio), se constata una <strong>brecha laboral insatisfecha de 1.440 puestos de trabajo</strong>.
+      </p>
+
+      <div class="word-table-title">Tabla 11: Balance Oferta-Demanda y Brecha Laboral Insatisfecha en Quito (Quinquenio 2026–2030)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Año de Operación</th>
+            <th style="text-align: center;">Demanda Bruta Expandida</th>
+            <th style="text-align: center;">Demanda Efectiva (Escenario 50%)</th>
+            <th style="text-align: center;">Oferta Graduados ISTU Nacional</th>
+            <th style="text-align: center;">Brecha Laboral Insatisfecha Anual</th>
+            <th style="text-align: center;">Brecha Acumulada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Año 1 (2026)</td>
+            <td style="text-align: center;">650 plazas</td>
+            <td style="text-align: center;">325 plazas</td>
+            <td style="text-align: center;">0 grad.*</td>
+            <td style="text-align: center;">+ 325 plazas</td>
+            <td style="text-align: center;">325 plazas</td>
+          </tr>
+          <tr>
+            <td>Año 2 (2027)</td>
+            <td style="text-align: center;">685 plazas</td>
+            <td style="text-align: center;">342 plazas</td>
+            <td style="text-align: center;">0 grad.*</td>
+            <td style="text-align: center;">+ 342 plazas</td>
+            <td style="text-align: center;">667 plazas</td>
+          </tr>
+          <tr>
+            <td>Año 3 (2028)</td>
+            <td style="text-align: center;">720 plazas</td>
+            <td style="text-align: center;">360 plazas</td>
+            <td style="text-align: center;">66 grad. (Cohorte 1)</td>
+            <td style="text-align: center;">+ 294 plazas</td>
+            <td style="text-align: center;">961 plazas</td>
+          </tr>
+          <tr>
+            <td>Año 4 (2029)</td>
+            <td style="text-align: center;">752 plazas</td>
+            <td style="text-align: center;">376 plazas</td>
+            <td style="text-align: center;">132 grad. (Cohortes 1 y 2)</td>
+            <td style="text-align: center;">+ 244 plazas</td>
+            <td style="text-align: center;">1.205 plazas</td>
+          </tr>
+          <tr>
+            <td>Año 5 (2030)</td>
+            <td style="text-align: center;">770 plazas</td>
+            <td style="text-align: center;">385 plazas</td>
+            <td style="text-align: center;">150 grad. (Cohortes 2 y 3)</td>
+            <td style="text-align: center;">+ 235 plazas</td>
+            <td style="text-align: center;">1.440 plazas</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td>Total Quinquenio</td>
+            <td style="text-align: center;">3.577 plazas</td>
+            <td style="text-align: center;">1.788 plazas</td>
+            <td style="text-align: center;">348 graduados</td>
+            <td style="text-align: center;"><strong>+ 1.440 plazas</strong></td>
+            <td style="text-align: center;">Tasa de Cobertura: 19,5%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Modelo Econométrico de Demanda Ocupacional. Procesamiento: Comisión Curricular ISTU Nacional (2026). *Primeros graduados egresan tras 2,5 años (5 periodos).</div>
+
+      <div class="word-callout">
+        <strong>Conclusión de Viabilidad Ocupacional:</strong> La oferta formativa institucional cubrirá únicamente el <strong>19,5% de la demanda neta insatisfecha</strong> de técnicos en Quito, descartando cualquier riesgo de saturación profesional en el mercado y garantizando tasas de empleabilidad superiores al 85% para los egresados del programa.
+      </div>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 17 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-06-2">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">6.2. DEMANDA ESTUDIANTIL (ASPIRANTES DE 3RO DE BACHILLERATO)</div>
+      <div class="word-h2">6.2.1. Diseño Muestral Probabilístico de Cochran para Bachilleres</div>
+      
+      <p class="word-p">
+        La determinación de la demanda vocacional y estudiantil directa se estructuró a partir de una encuesta probabilística dirigida a los estudiantes que cursan el 3ro de Bachillerato en el Cantón Quito. El universo poblacional de referencia corresponde al registro administrativo oficial del <strong>Archivo Maestro de Instituciones Educativas (AMIE 2024–2025)</strong>, el cual certifica una matrícula de <strong>N = 41.745 bachilleres</strong> en el territorio cantonal.
+      </p>
+
+      <p class="word-p">
+        Para asegurar la máxima representatividad y exactitud en la medición de la intención de matrícula, se aplicó la fórmula estadística de Cochran para poblaciones finitas con los siguientes parámetros técnicos estandarizados:
+      </p>
+
+      <div class="word-callout">
+        <strong>Parámetros Estadísticos de la Muestra Estudiantil:</strong>
+        <div style="text-align: center; margin: 10px 0; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 14px; font-weight: bold;">
+          <em>n</em> = [ <em>N</em> &middot; <em>Z</em>&sup2; &middot; <em>p</em> &middot; <em>q</em> ] / [ <em>e</em>&sup2; &middot; (<em>N</em> - 1) + <em>Z</em>&sup2; &middot; <em>p</em> &middot; <em>q</em> ]
+        </div>
+        <ul style="margin: 4px 0 0 16px; padding: 0;">
+          <li><strong>Población Escolar Objetivo (N):</strong> 41.745 estudiantes matriculados en 3ro de Bachillerato en Quito.</li>
+          <li><strong>Nivel de Confianza (Z):</strong> 95% (Z = 1,96).</li>
+          <li><strong>Dispersión Máxima (p &middot; q):</strong> p = 0,50 y q = 0,50 (varianza máxima conservadora = 0,25).</li>
+          <li><strong>Margen de Error Máximo (e):</strong> 5,0% (e = 0,05).</li>
+        </ul>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        Resolviendo algebraicamente con los valores censales:
+      </p>
+
+      <div style="text-align: center; margin: 8px 0; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 13px; background: #f8fafc; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px;">
+        <em>n</em> = [ 41.745 &middot; (1,96)&sup2; &middot; 0,25 ] / [ (0,05)&sup2; &middot; 41.744 + (1,96)&sup2; &middot; 0,25 ] = [ 40.091,89 ] / [ 104,3600 + 0,9604 ] = 40.091,89 / 105,3204 = 380,66 &approx; <strong>381 bachilleres</strong>
+      </div>
+
+      <p class="word-p">
+        El tamaño muestral resultante es de <strong>n = 381 estudiantes de 3ro de Bachillerato</strong>. La recolección de información se ejecutó mediante un muestreo estratificado bietápico por conglomerados distribuidos proporcionalmente en los siete distritos educativos metropolitanos del Cantón Quito:
+      </p>
+
+      <div class="word-table-title">Tabla 12: Distribución Zonal de la Muestra Probabilística de Bachilleres en el Cantón Quito (n = 381)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Distrito Educativo / Jurisdicción</th>
+            <th style="text-align: center;">Población de Bachilleres (N)</th>
+            <th style="text-align: center;">Peso Ponderado (%)</th>
+            <th style="text-align: center;">Muestra Asignada (n)</th>
+            <th>Colegios Emblemáticos Muestreados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Distrito 17D07 (Quitumbe - Sur)</strong></td>
+            <td style="text-align: center;">7.240</td>
+            <td style="text-align: center;">17,3%</td>
+            <td style="text-align: center;">66 encuestas</td>
+            <td>Colegio Consejo Provincial, U.E. Quitumbe, Técnico Sucre</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D06 (Eloy Alfaro)</strong></td>
+            <td style="text-align: center;">6.890</td>
+            <td style="text-align: center;">16,5%</td>
+            <td style="text-align: center;">63 encuestas</td>
+            <td>Colegio Amazonas, Colegio 24 de Mayo (Sur), U.E. Paulo VI</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D05 (Norte - E. Espejo)</strong></td>
+            <td style="text-align: center;">6.420</td>
+            <td style="text-align: center;">15,4%</td>
+            <td style="text-align: center;">59 encuestas</td>
+            <td>Colegio Benalcázar, Instituto Nacional Mejía, U.E. San Gabriel</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D08 / 17D09 (Valles)</strong></td>
+            <td style="text-align: center;">6.345</td>
+            <td style="text-align: center;">15,2%</td>
+            <td style="text-align: center;">58 encuestas</td>
+            <td>U.E. Conocoto, Colegio Los Chillos, U.E. Tumbaco</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D03 (La Delicia)</strong></td>
+            <td style="text-align: center;">5.780</td>
+            <td style="text-align: center;">13,8%</td>
+            <td style="text-align: center;">53 encuestas</td>
+            <td>Colegio Cotocollao, U.E. Ponciano, Colegio Andrés Bello</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D02 (Calderón)</strong></td>
+            <td style="text-align: center;">4.950</td>
+            <td style="text-align: center;">11,9%</td>
+            <td style="text-align: center;">45 encuestas</td>
+            <td>Colegio Abdón Calderón, U.E. Carapungo</td>
+          </tr>
+          <tr>
+            <td><strong>Distrito 17D04 (Centro Histórico)</strong></td>
+            <td style="text-align: center;">4.120</td>
+            <td style="text-align: center;">9,9%</td>
+            <td style="text-align: center;">37 encuestas</td>
+            <td>Colegio Fernández Madrid, U.E. Simón Bolívar</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td>Total Cantón Quito</td>
+            <td style="text-align: center;">41.745</td>
+            <td style="text-align: center;">100,0%</td>
+            <td style="text-align: center;">381 encuestas</td>
+            <td>Representatividad Cantonal: 95% Conf. / 5% Error</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Matriz de Asignación Muestral. ISTU Nacional (2026) a partir de datos AMIE (MINEDUC).</div>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 18 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-06-2-resultados">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">6.2.2. Resultados de Campo: Interés Vocacional, Modalidad Híbrida y Aranceles</div>
+      
+      <p class="word-p">
+        La tabulación de las encuestas aplicadas a los <strong>n = 381 bachilleres</strong> en los colegios fiscales, particulares y fiscomisionales de Quito aportó indicadores de viabilidad estudiantil altamente positivos:
+      </p>
+
+      <div class="word-table-title">Tabla 13: Tabulación de Respuestas de la Encuesta a Aspirantes de 3ro de Bachillerato en Quito (n = 381)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Variable Analizada</th>
+            <th>Alternativas de Respuesta</th>
+            <th style="text-align: center;">Frecuencia (n)</th>
+            <th style="text-align: center;">Porcentaje (%)</th>
+            <th>Implicación Técnico-Académica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3"><strong>Interés Vocacional en la Carrera</strong></td>
+            <td>Muy interesado / Estudiaría definitivamente la carrera</td>
+            <td style="text-align: center;">71</td>
+            <td style="text-align: center;"><strong>18,6%</strong></td>
+            <td rowspan="3">Demanda potencial neta del 18,6% en Quito, equivalente a más de 7.700 bachilleres motivados al año.</td>
+          </tr>
+          <tr>
+            <td>Interés condicionado a aranceles y horarios</td>
+            <td style="text-align: center;">94</td>
+            <td style="text-align: center;">24,7%</td>
+          </tr>
+          <tr>
+            <td>No tiene interés / Prefiere otras áreas del conocimiento</td>
+            <td style="text-align: center;">216</td>
+            <td style="text-align: center;">56,7%</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>Preferencia de Modalidad de Estudio</strong></td>
+            <td><strong>Modalidad Híbrida (Virtual + Prácticas Presenciales)</strong></td>
+            <td style="text-align: center;">283</td>
+            <td style="text-align: center;"><strong>74,2%</strong></td>
+            <td rowspan="3">Aceptación abrumadora de la modalidad híbrida, que permite conciliar entrenamiento, trabajo y estudio.</td>
+          </tr>
+          <tr>
+            <td>Modalidad 100% Presencial tradicional</td>
+            <td style="text-align: center;">68</td>
+            <td style="text-align: center;">17,9%</td>
+          </tr>
+          <tr>
+            <td>Modalidad 100% Virtual / En línea</td>
+            <td style="text-align: center;">30</td>
+            <td style="text-align: center;">7,9%</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>Capacidad de Pago Arancelario Mensual</strong></td>
+            <td>Hasta $ 100 USD mensuales</td>
+            <td style="text-align: center;">84</td>
+            <td style="text-align: center;">22,0%</td>
+            <td rowspan="3">El arancel fijado por el ISTU Nacional ($125 USD/mes) se ubica en el intervalo de máxima solvencia familiar.</td>
+          </tr>
+          <tr>
+            <td><strong>Entre $ 100 y $ 150 USD mensuales (Rango Institucional)</strong></td>
+            <td style="text-align: center;">206</td>
+            <td style="text-align: center;"><strong>54,1%</strong></td>
+          </tr>
+          <tr>
+            <td>Más de $ 150 USD mensuales</td>
+            <td style="text-align: center;">91</td>
+            <td style="text-align: center;">23,9%</td>
+          </tr>
+          <tr>
+            <td rowspan="2"><strong>Preferencia de Itinerario Formativo</strong></td>
+            <td>Itinerario 1: Alto Rendimiento y Preparación Física en Deportes</td>
+            <td style="text-align: center;">198</td>
+            <td style="text-align: center;"><strong>52,0%</strong></td>
+            <td rowspan="2">Distribución equilibrada entre ambas menciones, garantizando la apertura simultánea de ambos itinerarios.</td>
+          </tr>
+          <tr>
+            <td>Itinerario 2: Fitness, Salud, Wellness y Readaptación Funcional</td>
+            <td style="text-align: center;">183</td>
+            <td style="text-align: center;"><strong>48,0%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Encuesta de Demanda Vocacional a Bachilleres del Cantón Quito (ISTU Nacional, 2026). Muestra n = 381.</div>
+
+      <div class="word-chart-container">
+        <div class="word-chart-title">Gráfico 6: Preferencia de Modalidad de Estudio en Aspirantes a Entrenamiento Deportivo (%)</div>
+        <div style="height: 180px; position: relative;">
+          <canvas id="chartModalidadBachilleres"></canvas>
+        </div>
+        <div class="word-table-source">Fuente: Levantamiento de Campo (ISTU Nacional, 2026). n = 381 bachilleres de Quito.</div>
+      </div>
+
+      <p class="word-p" style="margin-top: 8px;">
+        La preferencia del 74,2% por la modalidad híbrida convalida plenamente la arquitectura pedagógica diseñada por el instituto, mientras que el arancel institucional proyectado garantiza la sostenibilidad operativa sin excluir a los bachilleres de estratos medios y populares.
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 19 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-06-2-proyeccion">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">6.2.3. Proyección Quinquenal de Matrícula Institucional y Capacidad Operativa</div>
+      
+      <p class="word-p">
+        La proyección de matrícula institucional para la carrera de <strong>Tecnología Superior Universitaria en Entrenamiento Deportivo</strong> se elaboró bajo un modelo cuantitativo de cohorte que conjuga la demanda anual de bachilleres interesados en Quito (aproximadamente 7.764 graduados al año) con una <strong>tasa de captación institucional sumamente conservadora de entre el 1,0% y el 1,8%</strong>.
+      </p>
+
+      <p class="word-p">
+        El dimensionamiento institucional prevé iniciar en el Año 1 con una cohorte de <strong>80 estudiantes de nuevo ingreso</strong> (organizados en 2 paralelos de 40 alumnos en modalidad híbrida), escalando de manera gradual hasta alcanzar los 140 cupos anuales en el Año 5. El modelo incorpora una tasa de retención estudiantil intersemestral del 82% (con una deserción acumulada del 18%), congruente con los estándares de permanencia observados en la educación técnica superior de ciclo corto.
+      </p>
+
+      <div class="word-table-title">Tabla 14: Proyección Quinquenal de Matrícula Nueva, Población Estudiantil Total y Graduados (2026–2030)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th>Año Académico</th>
+            <th style="text-align: center;">Demanda Potencial Anual en Quito</th>
+            <th style="text-align: center;">Tasa de Captación (%)</th>
+            <th style="text-align: center;">Matrícula Nuevo Ingreso</th>
+            <th style="text-align: center;">Estudiantes en Formación Activa</th>
+            <th style="text-align: center;">Egresados y Graduados Proyectados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Año 1 (2026)</strong></td>
+            <td style="text-align: center;">7.764 bach.</td>
+            <td style="text-align: center;">1,03%</td>
+            <td style="text-align: center;">80 estudiantes</td>
+            <td style="text-align: center;">80 alumnos (Periodos 1-2)</td>
+            <td style="text-align: center;">0 graduados</td>
+          </tr>
+          <tr>
+            <td><strong>Año 2 (2027)</strong></td>
+            <td style="text-align: center;">7.810 bach.</td>
+            <td style="text-align: center;">1,22%</td>
+            <td style="text-align: center;">95 estudiantes</td>
+            <td style="text-align: center;">161 alumnos (Periodos 1-4)</td>
+            <td style="text-align: center;">0 graduados</td>
+          </tr>
+          <tr>
+            <td><strong>Año 3 (2028)</strong></td>
+            <td style="text-align: center;">7.850 bach.</td>
+            <td style="text-align: center;">1,40%</td>
+            <td style="text-align: center;">110 estudiantes</td>
+            <td style="text-align: center;">228 alumnos (Periodos 1-5)</td>
+            <td style="text-align: center;">66 graduados (Cohorte 1)</td>
+          </tr>
+          <tr>
+            <td><strong>Año 4 (2029)</strong></td>
+            <td style="text-align: center;">7.900 bach.</td>
+            <td style="text-align: center;">1,58%</td>
+            <td style="text-align: center;">125 estudiantes</td>
+            <td style="text-align: center;">275 alumnos (Periodos 1-5)</td>
+            <td style="text-align: center;">78 graduados (Cohorte 2)</td>
+          </tr>
+          <tr>
+            <td><strong>Año 5 (2030)</strong></td>
+            <td style="text-align: center;">7.950 bach.</td>
+            <td style="text-align: center;">1,76%</td>
+            <td style="text-align: center;">140 estudiantes</td>
+            <td style="text-align: center;">318 alumnos (Periodos 1-5)</td>
+            <td style="text-align: center;">104 graduados (Cohortes 3-4)</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td>Total Quinquenio</td>
+            <td style="text-align: center;">39.274 bach.</td>
+            <td style="text-align: center;">Promedio: 1,40%</td>
+            <td style="text-align: center;">550 matriculados</td>
+            <td style="text-align: center;">Población Estable: ~320</td>
+            <td style="text-align: center;">248 graduados directos</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Modelo Demográfico de Matrícula Institucional. ISTU Nacional (2026). Tasa de retención media del 82%.</div>
+
+      <div class="word-h2" style="margin-top: 12px;">6.2.4. Capacidad Operativa y Recursos Institucionales</div>
+      <p class="word-p">
+        El Instituto Superior Tecnológico Universitario Nacional cuenta con la infraestructura física y tecnológica requerida para soportar plenamente la cohorte proyectada:
+      </p>
+
+      <ul style="margin-top: -4px;">
+        <li><strong>Campus Matriz y Laboratorios Especializados:</strong> Aulas híbridas inteligentes dotadas de cámaras de seguimiento docente y sistemas de audio envolvente; Laboratorio de Biomecánica y Valoración de la Condición Física (plataformas de salto, dinamómetros, analizadores de gases portátiles, encoders lineales VBT); y sala de fuerza y musculación institucional.</li>
+        <li><strong>Infraestructura Deportiva en Convenio:</strong> Acceso a pistas de atletismo sintéticas, piscina semiolímpica y canchas reglamentarias polideportivas mediante convenios de cooperación interinstitucional con la Concentración Deportiva de Pichincha y complejos deportivos zonales.</li>
+        <li><strong>Entorno Virtual de Aprendizaje (LMS Canvas/Moodle):</strong> Servidores en la nube de alta disponibilidad, repositorios de recursos educativos abiertos, simuladores de prescripción del ejercicio y biblioteca digital con suscripciones a bases científicas (SportDiscus, Scopus, PubMed).</li>
+      </ul>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 20 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-07">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">7. ORGANIZACIÓN CURRICULAR, ITINERARIOS Y MALLA DE 3.600 HORAS</div>
+      <div class="word-h2">7.1. Estructura Curricular por Períodos y Componentes de Aprendizaje (RRA-CES)</div>
+      
+      <p class="word-p">
+        De rigurosa conformidad con el Reglamento de Régimen Académico del CES para el nivel <strong>Tecnológico Superior Universitario</strong>, la carrera se estructura en <strong>cinco (5) períodos académicos ordinarios de 20 semanas cada uno</strong>, con una carga global de <strong>3.600 horas (72 créditos académicos)</strong>, distribuidas en los componentes de docencia en contacto con el docente (CD), práctico-experimental (CPA), aprendizaje autónomo (CAA) y prácticas preprofesionales / vinculación (PPP/VCS).
+      </p>
+
+      <div class="word-table-title">Tabla 15: Malla Curricular de la Tecnología Superior Universitaria en Entrenamiento Deportivo (3.600 Horas)</div>
+      <table class="word-table" style="font-size: 10px;">
+        <thead>
+          <tr>
+            <th>Per.</th>
+            <th>Asignatura / Módulo Formativo</th>
+            <th>Campo de Formación</th>
+            <th style="text-align: center;">CD</th>
+            <th style="text-align: center;">CPA</th>
+            <th style="text-align: center;">CAA</th>
+            <th style="text-align: center;">PPP</th>
+            <th style="text-align: center;">Total</th>
+            <th style="text-align: center;">Créd.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; background: #f8fafc;">I</td>
+            <td>Anatomía Funcional y Cinesiología del Movimiento</td>
+            <td>Fundamentos Teóricos</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Fisiología General y del Ejercicio Físico</td>
+            <td>Fundamentos Teóricos</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Teoría y Metodología General del Entrenamiento</td>
+            <td>Praxis Profesional</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">56</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Pedagogía y Didáctica de la Actividad Física</td>
+            <td>Fundamentos Teóricos</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">72</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Ofimática, Datos y Tecnologías del Deporte</td>
+            <td>Comunicación y Lenguajes</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td colspan="3">Subtotal Período I</td>
+            <td style="text-align: center;">224</td>
+            <td style="text-align: center;">176</td>
+            <td style="text-align: center;">320</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">720</td>
+            <td style="text-align: center;">14,4</td>
+          </tr>
+
+          <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; background: #f8fafc;">II</td>
+            <td>Biomecánica y Videoanálisis del Gesto Deportivo</td>
+            <td>Praxis Profesional</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Bioquímica y Nutrición Aplicada al Deporte</td>
+            <td>Fundamentos Teóricos</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Entrenamiento de la Fuerza y Potencia Muscular</td>
+            <td>Praxis Profesional</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Evaluación y Control del Rendimiento Físico</td>
+            <td>Praxis Profesional</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">56</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Primeros Auxilios y Prevención de Lesiones</td>
+            <td>Integración Curricular</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td colspan="3">Subtotal Período II</td>
+            <td style="text-align: center;">224</td>
+            <td style="text-align: center;">216</td>
+            <td style="text-align: center;">280</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">720</td>
+            <td style="text-align: center;">14,4</td>
+          </tr>
+
+          <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; background: #f8fafc;">III</td>
+            <td>Entrenamiento de la Resistencia y Capacidad Aeróbica</td>
+            <td>Praxis Profesional</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">56</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Psicología del Deporte y Liderazgo de Equipos</td>
+            <td>Fundamentos Teóricos</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Planificación y Periodización del Entrenamiento</td>
+            <td>Praxis Profesional</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Prescripción del Ejercicio para la Salud y Poblaciones Esp.</td>
+            <td>Integración Curricular</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">56</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Prácticas de Vinculación con la Sociedad (Comunitaria)</td>
+            <td>Vinculación Comunitaria</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td colspan="3">Subtotal Período III</td>
+            <td style="text-align: center;">192</td>
+            <td style="text-align: center;">160</td>
+            <td style="text-align: center;">224</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">720</td>
+            <td style="text-align: center;">14,4</td>
+          </tr>
+
+          <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; background: #f8fafc;">IV</td>
+            <td>Materia de Itinerario I (Alto Rendimiento / Fitness)</td>
+            <td>Especialización Itinerario</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Materia de Itinerario II (Preparación Física / Readaptación)</td>
+            <td>Especialización Itinerario</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Metodología de la Investigación Aplicada al Deporte</td>
+            <td>Epistemología y Métodos</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">72</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Legislación Deportiva, Ética y Gestión de Clubes</td>
+            <td>Fundamentos Teóricos</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Prácticas Preprofesionales Laborales I</td>
+            <td>Prácticas Preprofesionales</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td colspan="3">Subtotal Período IV</td>
+            <td style="text-align: center;">184</td>
+            <td style="text-align: center;">160</td>
+            <td style="text-align: center;">232</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">720</td>
+            <td style="text-align: center;">14,4</td>
+          </tr>
+
+          <tr>
+            <td rowspan="5" style="text-align: center; font-weight: bold; background: #f8fafc;">V</td>
+            <td>Materia de Itinerario III (Tecnología y Monitoreo / Wellness)</td>
+            <td>Especialización Itinerario</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">48</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Marketing Deportivo, Emprendimiento y Centros Fitness</td>
+            <td>Integración Curricular</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">32</td>
+            <td style="text-align: center;">72</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Unidad de Integración Curricular (Proyecto de Titulación)</td>
+            <td>Titulación de Grado</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">40</td>
+            <td style="text-align: center;">164</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">244</td>
+            <td style="text-align: center;">4,88</td>
+          </tr>
+          <tr>
+            <td>Prácticas Preprofesionales Laborales II</td>
+            <td>Prácticas Preprofesionales</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">144</td>
+            <td style="text-align: center;">2,88</td>
+          </tr>
+          <tr>
+            <td>Complemento Práctico Preprofesional</td>
+            <td>Prácticas Preprofesionales</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: center;">44</td>
+            <td style="text-align: center;">44</td>
+            <td style="text-align: center;">0,88</td>
+          </tr>
+          <tr style="background-color: #f1f5f9; font-weight: bold;">
+            <td colspan="3">Subtotal Período V</td>
+            <td style="text-align: center;">128</td>
+            <td style="text-align: center;">120</td>
+            <td style="text-align: center;">284</td>
+            <td style="text-align: center;">188</td>
+            <td style="text-align: center;">720</td>
+            <td style="text-align: center;">14,4</td>
+          </tr>
+
+          <tr style="background-color: #1e3a8a; color: #ffffff; font-weight: bold; font-size: 11px;">
+            <td colspan="3">TOTAL GENERAL DE LA CARRERA (5 PERIODOS)</td>
+            <td style="text-align: center;">952 h (26,4%)</td>
+            <td style="text-align: center;">732 h (20,3%)</td>
+            <td style="text-align: center;">1.440 h (40,0%)</td>
+            <td style="text-align: center;">476 h (13,2%)</td>
+            <td style="text-align: center;">3.600 h</td>
+            <td style="text-align: center;">72 Créd.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="word-table-source">Fuente: Comisión de Diseño Curricular ISTU Nacional (2026). Conforme a RRA-CES Arts. 19, 21, 28 y 45.</div>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 21 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-07-perfil">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h2">7.2. Resultados de Aprendizaje, Itinerarios de Especialización y Campo Laboral</div>
+      
+      <p class="word-p">
+        El perfil de egreso define los Resultados de Aprendizaje (RDA) que facultan al <strong>Tecnólogo/a Superior Universitario/a en Entrenamiento Deportivo</strong> para actuar con solvencia ética, científica y operativa en el ecosistema deportivo contemporáneo:
+      </p>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #1e3a8a;">
+        <strong>Resultados de Aprendizaje del Perfil de Egreso (RDA Institucionales):</strong>
+        <ul style="margin: 4px 0 0 16px; padding: 0;">
+          <li><strong>RDA 1 (Planificación y Control):</strong> Estructura modelos de periodización contemporánea (ATR, bloques, microestructuración) dosificando las variables de volumen, intensidad, densidad y frecuencia según la fase de preparación y las demandas fisiológicas de la disciplina.</li>
+          <li><strong>RDA 2 (Biomecánica y Análisis Tecnológico):</strong> Evalúa cuantitativamente el movimiento humano y el rendimiento atlético utilizando instrumentación biomédica y deportiva (wearables GPS, encoders VBT, células fotoeléctricas y software cinemático Kinovea/Dartfish).</li>
+          <li><strong>RDA 3 (Prescripción para la Salud y Readaptación):</strong> Diseña protocolos de ejercicio físico adaptado para poblaciones especiales (obesidad, patologías metabólicas, tercera edad) y dirige la readaptación funcional neuromuscular en la fase de retorno a la actividad física.</li>
+          <li><strong>RDA 4 (Gestión y Emprendimiento):</strong> Administra instalaciones deportivas, gimnasios y centros de fitness, aplicando principios de marketing deportivo, bioseguridad, legislación laboral y formulación de proyectos formativos sostenibles.</li>
+        </ul>
+      </div>
+
+      <div class="word-h2">7.2.1. Itinerarios Formativos de Especialización (Menciones Profesionales)</div>
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th style="width: 50%;">Itinerario 1: Alto Rendimiento, Preparación Física y Deporte Formativo</th>
+            <th style="width: 50%;">Itinerario 2: Fitness, Salud, Wellness y Readaptación Funcional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Orientación Estratégica:</strong> Diseñado para la optimización del rendimiento atlético en clubes profesionales, federaciones provinciales, academias formativas infanto-juveniles y comités de alto rendimiento.<br><br>
+              <strong>Asignaturas de Mención (Períodos IV y V):</strong>
+              <ul style="margin: 4px 0 0 16px; padding: 0;">
+                <li>Preparación Física en Deportes de Conjunto y Cíclicos.</li>
+                <li>Monitoreo de Carga, GPS y Sport Data Analytics.</li>
+                <li>Dirección Técnica y Táctica en Deporte Formativo.</li>
+              </ul>
+            </td>
+            <td>
+              <strong>Orientación Estratégica:</strong> Focalizado en la industria del acondicionamiento físico, cadenas de gimnasios, centros de wellness, prescripción de ejercicio para la salud y readaptación física post-lesión.<br><br>
+              <strong>Asignaturas de Mención (Períodos IV y V):</strong>
+              <ul style="margin: 4px 0 0 16px; padding: 0;">
+                <li>Entrenamiento Funcional, Hipertrofia y Sala de Musculación.</li>
+                <li>Readaptación Físico-Deportiva y Reentrenamiento al Esfuerzo.</li>
+                <li>Prescripción del Ejercicio en Síndrome Metabólico y Tercera Edad.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="word-h2">7.2.2. Campo Ocupacional y Puestos de Trabajo Específicos</div>
+      <p class="word-p">
+        Los graduados se insertarán directamente en los siguientes cargos formales (CIUO 3422/3423):
+      </p>
+      <ul style="margin-top: -4px;">
+        <li><strong>Preparador/a Físico/a:</strong> De planteles formativos y profesionales en clubes de fútbol, baloncesto, voleibol y atletismo.</li>
+        <li><strong>Entrenador/a Personal (Personal Trainer):</strong> En cadenas de gimnasios corporativos o ejercicio autónomo.</li>
+        <li><strong>Director/a Técnico/a de Centros Fitness:</strong> Responsable de la gestión metodológica y supervisión de entrenadores de sala.</li>
+        <li><strong>Readaptador/a Físico-Deportivo:</strong> En centros de medicina deportiva, kinesiología y readaptación articular.</li>
+        <li><strong>Evaluador/a del Rendimiento Deportivo:</strong> En laboratorios biomecánicos y concentraciones de selecciones provinciales.</li>
+      </ul>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 22 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-08">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">8. CONCLUSIONES INSTITUCIONALES DEL ESTUDIO DE PERTINENCIA</div>
+      
+      <p class="word-p">
+        La Comisión de Diseño y Desarrollo Curricular del Instituto Superior Tecnológico Universitario Nacional, tras el análisis exhaustivo y sistemático de las dimensiones sociales, económicas, académicas, normativas y territoriales del Cantón Quito y la Provincia de Pichincha, emite el siguiente <strong>DICTAMEN TÉCNICO FAVORABLE</strong> que fundamenta de manera concluyente la pertinencia de la carrera:
+      </p>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #16a34a; margin-bottom: 10px;">
+        <strong>1. Pertinencia Social y Demográfica Convalidada:</strong><br>
+        El Cantón Quito alberga una población de más de 348.000 jóvenes de 18 a 24 años y enfrenta un grave problema de salud pública caracterizado por el sedentarismo del 58,4% de la población urbana y una prevalencia de sobrepeso u obesidad del 63,6%. La formación de tecnólogos capacitados en la prescripción científica del ejercicio responde directamente a la necesidad comunitaria de salud preventiva y fomenta la integración en las más de 280 ligas barriales metropolitanas.
+      </div>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #2563eb; margin-bottom: 10px;">
+        <strong>2. Solidez del Tejido Productivo y Brecha Laboral Demostrada:</strong><br>
+        El Directorio REEM (INEC, 2024) certifica la existencia de 3.852 empresas activas en actividades deportivas en Quito, generando 5.897 empleos formales y facturando $214,5 millones de dólares anuales. La investigación probabilística con empleadores (Cochran <em>n</em> = 350) demuestra que el 82,3% presenta dificultades para contratar personal calificado y revela una brecha neta insatisfecha de 1.440 tecnólogos para el quinquenio 2026–2030, asegurando una inmediata inserción laboral con salarios promedio superiores a los $750 USD.
+      </div>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #d97706; margin-bottom: 10px;">
+        <strong>3. Vacancia Curricular y Demanda Vocacional Robusta:</strong><br>
+        Los registros del SNIESE (CES/SENESCYT, 2026) confirman una vacancia del 100% en la oferta de títulos de tercer nivel con la condición de <em>Tecnología Superior Universitaria en Entrenamiento Deportivo</em> en la Provincia de Pichincha. A su vez, el levantamiento en bachilleres (Cochran <em>n</em> = 381) sobre un universo de 41.745 graduandos de Quito constata un 18,6% de interés decidido, con un contundente respaldo del 74,2% hacia la modalidad híbrida.
+      </div>
+
+      <div class="word-callout" style="background-color: #f8fafc; border-left: 4px solid #7c3aed; margin-bottom: 10px;">
+        <strong>4. Viabilidad Normativa y Capacidad Operativa Institucional:</strong><br>
+        El diseño curricular cumple con los más rigurosos estándares del RRA-CES y el CACES, estructurándose en 5 períodos académicos ordinarios (2,5 años de formación) y 3.600 horas académicas. El ISTU Nacional dispone de la infraestructura de aulas inteligentes, laboratorios biomecánicos, campus deportivo en convenio y convenios de prácticas preprofesionales con clubes profesionales de la SUPERCIAS y cadenas de fitness de primera línea.
+      </div>
+
+      <div class="word-h2" style="margin-top: 14px;">Dictamen Conclusivo de la Comisión Curricular</div>
+      <p class="word-p">
+        Por las consideraciones expuestas, se concluye que el proyecto curricular de <strong>Tecnología Superior Universitaria en Entrenamiento Deportivo</strong> es socialmente necesario, económicamente viable, académicamente riguroso y perfectamente alineado con los objetivos del Plan Nacional de Desarrollo 2025–2029 y el PMDOT Quito 2033, recomendándose su remisión y aprobación formal ante el Pleno del Consejo de Educación Superior (CES).
+      </p>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 23 de 24</span>
+    </div>
+    
+    </div>
+    
+
+    <div class="word-page" id="sec-09">
+      
+    <div class="word-header">
+      <span>INSTITUTO SUPERIOR TECNOLÓGICO UNIVERSITARIO NACIONAL</span>
+      <span>ESTUDIO DE PERTINENCIA CURRICULAR — TECNOLOGÍA SUPERIOR UNIVERSITARIA EN ENTRENAMIENTO DEPORTIVO</span>
+    </div>
+    
+      <div class="word-h1">9. REFERENCIAS BIBLIOGRÁFICAS (BASES OFICIALES Y NORMATIVA)</div>
+      
+      <div class="word-biblio">
+        <p class="word-biblio-item">
+          American College of Sports Medicine. (2022). <em>ACSM's Guidelines for Exercise Testing and Prescription</em> (11th ed.). Wolters Kluwer. https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription
+        </p>
+
+        <p class="word-biblio-item">
+          Asamblea Nacional del Ecuador. (2018). <em>Ley Orgánica de Educación Superior (LOES)</em>. Registro Oficial Suplemento 298. Última reforma codificada 2023. https://www.ces.gob.ec/normativa/loes/
+        </p>
+
+        <p class="word-biblio-item">
+          Bompa, T. O., & Buzzichelli, C. (2019). <em>Periodization: Theory and Methodology of Training</em> (6th ed.). Human Kinetics. https://doi.org/10.5040/9781718210455
+        </p>
+
+        <p class="word-biblio-item">
+          Consejo de Aseguramiento de la Calidad de la Educación Superior. (2024). <em>Guía Metodológica para la Evaluación de Carreras Técnicas y Tecnológicas Superiores</em>. CACES. https://www.caces.gob.ec/
+        </p>
+
+        <p class="word-biblio-item">
+          Consejo de Educación Superior. (2023). <em>Reglamento de Régimen Académico (RRA)</em>. Resolución RPC-SO-053-No.845-2023. CES. https://www.ces.gob.ec/normativa/reglamento-de-regimen-academico/
+        </p>
+
+        <p class="word-biblio-item">
+          Consejo de Educación Superior. (2026). <em>Sistema Nacional de Información de la Educación Superior del Ecuador (SNIESE): Catálogo Público de Oferta Académica y Titulados</em>. CES. https://infoeducacionsuperior.gob.ec/
+        </p>
+
+        <p class="word-biblio-item">
+          Gobierno Autónomo Descentralizado de la Provincia de Pichincha. (2024). <em>Plan de Desarrollo y Ordenamiento Territorial de Pichincha 2023–2027</em>. Ordenanza Provincial No. 15-CPP. Prefectura de Pichincha. https://www.pichincha.gob.ec/
+        </p>
+
+        <p class="word-biblio-item">
+          Instituto Nacional de Estadística y Censos. (2024). <em>Directorio del Registro Estadístico de Empresas (REEM 2012–2024): Base de datos de establecimientos y plazas laborales</em>. INEC. https://www.ecuadorencifras.gob.ec/directorio-de-empresas/
+        </p>
+
+        <p class="word-biblio-item">
+          Instituto Nacional de Estadística y Censos. (2024). <em>Estimaciones y Proyecciones de la Población Nacional, Provincial y Cantonal 2020–2035 (Revisión Post-Censal 2024)</em>. INEC. https://www.ecuadorencifras.gob.ec/proyecciones-poblacionales/
+        </p>
+
+        <p class="word-biblio-item">
+          Instituto Nacional de Estadística y Censos. (2025). <em>Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU Anual 2025): Base consolidada de personas</em>. INEC. https://www.ecuadorencifras.gob.ec/enemdu-anual/
+        </p>
+
+        <p class="word-biblio-item">
+          Ministerio de Educación del Ecuador. (2025). <em>Archivo Maestro de Instituciones Educativas (AMIE 2024–2025): Registro de estudiantes matriculados en 3ro de Bachillerato</em>. MINEDUC. https://educacion.gob.ec/datos-abiertos/
+        </p>
+
+        <p class="word-biblio-item">
+          Ministerio de Salud Pública del Ecuador. (2024). <em>Encuesta Nacional de Salud y Nutrición (ENSANUT): Indicadores de sedentarismo y enfermedades crónicas no transmisibles</em>. MSP. https://www.salud.gob.ec/
+        </p>
+
+        <p class="word-biblio-item">
+          Municipio del Distrito Metropolitano de Quito. (2024). <em>Plan Metropolitano de Desarrollo y Ordenamiento Territorial (PMDOT 2024–2033) y Plan de Uso y Gestión del Suelo (PUGS)</em>. Ordenanza Metropolitana No. 004-2024. Concejo Metropolitano. https://gobiernoabierto.quito.gob.ec/
+        </p>
+
+        <p class="word-biblio-item">
+          Organización Mundial de la Salud. (2020). <em>Directrices de la OMS sobre actividad física y hábitos sedentarios</em>. OMS. https://apps.who.int/iris/handle/10665/337004
+        </p>
+
+        <p class="word-biblio-item">
+          Secretaría Nacional de Planificación. (2025). <em>Plan Nacional de Desarrollo 2025–2029: "Ecuador No Se Detiene"</em>. Gobierno de la República del Ecuador. https://www.planificacion.gob.ec/plan-nacional-de-desarrollo-2025-2029/
+        </p>
+
+        <p class="word-biblio-item">
+          Superintendencia de Compañías, Valores y Seguros. (2026). <em>Directorio de Compañías Activas y Ranking Empresarial de la Sección R (Actividades Deportivas) en el Cantón Quito</em>. SUPERCIAS. https://appscvsmovil.supercias.gob.ec/PortalInformacion/
+        </p>
+      </div>
+
+      <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #cbd5e1; text-align: center; font-size: 11px; color: #64748b;">
+        Documento Técnico de Aprobación Curricular — Instituto Superior Tecnológico Universitario Nacional (Campus Matriz Quito, Pichincha, Ecuador, 2026).
+      </div>
+
+      
+    <div class="word-footer">
+      <span>Carrera de Tercer Nivel Tecnológico Superior Universitario en Entrenamiento Deportivo — Modalidad Híbrida</span>
+      <span>Página 24 de 24</span>
+    </div>
+    
+    </div>
+    
+  </div>
+
+  <script>
+    function jumpToPage(pageId) {
+      const target = document.getElementById(pageId) || document.querySelector('[id*="' + pageId + '"]');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    let currentScale = 1.0;
+    function toggleZoom(scale) {
+      if (scale === 1.0) currentScale = 1.0;
+      else currentScale *= scale;
+      const pages = document.querySelectorAll('.word-page');
+      pages.forEach(p => {
+        p.style.transform = `scale(${currentScale})`;
+        p.style.transformOrigin = 'top center';
+      });
+    }
+
+    // Inicialización de Gráficos Chart.js
+    document.addEventListener("DOMContentLoaded", function() {
+      Chart.register(ChartDataLabels);
+
+      // 1. Gráfico Grupo Etario 18-24 en Quito
+      const ctx1 = document.getElementById('chartEtarioQuito');
+      if (ctx1) {
+        new Chart(ctx1, {
+          type: 'line',
+          data: {
+            labels: ['2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035'],
+            datasets: [{
+              label: 'Población Joven 18–24 años (Quito)',
+              data: [348512, 347890, 347100, 346210, 345420, 344710, 343890, 342980, 342110, 341250],
+              borderColor: '#1e3a8a',
+              backgroundColor: 'rgba(30, 58, 138, 0.1)',
+              fill: true,
+              tension: 0.3,
+              pointBackgroundColor: '#1e3a8a',
+              pointRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: {
+                align: 'top',
+                anchor: 'center',
+                color: '#1e3a8a',
+                font: { weight: 'bold', size: 9 },
+                formatter: (val, ctx) => (ctx.dataIndex % 2 === 0) ? (val/1000).toFixed(1) + 'k' : ''
+              }
+            },
+            scales: {
+              y: { min: 335000, max: 355000, ticks: { callback: val => (val/1000).toFixed(0) + 'k' } }
+            }
+          }
+        });
+      }
+
+      // 2. Gráfico REEM Ventas y Plazas
+      const ctx2 = document.getElementById('chartReemDeportes');
+      if (ctx2) {
+        new Chart(ctx2, {
+          type: 'bar',
+          data: {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+            datasets: [
+              {
+                label: 'Ventas Anuales ($ Millones USD)',
+                data: [148.9, 162.3, 112.5, 145.9, 178.6, 198.7, 214.5],
+                backgroundColor: '#2563eb',
+                yAxisID: 'y'
+              },
+              {
+                label: 'Plazas de Empleo Formal',
+                data: [4230, 4580, 3710, 4495, 5120, 5580, 5897],
+                type: 'line',
+                borderColor: '#10b981',
+                backgroundColor: '#10b981',
+                yAxisID: 'y1',
+                pointRadius: 4
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'top', labels: { boxWidth: 12, font: { size: 9 } } },
+              datalabels: { display: false }
+            },
+            scales: {
+              y: { type: 'linear', position: 'left', title: { display: true, text: 'Ventas ($M USD)', font: { size: 9 } } },
+              y1: { type: 'linear', position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Plazas', font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      // 3. Gráfico Retorno Salarial ENEMDU
+      const ctx3 = document.getElementById('chartSalariosDeportes');
+      if (ctx3) {
+        new Chart(ctx3, {
+          type: 'bar',
+          data: {
+            labels: ['Bachillerato Incompleto', 'Bachiller Completo', 'SBU (Referencia)', 'TSU / Técnico Superior', 'Universitario Licenciatura'],
+            datasets: [{
+              label: 'Salario Promedio Mensual (USD)',
+              data: [415.20, 485.40, 470.00, 685.50, 842.30],
+              backgroundColor: ['#94a3b8', '#64748b', '#ef4444', '#2563eb', '#1e3a8a'],
+              borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: {
+                anchor: 'end',
+                align: 'top',
+                color: '#0f172a',
+                font: { weight: 'bold', size: 9 },
+                formatter: val => '$ ' + val.toFixed(0)
+              }
+            },
+            scales: {
+              y: { min: 300, max: 950, ticks: { callback: val => '$' + val } }
+            }
+          }
+        });
+      }
+
+      // 4. Gráfico Bachilleres por Distrito AMIE
+      const ctx4 = document.getElementById('chartBachilleresQuito');
+      if (ctx4) {
+        new Chart(ctx4, {
+          type: 'bar',
+          indexAxis: 'y',
+          data: {
+            labels: ['Quitumbe (Sur)', 'Eloy Alfaro', 'Norte (Eugenio Espejo)', 'Valles (Tumbaco/Chillos)', 'La Delicia', 'Calderón', 'Centro Histórico'],
+            datasets: [{
+              label: 'Estudiantes 3ro Bachillerato',
+              data: [7240, 6890, 6420, 6345, 5780, 4950, 4120],
+              backgroundColor: '#3b82f6',
+              borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: {
+                anchor: 'end',
+                align: 'right',
+                color: '#1e293b',
+                font: { weight: 'bold', size: 9 },
+                formatter: val => val.toLocaleString()
+              }
+            },
+            scales: {
+              x: { max: 8500 }
+            }
+          }
+        });
+      }
+
+      // 5. Gráfico Competencias Demandadas Empleadores
+      const ctx5 = document.getElementById('chartCompetenciasEmpleadores');
+      if (ctx5) {
+        new Chart(ctx5, {
+          type: 'bar',
+          indexAxis: 'y',
+          data: {
+            labels: [
+              'Periodización científica del entrenamiento',
+              'Biomecánica y prevención de lesiones',
+              'Tecnología y monitoreo (GPS, VBT, videoanálisis)',
+              'Prescripción para la salud y poblaciones especiales',
+              'Marketing y administración de centros deportivos'
+            ],
+            datasets: [{
+              label: '% Empleadores que lo requieren',
+              data: [88.6, 84.3, 77.1, 65.7, 51.4],
+              backgroundColor: ['#1e3a8a', '#2563eb', '#3b82f6', '#10b981', '#f59e0b'],
+              borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              datalabels: {
+                anchor: 'end',
+                align: 'right',
+                color: '#0f172a',
+                font: { weight: 'bold', size: 9 },
+                formatter: val => val.toFixed(1) + '%'
+              }
+            },
+            scales: {
+              x: { max: 100, ticks: { callback: val => val + '%' } }
+            }
+          }
+        });
+      }
+
+      // 6. Gráfico Modalidad Preferida Bachilleres
+      const ctx6 = document.getElementById('chartModalidadBachilleres');
+      if (ctx6) {
+        new Chart(ctx6, {
+          type: 'doughnut',
+          data: {
+            labels: ['Modalidad Híbrida (Virtual + Prácticas)', 'Presencial Tradicional', 'En Línea / 100% Virtual'],
+            datasets: [{
+              data: [74.2, 17.9, 7.9],
+              backgroundColor: ['#2563eb', '#94a3b8', '#cbd5e1'],
+              borderWidth: 2,
+              borderColor: '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 9 } } },
+              datalabels: {
+                color: '#ffffff',
+                font: { weight: 'bold', size: 10 },
+                formatter: val => val.toFixed(1) + '%'
+              }
+            }
+          }
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
