@@ -260,37 +260,52 @@
       letter-spacing: 0.5px;
     }
 
-    .toc-row {
+    .word-toc a,
+    .word-toc a:link,
+    .word-toc a:visited,
+    .word-toc a:active {
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+
+    .toc-row,
+    .toc-row:link,
+    .toc-row:visited,
+    .toc-row:active {
       display: flex;
       align-items: baseline;
       font-size: 8pt;
       line-height: 1.24;
       margin-bottom: 1.2pt;
-      color: #000000;
-      text-decoration: none;
+      color: #000000 !important;
+      text-decoration: none !important;
       width: 100%;
     }
 
     .toc-row:hover .toc-title {
-      color: #0563C1;
-      text-decoration: underline;
+      color: #0563C1 !important;
+      text-decoration: underline !important;
     }
 
     .toc-row:hover .toc-page {
-      color: #0563C1;
+      color: #0563C1 !important;
       font-weight: bold;
     }
 
-    .toc-level-1 {
+    .toc-level-1,
+    .toc-level-1:link,
+    .toc-level-1:visited {
       font-weight: bold;
-      color: #1F4E79;
+      color: #1F4E79 !important;
       margin-top: 2.5pt;
     }
 
-    .toc-level-2 {
+    .toc-level-2,
+    .toc-level-2:link,
+    .toc-level-2:visited {
       padding-left: 10pt;
       font-weight: normal;
-      color: #262626;
+      color: #262626 !important;
     }
 
     .toc-title {
@@ -721,10 +736,10 @@
           <div class="word-toc-section-title">Índice de Gráficos</div>
           <a href="#sec-02-1" class="toc-row toc-level-2"><span class="toc-title">Gráfico 1. Evolución proyectada de la población joven (18–24 años) en el Cantón Quito (2026–2035)</span><span class="toc-dots"></span><span class="toc-page">4</span></a>
           <a href="#sec-02-2" class="toc-row toc-level-2"><span class="toc-title">Gráfico 2. Evolución de ventas y plazas de empleo formal en el sector deportivo en Quito (2018–2024)</span><span class="toc-dots"></span><span class="toc-page">6</span></a>
-          <a href="#sec-02-2-salarios" class="toc-row toc-level-2"><span class="toc-title">Gráfico 3. Retorno salarial mensual a la titulación superior en el sector deportivo de Quito (USD)</span><span class="toc-dots"></span><span class="toc-page">8</span></a>
+          <a href="#sec-02-2-salarios" class="toc-row toc-level-2"><span class="toc-title">Gráfico 3. Retorno salarial mensual según nivel de instrucción en el sector deportivo de Quito</span><span class="toc-dots"></span><span class="toc-page">8</span></a>
           <a href="#sec-02-3-amie" class="toc-row toc-level-2"><span class="toc-title">Gráfico 4. Distribución de bachilleres por distritos educativos en el Cantón Quito (AMIE 2025)</span><span class="toc-dots"></span><span class="toc-page">10</span></a>
-          <a href="#sec-06-1-resultados" class="toc-row toc-level-2"><span class="toc-title">Gráfico 5. Competencias más demandadas por empleadores deportivos en el Cantón Quito (%)</span><span class="toc-dots"></span><span class="toc-page">16</span></a>
-          <a href="#sec-06-2-resultados" class="toc-row toc-level-2"><span class="toc-title">Gráfico 6. Preferencia de modalidad de estudio en aspirantes a Entrenamiento Deportivo (%)</span><span class="toc-dots"></span><span class="toc-page">19</span></a>
+          <a href="#sec-06-1-resultados" class="toc-row toc-level-2"><span class="toc-title">Gráfico 5. Competencias más demandadas por entidades empleadoras deportivas en Quito</span><span class="toc-dots"></span><span class="toc-page">16</span></a>
+          <a href="#sec-06-2-resultados" class="toc-row toc-level-2"><span class="toc-title">Gráfico 6. Distribución de preferencia de modalidad formativa en aspirantes</span><span class="toc-dots"></span><span class="toc-page">19</span></a>
         </div>
       </div>
       
@@ -756,7 +771,7 @@
 
         <h2 class="word-heading-2">1.1. Contexto Problemático y Justificación Institucional</h2>
         <p class="word-p">
-          En las últimas dos décadas, la práctica de actividades físicas, el deporte federado y formativo, así como el sector del acondicionamiento físico (fitness) y la readaptación funcional han experimentado una expansión estructural sin precedentes en la provincia de Pichincha y particularmente en el Distrito Metropolitano de Quito. Sin embargo, este crecimiento productivo coexiste con una paradoja estructural: el <strong>47,8% de la fuerza laboral</strong> que ejerce funciones de instrucción deportiva, preparación física y entrenamiento de fuerza en gimnasios, clubes y ligas barriales carece de títulos de educación superior, operando de manera empírica, mientras que en todo el territorio de Pichincha existen <strong>cero (0) instituciones de educación superior</strong> que oferten títulos de tercer nivel con la condición de <em>Tecnología Superior Universitaria</em> en esta disciplina (SENESCYT, 2026).
+          En las últimas dos décadas, la práctica de actividades físicas, el deporte federado y formativo, así como el sector del acondicionamiento físico (fitness) y la readaptación funcional han experimentado una expansión estructural sin precedentes en la provincia de Pichincha y particularmente en el Distrito Metropolitano de Quito. Sin embargo, este crecimiento productivo coexiste con una paradoja estructural: el <strong>47,8% de la fuerza laboral</strong> que ejerce funciones de instrucción deportiva, preparación física y entrenamiento de fuerza en gimnasios, clubes y ligas barriales carece de títulos de educación superior (INEC-ENEMDU, 2025), operando de manera empírica, mientras que los registros oficiales del Sistema Nacional de Información de la Educación Superior evidencian que en todo el territorio de Pichincha existen <strong>cero (0) instituciones de educación superior</strong> que oferten títulos de tercer nivel tecnológico con la denominación específica de <em>Entrenamiento Deportivo</em> bajo la condición de <em>Superior Universitaria</em>, configurando una vacancia absoluta en este nivel formativo particular para la provincia (SNIESE/CES, 2026).
         </p>
 
         <div class="word-callout">
@@ -1259,7 +1274,7 @@
         <div class="source-note">Fuente: Instituto Nacional de Estadística y Censos — ENEMDU Anual 2025. Procesamiento: ISTU Nacional.</div>
 
         <div class="word-figure">
-          <div class="table-caption" style="text-align: center;">Gráfico 3. Retorno salarial mensual a la titulación superior en el sector deportivo de Quito (USD)</div>
+          <div class="table-caption" style="text-align: center;">Gráfico 3. Retorno salarial mensual según nivel de instrucción en el sector deportivo de Quito</div>
           <div style="height: 175px; position: relative;">
             <canvas id="chartSalariosDeportes"></canvas>
           </div>
@@ -1356,7 +1371,7 @@
         <div class="source-note">Fuente: Consejo de Educación Superior — SNIESE (2026). Registro Nacional de Carreras Aprobadas. Análisis: ISTU Nacional.</div>
 
         <div class="word-callout">
-          <strong>Hallazgo de Vacancia Curricular (100% de Vacancia en Nivel TSU):</strong> En la provincia de Pichincha y en la Zona de Planificación 9 existen <strong>cero (0) carreras aprobadas</strong> con la titulación de <em>Tecnólogo/a Superior Universitario/a en Entrenamiento Deportivo</em>. La propuesta del ISTU Nacional llena este vacío ofreciendo una titulación universitaria de tercer nivel de grado que articula la preparación física polideportiva, el fitness y la readaptación funcional en 2,5 años.
+          <strong>Hallazgo de Vacancia Curricular Absoluta en Nivel TSU (SNIESE/CES, 2026):</strong> En la provincia de Pichincha y en la Zona de Planificación 9 existen <strong>cero (0) instituciones de educación superior</strong> que oferten títulos de tercer nivel tecnológico con la denominación específica de <em>Entrenamiento Deportivo</em> bajo la condición de <em>Superior Universitaria</em>. Mientras que las universidades ofertan licenciaturas escolarizadas de 4 a 5 años orientadas a la docencia escolar y existe un solo instituto tradicional enfocado monográficamente en fútbol, el ISTU Nacional cubre una vacancia del 100% articulando el entrenamiento polideportivo, el fitness y la readaptación funcional en 2,5 años bajo modalidad híbrida.
         </div>
       </div>
       
@@ -1853,7 +1868,7 @@
         <div class="source-note">Fuente: Encuesta de Demanda Ocupacional a Empleadores Deportivos del Cantón Quito (ISTU Nacional, 2026). Muestra n = 350.</div>
 
         <div class="word-figure">
-          <div class="table-caption" style="text-align: center;">Gráfico 5. Competencias más demandadas por empleadores deportivos en el Cantón Quito (%)</div>
+          <div class="table-caption" style="text-align: center;">Gráfico 5. Competencias más demandadas por entidades empleadoras deportivas en Quito</div>
           <div style="height: 175px; position: relative;">
             <canvas id="chartCompetenciasEmpleadores"></canvas>
           </div>
@@ -2188,7 +2203,7 @@
         <div class="source-note">Fuente: Encuesta de Demanda Vocacional a Bachilleres del Cantón Quito (ISTU Nacional, 2026). Muestra n = 381.</div>
 
         <div class="word-figure">
-          <div class="table-caption" style="text-align: center;">Gráfico 6. Preferencia de modalidad de estudio en aspirantes a Entrenamiento Deportivo (%)</div>
+          <div class="table-caption" style="text-align: center;">Gráfico 6. Distribución de preferencia de modalidad formativa en aspirantes</div>
           <div style="height: 175px; position: relative;">
             <canvas id="chartModalidadBachilleres"></canvas>
           </div>
@@ -2764,8 +2779,8 @@
         </div>
 
         <div class="word-callout">
-          <strong>3. Vacancia Curricular y Demanda Vocacional Robusta:</strong><br>
-          El SNIESE (CES/SENESCYT, 2026) constata una vacancia del 100% en títulos de tercer nivel con la condición de <em>Tecnología Superior Universitaria en Entrenamiento Deportivo</em> en Pichincha. A su vez, el levantamiento en bachilleres (Cochran <em>n</em> = 381) sobre 41.745 graduandos de Quito certifica un 18,6% de interés decidido, con un respaldo del 74,2% hacia la modalidad híbrida.
+          <strong>3. Vacancia Curricular Absoluta y Demanda Vocacional Robusta:</strong><br>
+          Los registros oficiales del Sistema Nacional de Información de la Educación Superior (SNIESE/CES, 2026) constatan una vacancia absoluta en Pichincha (0 carreras e instituciones) de títulos de tercer nivel tecnológico con la denominación específica de <em>Entrenamiento Deportivo</em> bajo la condición de <em>Superior Universitaria</em>. A su vez, el levantamiento muestral probabilístico en bachilleres (Cochran <em>n</em> = 381) sobre un universo AMIE de 41.745 graduandos de Quito certifica un 18,6% de interés vocacional firme, con un respaldo del 74,2% hacia la modalidad híbrida.
         </div>
 
         <div class="word-callout">
