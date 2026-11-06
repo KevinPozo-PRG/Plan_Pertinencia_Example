@@ -12,12 +12,12 @@ Los estudios de pertinencia compilados se encuentran disponibles tanto en el rep
 
 | Carrera / Proyecto | Institución | Formato Web | Despliegue en Línea |
 | :--- | :--- | :--- | :--- |
-| **Tecnología Superior Universitaria en Entrenamiento Deportivo (24 Págs)** | ISTU Nacional | [Ver HTML](dossier_entrenamiento_deportivo_nacional_vista_word.html) | [Enlace Vercel](https://planpertinenciasexample.vercel.app/dossier_entrenamiento_deportivo_nacional_vista_word) |
+| **Tecnología Superior Universitaria en Entrenamiento Deportivo (Versión Completa 60 Págs)** | ISTU Nacional | [Ver HTML 60 Págs](dossier_entrenamiento_deportivo_nacional_vista_word.html) | [Enlace Vercel (60 Págs)](https://planpertinenciasexample.vercel.app/dossier_entrenamiento_deportivo_nacional_vista_word) |
 | **Técnico Superior en Barismo (Versión Ampliada 32 Págs)** | IAVQ | [Ver HTML 32 Págs](dossier_barismo_iavq_32_paginas.html) | [Enlace Vercel (32 Págs)](https://planpertinenciasexample.vercel.app/dossier_barismo_iavq_32_paginas) |
 | **Técnico Superior en Barismo (Versión Ejecutiva 24 Págs)** | IAVQ | [Ver HTML 24 Págs](dossier_barismo_iavq_vista_word.html) | [Enlace Vercel (24 Págs)](https://planpertinenciasexample.vercel.app/dossier_barismo_iavq_vista_word) |
 | **Tecnólogo Superior en Mecánica de Motos** | IAVQ | [Ver HTML](dossier_mecanica_motos_vista_word.html) | [Enlace Vercel](https://planpertinenciasexample.vercel.app/dossier_mecanica_motos_vista_word) |
 
-> **Nota de Impresión:** Todos los dossiers cuentan con estilos de impresión optimizados (`@media print`). Al pulsar el botón superior **"Imprimir / Guardar como PDF"**, el navegador genera el documento formal de 24 o 32 páginas en tamaño carta sin cortes de tabla ni distorsiones.
+> **Nota de Impresión:** Todos los dossiers cuentan con estilos de impresión optimizados (`@media print`). Al pulsar el botón superior **"Imprimir / Guardar como PDF"**, el navegador genera el documento formal institucional en tamaño carta sin cortes de tabla ni distorsiones.
 
 ---
 
