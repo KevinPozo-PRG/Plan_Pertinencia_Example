@@ -10,41 +10,41 @@
   <style>
 
     /* Microsoft Word Native Typography and Layout */
-    body {{
+    body {
       font-family: Calibri, 'Segoe UI', Arial, sans-serif;
       background-color: #d1d5db; /* Neutral Word canvas */
       color: #000000;
       margin: 0;
       padding: 24px 0;
-    }}
+    }
 
-    a {{
+    a {
       color: #0563C1;
       text-decoration: underline;
-    }}
-    a:visited {{
+    }
+    a:visited {
       color: #0563C1;
-    }}
-    a:hover {{
+    }
+    a:hover {
       color: #004B91;
-    }}
-    .word-toc a {{
+    }
+    .word-toc a {
       color: #000000;
       text-decoration: none;
       display: flex;
       align-items: baseline;
       width: 100%;
-    }}
-    .word-toc a:hover .toc-title {{
+    }
+    .word-toc a:hover .toc-title {
       text-decoration: underline;
       color: #0563C1;
-    }}
-    .word-toc a:hover .toc-page {{
+    }
+    .word-toc a:hover .toc-page {
       color: #0563C1;
       font-weight: bold;
-    }}
+    }
 
-    .word-page {{
+    .word-page {
       width: 21.59cm;
       min-height: 27.94cm;
       padding: 2.2cm 2.4cm 2.0cm 2.4cm;
@@ -56,23 +56,23 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-    }}
+    }
 
-    @media print {{
-      @page {{
+    @media print {
+      @page {
         size: letter portrait;
         margin: 1.8cm 2.0cm 1.8cm 2.0cm;
-      }}
-      body {{
+      }
+      body {
         background: #ffffff !important;
         padding: 0 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-      }}
-      .no-print {{
+      }
+      .no-print {
         display: none !important;
-      }}
-      .word-page {{
+      }
+      .word-page {
         margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
@@ -83,10 +83,10 @@
         break-inside: avoid !important;
         width: 100% !important;
         min-height: 100vh !important;
-      }}
-    }}
+      }
+    }
 
-    .word-header {{
+    .word-header {
       border-bottom: 1px solid #7f7f7f;
       padding-bottom: 3pt;
       margin-bottom: 14pt;
@@ -94,14 +94,14 @@
       color: #595959;
       display: flex;
       justify-content: space-between;
-    }}
+    }
 
-    .word-content {{
+    .word-content {
       flex-grow: 1;
       display: block;
-    }}
+    }
 
-    .word-footer {{
+    .word-footer {
       border-top: 1px solid #7f7f7f;
       padding-top: 4pt;
       margin-top: auto;
@@ -109,9 +109,9 @@
       color: #595959;
       display: flex;
       justify-content: space-between;
-    }}
+    }
 
-    .word-heading-1 {{
+    .word-heading-1 {
       font-size: 13pt;
       font-weight: bold;
       color: #1F4E79;
@@ -120,27 +120,27 @@
       margin-bottom: 4pt;
       letter-spacing: 0.2px;
       line-height: 1.25;
-    }}
+    }
 
-    .word-heading-2 {{
+    .word-heading-2 {
       font-size: 11pt;
       font-weight: bold;
       color: #2F5597;
       margin-top: 6pt;
       margin-bottom: 3pt;
       line-height: 1.25;
-    }}
+    }
 
-    .word-heading-3 {{
+    .word-heading-3 {
       font-size: 9.8pt;
       font-weight: bold;
       color: #1F4E79;
       margin-top: 5pt;
       margin-bottom: 2pt;
       line-height: 1.2;
-    }}
+    }
 
-    .word-p {{
+    .word-p {
       font-size: 9.3pt;
       line-height: 1.34;
       text-align: justify;
@@ -148,53 +148,53 @@
       margin-top: 0;
       margin-bottom: 5pt;
       color: #262626;
-    }}
+    }
 
-    .word-table {{
+    .word-table {
       width: 100%;
       border-collapse: collapse;
       margin: 4pt 0 5pt 0;
       font-size: 8.2pt;
       line-height: 1.2;
-    }}
+    }
 
-    .word-table th {{
+    .word-table th {
       background-color: #1F4E79;
       color: #ffffff;
       font-weight: bold;
       text-align: left;
       padding: 4.5pt 5pt;
       border: 1px solid #1F4E79;
-    }}
+    }
 
-    .word-table td {{
+    .word-table td {
       padding: 3.5pt 5pt;
       border: 1px solid #D9D9D9;
       color: #333333;
-    }}
+    }
 
-    .word-table tr:nth-child(even) td {{
+    .word-table tr:nth-child(even) td {
       background-color: #F9FBFD;
-    }}
+    }
 
-    .table-caption {{
+    .table-caption {
       font-weight: bold;
       font-size: 8.3pt;
       color: #1F4E79;
       margin-top: 4pt;
       margin-bottom: 2pt;
       line-height: 1.2;
-    }}
+    }
 
-    .table-source, .source-note {{
+    .table-source, .source-note {
       font-size: 7.2pt;
       color: #595959;
       margin-top: 2pt;
       margin-bottom: 5pt;
       font-style: italic;
-    }}
+    }
 
-    .word-callout {{
+    .word-callout {
       border: none;
       background: transparent;
       padding: 0;
@@ -202,9 +202,9 @@
       font-size: 9.3pt;
       line-height: 1.34;
       color: #262626;
-    }}
+    }
 
-    .word-cover-container {{
+    .word-cover-container {
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -212,55 +212,55 @@
       text-align: center;
       padding: 1.0cm 0 0.5cm 0;
       box-sizing: border-box;
-    }}
+    }
 
-    .word-cover-institution {{
+    .word-cover-institution {
       font-size: 15pt;
       font-weight: bold;
       color: #1F4E79;
       letter-spacing: 0.5px;
       margin: 0;
-    }}
+    }
 
-    .word-cover-subinst {{
+    .word-cover-subinst {
       font-size: 9.5pt;
       font-weight: bold;
       color: #595959;
       margin: 3pt 0 0 0;
-    }}
+    }
 
-    .word-cover-divider {{
+    .word-cover-divider {
       width: 100px;
       height: 2px;
       background-color: #1F4E79;
       margin: 10pt auto;
-    }}
+    }
 
-    .word-cover-dept {{
+    .word-cover-dept {
       font-size: 8.5pt;
       font-weight: bold;
       color: #7f7f7f;
       letter-spacing: 0.5px;
       margin: 0;
-    }}
+    }
 
-    .word-cover-title {{
+    .word-cover-title {
       font-size: 18pt;
       font-weight: bold;
       color: #000000;
       margin: 8pt 0;
       letter-spacing: 0.5px;
-    }}
+    }
 
-    .word-cover-project-tag {{
+    .word-cover-project-tag {
       font-size: 8.5pt;
       font-weight: bold;
       color: #2F5597;
       letter-spacing: 0.5px;
       margin-bottom: 2pt;
-    }}
+    }
 
-    .word-cover-career-box {{
+    .word-cover-career-box {
       margin: 8pt auto;
       max-width: 530px;
       text-align: center;
@@ -268,82 +268,82 @@
       border: 1.5px solid #1F4E79;
       border-radius: 2px;
       padding: 8pt 14pt;
-    }}
+    }
 
-    .word-cover-career-label {{
+    .word-cover-career-label {
       font-size: 8.5pt;
       font-weight: bold;
       color: #595959;
       margin: 0 0 2pt 0;
-    }}
+    }
 
-    .word-cover-career-name {{
+    .word-cover-career-name {
       font-size: 12.5pt;
       font-weight: bold;
       color: #1F4E79;
       margin: 0 0 4pt 0;
-    }}
+    }
 
-    .word-cover-itinerary-label {{
+    .word-cover-itinerary-label {
       font-size: 8.2pt;
       font-weight: bold;
       color: #595959;
       margin: 2pt 0 2pt 0;
-    }}
+    }
 
-    .word-cover-itinerary-list {{
+    .word-cover-itinerary-list {
       margin: 0;
       padding-left: 14pt;
       font-size: 8.2pt;
       line-height: 1.35;
       color: #000000;
       text-align: left;
-    }}
+    }
 
-    .word-cover-meta-table {{
+    .word-cover-meta-table {
       width: 100%;
       max-width: 530px;
       margin: 8pt auto 0 auto;
       border-collapse: collapse;
       font-size: 8.2pt;
       text-align: left;
-    }}
+    }
 
-    .word-cover-meta-table td {{
+    .word-cover-meta-table td {
       padding: 2.2pt 5pt;
       border: none;
-    }}
+    }
 
-    .word-cover-meta-table .meta-label {{
+    .word-cover-meta-table .meta-label {
       font-weight: bold;
       color: #1F4E79;
       width: 38%;
-    }}
+    }
 
-    .word-cover-meta-table .meta-val {{
+    .word-cover-meta-table .meta-val {
       color: #333333;
-    }}
+    }
 
-    .word-cover-date {{
+    .word-cover-date {
       font-size: 9.5pt;
       font-weight: bold;
       color: #1F4E79;
       margin: 0;
-    }}
+    }
 
-    .word-cover-place {{
+    .word-cover-place {
       font-size: 8.5pt;
       color: #595959;
       margin: 2px 0 0 0;
-    }}
+    }
 
-    .word-toc {{
+    .word-toc {
       display: flex;
       flex-direction: column;
       gap: 1.5pt;
-    }}
+    }
 
-    .toc-group-title {{
+    .toc-group-title {
       font-weight: bold;
       color: #1F4E79;
       font-size: 8.5pt;
@@ -351,49 +351,49 @@
       margin-bottom: 2pt;
       border-bottom: 1px solid #1F4E79;
       padding-bottom: 1pt;
-    }}
+    }
 
-    .toc-row {{
+    .toc-row {
       display: flex;
       align-items: baseline;
       width: 100%;
-    }}
+    }
 
-    .toc-title {{
+    .toc-title {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 82%;
-    }}
+    }
 
-    .toc-dots {{
+    .toc-dots {
       flex-grow: 1;
       border-bottom: 1.5px dotted #7f7f7f;
       margin: 0 4px 2.5px 4px;
       min-width: 15px;
       height: 0;
-    }}
+    }
 
-    .toc-page {{
+    .toc-page {
       font-weight: normal;
       color: #262626;
       min-width: 18px;
       text-align: right;
       font-variant-numeric: tabular-nums;
-    }}
+    }
 
-    .toc-level-1 {{
+    .toc-level-1 {
       font-weight: bold;
       color: #1F4E79;
       margin-top: 2pt;
-    }}
+    }
 
-    .toc-level-2 {{
+    .toc-level-2 {
       padding-left: 10pt;
       color: #262626;
-    }}
+    }
 
-    .biblio-entry {{
+    .biblio-entry {
       padding-left: 24pt;
       text-indent: -24pt;
       font-size: 8.2pt;
@@ -401,7 +401,7 @@
       margin-bottom: 4pt;
       text-align: justify;
       color: #262626;
-    }}
+    }
   
   </style>
 </head>
@@ -411,7 +411,7 @@
   <div class="floating-controls no-print">
     <label for="pageJump">Ir a página:</label>
     <select id="pageJump" onchange="jumpToPage(this.value)">
-      <option value="1">Pág. 1: Portada Oficial ISTUN</option>
+<option value="1">Pág. 1: Portada Oficial ISTUN</option>
 <option value="2">Pág. 2: Índice General de Contenidos</option>
 <option value="3">Pág. 3: Índice de Tablas y Gráficos Oficiales</option>
 <option value="4">Pág. 4: 1. Introducción y Justificación Institucional</option>
@@ -465,7 +465,7 @@
   </div>
 
   <main class="word-document-container">
-    
+
     <div class="word-page" id="page-01-cover">
       <div class="word-cover-container">
         <div class="word-cover-top">
@@ -4646,7 +4646,7 @@
   <script>
 
     // Inicialización de Gráficos Chart.js Institucionales
-    document.addEventListener("DOMContentLoaded", function() {{
+    document.addEventListener("DOMContentLoaded", function() {
       Chart.register(ChartDataLabels);
 
       const colorNavy = '#1F4E79';
@@ -4657,12 +4657,12 @@
 
       // 1. Gráfico Grupo Etario 18-24 en Quito
       const ctx1 = document.getElementById('chartEtarioQuito') || document.getElementById('chart-graf-1');
-      if (ctx1) {{
-        new Chart(ctx1, {{
+      if (ctx1) {
+        new Chart(ctx1, {
           type: 'line',
-          data: {{
+          data: {
             labels: ['2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035'],
-            datasets: [{{
+            datasets: [{
               label: 'Población 18–24 años',
               data: [348512, 347890, 347100, 346210, 345420, 344710, 343890, 342980, 342110, 341250],
               borderColor: colorNavy,
@@ -4671,81 +4671,81 @@
               tension: 0.3,
               pointBackgroundColor: colorNavy,
               pointRadius: 3
-            }}]
-          }},
-          options: {{
+            }]
+          },
+          options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: {{
-              legend: {{ display: false }},
-              datalabels: {{
+            plugins: {
+              legend: { display: false },
+              datalabels: {
                 align: 'top',
                 anchor: 'center',
                 color: colorNavy,
-                font: {{ weight: 'bold', size: 7.5 }},
+                font: { weight: 'bold', size: 7.5 },
                 formatter: (val, ctx) => (ctx.dataIndex % 2 === 0) ? (val/1000).toFixed(1) + 'k' : ''
-              }}
-            }},
-            scales: {{
-              y: {{ min: 335000, max: 355000, ticks: {{ callback: val => (val/1000).toFixed(0) + 'k', font: {{ size: 7.5 }} }} }},
-              x: {{ ticks: {{ font: {{ size: 7.5 }} }} }}
-            }}
-          }}
-        }});
-      }}
+              }
+            },
+            scales: {
+              y: { min: 335000, max: 355000, ticks: { callback: val => (val/1000).toFixed(0) + 'k', font: { size: 7.5 } } },
+              x: { ticks: { font: { size: 7.5 } } }
+            }
+          }
+        });
+      }
 
       // 2. Gráfico Salarios ENEMDU en Deporte en Quito
       const ctx2 = document.getElementById('chartSalariosDeportes') || document.getElementById('chart-graf-2');
-      if (ctx2) {{
-        new Chart(ctx2, {{
+      if (ctx2) {
+        new Chart(ctx2, {
           type: 'bar',
-          data: {{
+          data: {
             labels: ['Sec. Incompleta', 'Bachiller', 'SBU 2026', 'P. Ponderado', 'Téc./Tecnólogo', 'Universitario'],
-            datasets: [{{
+            datasets: [{
               label: 'Salario Medio Mensual (USD)',
               data: [415.20, 485.40, 470.00, 651.59, 685.50, 842.30],
               backgroundColor: [colorGray, colorGray, '#D9D9D9', colorRed, colorBlue, colorNavy],
               borderRadius: 2
-            }}]
-          }},
-          options: {{
+            }]
+          },
+          options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: {{
-              legend: {{ display: false }},
-              datalabels: {{
+            plugins: {
+              legend: { display: false },
+              datalabels: {
                 anchor: 'end',
                 align: 'top',
                 color: '#000000',
-                font: {{ weight: 'bold', size: 7.5 }},
+                font: { weight: 'bold', size: 7.5 },
                 formatter: val => '$' + val.toFixed(0)
-              }}
-            }},
-            scales: {{
-              y: {{ min: 350, max: 920, ticks: {{ callback: val => '$' + val, font: {{ size: 7.5 }} }} }},
-              x: {{ ticks: {{ font: {{ size: 7.5 }} }} }}
-            }}
-          }}
-        }});
-      }}
+              }
+            },
+            scales: {
+              y: { min: 350, max: 920, ticks: { callback: val => '$' + val, font: { size: 7.5 } } },
+              x: { ticks: { font: { size: 7.5 } } }
+            }
+          }
+        });
+      }
 
       // 3. Gráfico REEM Evolución Ventas y Plazas en Quito
       const ctx3 = document.getElementById('chartReemDeportes') || document.getElementById('chart-graf-3');
-      if (ctx3) {{
-        new Chart(ctx3, {{
+      if (ctx3) {
+        new Chart(ctx3, {
           type: 'bar',
-          data: {{
+          data: {
             labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
             datasets: [
-              {{
+              {
                 type: 'bar',
                 label: 'Plazas Laborales',
                 data: [3920, 4310, 3710, 4495, 5120, 5580, 5897],
                 backgroundColor: colorBlue,
                 yAxisID: 'y1',
                 borderRadius: 2
-              }},
-              {{
+              },
+              {
                 type: 'line',
                 label: 'Ventas ($M USD)',
                 data: [148.92, 162.34, 112.45, 145.89, 178.64, 198.71, 214.53],
@@ -4754,68 +4754,69 @@
                 borderWidth: 2,
                 pointRadius: 3,
                 yAxisID: 'y2'
-              }}
+              }
             ]
-          }},
-          options: {{
+          },
+          options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: {{
-              legend: {{ position: 'top', labels: {{ font: {{ size: 7.5 }} }} }},
-              datalabels: {{
+            plugins: {
+              legend: { position: 'top', labels: { font: { size: 7.5 } } },
+              datalabels: {
                 anchor: 'end',
                 align: 'top',
-                font: {{ size: 7.0, weight: 'bold' }},
+                font: { size: 7.0, weight: 'bold' },
                 formatter: (val, ctx) => ctx.datasetIndex === 1 ? '$' + val.toFixed(1) + 'M' : val.toLocaleString()
-              }}
-            }},
-            scales: {{
-              y1: {{ type: 'linear', position: 'left', min: 2500, max: 7000, ticks: {{ font: {{ size: 7.5 }} }} }},
-              y2: {{ type: 'linear', position: 'right', min: 80, max: 250, grid: {{ drawOnChartArea: false }}, ticks: {{ callback: v => '$' + v + 'M', font: {{ size: 7.5 }} }} }},
-              x: {{ ticks: {{ font: {{ size: 7.5 }} }} }}
-            }}
-          }}
-        }});
-      }}
+              }
+            },
+            scales: {
+              y1: { type: 'linear', position: 'left', min: 2500, max: 7000, ticks: { font: { size: 7.5 } } },
+              y2: { type: 'linear', position: 'right', min: 80, max: 250, grid: { drawOnChartArea: false }, ticks: { callback: v => '$' + v + 'M', font: { size: 7.5 } } },
+              x: { ticks: { font: { size: 7.5 } } }
+            }
+          }
+        });
+      }
 
       // 4. Gráfico Bachilleres Quito por Distrito AMIE
       const ctx4 = document.getElementById('chartBachilleresQuito') || document.getElementById('chart-graf-4');
-      if (ctx4) {{
-        new Chart(ctx4, {{
+      if (ctx4) {
+        new Chart(ctx4, {
           type: 'bar',
           indexAxis: 'y',
-          data: {{
+          data: {
             labels: ['Quitumbe', 'Eloy Alfaro', 'La Delicia', 'E. Espejo', 'M. Sáenz', 'Calderón', 'Los Chillos', 'Tumbaco', 'Noroccidente'],
-            datasets: [{{
+            datasets: [{
               label: 'Estudiantes 3.º Bachillerato',
               data: [6214, 6052, 5830, 5220, 4810, 4450, 3689, 3480, 2000],
               backgroundColor: colorNavy,
               borderRadius: 2
-            }}]
-          }},
-          options: {{
+            }]
+          },
+          options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: {{
-              legend: {{ display: false }},
-              datalabels: {{
+            plugins: {
+              legend: { display: false },
+              datalabels: {
                 anchor: 'end',
                 align: 'right',
                 color: '#000000',
-                font: {{ weight: 'bold', size: 7.5 }},
+                font: { weight: 'bold', size: 7.5 },
                 formatter: val => val.toLocaleString()
-              }}
-            }},
-            scales: {{
-              x: {{ max: 7200, ticks: {{ font: {{ size: 7.5 }} }} }},
-              y: {{ ticks: {{ font: {{ size: 7.5 }} }} }}
-            }}
-          }}
-        }});
-      }}
+              }
+            },
+            scales: {
+              x: { max: 7200, ticks: { font: { size: 7.5 } } },
+              y: { ticks: { font: { size: 7.5 } } }
+            }
+          }
+        });
+      }
 
-    }});
+    });
   
+
 
     function jumpToPage(pageNum) {
       const pages = document.querySelectorAll('.word-page');
@@ -4840,6 +4841,7 @@
         select.value = current;
       }
     });
+    
   </script>
 </body>
 </html>
